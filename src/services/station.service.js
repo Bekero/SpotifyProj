@@ -195,7 +195,7 @@ function getEmptyStation() {
         likedByUsers: [],
         createdBy: {
             fullname: null,
-            imgUrl: null
+            imgUrl: 'http://res.cloudinary.com/tomer1/image/upload/v1633512238/mny6gjdafrcxmcahttzo.jpg'
         }
     }
 }

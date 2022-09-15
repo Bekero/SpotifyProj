@@ -29,7 +29,8 @@ export const StationDetails = () => {
     return (
         <div className="station-details">
             <div className="img-container">
-                <img className="img-details" src={`https://robohash.org/${station._id}?set=set4`} alt="" />
+                <img className="img-details" src={station.createdBy.imgUrl} alt="" />
+                {/* <img className="img-details" src={`https://robohash.org/${station._id}?set=set4`} alt="" /> */}
             </div>
             <div className="details-container">
                 <h3>{station.name}</h3>
