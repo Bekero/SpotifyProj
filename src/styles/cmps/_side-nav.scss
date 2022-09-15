@@ -1,0 +1,48 @@
+.side-nav {
+    background-color: $clr4;
+    grid-row: 1 / -1;
+    grid-column: 1 / 2;
+    padding: 10px;
+    height: 100%;
+
+    >* {
+        color: white;
+    }
+
+    h2 {
+        margin-top: 15px;
+    }
+
+    a {
+        text-decoration: none;
+        color: $clr5;
+    }
+
+    a:hover:not(.header-logo) {
+        color: $clr6;
+    }
+
+    a:focus:not(.header-logo) {
+        color: $clr6;
+    }
+
+    .like-nav-link {
+        padding: 10px;
+        font-size: .8em;
+
+
+    }
+
+    .nav-container {
+        margin-top: 30px;
+
+        >* {
+            margin-bottom: 10px;
+            font-size: .8em;
+            padding: 5px;
+            display: block;
+
+        }
+    }
+
+}

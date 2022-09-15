@@ -1,0 +1,33 @@
+.create-station {
+
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+    font-size: 0.8em;
+    padding: 5px;
+    border: none;
+
+    >* {
+        height: 50px;
+        
+    }
+
+    // // :last-child {
+    // //     border-bottom: 1px solid black;
+    // // }
+
+    .create-station-btn {
+        background-color: rgba(41, 206, 93, 0);
+        padding: 0;
+        display: inline-block;
+        text-align: start;
+        border: none;
+        cursor: pointer;
+        color: $clr5;
+
+        &:hover {
+            color: $clr6;
+        }
+
+    }
+}
