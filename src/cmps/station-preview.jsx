@@ -2,7 +2,6 @@
 import { Link } from "react-router-dom";
 
 export function StationPreview({ station }) {
-    console.log('station :', station)
 
     return (
         <Link to={`/playlist/${station._id}`}>

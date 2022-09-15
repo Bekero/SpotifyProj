@@ -1,9 +1,9 @@
 .app-footer {
-    background-color: #111;
+    background-color: $third-clr;
     grid-row: 3 / 3;
     grid-column: 1 / 3;
     width: 100%;
-    color: $clr4;
+    color: $main-txt-clr;
     padding: 20px;
     text-align: center;
     grid-template-columns: 60%;

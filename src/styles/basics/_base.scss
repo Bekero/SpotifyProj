@@ -3,14 +3,14 @@
 }
 
 ::selection {
-    background-color: $clr2;
-    color: $clr6;
+    background-color: $third-txt-clr;
+    color: $main-txt-clr;
 }
 
 html {
     font-family: montserrat;
     line-height: 1.6;
-    color: $clr2;
+    color: $main-txt-clr;
 }
 
 body {
@@ -47,16 +47,10 @@ p {
 }
 
 a {
-    text-decoration: none;
-    // color: $clr5;
 }
 
 a:hover {
-    // color: $clr6;
-    // text-decoration: underline;
 }
 
 a:focus {
-    // color: $clr6;
-    // text-decoration: underline;
 }
