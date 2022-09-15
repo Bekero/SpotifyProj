@@ -20,7 +20,7 @@ export const StationDetails = () => {
     const onRemoveStation = (stationId) => {
         // ev.stopPropagation()
         dispatch(removeStation(stationId))
-        onBack()
+        navigate('/collection/playlist')
     }
 
     const loadStation = () => {
