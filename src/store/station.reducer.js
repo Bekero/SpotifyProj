@@ -1,11 +1,16 @@
 const initialState = {
     stations: [],
-    lastRemovedStation: null
+    lastRemovedStation: null,
+    currentlyPlayingUrl: null
 }
+
 export function stationReducer(state = initialState, action) {
     var newState = state
     var stations
     switch (action.type) {
+        case 'SET_CURRENTLY_PLAYING_URL':
+            newState = { ...state, currentlyPlayingUrl: action.currentlyPlayingUrl }
+            break
         case 'SET_STATIONS':
             newState = { ...state, stations: action.stations }
             break

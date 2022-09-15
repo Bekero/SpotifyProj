@@ -17,6 +17,13 @@ export function getActionAddStation(station) {
     }
 }
 
+export function getActionSetCurrUrl(currentlyPlayingUrl) {
+    return {
+        type: 'SET_CURRENTLY_PLAYING_URL',
+        currentlyPlayingUrl
+    }
+}
+
 export function getActionUpdateStation(station) {
     return {
         type: 'UPDATE_STATION',
@@ -56,8 +63,8 @@ export function removeStation(stationId) {
 }
 
 export function addStation(station) {
-        return (dispatch) => {
-            console.log(station);
+    return (dispatch) => {
+        console.log(station);
 
         stationService.save(station)
             .then(savedStation => {
@@ -69,6 +76,12 @@ export function addStation(station) {
                 showErrorMsg('Cannot add station')
                 console.log('Cannot add station', err)
             })
+    }
+}
+
+export function setCurrPlayingUrl(currentlyPlayingUrl) {
+    return (dispatch) => {
+        dispatch(getActionSetCurrUrl(currentlyPlayingUrl))
     }
 }
 

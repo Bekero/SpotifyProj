@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { stationService } from '../services/station.service'
-import { removeStation } from '../store/station.actions'
+import { removeStation, setCurrPlayingUrl } from '../store/station.actions'
 
 export const StationDetails = () => {
     const params = useParams()
@@ -33,6 +33,11 @@ export const StationDetails = () => {
         navigate('/')
     }
 
+    const playCurrUrl = (url) => {
+        console.log('hey')
+        dispatch(setCurrPlayingUrl(url))
+    }
+
     if (!station) return <div>Loading...</div>
     return (
         <section className="main-details-container">
@@ -47,7 +52,7 @@ export const StationDetails = () => {
                     {/* <button onClick={onBack}>Back to Stations App</button> */}
                     {/* <Link to={`/station/edit/${station._id}`}><button>Edit</button></Link> */}
                 </div>
-                <button onClick={(ev) => onRemoveStation(station._id, ev)}>Delete</button>
+                {station.isMyStation && <button onClick={(ev) => onRemoveStation(station._id, ev)}>Delete</button>}                {/* <button onClick={(ev) => onRemoveStation(station._id, ev)}>Delete</button> */}
                 <div>
                 </div>
             </div>
@@ -60,9 +65,10 @@ export const StationDetails = () => {
             <hr></hr>
             <div>
 
+                {!station.songs.length && <div>No Songs</div>}
                 <ol>
                     {station.songs.map(song => {
-                        return <div key={song.id} className="main-song-list">
+                        return <div onClick={() => playCurrUrl(song.url)} key={song.id} className="main-song-list">
                             <div>
                                 <li>
                                     <img className="song-img" src={`${song.imgUrl}`} />

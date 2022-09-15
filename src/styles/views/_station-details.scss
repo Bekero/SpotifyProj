@@ -35,10 +35,16 @@
 
     .main-song-list {
         display: grid;
+        justify-content: center;
+        align-items: center;
         grid-template-columns: 50px 2fr 2fr 2fr minmax(120px, 1fr);
-        // grid-template-columns: 16px 6fr 4fr 3fr minmax(120px,1fr);
-        div {
 
+        // grid-template-columns: 16px 6fr 4fr 3fr minmax(120px,1fr);
+        &:hover {
+            background-color: $third-clr;
+        }
+
+        div {
             .song-img {
                 width: 40px;
                 height: 40px;

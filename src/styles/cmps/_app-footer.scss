@@ -10,7 +10,8 @@
 }
 
 .app-header {
-    background-color: rgb(145, 78, 78);
+    background-color: $third-clr;
+    margin: 0;
     // grid-row: 2 / 4;
     // grid-column: 3 / 3;
 }
