@@ -7,7 +7,7 @@ import { store } from '../store/store'
 
 // This file demonstrates how to use a BroadcastChannel to notify other browser tabs 
 
-const STORAGE_KEY = 'station'
+const STORAGE_KEY = 'myStation'
 // const stationChannel = new BroadcastChannel('stationChannel')
 
 // ; (() => {
@@ -16,7 +16,7 @@ const STORAGE_KEY = 'station'
 //     })
 // })()
 
-export const stationService = {
+export const myStationService = {
     query,
     getById,
     save,
@@ -24,7 +24,7 @@ export const stationService = {
     getEmptyStation,
     getStations,
 }
-window.cs = stationService
+window.cs = myStationService
 
 function query(filterBy) {
     return storageService.query(STORAGE_KEY)
@@ -196,8 +196,7 @@ function getEmptyStation() {
         createdBy: {
             fullname: null,
             imgUrl: 'https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2'
-        },
-        isMyStation: true
+        }
     }
 }
 

@@ -20,7 +20,7 @@ export const StationDetails = () => {
     const onRemoveStation = (stationId) => {
         // ev.stopPropagation()
         dispatch(removeStation(stationId))
-        onBack()
+        navigate('/collection/playlist')
     }
     
     const loadStation = () => {
@@ -49,7 +49,7 @@ export const StationDetails = () => {
                 {/* <button onClick={onBack}>Back to Stations App</button> */}
                 {/* <Link to={`/station/edit/${station._id}`}><button>Edit</button></Link> */}
             </div>
-            <button onClick={(ev) => onRemoveStation(station._id, ev)}>Delete</button>
+            {station.isMyStation && <button onClick={(ev) => onRemoveStation(station._id, ev)}>Delete</button>}
         </div>
     )
 }

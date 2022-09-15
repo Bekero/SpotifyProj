@@ -1,9 +1,9 @@
-import { AppLibrary } from './cmps/app-library'
 import { LikedSongs } from './cmps/app-liked-songs'
 import { AppSearch } from './cmps/app-search'
 import { GenreDetails } from './pages/genre-details'
 import { HomePage } from './pages/home-page'
 import { StationDetails } from './pages/station-details'
+import { StationLibrary } from './pages/station-library'
 
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
@@ -17,7 +17,7 @@ const routes = [
     },
     {
         path: '/collection/playlist',
-        component: <AppLibrary />,
+        component: <StationLibrary />,
     },
     {
         path: '/collection/track',
