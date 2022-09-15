@@ -22,7 +22,7 @@ export const StationDetails = () => {
         dispatch(removeStation(stationId))
         onBack()
     }
-    
+
     const loadStation = () => {
         const stationId = params.stationId
         stationService.getById(stationId)
@@ -35,21 +35,47 @@ export const StationDetails = () => {
 
     if (!station) return <div>Loading...</div>
     return (
-        <div className="station-details">
-            <div className="img-container">
-                <img className="img-details" src={station.createdBy.imgUrl} alt="" />
-                {/* <img className="img-details" src={`https://robohash.org/${station._id}?set=set4`} alt="" /> */}
+        <section className="main-details-container">
+            <div className="station-details">
+                <div className="img-container">
+                    {/* <img className="img-details" src={station.createdBy.imgUrl} alt="" /> */}
+                    <img className="img-details" src={`https://robohash.org/${station._id}?set=set5`} />
+                </div>
+                <div className="details-container">
+                    <h3>{station.name}</h3>
+                    <h3>{station.createdBy.fullname}</h3>
+                    {/* <button onClick={onBack}>Back to Stations App</button> */}
+                    {/* <Link to={`/station/edit/${station._id}`}><button>Edit</button></Link> */}
+                </div>
+                <button onClick={(ev) => onRemoveStation(station._id, ev)}>Delete</button>
+                <div>
+                </div>
             </div>
-            <div className="details-container">
-                <h3>{station.name}</h3>
-                <h3>{station.createdBy.fullname}</h3>
-                <ul>
-                    {station.songs.map(song => <li key={song.id}>{song.title}</li>)}
-                </ul>
-                {/* <button onClick={onBack}>Back to Stations App</button> */}
-                {/* <Link to={`/station/edit/${station._id}`}><button>Edit</button></Link> */}
+            <div className="details-tool-bar">
+                Tool Bar Here...
             </div>
-            <button onClick={(ev) => onRemoveStation(station._id, ev)}>Delete</button>
-        </div>
+            <div className="details-head-lines">
+                HeadLine Here...
+            </div>
+            <hr></hr>
+            <div>
+
+                <ol>
+                    {station.songs.map(song => {
+                        return <div key={song.id} className="main-song-list">
+                            <div>
+                                <li>
+                                    <img className="song-img" src={`${song.imgUrl}`} />
+                                </li>
+                            </div>
+                            <h6>{song.title}</h6>
+                            <span>Album name</span>
+                            <span>Date Added</span>
+                            <span>{song.songDuration}</span>
+                        </div>
+                    })}
+                </ol>
+            </div>
+        </section>
     )
 }
