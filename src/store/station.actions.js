@@ -56,7 +56,8 @@ export function removeStation(stationId) {
 }
 
 export function addStation(station) {
-    return (dispatch) => {
+        return (dispatch) => {
+            console.log(station);
 
         stationService.save(station)
             .then(savedStation => {

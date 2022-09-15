@@ -12,7 +12,7 @@ export const StationDetails = () => {
 
     useEffect(() => {
         loadStation()
-    }, [])
+    }, [params.stationId])
 
 
     const loadStation = () => {
@@ -26,7 +26,6 @@ export const StationDetails = () => {
     }
 
     if (!station) return <div>Loading...</div>
-    console.log(station);
     return (
         <div className='station-details'>
             <h3>Name: {station.name}</h3>

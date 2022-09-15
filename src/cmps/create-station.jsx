@@ -1,6 +1,8 @@
 
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { stationService } from '../services/station.service'
+import { addStation } from '../store/station.actions'
 
 // import { NavLink } from "react-router-dom";
 
@@ -10,7 +12,10 @@ export function CreateStation() {
 
     const onCreateStation = () => {
         console.log('Creating!!!')
-        navigate('/playlist/:id')
+        const station = stationService.getEmptyStation()
+        // addStation(station)
+        stationService.save({...station}).then((station) => navigate(`/playlist/${station._id}`))
+        
     }
 
     return <div className="create-station">
