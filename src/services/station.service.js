@@ -199,6 +199,51 @@ function getStations() {
 }
 const user = {}
 
+function query(filterBy) {
+    return storageService.query(STORAGE_KEY)
+}
+
+function getById(stationId) {
+    return storageService.get(STORAGE_KEY, stationId)
+    // return axios.get(`/api/station/${stationId}`)
+}
+
+async function remove(stationId) {
+    await storageService.remove(STORAGE_KEY, stationId)
+    stationChannel.postMessage(getActionRemoveStation(stationId))
+}
+
+async function save(station) {
+    var savedStation
+    console.log(station);
+    if (station._id) {
+        savedStation = await storageService.put(STORAGE_KEY, station)
+        stationChannel.postMessage(getActionUpdateStation(savedStation))
+
+    } else {
+        // Later, owner is set by the backend
+        // station.owner = userService.getLoggedinUser()
+        savedStation = await storageService.post(STORAGE_KEY, station)
+        stationChannel.postMessage(getActionAddStation(savedStation))
+    }
+    return savedStation
+}
+
+function getEmptyStation() {
+    return {
+        name: 'My Playlist #' + utilService.getRandomIntInclusive(1, 9),
+        songs: [],
+        tags:[],
+        likedByUsers:[],
+        createdBy:{
+            fullname: null,
+            imgUrl: null
+        }
+    }
+}
+
+
+
 // TEST DATA
 // storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))
 
