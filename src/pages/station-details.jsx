@@ -2,19 +2,27 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { stationService } from '../services/station.service'
+import { removeStation } from '../store/station.actions'
 
 export const StationDetails = () => {
     const params = useParams()
     const [station, setStation] = useState(null)
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         loadStation()
     }, [params.stationId])
 
-
+    const onRemoveStation = (stationId) => {
+        // ev.stopPropagation()
+        dispatch(removeStation(stationId))
+        onBack()
+    }
+    
     const loadStation = () => {
         const stationId = params.stationId
         stationService.getById(stationId)
@@ -41,6 +49,7 @@ export const StationDetails = () => {
                 {/* <button onClick={onBack}>Back to Stations App</button> */}
                 {/* <Link to={`/station/edit/${station._id}`}><button>Edit</button></Link> */}
             </div>
+            <button onClick={(ev) => onRemoveStation(station._id, ev)}>Delete</button>
         </div>
     )
 }

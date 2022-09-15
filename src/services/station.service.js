@@ -195,7 +195,7 @@ function getEmptyStation() {
         likedByUsers: [],
         createdBy: {
             fullname: null,
-            imgUrl: 'http://res.cloudinary.com/tomer1/image/upload/v1633512238/mny6gjdafrcxmcahttzo.jpg'
+            imgUrl: 'https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2'
         }
     }
 }
