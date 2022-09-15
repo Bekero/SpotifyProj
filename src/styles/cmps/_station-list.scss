@@ -1,0 +1,23 @@
+.station-list-main-container {
+    display: grid;
+    // flex-direction: row;
+
+    background-color: rgb(172, 154, 120);
+
+    .station-list-container {
+        // background-color: rgb(224, 191, 129);
+        // grid-gap: 12px;
+        column-count: 4;
+        display: flex;
+        grid-gap: 12px;
+        // justify-content: space-evenly;
+        flex-wrap: nowrap;
+
+        .img-details {
+            background-color: wheat;
+            border: 4px;
+            width: 150px;
+            height: 150px;
+        }
+    }
+}

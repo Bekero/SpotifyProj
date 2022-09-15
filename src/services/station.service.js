@@ -31,7 +31,6 @@ function query(filterBy) {
 }
 
 function getById(stationId) {
-    console.log('Get Id :', stationId)
     return storageService.get(STORAGE_KEY, stationId)
     // return axios.get(`/api/station/${stationId}`)
 }
@@ -64,7 +63,6 @@ function getEmptyStation() {
 }
 
 let stations = [
-
     {
         "_id": "5cksxjas89xjsa8xjsa8jxs09",
         "name": "Funky Monks",
@@ -95,15 +93,7 @@ let stations = [
                 "addedBy": {}
             },
         ],
-        "msgs": [
-            {
-                id: 'm101',
-                from: '{mini-user}',
-                txt: 'Manish?'
-            }
-        ]
     },
-
     {
         "_id": "5cksxjasasqwesyhdjxs25",
         "name": "Drake",
@@ -112,7 +102,7 @@ let stations = [
             "Happy"
         ],
         "createdBy": {
-            "_id": "u203",
+            "_id": "34g",
             "fullname": "Nuki Shlomo",
             "imgUrl": "http://some-photo/"
         },
@@ -127,22 +117,82 @@ let stations = [
                 "addedAt": 162521765262
             },
             {
-                "id": "mqwiLasdadoxs",
+                "id": "g2332ewrg5434w3e",
                 "title": "The JB's - Pass The Peas",
+                "url": "youtube/song.mp4",
+                "imgUrl": "https://i.ytimg.com/vi/g2332ewrg5434w3e/mqdefault.jpg",
+                "addedBy": {}
+            },
+        ],
+    },
+    {
+        "_id": "5c124wesyhd123123asds333",
+        "name": "Kendrick Lamar",
+        "tags": [
+            "Funk",
+            "Happy"
+        ],
+        "createdBy": {
+            "_id": "1231",
+            "fullname": "Nuki Shlomo",
+            "imgUrl": "http://some-photo/"
+        },
+        "likedByUsers": ['{minimal-user}', '{minimal-user}'],
+        "songs": [
+            {
+                "id": "qfw13",
+                "title": "Bitch Dont Kill My Vibe",
+                "url": "youtube/song.mp4",
+                "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
+                "addedBy": '{minimal-user}',
+                "addedAt": 162521765262
+            },
+            {
+                "id": "mqwiLasdadoxs",
+                "title": "Die Hard",
                 "url": "youtube/song.mp4",
                 "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
                 "addedBy": {}
             },
         ],
-        "msgs": [
+    },
+    {
+        "_id": "5qewaf2grbrw45we",
+        "name": "Jack Harlow",
+        "tags": [
+            "Funk",
+            "Happy"
+        ],
+        "createdBy": {
+            "_id": "u203",
+            "fullname": "Nuki Shlomo",
+            "imgUrl": "http://some-photo/"
+        },
+        "likedByUsers": ['{minimal-user}', '{minimal-user}'],
+        "songs": [
             {
-                id: 'm101',
-                from: '{mini-user}',
-                txt: 'Manish?'
-            }
-        ]
+                "id": "adwq13eg13",
+                "title": "First Class",
+                "url": "youtube/song.mp4",
+                "imgUrl": "https://i.ytimg.com/vi/adwq13eg13/mqdefault.jpg",
+                "addedBy": '{minimal-user}',
+                "addedAt": 162521765262
+            },
+            {
+                "id": "asdwwge12nts",
+                "title": "Flika Mora",
+                "url": "youtube/song.mp4",
+                "imgUrl": "https://i.ytimg.com/vi/asdwwge12nts/mqdefault.jpg",
+                "addedBy": {}
+            },
+        ],
     }
 ]
+
+
+
+
+
 
 function getStations() {
     return stations

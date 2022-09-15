@@ -10,7 +10,7 @@ export class RootCmp extends React.Component {
         return (
             <div className="app-container">
                 <SideNav />
-                <main className="home-app-container grid">
+                <main className="home-app-container">
                     <Routes>
                         {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
                     </Routes>

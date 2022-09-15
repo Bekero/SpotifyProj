@@ -6,7 +6,6 @@ import { StationList } from '../cmps/station-list'
 export function HomePage() {
 
     let stations = stationService.getStations()
-    // console.log('stations :', stations)
 
     return (
         <div className="app-home main-view">

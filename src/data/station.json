@@ -61,5 +61,70 @@
         }
       ]
       
+    },
+    {
+      "_id": "5c124wesyhd123123asds333",
+      "name": "Kendrick Lamar",
+      "tags": [
+        "Funk",
+        "Happy"
+      ],
+      "createdBy": {
+        "_id": "u203",
+        "fullname": "Nuki Shlomo",
+        "imgUrl": "http://some-photo/"
+      },
+      "likedByUsers": ["{minimal-user}", "{minimal-user}"],
+      "songs": [
+        {
+          "id": "qfw13",
+          "title": "Bitch Dont Kill My Vibe",
+          "url": "youtube/song.mp4",
+          "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
+          "addedBy": "{minimal-user}",
+          "addedAt": 162521765262
+        },
+        {
+          "id": "mqwiLasdadoxs",
+          "title": "Die Hard",
+          "url": "youtube/song.mp4",
+          "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+          "addedBy": {}
+        }
+      ]
+      
+    },
+    {
+      "_id": "5qewaf2grbrw45we",
+      "name": "Jack Harlow",
+      "tags": [
+        "Funk",
+        "Happy"
+      ],
+      "createdBy": {
+        "_id": "u203",
+        "fullname": "Nuki Shlomo",
+        "imgUrl": "http://some-photo/"
+      },
+      "likedByUsers": ["{minimal-user}", "{minimal-user}"],
+      "songs": [
+        {
+          "id": "adwq13eg13",
+          "title": "First Class",
+          "url": "youtube/song.mp4",
+          "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
+          "addedBy": "{minimal-user}",
+          "addedAt": 162521765262
+        },
+        {
+          "id": "asdwwge12nts",
+          "title": "Flika Mora",
+          "url": "youtube/song.mp4",
+          "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+          "addedBy": {}
+        }
+      ]
+      
     }
+    
   ]

@@ -12,7 +12,7 @@ export const StationDetails = () => {
 
     useEffect(() => {
         loadStation()
-    }, [])
+    }, [params.stationId])
 
 
     const loadStation = () => {
@@ -26,15 +26,14 @@ export const StationDetails = () => {
     }
 
     if (!station) return <div>Loading...</div>
-    console.log(station);
     return (
-        <div className='station-details'>
+        <div className="station-details">
             <h3>Name: {station.name}</h3>
             <h3>Created By: {station.createdBy.fullname}</h3>
             <ul>
                 {station.songs.map(song => <li key={song.id}>{song.title}</li>)}
             </ul>
-            <img src={`https://robohash.org/${station._id}?set=set4`} alt="" />
+            <img className="img-details" src={`https://robohash.org/${station._id}?set=set4`} alt="" />
             <button onClick={onBack}>Back to Stations App</button>
             {/* <Link to={`/station/edit/${station._id}`}><button>Edit</button></Link> */}
 
