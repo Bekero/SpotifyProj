@@ -1,129 +1,180 @@
 [
-    {
-      "_id": "5cksxjas89xjsa8xjsa8jxs09",
-      "name": "Funky Monks",
-      "tags": [
-        "Funk",
-        "Happy"
-      ],
-      "createdBy": {
-        "_id": "u101",
-        "fullname": "Puki Ben David",
-        "imgUrl": "http://some-photo/"
-      },
-      "likedByUsers": ["{minimal-user}", "{minimal-user}"],
-      "songs": [
-        {
-          "id": "s1001",
-          "title": "The Meters - Cissy Strut",
-          "url": "youtube/song.mp4",
-          "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
-          "addedBy": "{minimal-user}",
-          "addedAt": 162521765262
-        },
-        {
-          "id": "mUkfiLjooxs",
-          "title": "The JBs - Pass The Peas",
-          "url": "youtube/song.mp4",
-          "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
-          "addedBy": {}
-        }
-      ]
+  {
+    "_id": "5cksxjas89xjsa8xjsa8jxs09",
+    "name": "Funky Monks",
+    "tags": [
+      "Funk",
+      "Happy"
+    ],
+    "createdBy": {
+      "_id": "u101",
+      "fullname": "Puki Ben David",
+      "imgUrl": "http://some-photo/"
     },
-    {
-      "_id": "5cksxjasasqwesyhdjxs25",
-      "name": "Drake",
-      "tags": [
-        "Funk",
-        "Happy"
-      ],
-      "createdBy": {
-        "_id": "u203",
-        "fullname": "Nuki Shlomo",
-        "imgUrl": "http://some-photo/"
+    "likedByUsers": [
+      "{minimal-user}",
+      "{minimal-user}"
+    ],
+    "songs": [
+      {
+        "id": "s1001",
+        "title": "The Meters - Cissy Strut",
+        "url": "2FNJNnV9DxM",
+        "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "3:32"
       },
-      "likedByUsers": ["{minimal-user}", "{minimal-user}"],
-      "songs": [
-        {
-          "id": "s2002",
-          "title": "Laugh Now, Cry Later",
-          "url": "youtube/song.mp4",
-          "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
-          "addedBy": "{minimal-user}",
-          "addedAt": 162521765262
-        },
-        {
-          "id": "mqwiLasdadoxs",
-          "title": "The JBs - Pass The Peas",
-          "url": "youtube/song.mp4",
-          "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
-          "addedBy": {}
-        }
-      ]
-      
+      {
+        "id": "mUkfiasdsLjooxs",
+        "title": "Song 3",
+        "url": "GF8aaTu2kg0",
+        "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+        "addedBy": {},
+        "songDuration": "3:32"
+      },
+      {
+        "id": "resgfsdfgrt123",
+        "title": "The JBs - Pass The Peas",
+        "url": "qZuxPKUVGiw",
+        "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+        "addedBy": {},
+        "songDuration": "2:59"
+      },
+      {
+        "id": "utjyrhtg12b",
+        "title": "Song 4",
+        "url": "youtube/song.mp4",
+        "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+        "addedBy": {},
+        "songDuration": "4:00"
+      },
+      {
+        "id": "utasdadb",
+        "title": "Song 5",
+        "url": "youtube/song.mp4",
+        "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+        "addedBy": {},
+        "songDuration": "4:33"
+      },
+      {
+        "id": "g31vewrd",
+        "title": "Song 5",
+        "url": "youtube/song.mp4",
+        "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+        "addedBy": {},
+        "songDuration": "3:23"
+      },
+      {
+        "id": "qf3ewgsret5r",
+        "title": "Song 5",
+        "url": "youtube/song.mp4",
+        "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+        "addedBy": {},
+        "songDuration": "3:11"
+      }
+    ]
+  },
+  {
+    "_id": "5cksxjasasqwesyhdjxs25",
+    "name": "Drake",
+    "tags": [
+      "Funk",
+      "Happy"
+    ],
+    "createdBy": {
+      "_id": "u203",
+      "fullname": "Nuki Shlomo",
+      "imgUrl": "http://some-photo/"
     },
-    {
-      "_id": "5c124wesyhd123123asds333",
-      "name": "Kendrick Lamar",
-      "tags": [
-        "Funk",
-        "Happy"
-      ],
-      "createdBy": {
-        "_id": "u203",
-        "fullname": "Nuki Shlomo",
-        "imgUrl": "http://some-photo/"
+    "likedByUsers": [
+      "{minimal-user}",
+      "{minimal-user}"
+    ],
+    "songs": [
+      {
+        "id": "s2002",
+        "title": "Laugh Now, Cry Later",
+        "url": "youtube/song.mp4",
+        "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
+        "addedBy": "{minimal-user}",
+        "addedAt": 162521765262
       },
-      "likedByUsers": ["{minimal-user}", "{minimal-user}"],
-      "songs": [
-        {
-          "id": "qfw13",
-          "title": "Bitch Dont Kill My Vibe",
-          "url": "youtube/song.mp4",
-          "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
-          "addedBy": "{minimal-user}",
-          "addedAt": 162521765262
-        },
-        {
-          "id": "mqwiLasdadoxs",
-          "title": "Die Hard",
-          "url": "youtube/song.mp4",
-          "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
-          "addedBy": {}
-        }
-      ]
-      
+      {
+        "id": "mqwiLasdadoxs",
+        "title": "The JBs - Pass The Peas",
+        "url": "youtube/song.mp4",
+        "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+        "addedBy": {}
+      }
+    ]
+  },
+  {
+    "_id": "5c124wesyhd123123asds333",
+    "name": "Kendrick Lamar",
+    "tags": [
+      "Funk",
+      "Happy"
+    ],
+    "createdBy": {
+      "_id": "u203",
+      "fullname": "Nuki Shlomo",
+      "imgUrl": "http://some-photo/"
     },
-    {
-      "_id": "5qewaf2grbrw45we",
-      "name": "Jack Harlow",
-      "tags": [
-        "Funk",
-        "Happy"
-      ],
-      "createdBy": {
-        "_id": "u203",
-        "fullname": "Nuki Shlomo",
-        "imgUrl": "http://some-photo/"
+    "likedByUsers": [
+      "{minimal-user}",
+      "{minimal-user}"
+    ],
+    "songs": [
+      {
+        "id": "qfw13",
+        "title": "Bitch Dont Kill My Vibe",
+        "url": "youtube/song.mp4",
+        "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
+        "addedBy": "{minimal-user}",
+        "addedAt": 162521765262
       },
-      "likedByUsers": ["{minimal-user}", "{minimal-user}"],
-      "songs": [
-        {
-          "id": "adwq13eg13",
-          "title": "First Class",
-          "url": "youtube/song.mp4",
-          "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
-          "addedBy": "{minimal-user}",
-          "addedAt": 162521765262
-        },
-        {
-          "id": "asdwwge12nts",
-          "title": "Flika Mora",
-          "url": "youtube/song.mp4",
-          "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
-          "addedBy": {}
-        }
-      ]
-      
-    }
-  ]
+      {
+        "id": "mqwiLasdadoxs",
+        "title": "Die Hard",
+        "url": "youtube/song.mp4",
+        "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+        "addedBy": {}
+      }
+    ]
+  },
+  {
+    "_id": "5qewaf2grbrw45we",
+    "name": "Jack Harlow",
+    "tags": [
+      "Funk",
+      "Happy"
+    ],
+    "createdBy": {
+      "_id": "u203",
+      "fullname": "Nuki Shlomo",
+      "imgUrl": "http://some-photo/"
+    },
+    "likedByUsers": [
+      "{minimal-user}",
+      "{minimal-user}"
+    ],
+    "songs": [
+      {
+        "id": "adwq13eg13",
+        "title": "First Class",
+        "url": "youtube/song.mp4",
+        "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
+        "addedBy": "{minimal-user}",
+        "addedAt": 162521765262
+      },
+      {
+        "id": "asdwwge12nts",
+        "title": "Flika Mora",
+        "url": "youtube/song.mp4",
+        "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+        "addedBy": {}
+      }
+    ]
+  }
+]
