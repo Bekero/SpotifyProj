@@ -1,4 +1,4 @@
-
+import station from '../data/station.json'
 export const storageService = {
     query,
     get,
@@ -7,15 +7,15 @@ export const storageService = {
     remove,
     postMany
 }
-
+    
 function query(entityType, delay = 600) {
-    var entities = JSON.parse(localStorage.getItem(entityType)) || []
+    var entities = JSON.parse(localStorage.getItem(entityType)) || station
 
-    return new Promise((resolve, reject)=>{
-        setTimeout(()=>{
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
             // reject('OOOOPs')
             resolve(entities)
-        }, delay)   
+        }, delay)
     })
     // return Promise.resolve(entities)
 }
@@ -70,9 +70,80 @@ function _makeId(length = 5) {
 function postMany(entityType, newEntities) {
     return query(entityType)
         .then(entities => {
-            newEntities = newEntities.map(entity => ({...entity, _id: _makeId()}))
+            newEntities = newEntities.map(entity => ({ ...entity, _id: _makeId() }))
             entities.push(...newEntities)
             _save(entityType, entities)
             return entities
         })
 }
+
+let stations = [
+    {
+      "_id": "5cksxjas89xjsa8xjsa8jxs09",
+      "name": "Funky Monks",
+      "tags": [
+        "Funk",
+        "Happy"
+      ],
+      "createdBy": {
+        "_id": "u101",
+        "fullname": "Puki Ben David",
+        "imgUrl": "http://some-photo/"
+      },
+      "likedByUsers": [{'minimal-user': null}, {'minimal-user': null}],
+      "songs": [
+        {
+          "id": "s1001",
+          "title": "The Meters - Cissy Strut",
+          "url": "youtube/song.mp4",
+          "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
+          "addedBy": {'minimal-user': null},
+          "addedAt": 162521765262
+        },
+        {
+          "id": "mUkfiLjooxs",
+          "title": "The JBs - Pass The Peas",
+          "url": "youtube/song.mp4",
+          "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+          "addedBy": {}
+        }
+      ]
+    },
+    {
+      "_id": "5cksxjasasqwesyhdjxs25",
+      "name": "Drake",
+      "tags": [
+        "Funk",
+        "Happy"
+      ],
+      "createdBy": {
+        "_id": "u203",
+        "fullname": "Nuki Shlomo",
+        "imgUrl": "http://some-photo/"
+      },
+      "likedByUsers": [{'minimal-user': null}, {'minimal-user': null}],
+      "songs": [
+        {
+          "id": "s2002",
+          "title": "Laugh Now, Cry Later",
+          "url": "youtube/song.mp4",
+          "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
+          "addedBy": {'minimal-user': null},
+          "addedAt": 162521765262
+        },
+        {
+          "id": "mqwiLasdadoxs",
+          "title": "The JBs - Pass The Peas",
+          "url": "youtube/song.mp4",
+          "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+          "addedBy": {}
+        }
+      ]
+      
+    }
+  ]
+
+// ;(() => {
+//     _save('station', stations)
+// })()
+
