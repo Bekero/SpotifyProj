@@ -1,10 +1,16 @@
 .app-footer {
     background-color: $third-clr;
-    grid-row: 3 / 3;
-    grid-column: 1 / 3;
+    // grid-row: 3 / 3;
+    grid-column: 1 / -1;
     width: 100%;
     color: $main-txt-clr;
     padding: 20px;
     text-align: center;
-    grid-template-columns: 60%;
+    // grid-template-columns: 60%;
+}
+
+.app-header {
+    background-color: rgb(145, 78, 78);
+    // grid-row: 2 / 4;
+    // grid-column: 3 / 3;
 }

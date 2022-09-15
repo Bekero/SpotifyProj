@@ -1,8 +1,9 @@
 .home-app-container {
-    grid-row: 1 / 3;
+    
+    overflow-y: auto;
 
     .app-home {
-        height: 100vh;
+        // height: 100vh;
         // display: grid;
         padding: 10px;
 
