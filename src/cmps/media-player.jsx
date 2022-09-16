@@ -2,10 +2,9 @@ import YouTube, { YouTubeProps } from 'react-youtube';
 import { useEffect, useState } from 'react'
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { disable } from 'workbox-navigation-preload';
 
 
-export function SongPlay() {
+export function MediaPlayer() {
 
     const [player, setPlayer] = useState(null)
 
