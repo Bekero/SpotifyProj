@@ -1,0 +1,35 @@
+.station-edit-modal {
+    font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, var(--fallback-fonts, sans-serif), sans-serif;
+    position: fixed;
+    background-color: $third-clr;
+    min-height: 384px;
+    width: 524px;
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+
+    .edit-details-title {
+        display: flex;
+        justify-content: space-between;
+        padding: 24px;
+
+        h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+    }
+
+    .edit-details-container {
+        padding: 0 24px 24px;
+        display: flex;
+        img {
+            height: 180px;
+            width: 180px;
+        }
+    }
+}
