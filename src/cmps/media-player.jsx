@@ -36,7 +36,7 @@ export function MediaPlayer() {
     }
 
     const onNextVideo = () => {
-        // currSongIdx++
+        //  /currSongIdx++
         // dispatch(setNextSong())
         dispatch(setNextSong())
     }
@@ -47,7 +47,7 @@ export function MediaPlayer() {
         player.unMute()
         player.seekTo(50)
     }
-    const videoTitle = player.videoTitle
+    // const videoTitle = player.videoTitle
     
 
     const opts = {
@@ -61,7 +61,7 @@ export function MediaPlayer() {
     };
 
     return <div className='media-player-container'>
-        <h3>{videoTitle}</h3>
+        {/* <h3>{videoTitle}</h3> */}
         <button disabled={currentlyPlayingUrl ? false : true} onClick={onPauseVideo}>Pause</button>
         <button disabled={currentlyPlayingUrl ? false : true} onClick={onPlayVideo}>Play</button>
         <button disabled={currentlyPlayingUrl ? false : true} onClick={onNextVideo}>Next</button>
