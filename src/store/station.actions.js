@@ -131,9 +131,15 @@ export function setCurrPlayingUrl(songIdx) {
 }
 
 export function addSongToMyPlaylist(wantedSong, myPlaylistId) {
-    console.log('wantedSong :', wantedSong)
     return (dispatch) => {
-        const action = { type: 'ADD_SONG_TO_MY_PLAYLIST', stuff: {wantedSong, myPlaylistId} }
+        const action = { type: 'ADD_SONG_TO_MY_PLAYLIST', stuff: { wantedSong, myPlaylistId } }
+        dispatch(action)
+    }
+}
+
+export function addSongLikedPlaylist(wantedSong) {
+    return (dispatch) => {
+        const action = { type: 'ADD_SONG_TO_LIKED_PLAYLIST', wantedSong }
         dispatch(action)
     }
 }

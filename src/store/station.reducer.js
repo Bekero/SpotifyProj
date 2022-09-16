@@ -12,6 +12,7 @@ export function stationReducer(state = initialState, action) {
     let myWantedPlaylist
     let wantedPlaylistIdx
     let currStation = state.currStation
+    let newStations
     let currentlyPlayingUrl
     let currSongIdx = state.currSongIdx
 
@@ -37,18 +38,19 @@ export function stationReducer(state = initialState, action) {
             const lastRemovedStation = state.stations.find(station => station._id === action.stationId)
             newStations = state.stations.filter(station => station._id !== action.stationId)
             newState = { ...state, stations: newStations, lastRemovedStation }
-            console.log();
             break
         case 'ADD_STATION':
+            newState = { ...state, stations: [...state.stations, action.station] }
+            break
+        case 'ADD_SONG_TO_LIKED_PLAYLIST':
             newState = { ...state, stations: [...state.stations, action.station] }
             break
         case 'ADD_SONG_TO_MY_PLAYLIST':
             myWantedPlaylist = state.stations.find(station => station._id === action.stuff.myPlaylistId)
             wantedPlaylistIdx = state.stations.findIndex(station => station._id === myWantedPlaylist._id)
             state.stations[wantedPlaylistIdx].songs.push(action.stuff.wantedSong)
-            console.log('state.stations :', action.stuff.wantedSong)
-            // newState = { ...state, stations: [...state.stations[wantedPlaylistIdx].songs, action.stuff.wantedSong] }
-            newState = { ...state, state }
+            newState = { ...state, stations: [...state.stations[wantedPlaylistIdx].songs, action.stuff.wantedSong] }
+            newState = { ...state, newState }
             console.log('newState :', newState)
             // newState = { ...state, currStation: myWantedPlaylist.songs.push(action.stuff.song) }
             break
