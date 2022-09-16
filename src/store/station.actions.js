@@ -56,7 +56,7 @@ export function loadStations() {
     return async (dispatch) => {
         try {
             const stations = await stationService.query()
-            console.log('Stations from DB:', stations)
+            // console.log('Stations from DB:', stations)
             dispatch({
                 type: 'SET_STATIONS',
                 stations
@@ -127,6 +127,14 @@ export function setCurrPlayingSongIdx(songIdx) {
 export function setCurrPlayingUrl(songIdx) {
     return (dispatch) => {
         dispatch(getActionSetCurrUrl(songIdx))
+    }
+}
+
+export function addSongToMyPlaylist(wantedSong, myPlaylistId) {
+    console.log('wantedSong :', wantedSong)
+    return (dispatch) => {
+        const action = { type: 'ADD_SONG_TO_MY_PLAYLIST', stuff: {wantedSong, myPlaylistId} }
+        dispatch(action)
     }
 }
 

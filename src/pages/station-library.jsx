@@ -13,7 +13,6 @@ export function StationLibrary() {
         dispatch(loadStations())
     }, [])
     stations = stations.filter(station => station.isMyStation === true)
-    console.log(stations);
     return (
         <div className="app-home main-view">
             <h6>Hello from Station Library </h6>

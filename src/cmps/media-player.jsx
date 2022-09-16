@@ -24,7 +24,6 @@ export function MediaPlayer() {
 
     const onReadyVideo = (event) => {
         setPlayer(event.target)
-        console.log('event.target :', event.target)
     }
 
     const onPauseVideo = (ev) => {
