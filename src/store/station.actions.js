@@ -9,6 +9,12 @@ export function getActionRemoveStation(stationId) {
         stationId
     }
 }
+export function getActionSetCurrStation(station) {
+    return {
+        type: 'SET_CURR_STATION',
+        station
+    }
+}
 
 export function getActionAddStation(station) {
     return {
@@ -17,10 +23,23 @@ export function getActionAddStation(station) {
     }
 }
 
-export function getActionSetCurrUrl(currentlyPlayingUrl) {
+export function getActionSetCurrUrl(songIdx) {
     return {
         type: 'SET_CURRENTLY_PLAYING_URL',
-        currentlyPlayingUrl
+        songIdx
+    }
+}
+export function getActionSetCurrSongIdx(songIdx) {
+    return {
+        type: 'SET_CURRENTLY_PLAYING_SONG_IDX',
+        songIdx
+    }
+}
+
+export function getActionSetNextSong() {
+    return {
+        type: 'SET_NEXT_SONG',
+        
     }
 }
 
@@ -44,6 +63,17 @@ export function loadStations() {
         } catch (err) {
             showErrorMsg('Cannot load stations')
             console.log('Cannot load stations', err)
+        }
+    }
+}
+
+export function setCurrStation(stationId) {
+    return async (dispatch) => {
+        try {
+            const station = await stationService.getById(stationId)
+            dispatch(getActionSetCurrStation(station))
+        } catch (err) {
+            console.log('Cannot find currently station', err)
         }
     }
 }
@@ -79,9 +109,21 @@ export function addStation(station) {
     }
 }
 
-export function setCurrPlayingUrl(currentlyPlayingUrl) {
+export function setNextSong() {
     return (dispatch) => {
-        dispatch(getActionSetCurrUrl(currentlyPlayingUrl))
+        dispatch(getActionSetNextSong())
+    }
+}
+
+export function setCurrPlayingSongIdx(songIdx) {
+    return (dispatch) => {
+        dispatch(getActionSetCurrSongIdx(songIdx))
+    }
+}
+
+export function setCurrPlayingUrl(songIdx) {
+    return (dispatch) => {
+        dispatch(getActionSetCurrUrl(songIdx))
     }
 }
 

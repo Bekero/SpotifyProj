@@ -1,5 +1,7 @@
 const initialState = {
     stations: [],
+    currStation: {},
+    currSongIdx: null,
     lastRemovedStation: null,
     currentlyPlayingUrl: null
 }
@@ -7,12 +9,26 @@ const initialState = {
 export function stationReducer(state = initialState, action) {
     var newState = state
     var stations
+    var currStation = state.currStation
+    var currentlyPlayingUrl
+    var currSongIdx = state.currSongIdx
     switch (action.type) {
         case 'SET_CURRENTLY_PLAYING_URL':
-            newState = { ...state, currentlyPlayingUrl: action.currentlyPlayingUrl }
+            currentlyPlayingUrl = currStation.songs[action.songIdx].url
+            newState = { ...state, currentlyPlayingUrl }
+            break
+        case 'SET_NEXT_SONG':
+            currentlyPlayingUrl = currStation.songs[currSongIdx + 1].url
+            newState = { ...state, currentlyPlayingUrl, currSongIdx: currSongIdx + 1 }
+            break
+        case 'SET_CURRENTLY_PLAYING_SONG_IDX':
+            newState = { ...state, currSongIdx: action.songIdx }
             break
         case 'SET_STATIONS':
             newState = { ...state, stations: action.stations }
+            break
+        case 'SET_CURR_STATION':
+            newState = { ...state, currStation: action.station }
             break
         case 'REMOVE_STATION':
             const lastRemovedStation = state.stations.find(station => station._id === action.stationId)

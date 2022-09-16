@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { stationService } from '../services/station.service'
-import { removeStation, setCurrPlayingUrl } from '../store/station.actions'
+import { removeStation, setCurrPlayingSongIdx, setCurrPlayingUrl, setCurrStation } from '../store/station.actions'
 
 export const StationDetails = () => {
     const params = useParams()
@@ -15,6 +15,7 @@ export const StationDetails = () => {
 
     useEffect(() => {
         loadStation()
+        dispatch(setCurrStation(params.stationId))
     }, [params.stationId])
 
     const onRemoveStation = (stationId) => {
@@ -29,13 +30,10 @@ export const StationDetails = () => {
             .then(station => setStation(station))
     }
 
-    const onBack = () => {
-        navigate('/')
-    }
-
-    const playCurrUrl = (url) => {
-        console.log('hey')
-        dispatch(setCurrPlayingUrl(url))
+    const playCurrUrl = (songIdx) => {
+        console.log(songIdx)
+        dispatch(setCurrPlayingSongIdx(songIdx))
+        dispatch(setCurrPlayingUrl(songIdx))
     }
 
     if (!station) return <div>Loading...</div>
@@ -49,8 +47,6 @@ export const StationDetails = () => {
                 <div className="details-container">
                     <h3>{station.name}</h3>
                     <h3>{station.createdBy.fullname}</h3>
-                    {/* <button onClick={onBack}>Back to Stations App</button> */}
-                    {/* <Link to={`/station/edit/${station._id}`}><button>Edit</button></Link> */}
                 </div>
                 {station.isMyStation && <button onClick={(ev) => onRemoveStation(station._id, ev)}>Delete</button>}                {/* <button onClick={(ev) => onRemoveStation(station._id, ev)}>Delete</button> */}
                 <div>
@@ -67,8 +63,9 @@ export const StationDetails = () => {
 
                 {!station.songs.length && <div>No Songs</div>}
                 <ol>
-                    {station.songs.map(song => {
-                        return <div onClick={() => playCurrUrl(song.url)} key={song.id} className="main-song-list">
+                    {station.songs.map((song, songIdx) => {
+                        return <div onClick={() => playCurrUrl(songIdx)} key={song.id} className="main-song-list">
+                        {/* return <div onClick={() => playCurrUrl(song.url)} key={song.id} className="main-song-list"> */}
                             <div>
                                 <li>
                                     <img className="song-img" src={`${song.imgUrl}`} />
