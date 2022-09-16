@@ -36,6 +36,7 @@ function getById(stationId) {
 }
 
 async function remove(stationId) {
+    console.log('AAAAAAAAAAAAAAAAAAAAA',stationId);
     await storageService.remove(STORAGE_KEY, stationId)
     // stationChannel.postMessage(getActionRemoveStation(stationId))
 }
