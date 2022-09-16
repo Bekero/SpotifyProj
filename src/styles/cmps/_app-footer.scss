@@ -1,19 +1,12 @@
-.app-footer {
+.main-footer-container {
     background-color: $third-clr;
-    // grid-row: 3 / 3;
+    display: flex;
+    justify-content: space-between;
     grid-column: 1 / -1;
     width: 100%;
     color: $main-txt-clr;
     padding: 20px;
     text-align: center;
-
-    // display: block;
-    // max-width: none;
-    // overflow: hidden;
-    // padding-bottom: 24px;
-    // position: relative;
-
-    // grid-template-columns: 60%;
 
     .media-player-container {
         display: grid;
@@ -31,6 +24,4 @@
 .app-header {
     background-color: $third-clr;
     margin: 0;
-    // grid-row: 2 / 4;
-    // grid-column: 3 / 3;
 }

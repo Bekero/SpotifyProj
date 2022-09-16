@@ -2,20 +2,20 @@ import YouTube, { YouTubeProps } from 'react-youtube';
 import { useEffect, useState } from 'react'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { disable } from 'workbox-navigation-preload';
-import { setCurrPlayingSongIdx, setNextSong } from '../store/station.actions';
+import { setNextSong } from '../store/station.actions';
 
+//* setShuffle() , getPlaylist() , getDuration()
+//* React-Toastify
+//* Google API you user search
+//* react beautiful d&d
 
 export function MediaPlayer() {
 
     const [player, setPlayer] = useState(null)
-    // let currSongIdx = useSelector(state => state.stationModule.currSongIdx)
     const currentlyPlayingUrl = useSelector(state => state.stationModule.currentlyPlayingUrl)
     const dispatch = useDispatch()
 
-    useEffect(() => {
-
-    }, [currentlyPlayingUrl])
+    // useEffect(() => {}, [currentlyPlayingUrl])
 
     const videoOnReady = (event) => {
         // access to player in all event handlers via event.target
@@ -23,8 +23,8 @@ export function MediaPlayer() {
     }
 
     const onReadyVideo = (event) => {
-        console.log('event.target', event.target);
         setPlayer(event.target)
+        console.log('event.target :', event.target)
     }
 
     const onPauseVideo = (ev) => {
@@ -38,17 +38,19 @@ export function MediaPlayer() {
     const onNextVideo = () => {
         // currSongIdx++
         // dispatch(setNextSong())
-        dispatch(setNextSong())
+        dispatch(setNextSong(1))
     }
+
     const onMuteVideo = () => {
         player.mute()
     }
+
     const onSetVolumeVideo = () => {
         player.unMute()
         player.seekTo(50)
     }
-    const videoTitle = player.videoTitle
-    
+    // const videoTitle = player.videoTitle
+    // console.log('player :', player.videoTitle)
 
     const opts = {
         height: '0',
@@ -61,13 +63,12 @@ export function MediaPlayer() {
     };
 
     return <div className='media-player-container'>
-        <h3>{videoTitle}</h3>
         <button disabled={currentlyPlayingUrl ? false : true} onClick={onPauseVideo}>Pause</button>
         <button disabled={currentlyPlayingUrl ? false : true} onClick={onPlayVideo}>Play</button>
         <button disabled={currentlyPlayingUrl ? false : true} onClick={onNextVideo}>Next</button>
         <button disabled={currentlyPlayingUrl ? false : true} onClick={onMuteVideo}>Mute</button>
         <button disabled={currentlyPlayingUrl ? false : true} onClick={onSetVolumeVideo}>Unmute</button>
-        {<h6></h6>}
+        {/* {videoTitle && <h3>{videoTitle}</h3>} */}
         {currentlyPlayingUrl &&
             <YouTube
                 videoId={currentlyPlayingUrl}

@@ -24,10 +24,14 @@ export const StationDetails = () => {
         navigate('/collection/playlist')
     }
 
-    const loadStation = () => {
+    const loadStation = async () => {
         const stationId = params.stationId
-        stationService.getById(stationId)
-            .then(station => setStation(station))
+        try {
+            const station = await stationService.getById(stationId)
+            setStation(station)
+        } catch (err) {
+            console.log('Cannot get station :', err)
+        }
     }
 
     const playCurrUrl = (songIdx) => {
@@ -63,9 +67,10 @@ export const StationDetails = () => {
 
                 {!station.songs.length && <div>No Songs</div>}
                 <ol>
+                    {/* {Move to other component} */}
                     {station.songs.map((song, songIdx) => {
                         return <div onClick={() => playCurrUrl(songIdx)} key={song.id} className="main-song-list">
-                        {/* return <div onClick={() => playCurrUrl(song.url)} key={song.id} className="main-song-list"> */}
+                            {/* return <div onClick={() => playCurrUrl(song.url)} key={song.id} className="main-song-list"> */}
                             <div>
                                 <li>
                                     <img className="song-img" src={`${song.imgUrl}`} />

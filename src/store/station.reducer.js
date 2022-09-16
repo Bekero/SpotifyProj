@@ -7,19 +7,19 @@ const initialState = {
 }
 
 export function stationReducer(state = initialState, action) {
-    var newState = state
-    var stations
-    var currStation = state.currStation
-    var currentlyPlayingUrl
-    var currSongIdx = state.currSongIdx
+    let newState = state
+    let stations
+    let currStation = state.currStation
+    let currentlyPlayingUrl
+    let currSongIdx = state.currSongIdx
     switch (action.type) {
         case 'SET_CURRENTLY_PLAYING_URL':
             currentlyPlayingUrl = currStation.songs[action.songIdx].url
             newState = { ...state, currentlyPlayingUrl }
             break
-        case 'SET_NEXT_SONG':
-            currentlyPlayingUrl = currStation.songs[currSongIdx + 1].url
-            newState = { ...state, currentlyPlayingUrl, currSongIdx: currSongIdx + 1 }
+        case 'SET_NEXT_PREV_SONG':
+            currentlyPlayingUrl = currStation.songs[currSongIdx + action.diff].url
+            newState = { ...state, currentlyPlayingUrl, currSongIdx: currSongIdx + action.diff }
             break
         case 'SET_CURRENTLY_PLAYING_SONG_IDX':
             newState = { ...state, currSongIdx: action.songIdx }
