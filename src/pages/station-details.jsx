@@ -23,9 +23,9 @@ export const StationDetails = () => {
         loadStation()
     }, [params.stationId])
 
-    const onRemoveStation = (stationId) => {
+    const onRemoveStation = async (stationId) => {
         // ev.stopPropagation()
-        dispatch(removeStation(stationId))
+        await dispatch(removeStation(stationId))
         navigate('/collection/playlist')
     }
 

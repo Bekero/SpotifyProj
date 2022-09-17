@@ -1,6 +1,7 @@
 import { stationService } from "../services/station.service.js";
 import { userService } from "../services/user.service.js";
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
+import { storageService } from "../services/async-storage.service.js";
 
 // Action Creators:
 export function getActionRemoveStation(stationId) {
@@ -131,7 +132,10 @@ export function setCurrPlayingUrl(songIdx) {
 }
 
 export function addSongToMyPlaylist(wantedSong, myPlaylistId) {
-    return (dispatch) => {
+    return (dispatch, getState) => {
+        // const stations = getState().stationModule.stations
+
+        // storageService.save
         const action = { type: 'ADD_SONG_TO_MY_PLAYLIST', stuff: { wantedSong, myPlaylistId } }
         dispatch(action)
     }

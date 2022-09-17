@@ -9,6 +9,13 @@
     list-style: none;
     padding: 0;
 
+    .kaki-bepita {
+        display: flex;
+        // columns: 2;
+        flex-direction: column;
+    }
+
+
     >* {
 
 
