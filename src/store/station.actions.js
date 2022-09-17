@@ -132,11 +132,14 @@ export function setCurrPlayingUrl(songIdx) {
 }
 
 export function addSongToMyPlaylist(wantedSong, myPlaylistId) {
-    return (dispatch, getState) => {
-        // const stations = getState().stationModule.stations
-
-        // storageService.save
-        const action = { type: 'ADD_SONG_TO_MY_PLAYLIST', stuff: { wantedSong, myPlaylistId } }
+    return async (dispatch, getState) => {
+        let stations = getState().stationModule.stations
+        let myWantedPlaylist = stations.find(station => station._id === myPlaylistId)
+        stations = stations.filter(station => station._id !== myWantedPlaylist._id)
+        myWantedPlaylist.songs.push(wantedSong)
+        const updatedStation = await stationService.save(myWantedPlaylist)
+        stations.push(updatedStation)
+        const action = { type: 'ADD_UPDATED_PLAYLIST_TO_STATIONS', stations }
         dispatch(action)
     }
 }

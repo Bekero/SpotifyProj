@@ -10,8 +10,6 @@ export function stationReducer(state = initialState, action) {
     let newState = state
     let stations
     let newStations
-    let myWantedPlaylist
-    let wantedPlaylistIdx
     let currStation = state.currStation
     let currentlyPlayingUrl
     let currSongIdx = state.currSongIdx
@@ -45,17 +43,8 @@ export function stationReducer(state = initialState, action) {
         case 'ADD_SONG_TO_LIKED_PLAYLIST':
             newState = { ...state, stations: [...state.stations, action.station] }
             break
-        case 'ADD_SONG_TO_MY_PLAYLIST':
-            myWantedPlaylist = state.stations.find(station => station._id === action.stuff.myPlaylistId)
-            myWantedPlaylist = {...myWantedPlaylist, songs: [...myWantedPlaylist.songs, action.stuff.wantedSong]}
-            wantedPlaylistIdx = state.stations.findIndex(station => station._id === myWantedPlaylist._id)
-            const stations = state.stations.filter(station => station._id !== myWantedPlaylist._id)
-            newState = {...state, stations: [...stations, myWantedPlaylist]}
-            // return {...state, state.stations[wantedPlaylistIdx].songs: [...songs, action.stuff.wantedSong] }
-            // newState = { ...state,  state.stations[wantedPlaylistIdx].songs: [...state.stations[wantedPlaylistIdx].songs, action.stuff.wantedSong] }
-            // newState = { ...state, newState }
-            console.log('newState :', newState)
-            // newState = { ...state, currStation: myWantedPlaylist.songs.push(action.stuff.song) }
+        case 'ADD_UPDATED_PLAYLIST_TO_STATIONS':
+            newState = { ...state, stations: action.stations }
             break
         case 'UPDATE_STATION':
             stations = state.stations.map(station => (station._id === action.station._id) ? action.station : station)
@@ -78,3 +67,10 @@ export function stationReducer(state = initialState, action) {
 }
 
 //* stations[]
+
+            // myWantedPlaylist = state.stations.find(station => station._id === action.stuff.myPlaylistId)
+            // myWantedPlaylist = {...myWantedPlaylist, songs: [...myWantedPlaylist.songs, action.stuff.wantedSong]}
+            // wantedPlaylistIdx = state.stations.findIndex(station => station._id === myWantedPlaylist._id)
+            // const stations = state.stations.filter(station => station._id !== myWantedPlaylist._id)
+            // newState = {...state, stations: [...stations, myWantedPlaylist]}
+            // return {...state, state.stations[wantedPlaylistIdx].songs: [...songs, action.stuff.wantedSong] }
