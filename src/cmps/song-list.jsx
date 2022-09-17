@@ -17,7 +17,8 @@ export const SongList = ({ station, playCurrUrl }) => {
         dispatch(loadStations())
     }, [])
 
-    const addToPlaylist = (song) => {
+    const addToPlaylist = (ev,song) => {
+        console.log(ev);
         setWantedSong(song)
         setOpenModal(true)
     }
@@ -48,7 +49,7 @@ export const SongList = ({ station, playCurrUrl }) => {
                 return <ol onClick={() => playCurrUrl(songIdx)} key={song.id} className="main-song-list">
                     <div>
                         <div>
-                            {songIdx}<img className="song-img" src={`${song.imgUrl}`} />
+                            {songIdx + 1}<img className="song-img" src={`${song.imgUrl}`} />
                         </div>
                         <div className="kaki-bepita">
                             <h6>{song.title}</h6>
@@ -60,7 +61,7 @@ export const SongList = ({ station, playCurrUrl }) => {
                         <span>Date Added</span>
                         <button className="add-to-liked-btn" onClick={() => addToLikedPlaylist(song)}>Like</button>
                         <span className="song-duration-container">{song.songDuration}</span>
-                        <button className="add-to-playlist-btn" onClick={() => addToPlaylist(song)}>Add</button>
+                        <button className="add-to-playlist-btn" onClick={(ev) => addToPlaylist(ev, song)}>Add</button>
                     </div>
                 </ol>
             })}
