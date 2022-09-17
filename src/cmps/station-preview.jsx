@@ -6,7 +6,7 @@ export function StationPreview({ station }) {
     return (
         <Link to={`/playlist/${station._id}`}>
             <div className="station-preview">
-            <img className="img-details" src={`https://robohash.org/${station.name}?set=set5`}/>
+                <img className="img-details" src={`https://robohash.org/${station.name}?set=set5`} />
 
                 <h6>{station.name}</h6>
             </div>

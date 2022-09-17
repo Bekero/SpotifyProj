@@ -23,15 +23,16 @@ export const StationDetails = () => {
         loadStation()
     }, [params.stationId])
 
-
     const onRemoveStation = (stationId) => {
         // ev.stopPropagation()
         dispatch(removeStation(stationId))
         navigate('/collection/playlist')
     }
+
     const onCloseStation = () => {
         setEditStation(!isEditStation)
     }
+
     const onEditStation = (station) => {
         setEditStation(!isEditStation)
         if (!isEditStation) return
@@ -52,7 +53,6 @@ export const StationDetails = () => {
         dispatch(setCurrPlayingSongIdx(songIdx))
         dispatch(setCurrPlayingUrl(songIdx))
     }
-    console.log('stations :', stations)
 
     if (!station) return <div>Loading...</div>
     return (
@@ -82,7 +82,6 @@ export const StationDetails = () => {
             </div>
             <hr></hr>
             <div>
-
                 {/* {!station.songs.length && <div>No Songs</div>} */}
                 <ol>
                     <SongList station={station} playCurrUrl={playCurrUrl} />
