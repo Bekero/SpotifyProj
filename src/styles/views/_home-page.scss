@@ -1,14 +1,28 @@
 .home-app-container {
-    
+
     overflow-y: auto;
 
     .app-home {
-        // height: 100vh;
-        // display: grid;
         padding: 10px;
 
-
-        // grid-row: 2 / 2;
-        // grid-column: 3 / 3;
     }
+
+
+}
+
+.Toastify__close-button{
+ display:none
+
+}
+.Toastify__progress-bar--info {
+    display: none;
+}
+
+.Toastify__progress-bar{
+    display: none;
+}
+.Toastify__toast{
+    background-color: #3d91f4;
+    color:#fff;
+    margin-bottom: 6rem;
 }

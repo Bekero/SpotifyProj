@@ -1,26 +1,33 @@
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import { stationService } from '../services/station.service'
 import { StationList } from '../cmps/station-list'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
-// import { loadStations, removeStation } from '../store/station.actions'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function HomePage() {
-
-    // const stations = useSelector(state => state.stationModule.stations)
-    // const dispatch = useDispatch()
-
-    // useEffect(() => {
-    //     dispatch(loadStations())
-    // }, [])
-
+    const notify = () => toast("Hola Ninio");
     let stations = stationService.getStations()
 
     return (
         <div className="app-home main-view">
             <h6>Hello from Home Page </h6>
+            <button onClick={notify}>Notify!</button>
+
             <StationList stations={stations} />
+            <div className="toast-container">
+                <ToastContainer
+                    position="bottom-center"
+                    autoClose={111500}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick={true}
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                />
+            </div>
         </div>
     )
 

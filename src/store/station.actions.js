@@ -9,6 +9,7 @@ export function getActionRemoveStation(stationId) {
         stationId
     }
 }
+
 export function getActionSetCurrStation(station) {
     return {
         type: 'SET_CURR_STATION',
@@ -29,6 +30,7 @@ export function getActionSetCurrUrl(songIdx) {
         songIdx
     }
 }
+
 export function getActionSetCurrSongIdx(songIdx) {
     return {
         type: 'SET_CURRENTLY_PLAYING_SONG_IDX',
@@ -36,12 +38,12 @@ export function getActionSetCurrSongIdx(songIdx) {
     }
 }
 
-export function getActionSetNextSong() {
-    return {
-        type: 'SET_NEXT_SONG',
-        
-    }
-}
+// export function getActionSetNextSong(diff) {
+//     return {
+//         type: 'SET_NEXT_PREV_SONG',
+//         diff
+//     }
+// }
 
 export function getActionUpdateStation(station) {
     return {
@@ -109,9 +111,10 @@ export function addStation(station) {
     }
 }
 
-export function setNextSong() {
+export function setNextSong(diff) {
     return (dispatch) => {
-        dispatch(getActionSetNextSong())
+        const action = { type: 'SET_NEXT_PREV_SONG', diff }
+        dispatch(action)
     }
 }
 
