@@ -9,6 +9,7 @@ const initialState = {
 export function stationReducer(state = initialState, action) {
     let newState = state
     let stations
+    let newStations
     let myWantedPlaylist
     let wantedPlaylistIdx
     let currStation = state.currStation
@@ -37,7 +38,6 @@ export function stationReducer(state = initialState, action) {
             const lastRemovedStation = state.stations.find(station => station._id === action.stationId)
             newStations = state.stations.filter(station => station._id !== action.stationId)
             newState = { ...state, stations: newStations, lastRemovedStation }
-            console.log();
             break
         case 'ADD_STATION':
             newState = { ...state, stations: [...state.stations, action.station] }

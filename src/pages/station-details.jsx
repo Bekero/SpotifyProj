@@ -8,6 +8,7 @@ import { SongList } from '../cmps/song-list'
 import { stationService } from '../services/station.service'
 import { removeStation, setCurrPlayingSongIdx, setCurrPlayingUrl, setCurrStation } from '../store/station.actions'
 import { useSelector } from 'react-redux'
+import { StationEditModal } from '../cmps/station-edit-modal'
 
 export const StationDetails = () => {
     const params = useParams()

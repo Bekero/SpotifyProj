@@ -16,7 +16,8 @@ export function StationLibrary() {
     console.log('stations from library', stations);
     stations = stations.filter(station => station.isMyStation === true)
     console.log('My Playlists after filter', stations);
-    if (!stations || !stations.length) return <div>Loading...</div>
+    if (!stations.length) return <div>You have no playlists...</div>
+    if (!stations) return <div>Loading...</div>
     return (
         <div className="app-home main-view">
             <h6>Hello from Station Library </h6>
