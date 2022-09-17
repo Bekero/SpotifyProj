@@ -2,10 +2,11 @@ import YouTube, { YouTubeProps } from 'react-youtube';
 import { useEffect, useState } from 'react'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setNextSong } from '../store/station.actions';
+import { setNextPrevSong } from '../store/station.actions';
 import play from '../assets/img/play.png'
 import stop from '../assets/img/stop.png'
 import next from '../assets/img/next.png'
+import prev from '../assets/img/prev.png'
 import mute from '../assets/img/mute.png'
 import unmute from '../assets/img/unmute.png'
 
@@ -17,7 +18,9 @@ import unmute from '../assets/img/unmute.png'
 export function MediaPlayer() {
 
     const [player, setPlayer] = useState(null)
-    const [playSong, setPlay] = useState(null)
+    const [playSong, setPlay] = useState(false)
+    const [songVolume, setSongVolume] = useState(null)
+    const [isSongMuted, setSongMuted] = useState(false)
     const currentlyPlayingUrl = useSelector(state => state.stationModule.currentlyPlayingUrl)
     const dispatch = useDispatch()
 
@@ -30,6 +33,7 @@ export function MediaPlayer() {
 
     const onReadyVideo = (event) => {
         setPlayer(event.target)
+        setPlay(true)
     }
 
     const onPauseVideo = (ev) => {
@@ -40,21 +44,27 @@ export function MediaPlayer() {
     const onPlayVideo = () => {
         player.playVideo()
         setPlay(true)
+        console.log(player.getVolume());
     }
 
     const onNextVideo = () => {
-        // currSongIdx++
-        // dispatch(setNextSong())
-        dispatch(setNextSong(1))
+        dispatch(setNextPrevSong(1))
+    }
+    const onPrevVideo = () => {
+        dispatch(setNextPrevSong(-1))
     }
 
     const onMuteVideo = () => {
-        player.mute()
+        setSongVolume(player.getVolume())
+        setSongMuted(true)
+        player.setVolume(0)
     }
-
+    
     const onSetVolumeVideo = () => {
-        player.unMute()
-        player.seekTo(50)
+        // player.unMute()
+        player.setVolume(songVolume)
+        setSongMuted(false)
+        // player.seekTo(50)
     }
     // const videoTitle = player.videoTitle
     // console.log('player :', player.videoTitle)
@@ -70,11 +80,12 @@ export function MediaPlayer() {
     };
 
     return <div className='media-player-container'>
-        <button disabled={currentlyPlayingUrl ? false : true} onClick={onPauseVideo}><img className='media-player-img' src={stop} /></button>
-        <button disabled={currentlyPlayingUrl ? false : true} onClick={onPlayVideo}><img className='media-player-img' src={play} /></button>
+        {playSong ? <button disabled={currentlyPlayingUrl ? false : true} onClick={onPauseVideo}><img className='media-player-img' src={stop} /></button> :
+            <button disabled={currentlyPlayingUrl ? false : true} onClick={onPlayVideo}><img className='media-player-img' src={play} /></button>}
+        <button disabled={currentlyPlayingUrl ? false : true} onClick={onPrevVideo}><img className='media-player-img' src={prev} /></button>
         <button disabled={currentlyPlayingUrl ? false : true} onClick={onNextVideo}><img className='media-player-img' src={next} /></button>
-        <button disabled={currentlyPlayingUrl ? false : true} onClick={onMuteVideo}><img className='media-player-img' src={unmute} /></button>
-        <button disabled={currentlyPlayingUrl ? false : true} onClick={onSetVolumeVideo}><img className='media-player-img' src={mute} /></button>
+        {isSongMuted ? <button disabled={currentlyPlayingUrl ? false : true} onClick={onSetVolumeVideo}><img className='media-player-img' src={mute} /></button> :
+            <button disabled={currentlyPlayingUrl ? false : true} onClick={onMuteVideo}><img className='media-player-img' src={unmute} /></button>}
         {/* {videoTitle && <h3>{videoTitle}</h3>} */}
         {currentlyPlayingUrl &&
             <YouTube
