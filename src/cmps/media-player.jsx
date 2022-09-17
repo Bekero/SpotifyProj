@@ -3,6 +3,11 @@ import { useEffect, useState } from 'react'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setNextSong } from '../store/station.actions';
+import play from '../assets/img/play.png'
+import stop from '../assets/img/stop.png'
+import next from '../assets/img/next.png'
+import mute from '../assets/img/mute.png'
+import unmute from '../assets/img/unmute.png'
 
 //* setShuffle() , getPlaylist() , getDuration()
 //* React-Toastify
@@ -12,6 +17,7 @@ import { setNextSong } from '../store/station.actions';
 export function MediaPlayer() {
 
     const [player, setPlayer] = useState(null)
+    const [playSong, setPlay] = useState(null)
     const currentlyPlayingUrl = useSelector(state => state.stationModule.currentlyPlayingUrl)
     const dispatch = useDispatch()
 
@@ -28,10 +34,12 @@ export function MediaPlayer() {
 
     const onPauseVideo = (ev) => {
         player.pauseVideo()
+        setPlay(false)
     }
 
     const onPlayVideo = () => {
         player.playVideo()
+        setPlay(true)
     }
 
     const onNextVideo = () => {
@@ -62,11 +70,11 @@ export function MediaPlayer() {
     };
 
     return <div className='media-player-container'>
-        <button disabled={currentlyPlayingUrl ? false : true} onClick={onPauseVideo}>Pause</button>
-        <button disabled={currentlyPlayingUrl ? false : true} onClick={onPlayVideo}>Play</button>
-        <button disabled={currentlyPlayingUrl ? false : true} onClick={onNextVideo}>Next</button>
-        <button disabled={currentlyPlayingUrl ? false : true} onClick={onMuteVideo}>Mute</button>
-        <button disabled={currentlyPlayingUrl ? false : true} onClick={onSetVolumeVideo}>Unmute</button>
+        <button disabled={currentlyPlayingUrl ? false : true} onClick={onPauseVideo}><img className='media-player-img' src={stop} /></button>
+        <button disabled={currentlyPlayingUrl ? false : true} onClick={onPlayVideo}><img className='media-player-img' src={play} /></button>
+        <button disabled={currentlyPlayingUrl ? false : true} onClick={onNextVideo}><img className='media-player-img' src={next} /></button>
+        <button disabled={currentlyPlayingUrl ? false : true} onClick={onMuteVideo}><img className='media-player-img' src={unmute} /></button>
+        <button disabled={currentlyPlayingUrl ? false : true} onClick={onSetVolumeVideo}><img className='media-player-img' src={mute} /></button>
         {/* {videoTitle && <h3>{videoTitle}</h3>} */}
         {currentlyPlayingUrl &&
             <YouTube
