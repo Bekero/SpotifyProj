@@ -9,10 +9,10 @@ const initialState = {
 export function stationReducer(state = initialState, action) {
     let newState = state
     let stations
+    let newStations
     let myWantedPlaylist
     let wantedPlaylistIdx
     let currStation = state.currStation
-    let newStations
     let currentlyPlayingUrl
     let currSongIdx = state.currSongIdx
 
