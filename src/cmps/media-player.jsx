@@ -21,19 +21,30 @@ export function MediaPlayer() {
     const [playSong, setPlay] = useState(false)
     const [songVolume, setSongVolume] = useState(null)
     const [isSongMuted, setSongMuted] = useState(false)
+    const [videoTitle, setVideoTitle] = useState(false)
     const currentlyPlayingUrl = useSelector(state => state.stationModule.currentlyPlayingUrl)
     const dispatch = useDispatch()
+    // const [songVol, handleChange, setSongVol] = useForm({
+    //     name: '',
+    //     price: ''
+    // })
 
-    // useEffect(() => {}, [currentlyPlayingUrl])
+    useEffect(() => {
+        // setVideoTitle(player.videoTitle)
+        // console.log(player);
+    }, [])
 
     const videoOnReady = (event) => {
         // access to player in all event handlers via event.target
         event.target.pauseVideo()
+        // setVideoTitle(event.target.player.videoTitle)
     }
 
     const onReadyVideo = (event) => {
         setPlayer(event.target)
         setPlay(true)
+        if (!player) return
+        setVideoTitle(player.videoTitle)
     }
 
     const onPauseVideo = (ev) => {
@@ -44,7 +55,6 @@ export function MediaPlayer() {
     const onPlayVideo = () => {
         player.playVideo()
         setPlay(true)
-        console.log(player.getVolume());
     }
 
     const onNextVideo = () => {
@@ -59,15 +69,20 @@ export function MediaPlayer() {
         setSongMuted(true)
         player.setVolume(0)
     }
-    
+
     const onSetVolumeVideo = () => {
         // player.unMute()
         player.setVolume(songVolume)
         setSongMuted(false)
         // player.seekTo(50)
     }
-    // const videoTitle = player.videoTitle
-    // console.log('player :', player.videoTitle)
+
+    const handleChange = (ev) => {
+        console.log(+ev.target.value);
+        const songVol = +ev.target.value
+        player.setVolume(songVol)
+        setSongMuted(songVol === 0 ? true : false)
+    }
 
     const opts = {
         height: '0',
@@ -84,9 +99,10 @@ export function MediaPlayer() {
             <button disabled={currentlyPlayingUrl ? false : true} onClick={onPlayVideo}><img className='media-player-img' src={play} /></button>}
         <button disabled={currentlyPlayingUrl ? false : true} onClick={onPrevVideo}><img className='media-player-img' src={prev} /></button>
         <button disabled={currentlyPlayingUrl ? false : true} onClick={onNextVideo}><img className='media-player-img' src={next} /></button>
-        {isSongMuted ? <button disabled={currentlyPlayingUrl ? false : true} onClick={onSetVolumeVideo}><img className='media-player-img' src={mute} /></button> :
+        {(isSongMuted) ? <button disabled={currentlyPlayingUrl ? false : true} onClick={onSetVolumeVideo}><img className='media-player-img' src={mute} /></button> :
             <button disabled={currentlyPlayingUrl ? false : true} onClick={onMuteVideo}><img className='media-player-img' src={unmute} /></button>}
-        {/* {videoTitle && <h3>{videoTitle}</h3>} */}
+        {videoTitle && <h3>{videoTitle}</h3>}
+        <input type="range" disabled={currentlyPlayingUrl ? false : true} onChange={(ev) => handleChange(ev)} min="0" max="50" step="1" name="volume" id="volume" />
         {currentlyPlayingUrl &&
             <YouTube
                 videoId={currentlyPlayingUrl}
