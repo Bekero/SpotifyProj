@@ -1,4 +1,4 @@
-.add-to-playlist-modal {
+.song-list-opts-menu {
     background-color: #282828;
     z-index: 9999;
     position: absolute;
@@ -12,9 +12,23 @@
         flex-direction: column;
     }
 
+    .add-to-playlist-modal {
+>* {
+        background-color: wheat;
+        position: absolute;
+}
 
-    >* {
+        >* {
 
+            &:hover {
+                background-color: $sec-clr;
+            }
+        }
+    }
+
+    >*>* {
+        background-color: #282828;
+        list-style: none;
 
         &:hover {
             background-color: $sec-clr;

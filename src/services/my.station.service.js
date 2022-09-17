@@ -22,6 +22,7 @@ export const myStationService = {
     save,
     remove,
     getEmptyStation,
+    getEmptyLikedSongsStation,
     getStations,
 }
 window.cs = myStationService
@@ -190,6 +191,20 @@ const user = {}
 function getEmptyStation() {
     return {
         name: 'My Playlist #' + utilService.getRandomIntInclusive(1, 9),
+        songs: [],
+        tags: [],
+        likedByUsers: [],
+        createdBy: {
+            fullname: null,
+            imgUrl: 'https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2'
+        }
+    }
+}
+
+function getEmptyLikedSongsStation() {
+    return {
+        name: 'Liked Songs #',
+        isLikedStation: true,
         songs: [],
         tags: [],
         likedByUsers: [],

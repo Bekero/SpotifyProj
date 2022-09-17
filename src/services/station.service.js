@@ -36,17 +36,16 @@ function getById(stationId) {
 }
 
 async function remove(stationId) {
-    console.log('AAAAAAAAAAAAAAAAAAAAA',stationId);
     await storageService.remove(STORAGE_KEY, stationId)
     // stationChannel.postMessage(getActionRemoveStation(stationId))
 }
 
 async function save(station) {
-    var savedStation
+    let savedStation
     if (station._id) {
         savedStation = await storageService.put(STORAGE_KEY, station)
+        // * The problomis here after the DB Saving its just makes an array and saves it to the DB and also to the action!
         // stationChannel.postMessage(getActionUpdateStation(savedStation))
-
     } else {
         // Later, owner is set by the backend
         station.owner = userService.getLoggedinUser()

@@ -1,5 +1,6 @@
 const initialState = {
     stations: [],
+    likedSongsStation: null,
     currStation: {},
     currSongIdx: null,
     lastRemovedStation: null,
@@ -10,6 +11,8 @@ export function stationReducer(state = initialState, action) {
     let newState = state
     let stations
     let newStations
+    let likedStationIdx
+    let existLikedStation
     let currStation = state.currStation
     let currentlyPlayingUrl
     let currSongIdx = state.currSongIdx
@@ -38,7 +41,27 @@ export function stationReducer(state = initialState, action) {
             newState = { ...state, stations: newStations, lastRemovedStation }
             break
         case 'ADD_STATION':
-            newState = { ...state, stations: [...state.stations, action.station] }
+            likedStationIdx = state.stations.findIndex(station => station._id === action.savedStation._id)
+            existLikedStation = state.stations.filter(station => station._id === action.savedStation._id)
+            if (existLikedStation[0]) {
+                newState = { ...state, stations: [...state.stations[likedStationIdx], existLikedStation[0]] }
+                break
+            }
+            newState = { ...state, stations: [...state.stations, action.savedStation] }
+            break
+        case 'ADD_LIKED_STATION':
+            likedStationIdx = state.stations.findIndex(station => station._id === action.savedStation._id)
+            // existLikedStation = state.stations.filter(station => station._id === action.savedStation._id)
+            if (likedStationIdx !== -1) {
+                console.log('likedStationIdx :', likedStationIdx)
+                newState = { ...state, stations: [...state.stations[likedStationIdx], existLikedStation[0]] }
+                break
+            }
+            newState = { ...state, stations: [...state.stations, action.savedStation] }
+
+            console.log('newState :', newState)
+            // state = { ...state, likedSongsStation: [...action.station] }
+            // newState = { ...state, stations: [...state.stations, action.savedStation] }
             break
         case 'ADD_SONG_TO_LIKED_PLAYLIST':
             newState = { ...state, stations: [...state.stations, action.station] }
