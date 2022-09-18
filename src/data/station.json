@@ -1,15 +1,16 @@
 [
   {
     "_id": "5cksxjas89xjsa8xjsa8jxs09",
-    "name": "Drake 'Honestly, Nevermind' Album'",
+    "name": "Honestly, Nevermind",
     "tags": [
       "Funk",
       "Happy"
     ],
     "createdBy": {
       "_id": "u101",
-      "fullname": "Puki Ben David",
-      "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg"
+      "fullname": "Drake",
+      "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
+      "artistImg": "https://i.scdn.co/image/ab6761610000f1784293385d324db8558179afd9"
     },
     "likedByUsers": [
       "{minimal-user}",

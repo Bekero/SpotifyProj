@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react'
 import { loadStations, addSongToMyPlaylist, addUpdatedLikedStation, addStation } from '../store/station.actions'
-import songMenu from '../assets/img/opts-song-list.png'
-import OptsSvg from './svg/opts-song'
-import playSong from '../assets/img/play-song.png'
 import { myStationService } from '../services/my.station.service'
+// import songMenu from '../assets/img/opts-song-list.png'
+import OptsSvg from './svg/opts-song'
+import LikeSongPreview from '../cmps/svg/like-song-preview'
+import LikeToolBar from '../cmps/svg/like-tool-bar-unfilled'
+import PlaySong from '../cmps/svg/play-song-svg'
 
 export const SongList = ({ station, playCurrUrl, likedStation }) => {
 
@@ -46,7 +48,7 @@ export const SongList = ({ station, playCurrUrl, likedStation }) => {
     }
 
     {
-        return <div>
+        return <>
             {openModal && <ul onMouseLeave={() => setOpenModal(false)} style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }} className="song-list-opts-menu">
                 {myStations.map((station, myPlaylistIdx) =>
                     <div key={myPlaylistIdx}>
@@ -54,58 +56,32 @@ export const SongList = ({ station, playCurrUrl, likedStation }) => {
                     </div>)}
             </ul>}
             {station.songs.map((song, songIdx) => {
-                return <ol key={song.id} className="main-song-list">
-                    <div>
-                        <div className="song-number-img">
-                        <button className="add-to-playlist-btn"><img src={playSong} onClick={() => playCurrUrl(songIdx)} /></button>
-                            <span>{songIdx + 1}</span><img className="song-img" src={`${song.imgUrl}`} />
-                            <div className="song-list-title-container">
-                                <h6>{song.title}</h6>
-                                <span>Artists</span>
-                            </div>
-                        </div>
-                        <div className="album-name-date-added">
-                            <span>Album name</span>
-                            <span>Date Added</span>
-                        </div>
-                        <div className="opts-menu-section">
-                            <button className="add-to-liked-btn" onClick={() => addToLikedPlaylist(song)}>Like</button>
-                            <span className="song-duration-container">{song.songDuration}</span>
-                            <button onClick={(ev) => addToPlaylist(ev, song)} className="add-to-playlist-btn" ><OptsSvg /></button>
+                return <div key={song.id} className="song-preview">
+                    <div className="song-number-play">
+                        {/* Replace it with a svg */}
+                        <div className="play-song-preview"><button onClick={() => playCurrUrl(songIdx)}><PlaySong /></button></div>
+                        {/* <span>{songIdx + 1}</span> */}
+                    </div>
+                    <div className='song-list-title-container'>
+                        <img className="song-img" src={`${song.imgUrl}`} />
+                        <div className='song-list-title'>
+                            <div className="song-title">{song.title}</div>
+                            <div className="artists-name">Artists</div>
                         </div>
                     </div>
-                </ol>
+                    <div className="album-name">
+                        <span>Album name</span>
+                    </div>
+                    <div className='date-added'>
+                        <span>Date Added</span>
+                    </div>
+                    <div className="opts-menu-section">
+                        <div className="like-song-preview-container"><button className="like-song-preview"><LikeToolBar /></button></div>
+                        <div className="song-duration-container">{song.songDuration}</div>
+                        <button onClick={(ev) => addToPlaylist(ev, song)} className="add-to-playlist-btn" ><OptsSvg /></button>
+                    </div>
+                </div>
             })}
-        </div>
+        </>
     }
 }
-
-{/* <ul style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }} className="add-to-playlist-modal">
-                    {myStations.map((station, myPlaylistIdx) =>
-                        <div key={myPlaylistIdx}>
-                            <li onClick={(ev) => onAddToMyPlaylist(myPlaylistIdx)}>{station.name}</li>
-                        </div>)}
-                </ul> */}
-
-                //Menu with opts (Not Working for now)
-// {
-//     openModal && <ul onMouseLeave={() => myPlaylistsList(false)} style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }} className="song-list-opts-menu">
-//         <li onMouseEnter={() => myPlaylistsList(true)} className="add-to-playlist-modal">Add To Playlist</li>
-//         {onMouseOverAddToPlaylist && <div>
-
-//             <ul onMouseLeave={() => setOpenModal(false)} className="playlists-container" style={{ transform: `translate(${modalPos.posX - 10}px, ${modalPos.posY - 300}px )` }}>
-//                 {myStations.map((station, myPlaylistIdx) =>
-//                     <div key={myPlaylistIdx}>
-//                         <li onClick={(ev) => onAddToMyPlaylist(myPlaylistIdx)}>{station.name}</li>
-//                     </div>)}
-//             </ul>
-//         </div>
-//         }
-//         <li onMouseEnter={() => myPlaylistsList(true)} className="add-to-playlist-modal">Bli Bla Blu</li>
-//         <li className="add-to-playlist-modal">Fli Fla Flu</li>
-//         <li className="add-to-playlist-modal">Tli Tla Tlu</li>
-//     </ul>
-// }
-// const myPlaylistsList = (diff) => {
-//     setOnMouseOverAddToPlaylist(diff)
-// }
