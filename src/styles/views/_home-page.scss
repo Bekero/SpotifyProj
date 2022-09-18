@@ -5,12 +5,24 @@
     .app-home {
         padding: 10px;
 
-        // .toast-container {
-        //     position: absolute;
-        //     bottom: 1222px;
-        //     left: 50%;
-        // }
     }
 
 
+}
+
+.Toastify__close-button{
+ display:none
+
+}
+.Toastify__progress-bar--info {
+    display: none;
+}
+
+.Toastify__progress-bar{
+    display: none;
+}
+.Toastify__toast{
+    background-color: #3d91f4;
+    color:#fff;
+    margin-bottom: 6rem;
 }

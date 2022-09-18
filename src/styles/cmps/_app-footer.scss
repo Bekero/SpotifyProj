@@ -1,19 +1,66 @@
 .main-footer-container {
-    background-color: $third-clr;
+    border-top: 1px solid #282828;
+    background-color: $accent-clr;
     display: flex;
     justify-content: space-between;
     grid-column: 1 / -1;
     width: 100%;
     color: $main-txt-clr;
-    padding: 20px;
     text-align: center;
+
+    svg:hover {
+        opacity: 1;
+    }
 
     .media-player-container {
         // display: grid;
         // grid-template-columns: 50px 2fr 2fr 2fr minmax(120px, 1fr);
         display: flex;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        justify-content: space-between;
+
         &:hover {
             background-color: $third-clr;
+        }
+
+        .media-player-video-desc {
+            min-width: 180px;
+            width: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+        }
+
+        .media-player-play-stop-btn {
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            background-color: #fff;
+
+            svg {
+                fill: black;
+                opacity: 1;
+            }
+        }
+
+        .media-player-video-settings {
+            min-width: 180px;
+            width: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .media-player-btn-action {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 722px;
+            width: 40%;
         }
 
         button {
