@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react'
 import { loadStations, addSongToMyPlaylist, addUpdatedLikedStation, addStation } from '../store/station.actions'
-import songMenu from '../assets/img/opts-song-list.png'
 import OptsSvg from './svg/opts-song'
 import playSong from '../assets/img/play-song.png'
 import { myStationService } from '../services/my.station.service'
