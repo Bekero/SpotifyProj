@@ -1,6 +1,7 @@
 import { stationService } from "../services/station.service.js";
 import { userService } from "../services/user.service.js";
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
+import { storageService } from "../services/async-storage.service.js";
 
 // Action Creators:
 export function getActionRemoveStation(stationId) {
@@ -56,7 +57,7 @@ export function loadStations() {
     return async (dispatch) => {
         try {
             const stations = await stationService.query()
-            console.log('Stations from DB:', stations)
+            // console.log('Stations from DB:', stations)
             dispatch({
                 type: 'SET_STATIONS',
                 stations
@@ -111,7 +112,7 @@ export function addStation(station) {
     }
 }
 
-export function setNextSong(diff) {
+export function setNextPrevSong(diff) {
     return (dispatch) => {
         const action = { type: 'SET_NEXT_PREV_SONG', diff }
         dispatch(action)
@@ -127,6 +128,26 @@ export function setCurrPlayingSongIdx(songIdx) {
 export function setCurrPlayingUrl(songIdx) {
     return (dispatch) => {
         dispatch(getActionSetCurrUrl(songIdx))
+    }
+}
+
+export function addSongToMyPlaylist(wantedSong, myPlaylistId) {
+    return async (dispatch, getState) => {
+        let stations = getState().stationModule.stations
+        let myWantedPlaylist = stations.find(station => station._id === myPlaylistId)
+        stations = stations.filter(station => station._id !== myWantedPlaylist._id)
+        myWantedPlaylist.songs.push(wantedSong)
+        const updatedStation = await stationService.save(myWantedPlaylist)
+        stations.push(updatedStation)
+        const action = { type: 'ADD_UPDATED_PLAYLIST_TO_STATIONS', stations }
+        dispatch(action)
+    }
+}
+
+export function addSongLikedPlaylist(wantedSong) {
+    return (dispatch) => {
+        const action = { type: 'ADD_SONG_TO_LIKED_PLAYLIST', wantedSong }
+        dispatch(action)
     }
 }
 

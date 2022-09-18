@@ -1,0 +1,50 @@
+.add-to-playlist-modal {
+    background-color: #282828;
+    z-index: 9999;
+    position: absolute;
+    inset: 0px 0px auto auto;
+    margin: 0px;
+    list-style: none;
+
+    .song-list-title-container {
+        display: flex;
+        // columns: 2;
+        flex-direction: column;
+    }
+
+
+    >* {
+
+
+        &:hover {
+            background-color: $sec-clr;
+        }
+    }
+}
+
+// .add-to-playlist-modal {
+//     background-color: #282828;
+//     display: flex;
+//     align-items: center;
+//     position: relative;
+//     width: 136px;
+//     z-index: 10;
+//     flex-direction: column;
+//     list-style: none;
+//     padding: 0;
+
+//     .song-list-title-container {
+//         display: flex;
+//         // columns: 2;
+//         flex-direction: column;
+//     }
+
+
+//     >* {
+
+
+//         &:hover {
+//             background-color: $sec-clr;
+//         }
+//     }
+// }

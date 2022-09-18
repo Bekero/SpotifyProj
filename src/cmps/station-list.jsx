@@ -1,7 +1,9 @@
 import { StationPreview } from "./station-preview";
 
-export function StationList({ stations }) {
 
+
+export function StationList({ stations }) {
+  
 
     return (
         <section className="station-list-main-container">
@@ -9,6 +11,7 @@ export function StationList({ stations }) {
             <div className="station-list-container">
                 {stations.map(station => <StationPreview key={station._id} station={station} />)}
             </div>
+
 
         </section>
     )

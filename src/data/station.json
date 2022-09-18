@@ -1,7 +1,7 @@
 [
   {
     "_id": "5cksxjas89xjsa8xjsa8jxs09",
-    "name": "Funky Monks",
+    "name": "Drake 'Honestly, Nevermind' Album'",
     "tags": [
       "Funk",
       "Happy"
@@ -9,7 +9,7 @@
     "createdBy": {
       "_id": "u101",
       "fullname": "Puki Ben David",
-      "imgUrl": "http://some-photo/"
+      "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg"
     },
     "likedByUsers": [
       "{minimal-user}",
@@ -18,58 +18,98 @@
     "songs": [
       {
         "id": "s1001",
-        "title": "The Meters - Cissy Strut",
-        "url": "2FNJNnV9DxM",
-        "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
+        "title": "Falling Back",
+        "url": "rJi7GobzRgY",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
         "addedBy": {},
         "addedAt": 162521765262,
         "songDuration": "3:32"
       },
       {
-        "id": "mUkfiasdsLjooxs",
-        "title": "Song 3",
-        "url": "GF8aaTu2kg0",
-        "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+        "id": "kFXHPfI2JoI",
+        "title": "Text Go Green",
+        "url": "kFXHPfI2JoI",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
         "addedBy": {},
         "songDuration": "3:32"
       },
       {
         "id": "resgfsdfgrt123",
-        "title": "The JBs - Pass The Peas",
-        "url": "qZuxPKUVGiw",
-        "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+        "title": "Currents",
+        "url": "1puG2H1QOBA",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
         "addedBy": {},
         "songDuration": "2:59"
       },
       {
         "id": "utjyrhtg12b",
-        "title": "Song 4",
-        "url": "youtube/song.mp4",
-        "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+        "title": "A Keeper",
+        "url": "RaskP_FC9VA",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
         "addedBy": {},
         "songDuration": "4:00"
       },
       {
         "id": "utasdadb",
-        "title": "Song 5",
-        "url": "youtube/song.mp4",
-        "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+        "title": "Calling My Name",
+        "url": "fhumS5MsRyE",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
         "addedBy": {},
         "songDuration": "4:33"
       },
       {
         "id": "g31vewrd",
-        "title": "Song 5",
-        "url": "youtube/song.mp4",
-        "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+        "title": "Sticky",
+        "url": "AnZcWgXZOKM",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
         "addedBy": {},
         "songDuration": "3:23"
       },
       {
+        "id": "2t34fvht23v",
+        "title": "Massive",
+        "url": "ay1l_u6vltY",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
+        "addedBy": {},
+        "songDuration": "3:11"
+      },
+      {
         "id": "qf3ewgsret5r",
-        "title": "Song 5",
-        "url": "youtube/song.mp4",
-        "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+        "title": "Flight's Booked",
+        "url": "hb24kZ0fiEA",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
+        "addedBy": {},
+        "songDuration": "3:11"
+      },
+      {
+        "id": "cqtbvwy34vwt",
+        "title": "Overdrive",
+        "url": "p53kGYHvDn0",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
+        "addedBy": {},
+        "songDuration": "3:11"
+      },
+      {
+        "id": "yutmyrntbfrs2",
+        "title": "Down Hill",
+        "url": "oezuRcSv4i8",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
+        "addedBy": {},
+        "songDuration": "3:11"
+      },
+      {
+        "id": "qctwvh54vq3trgwv",
+        "title": "Tie That Binds",
+        "url": "oezuRcSv4i8",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
+        "addedBy": {},
+        "songDuration": "3:11"
+      },
+      {
+        "id": "cqt4tvcrwqqehgv",
+        "title": "Jimmy Cooks",
+        "url": "V7UgPHjN9qE",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
         "addedBy": {},
         "songDuration": "3:11"
       }
