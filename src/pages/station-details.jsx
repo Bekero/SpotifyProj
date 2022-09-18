@@ -78,7 +78,11 @@ export const StationDetails = () => {
                 Tool Bar Here...
             </div>
             <div className="details-head-lines">
-                HeadLine Here...
+                <span>#</span>
+                <span className="title-head-line">TITLE</span>
+                <span className="album-head-line">ALBUM</span>
+                <span className="date-added-head-line">DATE ADDED</span>
+                <span className="time-head-line">O</span>
             </div>
             <hr></hr>
             <div>

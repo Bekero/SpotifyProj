@@ -33,43 +33,79 @@
         }
     }
 
-    .main-song-list {
+    .details-head-lines {
+
+        display: grid;
+        // grid-template-columns: 0fr 4fr 4.4fr 1fr 1.45fr;
+        grid-template-columns: 0fr 6fr 4fr 4fr 1.7fr;
+    }
+
+    :first-child {
+        // margin-right: 45px;
+        // margin-left: 30px
+    }
+
+    .title-head-line {}
+
+    .album-head-line {}
+
+    span {}
+}
+
+.main-song-list {
+
+    div {
+        display: grid;
+        grid-template-columns: 92px 10fr 0fr 0fr minmax(100px, 0fr);
+        justify-items: center;
+        align-items: center;
+        // display: grid;
+        // justify-content: center;
+        // align-items: center;
+        // grid-template-columns: 2fr 2fr 2fr 2fr 0fr 0fr 1fr;
+        // grid-template-columns: 50px 2fr 2fr 2fr minmax(120px, 1fr);
+
+        // grid-template-columns: 16px 6fr 4fr 3fr minmax(120px,1fr);
+        &:hover {
+            background-color: $third-clr;
+        }
+
+        .add-to-playlist-btn {
+            width: 40px;
+            height: 20px;
+            background-color: $transparent;
+            border: none;
+        }
+
+        .song-duration-container {
+            margin: 20px;
+        }
+
+        .add-to-liked-btn {
+            width: 40px;
+            height: 20px;
+        }
 
         div {
-
-            display: grid;
-            justify-content: center;
-            align-items: center;
-            grid-template-columns: 2fr 2fr 2fr 2fr 0fr 0fr 1fr;
-            // grid-template-columns: 50px 2fr 2fr 2fr minmax(120px, 1fr);
-
-            // grid-template-columns: 16px 6fr 4fr 3fr minmax(120px,1fr);
-            &:hover {
-                background-color: $third-clr;
-            }
-
-            .add-to-playlist-btn {
+            .song-img {
                 width: 40px;
-                height: 20px;
-                background-color: $transparent;
-                border: none;
+                height: 40px;
             }
+        }
 
-            .song-duration-container {
-                margin: 20px;
-            } 
+        .song-number-img {}
 
-            .add-to-liked-btn {
-                width: 40px;
-                height: 20px;
-            }
+        .song-list-title-container {
+            display: flex;
+            flex-direction: column;
+        }
 
-            div {
-                .song-img {
-                    width: 40px;
-                    height: 40px;
-                }
-            }
+        .album-name-date-added {
+            display: flex;
+        }
+
+        .opts-menu-section {
+            display: flex;
         }
     }
 }

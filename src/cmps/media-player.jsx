@@ -78,7 +78,6 @@ export function MediaPlayer() {
     }
 
     const handleChange = (ev) => {
-        console.log(+ev.target.value);
         const songVol = +ev.target.value
         player.setVolume(songVol)
         setSongMuted(songVol === 0 ? true : false)

@@ -1,21 +1,19 @@
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react'
 import { loadStations, addSongToMyPlaylist, addUpdatedLikedStation, addStation } from '../store/station.actions'
-import songMenu from '../assets/img/opts-song-list.png'
+import OptsSvg from './svg/opts-song'
 import { myStationService } from '../services/my.station.service'
 
-export const SongList = ({ station, playCurrUrl }) => {
+export const SongList = ({ station, playCurrUrl, likedStation }) => {
 
     const [wantedSong, setWantedSong] = useState(null)
     const [openModal, setOpenModal] = useState(null)
     const [modalPos, setModalPos] = useState(null)
-    // const [onMouseOverAddToPlaylist, setOnMouseOverAddToPlaylist] = useState(null)
 
     const dispatch = useDispatch()
     let stations = useSelector(state => state.stationModule.stations)
     let likedStationExist = useSelector(state => state.stationModule.likedSongsStation)
 
-    // let currPlayingSongUrl = useSelector(state => state.stationModule.currentlyPlayingUrl)
     let myStations = stations.filter(station => station.isMyStation === true)
 
     useEffect(() => {
@@ -35,8 +33,9 @@ export const SongList = ({ station, playCurrUrl }) => {
         song.isLiked = !song.isLiked
         let likedStation = stations.filter(station => station.isLikedStation === true)
         const newLikedStation = likedStation.length ? likedStation[0] : myStationService.getEmptyLikedSongsStation()
+        console.log('newLikedStation :', newLikedStation)
         dispatch(addStation(newLikedStation))
-        dispatch(addUpdatedLikedStation(song))
+        // dispatch(addUpdatedLikedStation(song))
     }
 
     const onAddToMyPlaylist = (myPlaylistIdx) => {
@@ -55,18 +54,22 @@ export const SongList = ({ station, playCurrUrl }) => {
             {station.songs.map((song, songIdx) => {
                 return <ol onClick={() => playCurrUrl(songIdx)} key={song.id} className="main-song-list">
                     <div>
-                        <div>
-                            {songIdx + 1}<img className="song-img" src={`${song.imgUrl}`} />
+                        <div className="song-number-img">
+                            <span>{songIdx + 1}</span><img className="song-img" src={`${song.imgUrl}`} />
+                            <div className="song-list-title-container">
+                                <h6>{song.title}</h6>
+                                <span>Artists</span>
+                            </div>
                         </div>
-                        <div className="song-list-title-container">
-                            <h6>{song.title}</h6>
-                            <span>Artists</span>
+                        <div className="album-name-date-added">
+                            <span>Album name</span>
+                            <span>Date Added</span>
                         </div>
-                        <span>Album name</span>
-                        <span>Date Added</span>
-                        <button className="add-to-liked-btn" onClick={() => addToLikedPlaylist(song)}>Like</button>
-                        <span className="song-duration-container">{song.songDuration}</span>
-                        <button className="add-to-playlist-btn" ><img src={songMenu} onClick={(ev) => addToPlaylist(ev, song)} /></button>
+                        <div className="opts-menu-section">
+                            <button className="add-to-liked-btn" onClick={() => addToLikedPlaylist(song)}>Like</button>
+                            <span className="song-duration-container">{song.songDuration}</span>
+                            <button onClick={(ev) => addToPlaylist(ev, song)} className="add-to-playlist-btn" ><OptsSvg /></button>
+                        </div>
                     </div>
                 </ol>
             })}
