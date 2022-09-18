@@ -1,3 +1,4 @@
+@import '../setup/typography';
 * {
     box-sizing: border-box;
 }
@@ -8,7 +9,7 @@
 }
 
 html {
-    font-family: montserrat;
+    font-family: open-sans, sans-serif;
     line-height: 1.6;
     color: $main-txt-clr;
 }
@@ -25,7 +26,6 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: caveat;
     margin: 0 0 0.6em;
     line-height: 1;
 }
@@ -35,11 +35,11 @@ svg{
     opacity: 0.7;
 }
 
-section,
-main,
-footer {
-    padding: 5px;
-}
+// section,
+// main,
+// footer {
+//     padding: 5px;
+// }
 
 img {
     width: 100%;
