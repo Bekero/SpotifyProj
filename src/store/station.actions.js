@@ -1,7 +1,7 @@
-import { stationService } from "../services/station.service.js";
 import { userService } from "../services/user.service.js";
-import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { storageService } from "../services/async-storage.service.js";
+import { stationService } from "../services/station.service.js";
+import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 
 // Action Creators:
 export function getActionRemoveStation(stationId) {
@@ -69,23 +69,25 @@ export function loadStations() {
     }
 }
 
-export function loadLikedStation() {
-    return async (dispatch) => {
-        try {
-            const stations = await stationService.query()
-            // stations.filter(station => return station)
-            // console.log('Stations from DB:', stations)
-            dispatch({
-                type: 'SET_STATIONS',
-                stations
-            })
+// export function loadLikedStation() {
+//     return async (dispatch) => {
+//         try {
+//             const stations = await stationService.query()
+//             let station= stations.filter(station => station.isLikedStation === true)
+//             console.log('station :', station)
+//             // stations.filter(station => return station)
+//             // console.log('Stations from DB:', stations)
+//             dispatch({
+//                 type: 'SET_STATIONS',
+//                 stations
+//             })
 
-        } catch (err) {
-            showErrorMsg('Cannot load stations')
-            console.log('Cannot load stations', err)
-        }
-    }
-}
+//         } catch (err) {
+//             showErrorMsg('Cannot load stations')
+//             console.log('Cannot load stations', err)
+//         }
+//     }
+// }
 
 export function setCurrStation(stationId) {
     return async (dispatch) => {
@@ -120,6 +122,7 @@ export function addStation(currStation) {
             let likedStation = stations.filter(station => station.isLikedStation === true)
             if (likedStation.length) {
                 currStation = likedStation[0]
+                return currStation
             }
         }
         try {
@@ -135,29 +138,29 @@ export function addStation(currStation) {
     }
 }
 
-export function addUpdatedLikedStation(wantedSong) {
-    return async (dispatch, getState) => {
-        let stations = getState().stationModule.stations
-        let myWantedLikedStation = stations.filter(station => station.isLikedStation === true)
-        // console.log('myWantedLikedStation :', myWantedLikedStation[0])
-        // console.log('stations :', stations)
-        if (!myWantedLikedStation || !myWantedLikedStation.length) return
-        // console.log('myWantedLikedStation :', myWantedLikedStation)
-        stations = stations.filter(station => station._id !== myWantedLikedStation[0]._id)
-        myWantedLikedStation[0].songs.push(wantedSong)
-        try {
-            const savedStation = await stationService.save(myWantedLikedStation)
-            //* When station._id is true it adds owner and ID to the station and keep render another [{likedStation}, owner: asd, id"asdasd"]
-            const action = { type: 'ADD_LIKED_STATION', savedStation }
-            dispatch(action)
-            showSuccessMsg('Station added')
-        }
-        catch (err) {
-            showErrorMsg('Cannot add station')
-            console.log('Cannot add station', err)
-        }
-    }
-}
+// export function addUpdatedLikedStation(wantedSong) {
+//     return async (dispatch, getState) => {
+//         let stations = getState().stationModule.stations
+//         let myWantedLikedStation = stations.filter(station => station.isLikedStation === true)
+//         // console.log('myWantedLikedStation :', myWantedLikedStation[0])
+//         // console.log('stations :', stations)
+//         if (!myWantedLikedStation || !myWantedLikedStation.length) return
+//         // console.log('myWantedLikedStation :', myWantedLikedStation)
+//         stations = stations.filter(station => station._id !== myWantedLikedStation[0]._id)
+//         myWantedLikedStation[0].songs.push(wantedSong)
+//         try {
+//             const savedStation = await stationService.save(myWantedLikedStation)
+//             //* When station._id is true it adds owner and ID to the station and keep render another [{likedStation}, owner: asd, id"asdasd"]
+//             const action = { type: 'ADD_LIKED_STATION', savedStation }
+//             dispatch(action)
+//             showSuccessMsg('Station added')
+//         }
+//         catch (err) {
+//             showErrorMsg('Cannot add station')
+//             console.log('Cannot add station', err)
+//         }
+//     }
+// }
 
 // export function addUpdatedLikedStation(likedStation) {
 //     return async (dispatch, getState) => {
@@ -204,34 +207,20 @@ export function setCurrPlayingUrl(songIdx) {
 export function addSongToMyPlaylist(wantedSong, myPlaylistId) {
     return async (dispatch, getState) => {
         let stations = getState().stationModule.stations
-        let myWantedStation = stations.find(station => station._id === myPlaylistId)
-        stations = stations.filter(station => station._id !== myWantedStation._id)
+        let myWantedStation = structuredClone(stations.find(station => station._id === myPlaylistId))
         myWantedStation.songs.push(wantedSong)
         const updatedStation = await stationService.save(myWantedStation)
-        stations.push(updatedStation)
-        const action = { type: 'ADD_UPDATED_PLAYLIST_TO_STATIONS', stations }
+        const action = { type: 'ADD_UPDATED_PLAYLIST_TO_STATIONS', updatedStation }
         dispatch(action)
     }
 }
 
-// export function addSongLiked(likedSong) {
-//     console.log('likedSong :', likedSong)
-//     return async (dispatch, getState) => {
-//         let likedSongsStation = getState().stationModule.likedSongsStation
-//         let stations = getState().stationModule.stations
-//         likedSongsStation.push(likedSong)
-//         console.log('stations :', stations)
-//         console.log('likedSongsStation :', likedSongsStation)
+// export function addSongLikedPlaylist(wantedSong) {
+//     return (dispatch) => {
+//         const action = { type: 'ADD_SONG_TO_LIKED_PLAYLIST', wantedSong }
+//         dispatch(action)
 //     }
-
 // }
-
-export function addSongLikedPlaylist(wantedSong) {
-    return (dispatch) => {
-        const action = { type: 'ADD_SONG_TO_LIKED_PLAYLIST', wantedSong }
-        dispatch(action)
-    }
-}
 
 export function updateStation(station) {
     return (dispatch) => {
