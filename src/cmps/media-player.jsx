@@ -2,7 +2,7 @@ import YouTube, { YouTubeProps } from 'react-youtube';
 import { useEffect, useState } from 'react'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setNextPrevSong } from '../store/station.actions';
+// import { setNextPrevSong } from '../store/station.actions';
 import play from '../assets/img/play.png'
 import stop from '../assets/img/stop.png'
 import next from '../assets/img/next.png'
@@ -61,11 +61,11 @@ export function MediaPlayer() {
         //  currSongIdx++
         // dispatch(setNextSong())
         // dispatch(setNextSong(1))
-        dispatch(setNextPrevSong(1))
+        // dispatch(setNextPrevSong(1))
     }
-    const onPrevVideo = () => {
-        dispatch(setNextPrevSong(-1))
-    }
+    // const onPrevVideo = () => {
+    //     dispatch(setNextPrevSong(-1))
+    // }
 
     const onMuteVideo = () => {
         setSongVolume(player.getVolume())
@@ -107,7 +107,7 @@ export function MediaPlayer() {
         <button disabled={currentlyPlayingUrl ? false : true} onClick={onSetVolumeVideo}>Unmute</button>
         {playSong ? <button disabled={currentlyPlayingUrl ? false : true} onClick={onPauseVideo}><img className='media-player-img' src={stop} /></button> :
             <button disabled={currentlyPlayingUrl ? false : true} onClick={onPlayVideo}><img className='media-player-img' src={play} /></button>}
-        <button disabled={currentlyPlayingUrl ? false : true} onClick={onPrevVideo}><img className='media-player-img' src={prev} /></button>
+        {/* <button disabled={currentlyPlayingUrl ? false : true} onClick={onPrevVideo}><img className='media-player-img' src={prev} /></button> */}
         <button disabled={currentlyPlayingUrl ? false : true} onClick={onNextVideo}><img className='media-player-img' src={next} /></button>
         {(isSongMuted) ? <button disabled={currentlyPlayingUrl ? false : true} onClick={onSetVolumeVideo}><img className='media-player-img' src={mute} /></button> :
             <button disabled={currentlyPlayingUrl ? false : true} onClick={onMuteVideo}><img className='media-player-img' src={unmute} /></button>}

@@ -1,6 +1,5 @@
 .app-header{
     margin: 0;
-    background-color:#121212;
     padding: 16px;
     padding-inline-end: 16px;
     position: relative;
@@ -12,6 +11,7 @@
         display: flex;
         justify-content: space-between;
     }
+    
   .go-back-btn{
     align-items: center;
     background-color: rgba(0,0,0,.7);
@@ -26,6 +26,11 @@
     width: 32px;
   }
 
+  .dir-btns{
+    gap: 16px;
+    display: flex;
+  }
+
   .user-icon{
     align-items: center;
     background-color: #535353;
@@ -38,6 +43,20 @@
     height: 100%;
     justify-content: center;
     width: 100%;
+  }
+
+  .forward-btn{
+    align-items: center;
+    background-color: rgba(0,0,0,.7);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    height: 32px;
+    justify-content: center;
+    position: relative;
+    width: 32px;
   }
 
   .go-back-btn{
