@@ -36,8 +36,8 @@ export function MediaPlayer() {
     //     price: ''
     // })
 
-    // useEffect(() => {
-    // }, [])
+    
+
     useEffect(()=>{
         setPlay(true)
         console.log(player);
@@ -45,7 +45,6 @@ export function MediaPlayer() {
         // console.log(player);
         setVideoTitle(player.videoTitle)
     },[player, currentlyPlayingUrl])
-
 
     const videoOnReady = (event) => {
         event.target.pauseVideo()
