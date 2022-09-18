@@ -12,7 +12,6 @@ export function StationLibrary() {
         dispatch(loadStations())
     }, [])
     stations = stations.filter(station => station.isMyStation === true)
-    console.log('My Playlists after filter', stations);
     if (!stations.length) return <div>You have no playlists...</div>
     if (!stations) return <div>Loading...</div>
     return (

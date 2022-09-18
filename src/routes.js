@@ -1,4 +1,4 @@
-import { LikedSongs } from './cmps/app-liked-songs'
+import { LikedSongs } from './pages/app-liked-songs'
 import { AppSearch } from './cmps/app-search'
 import { GenreDetails } from './pages/genre-details'
 import { HomePage } from './pages/home-page'
