@@ -1,20 +1,27 @@
-.app-header{
-    margin: 0;
-    padding: 16px;
-    padding-inline-end: 16px;
-    position: relative;
-    cursor: pointer;
-     
-    .app-header-top-bar{
-        min-width: 0;
-        pointer-events: none;
-        display: flex;
-        justify-content: space-between;
-    }
-    
-  .go-back-btn{
+.app-header {
+  margin: 0;
+  padding: 16px;
+  padding-inline-end: 16px;
+  position: relative;
+
+  // .dir-btns {
+  //   &>button{
+  //     cursor: pointer;
+
+  //   }
+
+  // }
+
+  .app-header-top-bar {
+    min-width: 0;
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .go-back-btn {
     align-items: center;
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(0, 0, 0, .7);
     border: none;
     border-radius: 50%;
     color: #fff;
@@ -26,12 +33,12 @@
     width: 32px;
   }
 
-  .dir-btns{
+  .dir-btns {
     gap: 16px;
     display: flex;
   }
 
-  .user-icon{
+  .user-icon {
     align-items: center;
     background-color: #535353;
     border-radius: 50%;
@@ -45,9 +52,9 @@
     width: 100%;
   }
 
-  .forward-btn{
+  .forward-btn {
     align-items: center;
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(0, 0, 0, .7);
     border: none;
     border-radius: 50%;
     color: #fff;
@@ -59,9 +66,9 @@
     width: 32px;
   }
 
-  .go-back-btn{
+  .go-back-btn {
     align-items: center;
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(0, 0, 0, .7);
     border: none;
     border-radius: 50%;
     color: #fff;

@@ -8,7 +8,7 @@ export function SideNav() {
         return (
             <div className="side-nav">
 
-                <NavLink className="header-logo" to='/' > <h2> Shlomify 👧🏽 </h2></NavLink>
+                <NavLink className="header-logo" to='/' > <h2> Harmony </h2></NavLink>
                 <nav className="nav-container">
                     <NavLink to='/' >Home</NavLink>
                     <NavLink to='/search' >Search</NavLink>

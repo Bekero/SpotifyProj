@@ -6,7 +6,7 @@ export class AppSearch extends React.Component {
     render() {
         return (
             <div className="app-search">
-                <h2> Hello From Search App </h2>
+                {/* <h2> Hello From Search App </h2> */}
                 <GenreList />
             </div>
         )

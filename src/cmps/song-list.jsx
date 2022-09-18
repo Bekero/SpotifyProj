@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react'
 import { loadStations, addSongToMyPlaylist, addUpdatedLikedStation, addStation } from '../store/station.actions'
 import songMenu from '../assets/img/opts-song-list.png'
+import OptsSvg from './svg/opts-song'
 import playSong from '../assets/img/play-song.png'
 import { myStationService } from '../services/my.station.service'
 
@@ -69,7 +70,9 @@ export const SongList = ({ station, playCurrUrl }) => {
                         <span>Date Added</span>
                         <button className="add-to-liked-btn" onClick={() => addToLikedPlaylist(song)}>Like</button>
                         <span className="song-duration-container">{song.songDuration}</span>
-                        <button className="add-to-playlist-btn" ><img src={songMenu} onClick={(ev) => addToPlaylist(ev, song)} /></button>
+                        <button onClick={(ev) => addToPlaylist(ev, song)} className="add-to-playlist-btn" ><OptsSvg /></button>
+
+                        {/* <button className="add-to-playlist-btn" ><img src={songMenu} onClick={(ev) => addToPlaylist(ev, song)} /></button> */}
                     </div>
                 </ol>
             })}

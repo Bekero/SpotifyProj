@@ -16,7 +16,7 @@ export function StationLibrary() {
     if (!stations) return <div>Loading...</div>
     return (
         <div className="app-home main-view">
-            <h6>Hello from Station Library </h6>
+            {/* <h6>Hello from Station Library </h6> */}
             <StationList stations={stations} />
         </div>
     )

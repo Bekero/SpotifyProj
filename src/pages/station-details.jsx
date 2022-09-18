@@ -75,10 +75,10 @@ export const StationDetails = () => {
                 {isEditStation && <StationEditModal station={station} onCloseStation={onCloseStation} onEditStation={onEditStation} />}
             </div>
             <div className="details-tool-bar">
-                Tool Bar Here...
+                {/* Tool Bar Here... */}
             </div>
             <div className="details-head-lines">
-                HeadLine Here...
+                {/* HeadLine Here... */}
             </div>
             <hr></hr>
             <div>
