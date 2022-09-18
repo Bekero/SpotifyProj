@@ -56,6 +56,7 @@ export const SongList = ({ station, playCurrUrl, likedStation }) => {
                 return <ol key={song.id} className="main-song-list">
                     <div>
                         <div className="song-number-img">
+                        <button className="add-to-playlist-btn"><img src={playSong} onClick={() => playCurrUrl(songIdx)} /></button>
                             <span>{songIdx + 1}</span><img className="song-img" src={`${song.imgUrl}`} />
                             <div className="song-list-title-container">
                                 <h6>{song.title}</h6>
