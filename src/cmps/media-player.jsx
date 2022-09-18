@@ -3,13 +3,20 @@ import { useEffect, useState } from 'react'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setNextPrevSong } from '../store/station.actions';
-import play from '../assets/img/play.png'
-import stop from '../assets/img/stop.png'
-import next from '../assets/img/next.png'
-import prev from '../assets/img/prev.png'
-import mute from '../assets/img/mute.png'
-import unmute from '../assets/img/unmute.png'
-
+// import play from '../assets/img/play.png'
+// import stop from '../assets/img/stop.png'
+// import stop from '../assets/img/stop-song.svg'
+import Stop from './svg/stop-song-svg'
+// import Play from '../assets/img/play-song.svg'
+import Play from './svg/play-song-svg'
+import Next from './svg/next-song-svg'
+import Prev from './svg/prev-song-svg'
+import VolumeOn from './svg/volume-off-svg'
+import VolumeOff from './svg/volume-on-svg'
+// import next from '../assets/img/next-song.svg'
+// import prev from '../assets/img/prev-song.svg'
+// import unmute from '../assets/img/volume-on.svg'
+// import mute from '../assets/img/volume-off.svg'
 //* setShuffle() , getPlaylist() , getDuration()
 //* React-Toastify
 //* Google API you user search
@@ -29,22 +36,29 @@ export function MediaPlayer() {
     //     price: ''
     // })
 
-    useEffect(() => {
-        // setVideoTitle(player.videoTitle)
+    // useEffect(() => {
+    // }, [])
+    useEffect(()=>{
+        setPlay(true)
+        console.log(player);
+        if (!player) return
         // console.log(player);
-    }, [])
+        setVideoTitle(player.videoTitle)
+    },[player, currentlyPlayingUrl])
+
 
     const videoOnReady = (event) => {
-        // access to player in all event handlers via event.target
         event.target.pauseVideo()
-        // setVideoTitle(event.target.player.videoTitle)
     }
 
-    const onReadyVideo = (event) => {
-        setPlayer(event.target)
-        setPlay(true)
-        if (!player) return
-        setVideoTitle(player.videoTitle)
+    const onReadyVideo = async (event) => {
+        setPlayer(event.target,)
+        // setPlay(true)
+        // console.log(player);
+        // if (!player) return
+        // console.log(player);
+        // setVideoTitle(player.videoTitle)
+        // player.setVolume(50)
     }
 
     const onPauseVideo = (ev) => {
@@ -74,11 +88,11 @@ export function MediaPlayer() {
         // player.unMute()
         player.setVolume(songVolume)
         setSongMuted(false)
+        // setSongVolume(player.getVolume())
         // player.seekTo(50)
     }
 
     const handleChange = (ev) => {
-        console.log(+ev.target.value);
         const songVol = +ev.target.value
         player.setVolume(songVol)
         setSongMuted(songVol === 0 ? true : false)
@@ -95,14 +109,20 @@ export function MediaPlayer() {
     };
 
     return <div className='media-player-container'>
-        {playSong ? <button disabled={currentlyPlayingUrl ? false : true} onClick={onPauseVideo}><img className='media-player-img' src={stop} /></button> :
-            <button disabled={currentlyPlayingUrl ? false : true} onClick={onPlayVideo}><img className='media-player-img' src={play} /></button>}
-        <button disabled={currentlyPlayingUrl ? false : true} onClick={onPrevVideo}><img className='media-player-img' src={prev} /></button>
-        <button disabled={currentlyPlayingUrl ? false : true} onClick={onNextVideo}><img className='media-player-img' src={next} /></button>
-        {(isSongMuted) ? <button disabled={currentlyPlayingUrl ? false : true} onClick={onSetVolumeVideo}><img className='media-player-img' src={mute} /></button> :
-            <button disabled={currentlyPlayingUrl ? false : true} onClick={onMuteVideo}><img className='media-player-img' src={unmute} /></button>}
-        {videoTitle && <h3>{videoTitle}</h3>}
-        <input type="range" disabled={currentlyPlayingUrl ? false : true} onChange={(ev) => handleChange(ev)} min="0" max="50" step="1" name="volume" id="volume" />
+        <div className='media-player-video-desc'>
+            {videoTitle && <h3>{videoTitle}</h3>}
+        </div>
+        <div className='media-player-btn-action'>
+            <button disabled={currentlyPlayingUrl ? false : true} onClick={onPrevVideo}><Prev /></button>
+            {playSong ? <button className='media-player-play-stop-btn' disabled={currentlyPlayingUrl ? false : true} onClick={onPauseVideo}><Stop /></button> :
+                <button className='media-player-play-stop-btn' disabled={currentlyPlayingUrl ? false : true} onClick={onPlayVideo}><Play /></button>}
+            <button disabled={currentlyPlayingUrl ? false : true} onClick={onNextVideo}><Next /></button>
+        </div>
+        <div className='media-player-video-settings'>
+            {(isSongMuted) ? <button disabled={currentlyPlayingUrl ? false : true} onClick={onSetVolumeVideo}><VolumeOn/></button> :
+                <button disabled={currentlyPlayingUrl ? false : true} onClick={onMuteVideo}><VolumeOff/></button>}
+            <input type="range" disabled={currentlyPlayingUrl ? false : true} onChange={(ev) => handleChange(ev)} min="0" max="50" step="1" name="volume" id="volume" />
+        </div>
         {currentlyPlayingUrl &&
             <YouTube
                 videoId={currentlyPlayingUrl}

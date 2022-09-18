@@ -182,7 +182,7 @@ export function addUpdatedLikedStation(wantedSong) {
 //     }
 // }
 
-export function setNextSong(diff) {
+export function setNextPrevSong(diff) {
     return (dispatch) => {
         const action = { type: 'SET_NEXT_PREV_SONG', diff }
         dispatch(action)

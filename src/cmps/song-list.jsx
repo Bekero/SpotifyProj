@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react'
 import { loadStations, addSongToMyPlaylist, addUpdatedLikedStation, addStation } from '../store/station.actions'
 import songMenu from '../assets/img/opts-song-list.png'
+import playSong from '../assets/img/play-song.png'
 import { myStationService } from '../services/my.station.service'
 
 export const SongList = ({ station, playCurrUrl }) => {
@@ -53,9 +54,11 @@ export const SongList = ({ station, playCurrUrl }) => {
                     </div>)}
             </ul>}
             {station.songs.map((song, songIdx) => {
-                return <ol onClick={() => playCurrUrl(songIdx)} key={song.id} className="main-song-list">
+                return <ol key={song.id} className="main-song-list">
                     <div>
                         <div>
+                            <button className="add-to-playlist-btn"><img src={playSong} onClick={() => playCurrUrl(songIdx)} /></button>
+
                             {songIdx + 1}<img className="song-img" src={`${song.imgUrl}`} />
                         </div>
                         <div className="song-list-title-container">
