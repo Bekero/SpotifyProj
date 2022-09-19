@@ -14,12 +14,13 @@ export const SongList = ({ station, playCurrUrl, likedStation }) => {
     const [wantedSong, setWantedSong] = useState(null)
     const [openModal, setOpenModal] = useState(null)
     const [modalPos, setModalPos] = useState(null)
-    // const [playHover, setPlayHover] = useState(null)
+    const [playHover, setPlayHover] = useState(false)
+    const [currSongIdx, setCurrSongIdx] = useState(null)
 
     const dispatch = useDispatch()
     let stations = useSelector(state => state.stationModule.stations)
-    let likedStationExist = useSelector(state => state.stationModule.likedSongsStation)
-    // let currSongIdx = null
+    let currPlayingSong = useSelector(state => state.stationModule.currPlayingSong)
+    // let likedStationExist = useSelector(state => state.stationModule.likedSongsStation)
 
     let myStations = stations.filter(station => station.isMyStation === true)
 
@@ -50,12 +51,11 @@ export const SongList = ({ station, playCurrUrl, likedStation }) => {
         dispatch(addSongToMyPlaylist(wantedSong, myStations[myPlaylistIdx]._id))
     }
 
-    const onSongHover = (ev, diff, songIdx) => {
-        // ev.target.className = diff ? 'song-preview shown' : 'song-preview'
-        // setPlayHover(diff)
-        // currSongIdx = songIdx
+    const onSongHover = (diff, songIdx) => {
+        setPlayHover(diff)
+        setCurrSongIdx(songIdx)
+        console.log('currPlayingSong :', currPlayingSong)
     }
-    // let hoverSongPreview = playHover ? <div className="play-song-preview"><PlaySong /></div> : <div>{currSongIdx + 1}</div>
 
 
     {
@@ -67,13 +67,9 @@ export const SongList = ({ station, playCurrUrl, likedStation }) => {
                     </div>)}
             </ul>}
             {station.songs.map((song, songIdx) => {
-                return <div onMouseOver={(ev) => onSongHover(ev, true, songIdx)} onMouseLeave={() => onSongHover(false)} key={song.id} className="song-preview">
+                return <div onMouseOver={() => onSongHover(true, songIdx)} onMouseLeave={() => onSongHover(false, songIdx)} key={song.id} className="song-preview">
                     <div className="song-number-play">
-                        {/* {playHover && <div className="play-song-preview"><button onClick={() => playCurrUrl(songIdx)}><PlaySong /></button></div>}
-                        {!playHover && <div>{songIdx + 1}</div>} */}
-                        <div className="play-song-preview"><button onClick={() => playCurrUrl(songIdx)}><PlaySong /></button></div>
-                        {/*  */}
-                        {/* <span>{songIdx + 1}</span> */}
+                        {(playHover && (currSongIdx === songIdx)) ? <div className="play-song-preview"><button onClick={() => playCurrUrl(songIdx)}><PlaySong /></button></div> : <div>{songIdx + 1}</div>}
                     </div>
                     <div className='song-list-title-container'>
                         <img className="song-img" src={`${song.imgUrl}`} />
@@ -89,9 +85,9 @@ export const SongList = ({ station, playCurrUrl, likedStation }) => {
                         <span>Date Added</span>
                     </div>
                     <div className="opts-menu-section">
-                        <div className="like-song-preview-container"><button className="like-song-preview"><LikeToolBar /></button></div>
+                        <button className="like-song-preview"><LikeToolBar /></button>
                         <div className="song-duration-container">{song.songDuration}</div>
-                        <button onClick={(ev) => addToPlaylist(ev, song)} className="add-to-playlist-btn" ><OptsSvg /></button>
+                        <div><button onClick={(ev) => addToPlaylist(ev, song)} className="add-to-playlist-btn" ><OptsSvg /></button></div>
                     </div>
                 </div>
             })}
