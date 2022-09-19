@@ -1,5 +1,6 @@
+
 .main-details-container {
-    padding: 0 32px;
+    // padding: 0 32px;
     .station-details {
         color: #fff;
         display: flex;
@@ -22,11 +23,8 @@
 
         .details-container {
             display: flex;
-            // -ms-flex: 1;
             align-content: space-between;
             flex: 1;
-            // -ms-flex-flow: column;
-            // flex-flow: column;
             flex-direction: column;
             justify-content: flex-end;
             z-index: 0;
@@ -57,14 +55,6 @@
         }
     }
 
-    // :first-child {
-    //     // margin-right: 45px;
-    //     // margin-left: 30px
-    // }
-
-        // padding-inline-start: 0;
-
-        div {
     .details-tool-bar {
         padding: 24px;
         display: flex;
@@ -79,11 +69,7 @@
         .play-song-tool-bar-container {
 
             button:hover {
-                // inline-size: 56px;
-                // block-size: 56px;
-                // border-radius: 500px;
                 background-color: $hover-green-clr;
-
             }
 
             svg {
@@ -141,7 +127,6 @@
             }
         }
     }
-}
 
 .main-details {
     padding: 0;
