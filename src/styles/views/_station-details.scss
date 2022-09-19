@@ -256,6 +256,19 @@
             }
         }
 
+        .song-preview.shown {
+            .opts-menu-section {
+                .like-song-preview-container {
+                    .like-song-preview {
+                        svg.shown {
+                            fill: $sec-txt-clr;
+                        }
+    
+                    }
+                }
+            }
+        }
+
         .opts-menu-section {
             display: flex;
             justify-self: end;
@@ -269,11 +282,20 @@
                     border: none;
 
                     svg {
+                        fill: $transparent;
                         width: 16px;
                         height: 16px;
                         //For the liked Part fill it with green
                         // fill: green!!!;
                     }
+
+                    svg.shown {
+                        fill: $sec-txt-clr;
+                        &:hover {
+                            fill: $main-txt-clr
+                        }
+                    }
+
                 }
 
             }
