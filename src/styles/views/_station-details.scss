@@ -57,15 +57,10 @@
         }
     }
 
-    // :first-child {
-    //     // margin-right: 45px;
-    //     // margin-left: 30px
-    // }
 
-        // padding-inline-start: 0;
 
-        div {
-    .details-tool-bar {
+     
+        .details-tool-bar {
         padding: 24px;
         display: flex;
         flex-direction: row;
@@ -99,7 +94,7 @@
                 background-color: $not-hover-green-clr;
 
             }
-        }
+        
 
         .like-tool-bar-container {
 

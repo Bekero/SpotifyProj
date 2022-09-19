@@ -16,7 +16,7 @@ export function SideNav() {
                     <ul className="flex">
                     <li><NavLink to='/'  className='flex'> <HomeIcon/>Home</NavLink></li>
                    <li > <NavLink to='/search' className='flex' ><SearchIcon/>Search</NavLink> </li>
-                    <li ><NavLink to='/collection/playlist'className='flex'> <LibraryIcon/>Youre Library</NavLink></li>
+                    <li ><NavLink to='/collection/playlist'className='flex'> <LibraryIcon/>Your Library</NavLink></li>
                     </ul>
                 </nav>
                 <div className="playlist-container">
