@@ -1,18 +1,20 @@
 import React from 'react';
+import { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router'
 import routes from './routes'
 import { SideNav } from './cmps/side-nav'
 import { AppFooter } from './cmps/app-footer'
 import { AppHeader } from './cmps/app-header';
 
-export class RootCmp extends React.Component {
+export const RootCmp = ()=>{
+   const [scrollTop, setScrollTop] = useState(0);
 
-    render() {
+    
         return (
             <div className="app-container">
                 <SideNav />
-                <main className="home-app-container">
-                <AppHeader />
+                <main onScroll={(ev) => {setScrollTop(ev.currentTarget.scrollTop)}} className="home-app-container">
+                <AppHeader scrollTop={scrollTop}/>
                     <Routes>
                         {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
                     </Routes>
@@ -20,7 +22,7 @@ export class RootCmp extends React.Component {
                 <AppFooter />
             </div>
         )
-    }
+    
 }
 
 
