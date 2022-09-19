@@ -1,5 +1,6 @@
 .main-details-container {
-    padding: 0 32px;
+    // padding: 0 32px;
+
     .station-details {
         color: #fff;
         display: flex;
@@ -57,16 +58,8 @@
         }
     }
 
-    // :first-child {
-    //     // margin-right: 45px;
-    //     // margin-left: 30px
-    // }
-
-        // padding-inline-start: 0;
-
-        div {
     .details-tool-bar {
-        padding: 24px;
+        padding: 24px 32px;
         display: flex;
         flex-direction: row;
         width: 100%;
@@ -79,11 +72,7 @@
         .play-song-tool-bar-container {
 
             button:hover {
-                // inline-size: 56px;
-                // block-size: 56px;
-                // border-radius: 500px;
                 background-color: $hover-green-clr;
-
             }
 
             svg {
@@ -92,6 +81,9 @@
             }
 
             .play-song-tool-bar {
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 inline-size: 56px;
                 block-size: 56px;
                 border-radius: 500px;
@@ -102,7 +94,7 @@
         }
 
         .like-tool-bar-container {
-
+            display: flex;
             button.like-tool-bar {
                 background-color: $transparent;
                 border: none;
@@ -141,166 +133,170 @@
             }
         }
     }
-}
 
-.main-details {
-    padding: 0;
+    .main-details {
+        padding: 0;
 
-    padding: 0 32px;
+        padding: 0 32px;
 
-    .details-head-lines {
-        display: grid;
-        // grid-template-columns: 16px 6fr 4fr 3fr minmax(130px, 1fr);
-        grid-template-columns: 16px 6fr 4fr 7fr minmax(90px, 1fr);
-        justify-items: flex-start;
-        // justify-items: center;
-        align-items: center;
-        grid-gap: 16px;
-        height: 56px;
-        border-bottom: 1px solid $sec-txt-clr;
-    }
-
-    .song-preview {
-        display: grid;
-        grid-template-columns: 16px 6fr 4fr 3fr minmax(130px, 1fr);
-        justify-items: center;
-        align-items: center;
-        grid-gap: 16px;
-        height: 56px;
-
-        &:hover {
-            background-color: $third-clr;
-            border-radius: 4px;
-        }
-
-        .song-number-play {
-            display: flex;
+        .details-head-lines {
+            display: grid;
+            // grid-template-columns: 16px 6fr 4fr 3fr minmax(130px, 1fr);
+            grid-template-columns: 16px 6fr 4fr 7fr minmax(90px, 1fr);
+            justify-items: flex-start;
+            // justify-items: center;
             align-items: center;
-
-            .play-song-preview {
-                button {
-                    background-color: $transparent;
-                    border: none;
-                }
-
-                svg {
-                    width: 16p;
-                    height: 16px;
-                    fill: $main-txt-clr;
-                    opacity: 0.9;
-                }
-            }
+            grid-gap: 16px;
+            height: 56px;
+            border-bottom: 1px solid $sec-txt-clr;
         }
 
-        .add-to-playlist-btn {
-            width: 40px;
-            height: 20px;
-            background-color: $transparent;
-            border: none;
-        }
-
-        .song-list-title-container {
-            display: flex;
-            flex-direction: row;
+        .song-preview {
+            display: grid;
+            grid-template-columns: 16px 6fr 4fr 3fr minmax(130px, 1fr);
+            justify-items: center;
             align-items: center;
-            justify-self: start;
+            grid-gap: 16px;
+            height: 56px;
 
-            .song-list-title {
-                flex-direction: column;
-                padding-right: 8px;
-                column-gap: 8px;
-                display: grid;
-                gap: 4px;
-                // grid-template:
-                //     "song-title song-title"
-                //     "artists-name" /auto 1fr;
-
-                >* {
-                    font-size: 1rem;
+            &:hover {
+                background-color: $third-clr;
+                border-radius: 4px;
+                .add-to-playlist-btn{
+                visibility: visible;
                 }
             }
 
-            .song-img {
-                margin-right: 16px;
-                width: 40px;
-                height: 40px;
-            }
-        }
+            .song-number-play {
+                display: flex;
+                align-items: center;
 
-        .song-duration-container {
-            margin: 20px;
-        }
-
-        .add-to-liked-btn {
-            width: 40px;
-            height: 20px;
-        }
-
-        .album-name {
-            display: flex;
-            justify-self: start;
-            align-items: center;
-
-            span {
-                font-size: 0.875rem;
-            }
-        }
-
-        .date-added {
-            display: flex;
-            justify-self: start;
-            align-items: center;
-
-            span {
-                font-size: 0.875rem;
-            }
-        }
-
-        .song-preview.shown {
-            .opts-menu-section {
-                .like-song-preview-container {
-                    .like-song-preview {
-                        svg.shown {
-                            fill: $sec-txt-clr;
-                        }
-    
+                .play-song-preview {
+                    button {
+                        background-color: $transparent;
+                        border: none;
                     }
-                }
-            }
-        }
-
-        .opts-menu-section {
-            display: flex;
-            justify-self: end;
-            grid-column: end;
-            align-items: center;
-
-            .like-song-preview-container {
-
-                .like-song-preview {
-                    background-color: $transparent;
-                    border: none;
 
                     svg {
-                        fill: $transparent;
                         width: 16px;
                         height: 16px;
-                        //For the liked Part fill it with green
-                        // fill: green!!!;
+                        fill: $main-txt-clr;
+                        opacity: 0.9;
                     }
+                }
+            }
 
-                    svg.shown {
-                        fill: $sec-txt-clr;
-                        &:hover {
-                            fill: $main-txt-clr
+            .add-to-playlist-btn {
+                visibility: hidden;
+                width: 40px;
+                height: 20px;
+                background-color: $transparent;
+                border: none;
+            }
+
+            .song-list-title-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-self: start;
+
+                .song-list-title {
+                    flex-direction: column;
+                    padding-right: 8px;
+                    column-gap: 8px;
+                    display: grid;
+                    gap: 4px;
+                    // grid-template:
+                    //     "song-title song-title"
+                    //     "artists-name" /auto 1fr;
+
+                    >* {
+                        font-size: 1rem;
+                    }
+                }
+
+                .song-img {
+                    margin-right: 16px;
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+
+            .song-duration-container {
+                margin: 20px;
+            }
+
+            .add-to-liked-btn {
+                width: 40px;
+                height: 20px;
+            }
+
+            .album-name {
+                display: flex;
+                justify-self: start;
+                align-items: center;
+
+                span {
+                    font-size: 0.875rem;
+                }
+            }
+
+            .date-added {
+                display: flex;
+                justify-self: start;
+                align-items: center;
+
+                span {
+                    font-size: 0.875rem;
+                }
+            }
+
+            .song-preview.shown {
+                .opts-menu-section {
+                    .like-song-preview-container {
+                        .like-song-preview {
+                            svg.shown {
+                                fill: $sec-txt-clr;
+                            }
+
                         }
+                    }
+                }
+            }
+
+            .opts-menu-section {
+                display: flex;
+                justify-self: end;
+                grid-column: end;
+                align-items: center;
+
+                .like-song-preview-container {
+
+                    .like-song-preview {
+                        background-color: $transparent;
+                        border: none;
+
+                        svg {
+                            fill: $transparent;
+                            width: 16px;
+                            height: 16px;
+                            //For the liked Part fill it with green
+                            // fill: green!!!;
+                        }
+
+                        svg.shown {
+                            fill: $sec-txt-clr;
+
+                            &:hover {
+                                fill: $main-txt-clr
+                            }
+                        }
+
                     }
 
                 }
-
             }
-        }
 
+        }
     }
-}
 }
