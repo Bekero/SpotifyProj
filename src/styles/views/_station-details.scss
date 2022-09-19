@@ -1,5 +1,6 @@
+
 .main-details-container {
-    // padding: 0 32px;
+    // // padding: 0 32px;
 
     .station-details {
         color: #fff;
@@ -23,11 +24,8 @@
 
         .details-container {
             display: flex;
-            // -ms-flex: 1;
             align-content: space-between;
             flex: 1;
-            // -ms-flex-flow: column;
-            // flex-flow: column;
             flex-direction: column;
             justify-content: flex-end;
             z-index: 0;

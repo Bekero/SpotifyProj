@@ -8,8 +8,8 @@ import LibraryIcon from '../cmps/svg/library-svg'
 
 export function SideNav() {
 
-        return (
-            <div className="side-nav">
+    return (
+        <div className="side-nav">
 
                 <NavLink className="header-logo" to='/' > Shlomify  </NavLink>
                 <nav className="nav-container flex column">
