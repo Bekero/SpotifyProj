@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import PrevPage from './svg/prev-page'
 import NextPage from './svg/next-page'
-import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 
 export function AppHeader({scrollTop}) {
 
