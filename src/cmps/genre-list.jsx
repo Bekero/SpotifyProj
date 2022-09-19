@@ -5,7 +5,7 @@ export function GenreList() {
 
     return (
         <div>
-            <h2>Hello from genre list</h2>
+            {/* <h2>Hello from genre list</h2> */}
             <GenrePreview />
         </div>
     )

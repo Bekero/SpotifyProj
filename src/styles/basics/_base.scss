@@ -19,6 +19,22 @@ body {
     margin: 0;
     // max-width: 1024px;
     margin: auto;
+    font-family: CircularSp;
+}
+
+input[type='range'] {
+    overflow: hidden;
+    width: 80px;
+    -webkit-appearance: none;
+    height: 4px;
+    background-color: #b3b3b3;
+}
+input[type='range']:hover::-webkit-slider-thumb {
+    box-shadow: -200px 0 0 200px #1db954;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    box-shadow: -200px 0 0 200px  #fff;
 }
 
 h2,
@@ -30,7 +46,7 @@ h6 {
     line-height: 1;
 }
 
-svg{
+svg {
     fill: #fff;
     opacity: 0.7;
 }
@@ -49,11 +65,8 @@ p {
     margin: 0 0 1em;
 }
 
-a {
-}
+// a {}
 
-a:hover {
-}
+// a:hover {}
 
-a:focus {
-}
+// a:focus {}

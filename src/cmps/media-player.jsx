@@ -1,5 +1,5 @@
 import YouTube, { YouTubeProps } from 'react-youtube';
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setNextPrevSong } from '../store/station.actions';
@@ -13,6 +13,8 @@ import Next from './svg/next-song-svg'
 import Prev from './svg/prev-song-svg'
 import VolumeOn from './svg/volume-off-svg'
 import VolumeOff from './svg/volume-on-svg'
+import { utilService } from '../services/util.service';
+
 // import next from '../assets/img/next-song.svg'
 // import prev from '../assets/img/prev-song.svg'
 // import unmute from '../assets/img/volume-on.svg'
@@ -26,35 +28,67 @@ export function MediaPlayer() {
 
     const [player, setPlayer] = useState(null)
     const [playSong, setPlay] = useState(false)
-    const [songVolume, setSongVolume] = useState(null)
+    const [songVolume, setSongVolume] = useState(50)
     const [isSongMuted, setSongMuted] = useState(false)
-    const [videoTitle, setVideoTitle] = useState(false)
+    const [videoTitle, setVideoTitle] = useState('')
+    const [songDuration, setSongDuration] = useState(0)
+    const [songStartFrom, setSongStartFrom] = useState(0)
+    const [songCurrentTimePlaying, setSongCurrentTimePlaying] = useState(0)
+    const [songTimestamp, setSongTimestamp] = useState(0)
     const currentlyPlayingUrl = useSelector(state => state.stationModule.currentlyPlayingUrl)
     const dispatch = useDispatch()
+    const intervalRef = useRef()
     // const [songVol, handleChange, setSongVol] = useForm({
     //     name: '',
     //     price: ''
     // })
 
-    
-
-    useEffect(()=>{
-        setPlay(true)
-        console.log(player);
+    useEffect(() => {
         if (!player) return
-        // console.log(player);
+        console.log(songDuration);
+        console.log('player', player);
+        setPlay(true)
         setVideoTitle(player.videoTitle)
-    },[player, currentlyPlayingUrl])
+        if (!songDuration) {
+            setSongDuration(player.getDuration())
+        }
+    }, [player, currentlyPlayingUrl, songDuration, songStartFrom])
+
+    useEffect(() => {
+        console.log('got to useeffect')
+        console.log(playSong)
+        if (playSong) {
+            intervalRef.current = setInterval(() => {
+                setSongTimestamp((prevTimestamp) => prevTimestamp + 1)
+            }, 1000)
+        }
+        if (!playSong) {
+            console.log('clearinterval')
+            clearInterval(intervalRef.current)
+        }
+
+    }, [playSong])
+
+    useEffect(() => {
+        if (!player) return
+        setSongStartFrom(player.getCurrentTime())
+        window.player = player
+        // setInterval(() => {
+        //     setSongStartFrom(songCurrentTimePlaying + 1)
+        // }, 1000)
+    }, [player])
 
     const videoOnReady = (event) => {
         event.target.pauseVideo()
     }
 
     const onReadyVideo = async (event) => {
-        setPlayer(event.target,)
+        setPlayer(event.target)
+        // player.playVideo()
+        // if (!player) return
+        setSongDuration(event.target.getDuration())
         // setPlay(true)
         // console.log(player);
-        // if (!player) return
         // console.log(player);
         // setVideoTitle(player.videoTitle)
         // player.setVolume(50)
@@ -84,17 +118,23 @@ export function MediaPlayer() {
     }
 
     const onSetVolumeVideo = () => {
-        // player.unMute()
         player.setVolume(songVolume)
         setSongMuted(false)
-        // setSongVolume(player.getVolume())
         // player.seekTo(50)
     }
 
-    const handleChange = (ev) => {
+    const handleSongVolume = (ev) => {
         const songVol = +ev.target.value
         player.setVolume(songVol)
         setSongMuted(songVol === 0 ? true : false)
+    }
+
+    const handleSongStartFrom = (ev) => {
+        onPlayVideo()
+        const songStartFromValue = +ev.target.value
+        setSongTimestamp(songStartFromValue)
+        player.seekTo(songStartFromValue)
+        setSongStartFrom(songStartFromValue)
     }
 
     const opts = {
@@ -111,19 +151,31 @@ export function MediaPlayer() {
         <div className='media-player-video-desc'>
             {videoTitle && <h3>{videoTitle}</h3>}
         </div>
-        <div className='media-player-btn-action'>
-            <button disabled={currentlyPlayingUrl ? false : true} onClick={onPrevVideo}><Prev /></button>
-            {playSong ? <button className='media-player-play-stop-btn' disabled={currentlyPlayingUrl ? false : true} onClick={onPauseVideo}><Stop /></button> :
-                <button className='media-player-play-stop-btn' disabled={currentlyPlayingUrl ? false : true} onClick={onPlayVideo}><Play /></button>}
-            <button disabled={currentlyPlayingUrl ? false : true} onClick={onNextVideo}><Next /></button>
+        <div className='media-player-action'>
+            <div className='media-player-btn-action'>
+                <div className='player-control-left'>
+                    <button disabled={currentlyPlayingUrl ? false : true} onClick={onPrevVideo}><Prev /></button>
+                </div>
+                {playSong ? <button className='media-player-play-stop-btn' disabled={currentlyPlayingUrl ? false : true} onClick={onPauseVideo}><Stop /></button> :
+                    <button className='media-player-play-stop-btn' disabled={currentlyPlayingUrl ? false : true} onClick={onPlayVideo}><Play /></button>}
+                <div className='player-control-right'>
+                    <button disabled={currentlyPlayingUrl ? false : true} onClick={onNextVideo}><Next /></button>
+                </div>
+            </div>
+            <div className='song-timestamp flex align-center'>
+                <div className='song-timestamp-left'>{songTimestamp ? utilService.setTimestampToTime(songTimestamp) : '00:00'}</div>
+                <input type="range" value={songTimestamp} disabled={currentlyPlayingUrl ? false : true} onChange={(ev) => handleSongStartFrom(ev)} min="0" max={songDuration.toString()} step="1" name="duration" id="duration" />
+                <div className='song-timestamp-right'>{utilService.setTimestampToTime(songTimestamp)}</div>
+            </div>
         </div>
         <div className='media-player-video-settings'>
-            {(isSongMuted) ? <button disabled={currentlyPlayingUrl ? false : true} onClick={onSetVolumeVideo}><VolumeOn/></button> :
-                <button disabled={currentlyPlayingUrl ? false : true} onClick={onMuteVideo}><VolumeOff/></button>}
-            <input type="range" disabled={currentlyPlayingUrl ? false : true} onChange={(ev) => handleChange(ev)} min="0" max="50" step="1" name="volume" id="volume" />
+            {(isSongMuted) ? <button disabled={currentlyPlayingUrl ? false : true} onClick={onSetVolumeVideo}><VolumeOn /></button> :
+                <button disabled={currentlyPlayingUrl ? false : true} onClick={onMuteVideo}><VolumeOff /></button>}
+            <input type="range" disabled={currentlyPlayingUrl ? false : true} onChange={(ev) => handleSongVolume(ev)} min="0" max="50" step="1" name="volume" id="volume" />
         </div>
         {currentlyPlayingUrl &&
             <YouTube
+                style={{ display: "none" }}
                 videoId={currentlyPlayingUrl}
                 opts={opts}
                 VideoOnReady={videoOnReady}

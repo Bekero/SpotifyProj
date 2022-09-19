@@ -1,15 +1,16 @@
 [
   {
     "_id": "5cksxjas89xjsa8xjsa8jxs09",
-    "name": "Drake 'Honestly, Nevermind' Album'",
+    "name": "Honestly, Nevermind",
     "tags": [
       "Funk",
       "Happy"
     ],
     "createdBy": {
       "_id": "u101",
-      "fullname": "Puki Ben David",
-      "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg"
+      "fullname": "Drake",
+      "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
+      "artistImg": "https://i.scdn.co/image/ab6761610000f1784293385d324db8558179afd9"
     },
     "likedByUsers": [
       "{minimal-user}",
@@ -186,6 +187,41 @@
   {
     "_id": "5qewaf2grbrw45we",
     "name": "Jack Harlow",
+    "tags": [
+      "Funk",
+      "Happy"
+    ],
+    "createdBy": {
+      "_id": "u203",
+      "fullname": "Nuki Shlomo",
+      "imgUrl": "http://some-photo/"
+    },
+    "likedByUsers": [
+      "{minimal-user}",
+      "{minimal-user}"
+    ],
+    "songs": [
+      {
+        "id": "adwq13eg13",
+        "title": "First Class",
+        "url": "youtube/song.mp4",
+        "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
+        "addedBy": "{minimal-user}",
+        "addedAt": 162521765262
+      },
+      {
+        "id": "asdwwge12nts",
+        "title": "Flika Mora",
+        "url": "youtube/song.mp4",
+        "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
+        "addedBy": {}
+      }
+    ]
+  },
+  {
+    "_id": "5qewaf2grbrw45we",
+    "name": "Liked Songs",
+    "isLikedStation": true,
     "tags": [
       "Funk",
       "Happy"

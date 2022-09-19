@@ -9,6 +9,9 @@ import { stationService } from '../services/station.service'
 import { removeStation, setCurrPlayingSongIdx, setCurrPlayingUrl, setCurrStation } from '../store/station.actions'
 import { useSelector } from 'react-redux'
 import { StationEditModal } from '../cmps/station-edit-modal'
+import PlaySongToolBar from '../cmps/svg/play-song-tool-bar'
+import LikeToolBar from '../cmps/svg/like-tool-bar-unfilled'
+import OptsToolBar from '../cmps/svg/opts-song'
 
 export const StationDetails = () => {
     const params = useParams()
@@ -60,11 +63,14 @@ export const StationDetails = () => {
             <div className="station-details">
                 <div className="img-container">
                     <img className="img-details" src={station.createdBy.imgUrl} alt="" />
-                    {/* <img className="img-details" src={`https://robohash.org/${station._id}?set=set5`} /> */}
                 </div>
                 <div className="details-container">
-                    <h3>{station.name}</h3>
-                    <h3>{station.createdBy.fullname}</h3>
+                    <span>ALBUM</span>
+                    <h3 className="album-name">{station.name}</h3>
+                    <div className="creator">
+                        <img className="artist-img-details" src={station.createdBy.artistImg} alt="" />
+                        <h3>{station.createdBy.fullname}</h3>
+                    </div>
                 </div>
                 {station.isMyStation &&
                     <div>
@@ -75,17 +81,21 @@ export const StationDetails = () => {
                 {isEditStation && <StationEditModal station={station} onCloseStation={onCloseStation} onEditStation={onEditStation} />}
             </div>
             <div className="details-tool-bar">
-                Tool Bar Here...
+                <div className="play-song-tool-bar-container"><button className="play-song-tool-bar"><PlaySongToolBar /></button></div>
+                <div className="like-tool-bar-container"><button className="like-tool-bar" ><span><LikeToolBar /></span></button></div>
+                <div className="opts-tool-bar-container"><button className="opts-tool-bar" ><span><OptsToolBar /></span></button></div>
             </div>
-            <div className="details-head-lines">
-                HeadLine Here...
-            </div>
-            <hr></hr>
-            <div>
-                {/* {!station.songs.length && <div>No Songs</div>} */}
-                <ol>
+            <div className="main-details">
+                <section className="details-head-lines">
+                    <div>#</div>
+                    <div className="title-head-line">TITLE</div>
+                    <div className="album-head-line">ALBUM</div>
+                    <div className="date-added-head-line">DATE ADDED</div>
+                    <div className="time-head-line">O</div>
+                </section>
+                <section>
                     <SongList station={station} playCurrUrl={playCurrUrl} />
-                </ol>
+                </section>
             </div>
         </section>
     )

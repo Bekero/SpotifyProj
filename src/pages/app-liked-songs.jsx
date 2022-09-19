@@ -5,18 +5,24 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { loadStations } from '../store/station.actions'
 
-export function LikedSongs() {
+export async function LikedSongs() {
 
-    let likedSongs = useSelector(state => state.stationModule.likedSongsStation)
+    let stations = useSelector(state => state.stationModule.stations)
+    let likedStation = stations.filter(station => station.isLikedStation === true)
     const dispatch = useDispatch()
+
     useEffect(() => {
         dispatch(loadStations())
     }, [])
-    if (!likedSongs) return <div>You have no playlists...</div>
+
+    if (!likedStation[0].songs.length) return <div>You have no songs yet...</div>
 
     return (
         <div className="liked-station-container">
-            <h2> Hello From Like Page </h2>
+            <ol>
+                Nada
+                {/* {<SongList likedStation={likedStation}/>} */}
+            </ol>
         </div>
     )
 }

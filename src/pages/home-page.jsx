@@ -11,8 +11,7 @@ export function HomePage() {
 
     return (
         <div className="app-home main-view">
-            <h6>Hello from Home Page </h6>
-            <button onClick={notify}>Notify!</button>
+            {/* <button onClick={notify}>Notify!</button> */}
 
             <StationList stations={stations} />
             <div className="toast-container">
