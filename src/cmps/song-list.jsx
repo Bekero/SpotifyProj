@@ -14,10 +14,12 @@ export const SongList = ({ station, playCurrUrl, likedStation }) => {
     const [wantedSong, setWantedSong] = useState(null)
     const [openModal, setOpenModal] = useState(null)
     const [modalPos, setModalPos] = useState(null)
+    // const [playHover, setPlayHover] = useState(null)
 
     const dispatch = useDispatch()
     let stations = useSelector(state => state.stationModule.stations)
     let likedStationExist = useSelector(state => state.stationModule.likedSongsStation)
+    // let currSongIdx = null
 
     let myStations = stations.filter(station => station.isMyStation === true)
 
@@ -48,6 +50,14 @@ export const SongList = ({ station, playCurrUrl, likedStation }) => {
         dispatch(addSongToMyPlaylist(wantedSong, myStations[myPlaylistIdx]._id))
     }
 
+    const onSongHover = (ev, diff, songIdx) => {
+        // ev.target.className = diff ? 'song-preview shown' : 'song-preview'
+        // setPlayHover(diff)
+        // currSongIdx = songIdx
+    }
+    // let hoverSongPreview = playHover ? <div className="play-song-preview"><PlaySong /></div> : <div>{currSongIdx + 1}</div>
+
+
     {
         return <>
             {openModal && <ul onMouseLeave={() => setOpenModal(false)} style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }} className="song-list-opts-menu">
@@ -57,10 +67,12 @@ export const SongList = ({ station, playCurrUrl, likedStation }) => {
                     </div>)}
             </ul>}
             {station.songs.map((song, songIdx) => {
-                return <div key={song.id} className="song-preview">
+                return <div onMouseOver={(ev) => onSongHover(ev, true, songIdx)} onMouseLeave={() => onSongHover(false)} key={song.id} className="song-preview">
                     <div className="song-number-play">
-                        {/* Replace it with a svg */}
+                        {/* {playHover && <div className="play-song-preview"><button onClick={() => playCurrUrl(songIdx)}><PlaySong /></button></div>}
+                        {!playHover && <div>{songIdx + 1}</div>} */}
                         <div className="play-song-preview"><button onClick={() => playCurrUrl(songIdx)}><PlaySong /></button></div>
+                        {/*  */}
                         {/* <span>{songIdx + 1}</span> */}
                     </div>
                     <div className='song-list-title-container'>
