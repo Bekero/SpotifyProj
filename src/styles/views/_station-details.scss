@@ -1,5 +1,5 @@
 .main-details-container {
-
+    padding: 0 32px;
     .station-details {
         color: #fff;
         // display: -webkit-box;
@@ -34,6 +34,8 @@
     }
 
     .main-song-list {
+
+        padding-inline-start: 0;
 
         div {
 
