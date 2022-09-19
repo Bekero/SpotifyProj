@@ -45,8 +45,6 @@ export function MediaPlayer() {
 
     useEffect(() => {
         if (!player) return
-        console.log(songDuration);
-        console.log('player', player);
         setPlay(true)
         setVideoTitle(player.videoTitle)
         if (!songDuration) {
@@ -55,15 +53,12 @@ export function MediaPlayer() {
     }, [player, currentlyPlayingUrl, songDuration, songStartFrom])
 
     useEffect(() => {
-        console.log('got to useeffect')
-        console.log(playSong)
         if (playSong) {
             intervalRef.current = setInterval(() => {
                 setSongTimestamp((prevTimestamp) => prevTimestamp + 1)
             }, 1000)
         }
         if (!playSong) {
-            console.log('clearinterval')
             clearInterval(intervalRef.current)
         }
 

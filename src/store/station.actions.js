@@ -204,6 +204,13 @@ export function setCurrPlayingUrl(songIdx) {
     }
 }
 
+export function setCurrPlayingSong(songIdx) {
+    return (dispatch) => {
+        const action = { type: 'SET_CURRENTLY_PLAYING_SONG', songIdx }
+        dispatch(action)
+    }
+}
+
 export function addSongToMyPlaylist(wantedSong, myPlaylistId) {
     return async (dispatch, getState) => {
         let stations = getState().stationModule.stations

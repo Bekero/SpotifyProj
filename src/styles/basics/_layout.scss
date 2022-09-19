@@ -5,9 +5,9 @@
     // max-height: 100vh;
     background: $main-bgc-ing1;
     background: $main-bgc-ing2;
-
+    // grid-template-columns: 234px auto;
+    // grid-template-rows: 1fr 100px;
     grid-template-columns: 242px auto;
-    grid-template-rows: 1fr 100px;
     grid-template-rows: 1fr 90px;
 }
 
@@ -48,4 +48,3 @@
 //     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 //     grid-gap: 20px;
 // }
-
