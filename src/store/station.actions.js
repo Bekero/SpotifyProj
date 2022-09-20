@@ -138,53 +138,6 @@ export function addStation(currStation) {
     }
 }
 
-// export function addUpdatedLikedStation(wantedSong) {
-//     return async (dispatch, getState) => {
-//         let stations = getState().stationModule.stations
-//         let myWantedLikedStation = stations.filter(station => station.isLikedStation === true)
-//         // console.log('myWantedLikedStation :', myWantedLikedStation[0])
-//         // console.log('stations :', stations)
-//         if (!myWantedLikedStation || !myWantedLikedStation.length) return
-//         // console.log('myWantedLikedStation :', myWantedLikedStation)
-//         stations = stations.filter(station => station._id !== myWantedLikedStation[0]._id)
-//         myWantedLikedStation[0].songs.push(wantedSong)
-//         try {
-//             const savedStation = await stationService.save(myWantedLikedStation)
-//             //* When station._id is true it adds owner and ID to the station and keep render another [{likedStation}, owner: asd, id"asdasd"]
-//             const action = { type: 'ADD_LIKED_STATION', savedStation }
-//             dispatch(action)
-//             showSuccessMsg('Station added')
-//         }
-//         catch (err) {
-//             showErrorMsg('Cannot add station')
-//             console.log('Cannot add station', err)
-//         }
-//     }
-// }
-
-// export function addUpdatedLikedStation(likedStation) {
-//     return async (dispatch, getState) => {
-//         try {
-//             let stations = getState().stationModule.stations
-//             let likedSongsStationState = getState().stationModule.likedSongsStation
-//             let myWantedLikedStation = stations.filter(station => station.isLikedStation === true)
-//             stations = stations.filter(station => station._id !== myWantedLikedStation._id)
-//             //!                     ****
-//             console.log('myWantedLikedStation :', myWantedLikedStation.songs)
-//             console.log('myWantedLikedStation :', likedStation.songs)
-
-//             // const savedStation = await stationService.save(likedStation)
-//             // const action = { type: 'ADD_LIKED_STATION', savedStation }
-//             // await dispatch(action)
-//             // showSuccessMsg('Station added')
-//         }
-//         catch (err) {
-//             showErrorMsg('Cannot add station')
-//             console.log('Cannot add station', err)
-//         }
-//     }
-// }
-
 export function setNextPrevSong(diff) {
     return (dispatch) => {
         const action = { type: 'SET_NEXT_PREV_SONG', diff }
@@ -214,9 +167,27 @@ export function setCurrPlayingSong(songIdx) {
 export function addSongToMyPlaylist(wantedSong, myPlaylistId) {
     return async (dispatch, getState) => {
         let stations = getState().stationModule.stations
-        let myWantedStation = structuredClone(stations.find(station => station._id === myPlaylistId))
-        myWantedStation.songs.push(wantedSong)
-        const updatedStation = await stationService.save(myWantedStation)
+        let myLikedStation = structuredClone(stations.find(station => station.isLikedStation === true))
+        let checkIfLikedSongExist = myLikedStation.songs.find(song => song.id === wantedSong.id)
+        if (checkIfLikedSongExist) return
+        wantedSong.isLiked = true
+        myLikedStation.songs.push(wantedSong)
+        const updatedStation = await stationService.save(myLikedStation)
+        const action = { type: 'ADD_UPDATED_PLAYLIST_TO_STATIONS', updatedStation }
+        dispatch(action)
+    }
+}
+
+export function removeLikedSongFromMyPlaylist(wantedSong, myPlaylistId) {
+    return async (dispatch, getState) => {
+        let stations = getState().stationModule.stations
+        let likedStation = structuredClone(stations.find(station => station.isLikedStation === true))
+        likedStation.songs.filter(song => song.isLiked === true)
+        console.log('likedStation :', likedStation)
+        //*Need to update all the stations that the song is there bcs isLiked has been changed
+        // let stationsWithCurrLikedSong = structuredClone(stations.filter(station => station.songs.find(song => song.id === wantedSong.id)))
+        // stationsWithCurrLikedSong.map(station => station.songs.map(song => { if (song.id === wantedSong.id) { song.isLiked = false } }))
+        const updatedStation = await stationService.save(likedStation)
         const action = { type: 'ADD_UPDATED_PLAYLIST_TO_STATIONS', updatedStation }
         dispatch(action)
     }

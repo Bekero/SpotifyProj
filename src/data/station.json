@@ -7,7 +7,7 @@
       "Happy"
     ],
     "createdBy": {
-      "_id": "u101",
+      "_id": "32erwfg23rewf",
       "fullname": "Drake",
       "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
       "artistImg": "https://i.scdn.co/image/ab6761610000f1784293385d324db8558179afd9"
@@ -18,7 +18,7 @@
     ],
     "songs": [
       {
-        "id": "s1001",
+        "id": "231eqwrf",
         "title": "Falling Back",
         "url": "rJi7GobzRgY",
         "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
@@ -27,7 +27,7 @@
         "songDuration": "3:32"
       },
       {
-        "id": "kFXHPfI2JoI",
+        "id": "qweartfhgsxfdc",
         "title": "Text Go Green",
         "url": "kFXHPfI2JoI",
         "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
@@ -35,7 +35,7 @@
         "songDuration": "3:32"
       },
       {
-        "id": "resgfsdfgrt123",
+        "id": "'t4retrt5gter",
         "title": "Currents",
         "url": "1puG2H1QOBA",
         "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
@@ -124,7 +124,7 @@
       "Happy"
     ],
     "createdBy": {
-      "_id": "u203",
+      "_id": "2eq3wefr",
       "fullname": "Nuki Shlomo",
       "imgUrl": "http://some-photo/"
     },
@@ -158,7 +158,7 @@
       "Happy"
     ],
     "createdBy": {
-      "_id": "u203",
+      "_id": "t42r2efr",
       "fullname": "Nuki Shlomo",
       "imgUrl": "http://some-photo/"
     },
@@ -192,7 +192,7 @@
       "Happy"
     ],
     "createdBy": {
-      "_id": "u203",
+      "_id": "3rw4reth",
       "fullname": "Nuki Shlomo",
       "imgUrl": "http://some-photo/"
     },
@@ -202,24 +202,26 @@
     ],
     "songs": [
       {
-        "id": "adwq13eg13",
+        "id": "qwsdafsdax",
         "title": "First Class",
         "url": "youtube/song.mp4",
         "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
         "addedBy": "{minimal-user}",
-        "addedAt": 162521765262
+        "addedAt": 162521765262,
+        "songDuration": "3:32"
       },
       {
         "id": "asdwwge12nts",
         "title": "Flika Mora",
         "url": "youtube/song.mp4",
         "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
-        "addedBy": {}
+        "addedBy": {},
+        "songDuration": "3:32"
       }
     ]
   },
   {
-    "_id": "5qewaf2grbrw45we",
+    "_id": "5qewagrwesdveg",
     "name": "Liked Songs",
     "isLikedStation": true,
     "tags": [
@@ -228,8 +230,8 @@
     ],
     "createdBy": {
       "_id": "u203",
-      "fullname": "Nuki Shlomo",
-      "imgUrl": "http://some-photo/"
+      "fullname": "Curr Username",
+      "imgUrl": "https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"
     },
     "likedByUsers": [
       "{minimal-user}",
@@ -237,19 +239,41 @@
     ],
     "songs": [
       {
-        "id": "adwq13eg13",
-        "title": "First Class",
+        "id": "tgrfsetfgfdf",
+        "title": "First Shnatz",
         "url": "youtube/song.mp4",
         "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
         "addedBy": "{minimal-user}",
-        "addedAt": 162521765262
+        "addedAt": 162521765262,
+        "songDuration": "3:22",
+        "isLiked": true
       },
       {
-        "id": "asdwwge12nts",
-        "title": "Flika Mora",
+        "id": "t4ertgrewe3r45t",
+        "title": "Shuki",
         "url": "youtube/song.mp4",
         "imgUrl": "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
-        "addedBy": {}
+        "addedBy": {},
+        "songDuration": "2:42",
+        "isLiked": true
+      },
+      {
+        "id": "kFXHPfI2JoI",
+        "title": "Muki",
+        "url": "kFXHPfI2JoI",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
+        "addedBy": {},
+        "songDuration": "4:11",
+        "isLiked": true
+      },
+      {
+        "id": "ew3rfdrg",
+        "title": "Thats a liked song...",
+        "url": "1puG2H1QOBA",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
+        "addedBy": {},
+        "songDuration": "2:19",
+        "isLiked": true
       }
     ]
   }

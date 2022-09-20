@@ -1,5 +1,4 @@
 .main-details-container {
-    // // padding: 0 32px;
 
     .station-details {
         color: #fff;
@@ -12,6 +11,7 @@
         background: linear-gradient(0deg, rgba(28, 26, 26, 1) 9%, rgba(47, 51, 51, 1) 50%);
 
         .img-container {
+            
             .img-details {
                 width: 232px;
                 height: 232px;
@@ -50,6 +50,7 @@
                 h3 {
                     margin-left: 20px;
                     margin: 0;
+                    font-size: 0.875rem;
                 }
             }
         }
@@ -69,7 +70,8 @@
         .play-song-tool-bar-container {
 
             button:hover {
-                background-color: $hover-green-clr;
+                inline-size: 57px;
+                block-size: 57px;
             }
 
             svg {
@@ -85,7 +87,7 @@
                 block-size: 56px;
                 border-radius: 500px;
                 border: none;
-                background-color: $not-hover-green-clr;
+                background-color: $fill-svg-clr;
 
             }
         }
@@ -165,6 +167,8 @@
                     .like-song-preview {
                         visibility: visible;
                     }
+
+
 
                     .add-to-playlist-btn {
                         visibility: visible;
@@ -268,12 +272,15 @@
                 align-items: center;
 
                 button {
-                    background-color: wheat;
+                    background-color: rgba(245, 222, 179, 0);
+                    border: none;
+
                 }
 
                 svg {
                     width: 40px;
                     height: 20px;
+                    // background-color: green;
                 }
 
                 .add-to-playlist-btn {
@@ -292,27 +299,18 @@
                     border: navajowhite;
                 }
 
-                // .like-song-preview {
-                //     background-color: $transparent;
-                //     border: none;
+                .is-liked-song-preview {
+                    visibility: visible;
+                    width: 40px;
+                    height: 20px;
 
-                //     svg {
-                //         fill: $transparent;
-                //         width: 16px;
-                //         height: 16px;
-                //         //For the liked Part fill it with green
-                //         // fill: green!!!;
-                //     }
+                    svg {
+                        width: 40px;
+                        height: 20px;
 
-                //     svg.shown {
-                //         fill: $sec-txt-clr;
-
-                //         &:hover {
-                //             fill: $main-txt-clr
-                //         }
-                //     }
-
-                // }
+                        fill: $fill-svg-clr;
+                    }
+                }
 
             }
 

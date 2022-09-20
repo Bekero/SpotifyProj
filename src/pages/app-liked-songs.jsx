@@ -4,28 +4,25 @@ import { StationList } from '../cmps/station-list'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { loadStations } from '../store/station.actions'
+import { StationDetails } from './station-details'
 
 export function LikedSongs() {
+    const dispatch = useDispatch()
+    const stations = useSelector(state => state.stationModule.stations)
+    let likedStation = stations.find(station => station.isLikedStation === true)
 
+    console.log('Im Changing')
+    useEffect(() => {
+        if (stations) return
+        dispatch(loadStations())
+    }, [])
+
+    if (!stations) return
     return (
         <div className="liked-station-container">
             <ol>
-                Nada
-                {/* {<SongList likedStation={likedStation}/>} */}
+                <StationDetails likedStation={likedStation} />
             </ol>
         </div>
     )
 }
-
-
-
-
-    // stations = stations.filter(station => station.isMyStation === true)
-    // console.log('My Playlists after filter', stations);
-    // return (
-    //     <div className="app-home main-view">
-    //         <h6>Hello from Station Library </h6>
-    //         <StationList stations={stations} />
-    //     </div>
-    // )
-

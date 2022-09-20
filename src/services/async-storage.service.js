@@ -37,10 +37,8 @@ function post(entityType, newEntity) {
 function put(entityType, updatedEntity) {
     return query(entityType)
         .then(entities => {
-            console.log('before', entities)
             const idx = entities.findIndex(entity => entity._id === updatedEntity._id)
             entities.splice(idx, 1, updatedEntity)
-            console.log('after', entities)
             _save(entityType, entities)
             return updatedEntity
         })
@@ -94,7 +92,7 @@ let stations = [
         "likedByUsers": ['{minimal-user}', '{minimal-user}'],
         "songs": [
             {
-                "id": "s1001",
+                "id": "13eq2rwf",
                 "title": "The Meters - Cissy Strut",
                 "url": "youtube/song.mp4",
                 "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
@@ -221,7 +219,7 @@ let stations = [
 //     "likedByUsers": [{ 'minimal-user': null }, { 'minimal-user': null }],
 //     "songs": [
 //       {
-//         "id": "s1001",
+//         "id": "12weqdf",
 //         "title": "The Meters - Cissy Strut",
 //         "url": "youtube/song.mp4",
 //         "imgUrl": "https://i.ytimg.com/vi/4_iC0MyIykM/mqdefault.jpg",
