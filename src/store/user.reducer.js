@@ -1,30 +1,31 @@
 import { userService } from '../services/user.service.js'
+import { getActionSetCurrSongIdx } from './station.actions.js';
 
 
 const initialState = {
-    count: 10,
     user: userService.getLoggedinUser(),
     users: [],
-    watchedUser : null
+
 }
 export function userReducer(state = initialState, action) {
     var newState = state;
     switch (action.type) {
-        case 'INCREMENT':
-            newState = { ...state, count: state.count + 1 }
-            break;
-        case 'DECREMENT':
-            newState = { ...state, count: state.count - 1 }
-            break;
-        case 'CHANGE_COUNT':
-            newState = { ...state, count: state.count + action.diff }
-            break;
+
         case 'SET_USER':
             newState = { ...state, user: action.user }
             break;
-        case 'SET_WATCHED_USER':
-            newState = { ...state, watchedUser: action.user }
-            break;
+        case 'SET_LIKED_SONGS':
+            console.log(state)
+            if (!state.user) {
+                console.log('no user')
+                newState = { ...state, user: { likedSongs: action.songs } }
+                console.log(newState)
+            }
+            else newState = { ...state, user: { ...state.user, likedSongs: action.songs } }
+            break
+        case 'ADD_LIKED_SONG':
+            newState = {...state, user: {...state.user, likedSongs: [...state.user.likedSongs, action.song]}}
+            break
         case 'REMOVE_USER':
             newState = {
                 ...state,
@@ -34,9 +35,7 @@ export function userReducer(state = initialState, action) {
         case 'SET_USERS':
             newState = { ...state, users: action.users }
             break;
-        case 'SET_SCORE':
-            newState = { ...state, user: { ...state.user, score: action.score } }
-            break;
+
         default:
     }
     // For debug:

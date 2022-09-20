@@ -198,6 +198,7 @@ export function setNextPrevSong(diff) {
     }
 }
 
+//! Talk with yarin about the duplication
 export function setCurrPlayingSongIdx(songIdx) {
     return (dispatch) => {
         dispatch(getActionSetCurrSongIdx(songIdx))
@@ -242,9 +243,9 @@ export function removeLikedSongFromMyPlaylist(wantedSong, myPlaylistId) {
         let stations = getState().stationModule.stations
         let likedStation = structuredClone(stations.find(station => station.isLikedStation === true))
         likedStation.songs.filter(song => song.isLiked === true)
-        console.log('likedStation :', likedStation)
         //*Need to update all the stations that the song is there bcs isLiked has been changed
         // let stationsWithCurrLikedSong = structuredClone(stations.filter(station => station.songs.find(song => song.id === wantedSong.id)))
+        // console.log(stationsWithCurrLikedSong)
         // stationsWithCurrLikedSong.map(station => station.songs.map(song => { if (song.id === wantedSong.id) { song.isLiked = false } }))
         const updatedStation = await stationService.save(likedStation)
         const action = { type: 'ADD_UPDATED_PLAYLIST_TO_STATIONS', updatedStation }

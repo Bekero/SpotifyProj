@@ -9,8 +9,6 @@ export function StationList({ stations }) {
           <StationPreview key={station._id} station={station} />
         ))}
       </div>
-
-  
   </section>
   );
 }
