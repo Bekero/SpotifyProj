@@ -16,7 +16,7 @@ export function stationReducer(state = initialState, action) {
     let existLikedStation
     let currStation = state.currStation
     let currentlyPlayingUrl
-    let currSong
+    let currSong = state.currPlayingSong
     let currSongIdx = state.currSongIdx
 
     switch (action.type) {
@@ -24,17 +24,39 @@ export function stationReducer(state = initialState, action) {
             currentlyPlayingUrl = currStation.songs[action.songIdx].url
             newState = { ...state, currentlyPlayingUrl }
             break
+        case 'SET_CURRENTLY_PLAYING_URL_FROM_SEARCH':
+            currentlyPlayingUrl = action.url
+            newState = { ...state, currentlyPlayingUrl }
+            break
         case 'SET_NEXT_PREV_SONG':
-            if (currSongIdx + action.diff >= 0 && currSongIdx + action.diff < currStation.songs.length) {
-                currentlyPlayingUrl = currStation.songs[currSongIdx + action.diff].url
-                newState = { ...state, currentlyPlayingUrl, currSongIdx: currSongIdx + action.diff }
+            if (currSongIdx + action.diff >= currStation.songs.length) {
+                currentlyPlayingUrl = currStation.songs[0].url
+                currSongIdx = -1
+                currSong = currStation.songs[0]
+                console.log(currSongIdx);
             }
+            else if (currSongIdx + action.diff >= 0 && currSongIdx + action.diff < currStation.songs.length) {
+                currentlyPlayingUrl = currStation.songs[currSongIdx + action.diff].url
+                currSong = currStation.songs[currSongIdx + action.diff]
+
+            } else {
+                currentlyPlayingUrl = currStation.songs[0].url
+                currSongIdx = -1
+                currSong = currStation.songs[0]
+                console.log(currSongIdx);
+
+            }
+            newState = { ...state, currentlyPlayingUrl, currSongIdx: currSongIdx + action.diff, currPlayingSong: currSong }
             break
         case 'SET_CURRENTLY_PLAYING_SONG_IDX':
             newState = { ...state, currSongIdx: action.songIdx }
             break
         case 'SET_CURRENTLY_PLAYING_SONG':
             currSong = currStation.songs[action.songIdx]
+            newState = { ...state, currPlayingSong: currSong }
+            break
+        case 'SET_SONG_IS_PLAYING':
+            currSong.isPlaying = action.isPlaying
             newState = { ...state, currPlayingSong: currSong }
             break
         case 'SET_STATIONS':

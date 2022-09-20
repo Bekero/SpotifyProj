@@ -2,4 +2,7 @@
 .app-search {
     background-color: rgb(213, 193, 193);
 
+    &.app-header{
+       display: none;
+    }
 }

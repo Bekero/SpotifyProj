@@ -138,6 +138,59 @@ export function addStation(currStation) {
     }
 }
 
+// export function addUpdatedLikedStation(wantedSong) {
+//     return async (dispatch, getState) => {
+//         let stations = getState().stationModule.stations
+//         let myWantedLikedStation = stations.filter(station => station.isLikedStation === true)
+//         // console.log('myWantedLikedStation :', myWantedLikedStation[0])
+//         // console.log('stations :', stations)
+//         if (!myWantedLikedStation || !myWantedLikedStation.length) return
+//         // console.log('myWantedLikedStation :', myWantedLikedStation)
+//         stations = stations.filter(station => station._id !== myWantedLikedStation[0]._id)
+//         myWantedLikedStation[0].songs.push(wantedSong)
+//         try {
+//             const savedStation = await stationService.save(myWantedLikedStation)
+//             //* When station._id is true it adds owner and ID to the station and keep render another [{likedStation}, owner: asd, id"asdasd"]
+//             const action = { type: 'ADD_LIKED_STATION', savedStation }
+//             dispatch(action)
+//             showSuccessMsg('Station added')
+//         }
+//         catch (err) {
+//             showErrorMsg('Cannot add station')
+//             console.log('Cannot add station', err)
+//         }
+//     }
+// }
+
+// export function addUpdatedLikedStation(likedStation) {
+//     return async (dispatch, getState) => {
+//         try {
+//             let stations = getState().stationModule.stations
+//             let likedSongsStationState = getState().stationModule.likedSongsStation
+//             let myWantedLikedStation = stations.filter(station => station.isLikedStation === true)
+//             stations = stations.filter(station => station._id !== myWantedLikedStation._id)
+//             //!                     ****
+//             console.log('myWantedLikedStation :', myWantedLikedStation.songs)
+//             console.log('myWantedLikedStation :', likedStation.songs)
+
+//             // const savedStation = await stationService.save(likedStation)
+//             // const action = { type: 'ADD_LIKED_STATION', savedStation }
+//             // await dispatch(action)
+//             // showSuccessMsg('Station added')
+//         }
+//         catch (err) {
+//             showErrorMsg('Cannot add station')
+//             console.log('Cannot add station', err)
+//         }
+//     }
+// }
+
+export function setCurrSongIsPlaying(isPlaying) {
+    return (dispatch) => {
+        const action = { type: 'SET_SONG_IS_PLAYING', isPlaying }
+        dispatch(action)
+    }
+}
 export function setNextPrevSong(diff) {
     return (dispatch) => {
         const action = { type: 'SET_NEXT_PREV_SONG', diff }
@@ -160,6 +213,12 @@ export function setCurrPlayingUrl(songIdx) {
 export function setCurrPlayingSong(songIdx) {
     return (dispatch) => {
         const action = { type: 'SET_CURRENTLY_PLAYING_SONG', songIdx }
+        dispatch(action)
+    }
+}
+export function setCurrPlayingUrlFromSearch(url) {
+    return (dispatch) => {
+        const action = { type: 'SET_CURRENTLY_PLAYING_URL_FROM_SEARCH', url }
         dispatch(action)
     }
 }
