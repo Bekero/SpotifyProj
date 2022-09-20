@@ -1,13 +1,8 @@
 import { useDispatch } from "react-redux";
 import PlaySong from "./svg/play-song-svg";
-import { setCurrPlayingUrlFromSearch } from "../store/station.actions";
+// import { setCurrPlayingUrlFromSearch } from "../store/station.actions";
 
-export function SearchPreview({ song }) {
-  const dispatch = useDispatch();
-
-  const playCurrUrl = (url) => {
-    dispatch(setCurrPlayingUrlFromSearch(url));
-  };
+export function SearchPreview({ song, playCurrUrl }) {
 
   return (
     <div

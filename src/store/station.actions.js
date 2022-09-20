@@ -24,12 +24,6 @@ export async function getActionAddStation(savedStation) {
     }
 }
 
-export function getActionSetCurrUrl(songIdx) {
-    return {
-        type: 'SET_CURRENTLY_PLAYING_URL',
-        songIdx
-    }
-}
 
 export function getActionSetCurrSongIdx(songIdx) {
     return {
@@ -113,6 +107,16 @@ export function removeStation(stationId) {
         }
     }
 }
+export function setPlayer(player) {
+    return async (dispatch) => {
+        try {
+            const action = { type: 'SET_PLAYER', player }
+            dispatch(action)
+        } catch (err) {
+            console.log('Cannot find player', err)
+        }
+    }
+}
 
 export function addStation(currStation) {
 
@@ -185,12 +189,7 @@ export function addStation(currStation) {
 //     }
 // }
 
-export function setCurrSongIsPlaying(isPlaying) {
-    return (dispatch) => {
-        const action = { type: 'SET_SONG_IS_PLAYING', isPlaying }
-        dispatch(action)
-    }
-}
+
 export function setNextPrevSong(diff) {
     return (dispatch) => {
         const action = { type: 'SET_NEXT_PREV_SONG', diff }
@@ -198,28 +197,10 @@ export function setNextPrevSong(diff) {
     }
 }
 
+//! Talk with yarin about the duplication
 export function setCurrPlayingSongIdx(songIdx) {
     return (dispatch) => {
         dispatch(getActionSetCurrSongIdx(songIdx))
-    }
-}
-
-export function setCurrPlayingUrl(songIdx) {
-    return (dispatch) => {
-        dispatch(getActionSetCurrUrl(songIdx))
-    }
-}
-
-export function setCurrPlayingSong(songIdx) {
-    return (dispatch) => {
-        const action = { type: 'SET_CURRENTLY_PLAYING_SONG', songIdx }
-        dispatch(action)
-    }
-}
-export function setCurrPlayingUrlFromSearch(url) {
-    return (dispatch) => {
-        const action = { type: 'SET_CURRENTLY_PLAYING_URL_FROM_SEARCH', url }
-        dispatch(action)
     }
 }
 
@@ -242,9 +223,9 @@ export function removeLikedSongFromMyPlaylist(wantedSong, myPlaylistId) {
         let stations = getState().stationModule.stations
         let likedStation = structuredClone(stations.find(station => station.isLikedStation === true))
         likedStation.songs.filter(song => song.isLiked === true)
-        console.log('likedStation :', likedStation)
         //*Need to update all the stations that the song is there bcs isLiked has been changed
         // let stationsWithCurrLikedSong = structuredClone(stations.filter(station => station.songs.find(song => song.id === wantedSong.id)))
+        // console.log(stationsWithCurrLikedSong)
         // stationsWithCurrLikedSong.map(station => station.songs.map(song => { if (song.id === wantedSong.id) { song.isLiked = false } }))
         const updatedStation = await stationService.save(likedStation)
         const action = { type: 'ADD_UPDATED_PLAYLIST_TO_STATIONS', updatedStation }
@@ -272,41 +253,6 @@ export function updateStation(station) {
             })
     }
 }
-
-// export function addToStationt(station) {
-//     return (dispatch) => {
-//         dispatch({
-//             type: 'ADD_TO_STATIONT',
-//             station
-//         })
-//     }
-// }
-
-// export function removeFromStationt(stationId) {
-//     return (dispatch) => {
-//         dispatch({
-//             type: 'REMOVE_FROM_STATIONT',
-//             stationId
-//         })
-//     }
-// }
-
-// export function checkout() {
-//     return async (dispatch, getState) => {
-//         try {
-//             const state = getState()
-//             const total = state.stationModule.stationt.reduce((acc, station) => acc + station.price, 0)
-//             const score = await userService.changeScore(-total)
-//             dispatch({ type: 'SET_SCORE', score })
-//             dispatch({ type: 'CLEAR_STATIONT' })
-//             showSuccessMsg('Charged you: $' + total.toLocaleString())
-//         } catch (err) {
-//             showErrorMsg('Cannot checkout, login first')
-//             console.log('StationActions: err in checkout', err)
-//         }
-//     }
-// }
-
 
 // Demo for Optimistic Mutation 
 // (IOW - Assuming the server call will work, so updating the UI first)

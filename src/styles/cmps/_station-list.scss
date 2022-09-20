@@ -1,19 +1,44 @@
-
 .station-list-main-container {
     display: grid;
-
+    padding: 0 32px;
     background-color: $transparent;
 
+    .station-preview {
+        background-color: $accent-clr;
+        padding: 16px;
+        border-radius: 5px;
+    }
+    
     .station-list-container {
-
+        
         display: grid;
         grid-gap: 12px;
         grid-template-columns: repeat($column-count, minmax(0, 220px));
         flex-wrap: nowrap;
-
+        
         .img-details {
             background-color: rgba(115, 104, 84, 0.371);
             border: 4px;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 24px rgb(0 0 0 / 50%);
+            border-radius: 5px;
         }
+        
+        .station-preview-artist {
+            min-height: 62px;
+            
+            .station-preview-lable {
+                color: $main-txt-clr;
+                font-size: 1rem;
+                font-weight: 700;
+                padding-block-end: 4px;
+            }
+            .station-preview-artist-name {
+                color: $sec-txt-clr;
+                font-size: 0.875rem;
+            }
+
+        }
+
     }
 }
