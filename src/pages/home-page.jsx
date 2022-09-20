@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export function HomePage() {
     const notify = () => toast("Hola Ninio");
     let stations = stationService.getStations()
+    
 
     return (
         <div className="app-home main-view">
