@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"
 import { GenreList } from './genre-list'
 import PlaySong from '../cmps/svg/play-song-svg'
-import { setCurrPlayingUrlFromSearch } from "../store/station.actions"
-import { useDispatch } from "react-redux"
+// import { setCurrPlayingUrlFromSearch } from "../store/station.actions"
+import { useDispatch, useSelector } from "react-redux"
 
 
 export function AppSearch() {
   const [data, setData] = useState([])
   const [term, setTerm] = useState([])
+  const player = useSelector(state => state.stationModule.player)
 
   const dispatch = useDispatch()
 
@@ -17,7 +18,7 @@ export function AppSearch() {
     if (term == "" || !term)
       return;
     const search = async () => {
-      const results = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=AIzaSyCC2JyYhExFETzFeFJr5tUro3kK1AsTScw&q=${term}/category=Music&maxResults=10`, {
+      const results = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=AIzaSyDgbFfLi0LGl6lOJ_0cN4A-lcrS4UtryCU&q=${term}/category=Music&maxResults=10`, {
       })
       setData(results.data.items)
       console.log(results.data.items, 'data')
@@ -26,7 +27,9 @@ export function AppSearch() {
   }, [term])
 
   const playCurrUrl = (url) => {
-    dispatch(setCurrPlayingUrlFromSearch(url))
+    console.log(player);
+    player.loadVideoById(url)
+    // dispatch(setCurrPlayingUrlFromSearch(url))
   }
 
   const searchResultsMapped = data.map((item) => {

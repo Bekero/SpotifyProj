@@ -6,8 +6,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { SongList } from '../cmps/song-list'
 import { stationService } from '../services/station.service'
-import { removeStation, setCurrPlayingSongIdx, setCurrPlayingUrl, setCurrStation, setCurrPlayingSong } from '../store/station.actions'
-import { useSelector } from 'react-redux'
+import { removeStation, setCurrPlayingSongIdx, setCurrStation } from '../store/station.actions'
 import { StationEditModal } from '../cmps/station-edit-modal'
 import PlaySongToolBar from '../cmps/svg/play-song-tool-bar'
 import LikeToolBar from '../cmps/svg/unfilled-like-tool-bar'
@@ -56,8 +55,8 @@ export const StationDetails = ({ likedStation }) => {
 
     const playCurrUrl = (songIdx) => {
         dispatch(setCurrPlayingSongIdx(songIdx))
-        dispatch(setCurrPlayingSong(songIdx))
-        dispatch(setCurrPlayingUrl(songIdx))
+        // dispatch(setCurrPlayingSong(songIdx))
+        // dispatch(setCurrPlayingUrl(songIdx))
     }
 
     if (!station && !likedStation) return <div>Loading...</div>
