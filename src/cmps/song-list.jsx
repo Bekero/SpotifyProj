@@ -41,7 +41,6 @@ export const SongList = ({ station, playCurrUrl, likedStation }) => {
         song.isLiked = !song.isLiked
         let likedStation = stations.filter(station => station.isLikedStation === true)
         const newLikedStation = likedStation.length ? likedStation[0] : myStationService.getEmptyLikedSongsStation()
-        console.log('newLikedStation :', newLikedStation)
         dispatch(addStation(newLikedStation))
         // dispatch(addUpdatedLikedStation(song))
     }
@@ -54,7 +53,6 @@ export const SongList = ({ station, playCurrUrl, likedStation }) => {
     const onSongHover = (diff, songIdx) => {
         setPlayHover(diff)
         setCurrSongIdx(songIdx)
-        console.log('currPlayingSong :', currPlayingSong)
     }
 
 

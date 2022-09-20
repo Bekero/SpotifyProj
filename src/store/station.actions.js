@@ -216,6 +216,12 @@ export function setCurrPlayingSong(songIdx) {
         dispatch(action)
     }
 }
+export function setCurrPlayingUrlFromSearch(url) {
+    return (dispatch) => {
+        const action = { type: 'SET_CURRENTLY_PLAYING_URL_FROM_SEARCH', url }
+        dispatch(action)
+    }
+}
 
 export function addSongToMyPlaylist(wantedSong, myPlaylistId) {
     return async (dispatch, getState) => {

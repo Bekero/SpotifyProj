@@ -1,27 +1,36 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import { GenreList } from './genre-list'
+import PlaySong from '../cmps/svg/play-song-svg'
+import { setCurrPlayingUrlFromSearch } from "../store/station.actions"
+import { useDispatch } from "react-redux"
 
 
-export function AppSearch () {
+export function AppSearch() {
   const [data, setData] = useState([])
   const [term, setTerm] = useState([])
 
+  const dispatch = useDispatch()
+
   useEffect(() => {
     setData([])
-    if (term == "" || !term )
-        return;
-      const search = async () => {
-          const results  = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=AIzaSyCC2JyYhExFETzFeFJr5tUro3kK1AsTScw&q=${term}&maxResults=50`, {
-        })
+    if (term == "" || !term)
+      return;
+    const search = async () => {
+      const results = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=AIzaSyCC2JyYhExFETzFeFJr5tUro3kK1AsTScw&q=${term}/category=Music&maxResults=10`, {
+      })
       setData(results.data.items)
-      console.log(results.data.items,'data')
+      console.log(results.data.items, 'data')
     }
     search()
   }, [term])
 
-  const searchResultsMapped = data.map(item => {
-    const {width, height} = item.snippet.thumbnails.high;
+  const playCurrUrl = (url) => {
+    dispatch(setCurrPlayingUrlFromSearch(url))
+  }
+
+  const searchResultsMapped = data.map((item) => {
+    const { width, height } = item.snippet.thumbnails.high;
     const ratio = height / width;
 
     const style = {
@@ -29,11 +38,10 @@ export function AppSearch () {
       height: width * ratio
     }
     return (
-     
-        <div className="content">
-          <div className="header">{item.snippet.title}</div>
-          <img src={item.snippet.thumbnails.high.url} style={style}/>
-        </div>
+      <div key={item.id.videoId} className="content flex row justify-center align-center">
+        <button onClick={() => playCurrUrl(item.id.videoId)}><PlaySong /></button>        <div className="header">{item.snippet.title}</div>
+        <img src={item.snippet.thumbnails.high.url} style={style} />
+      </div>
     )
   })
 

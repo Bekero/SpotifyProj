@@ -44,11 +44,8 @@ export function MediaPlayer() {
 
     useEffect(() => {
         if (!player) return
-        // window.player = player
+        console.log(player);
         setPlay(true)
-        // videoTitle = player.videoTitle
-        // console.log(videoTitle)
-        // setVideoTitle(player.videoTitle)
         if (!songDuration) {
             setSongDuration(player.getDuration())
         }
