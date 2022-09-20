@@ -185,6 +185,12 @@ export function addStation(currStation) {
 //     }
 // }
 
+export function setCurrSongIsPlaying(isPlaying) {
+    return (dispatch) => {
+        const action = { type: 'SET_SONG_IS_PLAYING', isPlaying }
+        dispatch(action)
+    }
+}
 export function setNextPrevSong(diff) {
     return (dispatch) => {
         const action = { type: 'SET_NEXT_PREV_SONG', diff }
