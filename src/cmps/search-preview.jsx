@@ -21,6 +21,7 @@ export function SearchPreview({ song }) {
         <img src={song.snippet.thumbnails.high.url} />
       </div>
       <div className='header'>{song.snippet.title}</div>
+
     </div>
   );
 }
