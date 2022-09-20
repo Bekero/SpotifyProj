@@ -62,7 +62,6 @@ export function MediaPlayer() {
             intervalRef.current = setInterval(() => {
                 setSongTimestamp((prevTimestamp) => {
                     if (prevTimestamp + 1 >= songDuration) {
-                        console.log('asdasd');
                         onNextVideo()
                         clearInterval(intervalRef.current)
                         onPauseVideo()
@@ -83,12 +82,14 @@ export function MediaPlayer() {
     }, [player])
 
     function getSong() {
+        console.log('asd');
+        console.log(player);
         if (!currStation || !currStation.songs || songIdx === undefined) return null
         return currStation.songs[songIdx]
     }
 
     const onReadyVideo = async (event) => {
-        dispatch(setPlayer(event.target))
+        await dispatch(setPlayer(event.target))
         // setPlayer(event.target)
         setSongDuration(event.target.getDuration())
         setSongTimestamp(0)
