@@ -34,7 +34,6 @@ export function MediaPlayer() {
     const [isSongMuted, setSongMuted] = useState(false)
     const [songDuration, setSongDuration] = useState(0)
     const [songStartFrom, setSongStartFrom] = useState(0)
-    const [isSongEnded, setIsSongEnded] = useState(false)
     const [songTimestamp, setSongTimestamp] = useState(0)
     const currentlyPlayingUrl = useSelector(state => state.stationModule.currentlyPlayingUrl)
     const dispatch = useDispatch()
@@ -68,7 +67,6 @@ export function MediaPlayer() {
                     if (prevTimestamp + 1 >= songDuration) {
                         console.log('asdasd');
                         onNextVideo()
-                        // setIsSongEnded(true)
                         clearInterval(intervalRef.current)
                         onPauseVideo()
                     }
@@ -94,7 +92,7 @@ export function MediaPlayer() {
     const onReadyVideo = async (event) => {
         setPlayer(event.target)
         setSongDuration(event.target.getDuration())
-        setIsSongEnded(false)
+        setSongTimestamp(0)
     }
 
     const onPauseVideo = (ev) => {
