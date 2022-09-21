@@ -4,7 +4,7 @@ import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 import { getActionRemoveStation, getActionAddStation, getActionUpdateStation } from '../store/station.actions.js'
 import { store } from '../store/store'
-// import station from '../data/station.json'
+import station from '../data/station.json'
 
 // This file demonstrates how to use a BroadcastChannel to notify other browser tabs 
 
@@ -29,7 +29,7 @@ window.cs = stationService
 
 async function query(filterBy) {
     let stations = await storageService.query(STORAGE_KEY)
-    // if(!stations.length) return Promise.resolve(station)
+    if(!stations.length) return Promise.resolve(station)
     return stations
 }
 

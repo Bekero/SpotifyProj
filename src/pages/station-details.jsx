@@ -12,7 +12,7 @@ import { DetailsToolBar } from '../cmps/details-tool-bar'
 import { StationHeaderDetails } from '../cmps/station-header-details'
 import { loadLikedSongs } from '../store/user.actions'
 
-export const StationDetails = ({ likedStation }) => {
+export const StationDetails = () => {
     const user = useSelector(state => state.userModule.user)
     const stationFromStore = useSelector(state => state.stationModule.currStation)
     const params = useParams()
@@ -22,13 +22,13 @@ export const StationDetails = ({ likedStation }) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if (!params.stationId) return
-        loadStation()
-        if (!user) {
-            dispatch(loadLikedSongs())
+        if (params.stationId) {
+            loadStation()
+            if (!user) {
+                dispatch(loadLikedSongs())
+            }
         }
-
-
+        else if (!params.stationId) return
     }, [params.stationId])
 
     const onRemoveStation = async (stationId) => {
@@ -67,15 +67,13 @@ export const StationDetails = ({ likedStation }) => {
         // dispatch(setCurrPlayingUrl(songIdx))
     }
 
-    if (!station && !likedStation) return <div>Loading...</div>
-    const currStation = likedStation || station
+    if (!station && !user) return <div>Loading...</div>
     return (
         <section className="main-details-container">
             <div className="station-details">
                 <StationHeaderDetails
-                    currStation={currStation}
                     station={station}
-                    likedStation={likedStation}
+                    user={user}
                     onRemoveStation={onRemoveStation}
                     onEditStation={onEditStation}
                     onCloseStation={onCloseStation}
@@ -83,14 +81,18 @@ export const StationDetails = ({ likedStation }) => {
                 />
             </div>
             <div className="details-tool-bar">
-                <DetailsToolBar currStation={currStation} />
+                <DetailsToolBar station={station} user={user} />
             </div>
             <div className="main-details">
                 <section className="details-head-lines">
                     <DetailsHeadLines />
                 </section>
                 <section>
-                    <SongList currStation={currStation} playCurrUrl={playCurrUrl} user={user ? user : ''} />
+                    <SongList
+                        station={station}
+                        playCurrUrl={playCurrUrl}
+                        user={user}
+                    />
                 </section>
             </div>
         </section >

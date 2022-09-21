@@ -19,20 +19,31 @@ export function loadUsers() {
 export function loadLikedSongs() {
     return async (dispatch, getState) => {
         const songs = await userService.getLikedSongs()
-        console.log(songs)
         const action = { type: 'SET_LIKED_SONGS', songs }
         dispatch(action)
     }
 }
+
 export function addLikedSong(song) {
     return async (dispatch, getState) => {
         userService.addLikedSong(song)
-        const action = {type: 'ADD_LIKED_SONG', song}
+        const action = { type: 'ADD_LIKED_SONG', song }
         dispatch(action)
         // TODO: Add song to user's liked song array
         // dispatch 
     }
 }
+
+export function removeLikedSong(song) {
+    return async (dispatch, getState) => {
+        userService.removeLikedSong(song)
+        const action = { type: 'REMOVE_LIKED_SONG', song }
+        dispatch(action)
+        // TODO: Add song to user's liked song array
+        // dispatch 
+    }
+}
+
 export function removeUser(userId) {
     return async dispatch => {
         try {

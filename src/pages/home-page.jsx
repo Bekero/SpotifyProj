@@ -23,7 +23,6 @@ export function HomePage() {
             console.log('Cannot get stations :', err)
         }
     }
-
     if (!stations) return
     return (
         <div className="app-home main-view">

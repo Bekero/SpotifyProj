@@ -18,7 +18,8 @@ export const userService = {
     update,
     getLikedSongs,
     addLikedSong,
-    changeScore
+    changeScore,
+    removeLikedSong
 }
 
 window.userService = userService
@@ -67,10 +68,6 @@ async function login(userCred) {
     }
 }
 
-async function getLikedSongs() {
-    return await storageService.query('likedSongs')
-}
-
 async function signup(userCred) {
     userCred.score = 10000;
     const user = await storageService.post('user', userCred)
@@ -99,11 +96,21 @@ function saveLocalUser(user) {
 }
 
 function getLoggedinUser() {
-    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+    let user = JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+    console.log('user :', user)
+    return user
 }
 
 async function addLikedSong(song) {
     await storageService.post('likedSongs', song)
+}
+
+async function removeLikedSong(song) {
+    await storageService.remove('likedSongs', song)
+}
+
+async function getLikedSongs() {
+    return await storageService.query('likedSongs')
 }
 
 // ;(async ()=>{
