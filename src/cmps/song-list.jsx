@@ -1,18 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react'
 import { loadStations, addSongToMyPlaylist, removeLikedSongFromMyPlaylist, addStation } from '../store/station.actions'
-// import { myStationService } from '../services/my.station.service'
-// import songMenu from '../assets/img/opts-song-list.png'
-// import LikeSongPreview from '../cmps/svg/like-song-preview'
-import OptsSvg from './svg/opts-song'
-import FilledLikeToolBar from './svg/filled-like-tool-bar'
-import UnFilledLikeToolBar from './svg/unfilled-like-tool-bar'
 import { SongPreview } from './song-preview'
 import { addLikedSong, removeLikedSong } from '../store/user.actions'
-// import PauseSong from '../cmps/svg/pause-song-svg.jsx'
 
 export const SongList = ({ station, playCurrUrl, user }) => {
-    // let station = currStation
     const [wantedSong, setWantedSong] = useState(null)
     const [openModal, setOpenModal] = useState(null)
     const [modalPos, setModalPos] = useState(null)
@@ -59,7 +51,7 @@ export const SongList = ({ station, playCurrUrl, user }) => {
         setPlayHover(diff)
         setCurrSongIdx(songIdx)
     }
-    {
+
         return <>
             {openModal && <ul onMouseLeave={() => setOpenModal(false)} style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }} className="song-list-opts-menu">
                 {myStations.map((station, myPlaylistIdx) =>
@@ -67,6 +59,7 @@ export const SongList = ({ station, playCurrUrl, user }) => {
                         <li onClick={(ev) => onAddToMyPlaylist(myPlaylistIdx)}>Add to {station.name}</li>
                     </div>)}
             </ul>}
+            {/* Map to preview */}
             <SongPreview
                 user={user}
                 station={station}
@@ -77,5 +70,4 @@ export const SongList = ({ station, playCurrUrl, user }) => {
                 addToPlaylist={addToPlaylist}
                 currSongIdx={currSongIdx} />
         </>
-    }
 }

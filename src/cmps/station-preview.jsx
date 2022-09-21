@@ -2,11 +2,10 @@
 import { Link } from "react-router-dom";
 
 export function StationPreview({ station }) {
-    console.log(station);
     const getLabels = () => {
         return station.tags.join(', ')
     }
-    console.log(station);
+
     return (
         <Link className="text-decoration" to={`/playlist/${station._id}`}>
             <div className="station-preview">
