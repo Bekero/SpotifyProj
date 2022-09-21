@@ -18,7 +18,6 @@ export const StationEditModal = ({ station, onEditStation, onCloseStation }) => 
 
     const onSaveStation = (ev) => {
         ev.preventDefault()
-        // const stationToSave = { ...newStation }
         dispatch(updateStation({ ...newStation }))
         onEditStation(newStation)
     }

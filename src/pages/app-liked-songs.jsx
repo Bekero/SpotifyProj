@@ -5,48 +5,33 @@ import { useDispatch } from 'react-redux'
 import { userService } from '../services/user.service'
 import { loadStations } from '../store/station.actions'
 import { loadLikedSongs } from '../store/user.actions'
+import { StationDetails } from './station-details'
 
 export function LikedSongs() {
-    // const [songs, setSongs] = useState([])
     const user = useSelector(state => state.userModule.user)
 
     const dispatch = useDispatch()
 
-
+    //!The user in the details section is rendered as separate song and not array with songs
 
     useEffect(() => {
-        console.log(user)
         if (!user) {
+            //*Get the songs from localStorage()
             dispatch(loadLikedSongs())
-            // getLikedSongs()
-            // let newUser = userService.saveLocalUser()
-            //Get the songs from the localStorage
         } else if (user) {
-
-            //Get the Liked Songs from the user nad render them
+            //*Get the Liked Songs from the user and render them
         }
-        // if (stations) return
-        // dispatch(loadStations())
-    }, [])
-
-    // async function getLikedSongs() {
-        // const likedSongs = await userService.getLikedSongs()
-        // setSongs(likedSongs)
-
-    // }
-
-    // if (!stations) return
+    }, [user])
+    // if (!user) return <div>Loading User///</div>
     return (
         <div className="liked-station-container">
             <ol>
-                {user?.likedSongs && <pre>{JSON.stringify(user?.likedSongs)}</pre>}
+                <StationDetails />
+                {/* {user?.likedSongs && <pre>{JSON.stringify(user?.likedSongs)}</pre>} */}
             </ol>
         </div>
     )
 }
-
-
-
 
 //* The move = ask if user exist ,
 //* if he exist get the likes songs from his data

@@ -7,32 +7,26 @@ import { loadStations, addSongToMyPlaylist, removeLikedSongFromMyPlaylist, addSt
 import OptsSvg from './svg/opts-song'
 import FilledLikeToolBar from '../cmps/svg/filled-like-tool-bar'
 import UnFilledLikeToolBar from '../cmps/svg/unfilled-like-tool-bar'
-import {SongPreview} from '../cmps/song-preview'
-import { addLikedSong } from '../store/user.actions'
+import { SongPreview } from '../cmps/song-preview'
+import { addLikedSong, removeLikedSong } from '../store/user.actions'
 // import PauseSong from '../cmps/svg/pause-song-svg.jsx'
 
-export const SongList = ({ currStation, playCurrUrl, user }) => {
-
-    let station = currStation
+export const SongList = ({ station, playCurrUrl, user }) => {
+    // let station = currStation
     const [wantedSong, setWantedSong] = useState(null)
     const [openModal, setOpenModal] = useState(null)
     const [modalPos, setModalPos] = useState(null)
     const [playHover, setPlayHover] = useState(false)
     const [currSongIdx, setCurrSongIdx] = useState(null)
-    const [likedSongs, setLikedSongs] = useState([])
 
     const dispatch = useDispatch()
-    let stations = useSelector(state => state.stationModule.stations)
 
+    let stations = useSelector(state => state.stationModule.stations)
     let myStations = stations.filter(station => station.isMyStation === true)
 
-
     useEffect(() => {
-
         dispatch(loadStations())
     }, [])
-
-    useEffect(() => { }, [])
 
     const addToPlaylist = (ev, song) => {
         let posX = ev.pageX - ev.view.innerWidth
@@ -43,8 +37,17 @@ export const SongList = ({ currStation, playCurrUrl, user }) => {
         setOpenModal(true)
     }
 
-    const addToLikedPlaylist = async (song) => {
-        dispatch(addLikedSong(song))
+    const addToLikedPlaylist = (wantedSong) => {
+        if (!user) {
+            dispatch(addLikedSong(wantedSong))
+            return
+        }
+        else {
+            let checkIfSongExist = user.find(song => song.id === wantedSong.id)
+            if (checkIfSongExist) dispatch(removeLikedSong(wantedSong))
+            else if (!checkIfSongExist) dispatch(addLikedSong(wantedSong))
+            return
+        }
     }
 
     const onAddToMyPlaylist = (myPlaylistIdx) => {
@@ -56,7 +59,6 @@ export const SongList = ({ currStation, playCurrUrl, user }) => {
         setPlayHover(diff)
         setCurrSongIdx(songIdx)
     }
-
     {
         return <>
             {openModal && <ul onMouseLeave={() => setOpenModal(false)} style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }} className="song-list-opts-menu">
@@ -66,7 +68,7 @@ export const SongList = ({ currStation, playCurrUrl, user }) => {
                     </div>)}
             </ul>}
             <SongPreview
-            user={user}
+                user={user}
                 station={station}
                 playHover={playHover}
                 onSongHover={onSongHover}

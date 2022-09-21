@@ -1,10 +1,10 @@
 const initialState = {
+    player: null,
+    currSongIdx: null,
     stations: [],
     likedSongsStation: null,
     currStation: {},
-    currSongIdx: null,
     lastRemovedStation: null,
-    player: null
 }
 
 export function stationReducer(state = initialState, action) {
@@ -23,15 +23,14 @@ export function stationReducer(state = initialState, action) {
         case 'SET_NEXT_PREV_SONG':
             if (currSongIdx + action.diff >= currStation.songs.length) {
                 currSongIdx = -1
-                console.log(currSongIdx);
             }
-            else if (currSongIdx + action.diff >= 0 && currSongIdx + action.diff < currStation.songs.length) {
+            else if (currSongIdx + action.diff >= 0 && currSongIdx + action.diff <= currStation.songs.length) {
                 // currentlyPlayingUrl = currStation.songs[currSongIdx + action.diff].url
             } else {
                 // currentlyPlayingUrl = currStation.songs[0].url
-                currSongIdx = -1
+                currSongIdx = currStation.songs.length
             }
-            newState = { ...state,  currSongIdx: currSongIdx + action.diff}
+            newState = { ...state, currSongIdx: currSongIdx + action.diff }
             break
         case 'SET_CURRENTLY_PLAYING_SONG_IDX':
             newState = { ...state, currSongIdx: action.songIdx }
@@ -60,13 +59,11 @@ export function stationReducer(state = initialState, action) {
             likedStationIdx = state.stations.findIndex(station => station._id === action.savedStation._id)
             // existLikedStation = state.stations.filter(station => station._id === action.savedStation._id)
             if (likedStationIdx !== -1) {
-                console.log('likedStationIdx :', likedStationIdx)
                 newState = { ...state, stations: [...state.stations[likedStationIdx], existLikedStation[0]] }
                 break
             }
             newState = { ...state, stations: [...state.stations, action.savedStation] }
 
-            console.log('newState :', newState)
             // state = { ...state, likedSongsStation: [...action.station] }
             // newState = { ...state, stations: [...state.stations, action.savedStation] }
             break

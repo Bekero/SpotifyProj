@@ -205,6 +205,11 @@
                 flex-direction: row;
                 align-items: center;
                 justify-self: start;
+                .song-list-title-img-container {
+                    margin-right: 16px;
+                    width: 40px;
+                    height: 40px;
+                }
 
                 .song-list-title {
                     flex-direction: column;
@@ -219,12 +224,6 @@
                     >* {
                         font-size: 1rem;
                     }
-                }
-
-                .song-img {
-                    margin-right: 16px;
-                    width: 40px;
-                    height: 40px;
                 }
             }
 

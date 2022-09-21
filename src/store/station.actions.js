@@ -107,6 +107,7 @@ export function removeStation(stationId) {
         }
     }
 }
+
 export function setPlayer(player) {
     return async (dispatch) => {
         try {
