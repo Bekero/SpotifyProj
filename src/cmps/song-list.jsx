@@ -5,9 +5,9 @@ import { loadStations, addSongToMyPlaylist, removeLikedSongFromMyPlaylist, addSt
 // import songMenu from '../assets/img/opts-song-list.png'
 // import LikeSongPreview from '../cmps/svg/like-song-preview'
 import OptsSvg from './svg/opts-song'
-import FilledLikeToolBar from '../cmps/svg/filled-like-tool-bar'
-import UnFilledLikeToolBar from '../cmps/svg/unfilled-like-tool-bar'
-import { SongPreview } from '../cmps/song-preview'
+import FilledLikeToolBar from './svg/filled-like-tool-bar'
+import UnFilledLikeToolBar from './svg/unfilled-like-tool-bar'
+import { SongPreview } from './song-preview'
 import { addLikedSong, removeLikedSong } from '../store/user.actions'
 // import PauseSong from '../cmps/svg/pause-song-svg.jsx'
 

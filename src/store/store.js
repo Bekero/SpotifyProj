@@ -7,11 +7,13 @@ import thunk from 'redux-thunk'
 import { userReducer } from './user.reducer.js'
 import { systemReducer } from './system.reducer'
 import { stationReducer } from './station.reducer'
+import { songReducer } from './song.reducer'
 
 const rootReducer = combineReducers({
     userModule: userReducer,
     systemModule: systemReducer,
     stationModule: stationReducer,
+    songModule: songReducer,
 })
 
 // export const store = createStore(rootReducer, applyMiddleware(thunk))

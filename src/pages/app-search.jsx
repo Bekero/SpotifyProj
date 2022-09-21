@@ -8,19 +8,28 @@ import { setCurrentUrl } from "../store/station.actions"
 
 
 export function AppSearch() {
-  const player = useSelector((state) => state.stationModule.player);
+  const player = useSelector(state => state.songModule.player);
   const dispatch = useDispatch()
   const [data, setData] = useState([]);
+  const [songDetails, setSongDetails] = useState([]);
   const [term, setTerm] = useState([]);
-
+  let results
   useEffect(() => {
-    if (term == "" || !term) return;
-    const search = async () => {
-      const results = await youtubeService.getSongs(term);
-      setData(results.data.items);
-    };
-    search();
-  }, [term]);
+    console.log('term', term);
+    if (term === '' || !term.length) return;
+    search()
+  }, [term, results]);
+
+  const search = async () => {
+    results = await youtubeService.getSongs(term)
+    await setData(results.data.items);
+    if(!data.length) return console.log('asdkhnjaskdygasdkhjasdajkshdjkashd');
+    console.log(data);
+    const details = await youtubeService.getSongsDetails(data)
+    if (!details) return
+    setSongDetails(details.data.items)
+    console.log('songDetails', songDetails)
+  };
 
   const addToLikedPlaylist = async (song) => {
     const filteredSong = {
@@ -39,7 +48,7 @@ export function AppSearch() {
       imgUrl: song.snippet.thumbnails.default,
       title: song.snippet.title
     }
-    const station = { title: 'Barak and Tommy The GEVERS', songs: [currSong] }
+    const station = { title: 'Falling stars', songs: [currSong] }
     dispatch({ type: 'SET_CURR_STATION', station })
     dispatch({ type: 'SET_CURRENTLY_PLAYING_SONG_IDX', songIdx: 0 })
   }
@@ -47,9 +56,8 @@ export function AppSearch() {
   return (
     <div>
       <div className='ui form'>
-        <div className='field'>
-          <label>Search Term</label>
-          <input className='input' onChange={(e) => setTerm(e.target.value)} />
+        <div className='search-field'>
+          <input className='search-input' onChange={(e) => setTerm(e.target.value)} />
         </div>
       </div>
 

@@ -14,7 +14,7 @@ export const RootCmp = ()=>{
             <div className="app-container">
                 <SideNav />
                 <main onScroll={(ev) => {setScrollTop(ev.currentTarget.scrollTop)}} className="home-app-container">
-                <AppHeader scrollTop={scrollTop}/>
+                    <AppHeader scrollTop={scrollTop}/>
                     <Routes>
                         {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
                     </Routes>

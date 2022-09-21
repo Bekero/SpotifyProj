@@ -20,8 +20,9 @@ export function SearchPreview({ song, playCurrUrl, addToLikedPlaylist }) {
           </button>
         </div>
         <div className="play-song-desc">
+          
         <div className='play-song-title'>{songTitle}</div>
-        <div className="play-song-author">Drake</div>
+        <div className="play-song-author">{song.snippet.channelTitle}</div>
         </div>
       </div>
       <div className="play-song-tool-bar-search"> 

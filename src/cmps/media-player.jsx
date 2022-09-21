@@ -2,7 +2,7 @@ import YouTube, { YouTubeProps } from 'react-youtube';
 import { useEffect, useRef, useState } from 'react'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setNextPrevSong, setPlayer } from '../store/station.actions';
+import { setNextPrevSong, setPlayer } from '../store/song.actions';
 // import play from '../assets/img/play.png'
 // import stop from '../assets/img/stop.png'
 // import stop from '../assets/img/stop-song.svg'
@@ -18,8 +18,8 @@ import { utilService } from '../services/util.service';
 export function MediaPlayer() {
 
     const currStation = useSelector(state => state.stationModule.currStation)
-    const songIdx = useSelector(state => state.stationModule.currSongIdx)
-    const currPlayer = useSelector(state => state.stationModule.player)
+    const songIdx = useSelector(state => state.songModule.currSongIdx)
+    const currPlayer = useSelector(state => state.songModule.player)
     // let player
     // const getSong()?.url = useSelector(state => state.stationModule.getSong()?.url)
     const [player, setPlayer] = useState(null)
@@ -33,7 +33,6 @@ export function MediaPlayer() {
     const dispatch = useDispatch()
     const intervalRef = useRef()
     console.log(songIdx);
-    console.log(currStation);
     // song = currStation?.songs[songIdx]
 
     console.log('currStation', currStation);
