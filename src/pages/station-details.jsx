@@ -58,8 +58,8 @@ export const StationDetails = () => {
 
     const playCurrUrl = (songIdx) => {
         dispatch(setCurrPlayingSongIdx(songIdx))
-        dispatch(setCurrPlayingSong(songIdx))
-        dispatch(setCurrPlayingUrl(songIdx))
+        // dispatch(setCurrPlayingSong(songIdx))
+        // dispatch(setCurrPlayingUrl(songIdx))
     }
 
     if (!station && !user) return <div>Loading...</div>

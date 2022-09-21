@@ -2,13 +2,18 @@
 import { Link } from "react-router-dom";
 
 export function StationPreview({ station }) {
-
+    console.log(station);
+    const getLables = () => {
+        return station.tags.join(', ')
+    }
     return (
-        <Link to={`/playlist/${station._id}`}>
+        <Link className="text-decoration" to={`/playlist/${station._id}`}>
             <div className="station-preview">
                 <img className="img-details" src={`https://robohash.org/${station.name}?set=set5`} />
-
-                <h6>{station.name}</h6>
+                <div className="station-preview-artist">
+                    <div className="station-preview-lable">{getLables()}</div>
+                    <div className="station-preview-artist-name">{station.name}</div>
+                </div>
             </div>
         </Link>
     )
