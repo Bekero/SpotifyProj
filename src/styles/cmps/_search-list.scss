@@ -1,0 +1,55 @@
+.search-song-list-container{
+    background-color: aliceblue;
+}
+.search-list-preview{
+    display: grid;
+    grid-template-columns: 4fr minmax(120px,1fr);
+   
+    
+    img{
+        width: 40px;
+        height: 40px;
+    }
+    .play-song-btn-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative; 
+        width: 40px;
+        height: 40px;
+        img{
+            flex-shrink: 0;
+            object-fit: cover;
+            object-position: center center;
+        }
+        .play-song-btn{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            height: 40px;
+            width: 40px;
+            align-items: center;
+            background: rgba(0,0,0,.5);
+            border: 0;
+            opacity: 0;
+        }
+    }
+    .play-song-title{
+        max-width: 300px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow:clip;
+    }
+    .play-song-tool-bar-search{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    &:hover{
+        background-color: $accent-clr;
+        .play-song-btn{
+            opacity: 1;
+        }
+    }
+}
