@@ -5,7 +5,6 @@ import { getActionSetCurrSongIdx } from './station.actions.js';
 const initialState = {
     user: userService.getLoggedinUser(),
     users: [],
-
 }
 export function userReducer(state = initialState, action) {
     var newState = state;
@@ -15,16 +14,18 @@ export function userReducer(state = initialState, action) {
             newState = { ...state, user: action.user }
             break;
         case 'SET_LIKED_SONGS':
-            console.log(state)
             if (!state.user) {
-                console.log('no user')
-                newState = { ...state, user: { likedSongs: action.songs } }
-                console.log(newState)
+                newState = { ...state, user: action.songs }
             }
-            else newState = { ...state, user: { ...state.user, likedSongs: action.songs } }
+            else {
+                newState = { ...state, user: [...state.user, action.songs] }
+            }
             break
         case 'ADD_LIKED_SONG':
-            newState = {...state, user: {...state.user, likedSongs: [...state.user.likedSongs, action.song]}}
+            newState = { ...state, user: [...state.user, action.song] }
+            break
+        case 'REMOVE_LIKED_SONG':
+            newState = { ...state, user: state.user.filter(song => song.id !== action.song.id) }
             break
         case 'REMOVE_USER':
             newState = {
@@ -40,7 +41,6 @@ export function userReducer(state = initialState, action) {
     }
     // For debug:
     // window.userState = newState;
-    // console.log('State:', newState);
     return newState;
 
 }

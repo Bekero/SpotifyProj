@@ -33,7 +33,6 @@ export function stationReducer(state = initialState, action) {
                 currentlyPlayingUrl = currStation.songs[0].url
                 currSongIdx = -1
                 currSong = currStation.songs[0]
-                console.log(currSongIdx);
             }
             else if (currSongIdx + action.diff >= 0 && currSongIdx + action.diff < currStation.songs.length) {
                 currentlyPlayingUrl = currStation.songs[currSongIdx + action.diff].url
@@ -43,7 +42,6 @@ export function stationReducer(state = initialState, action) {
                 currentlyPlayingUrl = currStation.songs[0].url
                 currSongIdx = -1
                 currSong = currStation.songs[0]
-                console.log(currSongIdx);
 
             }
             newState = { ...state, currentlyPlayingUrl, currSongIdx: currSongIdx + action.diff, currPlayingSong: currSong }
@@ -83,13 +81,11 @@ export function stationReducer(state = initialState, action) {
             likedStationIdx = state.stations.findIndex(station => station._id === action.savedStation._id)
             // existLikedStation = state.stations.filter(station => station._id === action.savedStation._id)
             if (likedStationIdx !== -1) {
-                console.log('likedStationIdx :', likedStationIdx)
                 newState = { ...state, stations: [...state.stations[likedStationIdx], existLikedStation[0]] }
                 break
             }
             newState = { ...state, stations: [...state.stations, action.savedStation] }
 
-            console.log('newState :', newState)
             // state = { ...state, likedSongsStation: [...action.station] }
             // newState = { ...state, stations: [...state.stations, action.savedStation] }
             break
