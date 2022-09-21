@@ -6,19 +6,15 @@
     margin: 0px;
     list-style: none;
 
- 
 
-    .song-list-title-container {
-        display: flex;
-        // columns: 2;
-        flex-direction: column;
-    }
+
+
 
     .add-to-playlist-modal {
->* {
-        background-color: wheat;
-        position: absolute;
-}
+        >* {
+            background-color: wheat;
+            position: absolute;
+        }
 
         >* {
 

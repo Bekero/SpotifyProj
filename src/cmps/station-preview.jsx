@@ -6,10 +6,11 @@ export function StationPreview({ station }) {
     const getLables = () => {
         return station.tags.join(', ')
     }
+    console.log(station);
     return (
         <Link className="text-decoration" to={`/playlist/${station._id}`}>
             <div className="station-preview">
-                <img className="img-details" src={`https://robohash.org/${station.name}?set=set5`} />
+                <img className="img-details" src={station.createdBy.imgUrl} />
                 <div className="station-preview-artist">
                     <div className="station-preview-lable">{getLables()}</div>
                     <div className="station-preview-artist-name">{station.name}</div>

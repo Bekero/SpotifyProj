@@ -1,3 +1,5 @@
+import station from '../data/station.json'
+
 export const storageService = {
     query,
     get,
@@ -9,6 +11,9 @@ export const storageService = {
 
 function query(entityType, delay = 600) {
     var entities = JSON.parse(localStorage.getItem(entityType)) || []
+    if(entityType === 'station' && !entities.length){
+        _save(entityType, station)
+    }
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             // reject('OOOOPs')
@@ -24,7 +29,7 @@ function get(entityType, entityId) {
 }
 
 function post(entityType, newEntity) {
-    if(!newEntity._id) newEntity._id = _makeId()
+    if (!newEntity._id) newEntity._id = _makeId()
     return query(entityType)
         .then(entities => {
             entities.push(newEntity)

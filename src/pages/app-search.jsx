@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react"
+import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
 import { SearchList } from '../cmps/search-list'
 import { youtubeService } from '../services/youtube.service'
+import { setCurrentUrl } from "../store/station.actions"
 
 
 export function AppSearch() {
   const player = useSelector(state => state.stationModule.player)
-
+  const dispatch = useDispatch()
   const [data, setData] = useState([])
   const [term, setTerm] = useState([])
 
@@ -21,9 +23,9 @@ export function AppSearch() {
   }, [term])
 
   const playCurrUrl = (url) => {
-    console.log(url, "(song id videoc asdid id iddidid)");
     console.log(player);
-    player.loadVideoById(url)
+    dispatch(setCurrentUrl(url))
+    // player.loadVideoById(url)
   }
 
   return (

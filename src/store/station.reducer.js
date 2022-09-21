@@ -1,10 +1,11 @@
 const initialState = {
+    player: null,
+    currSongIdx: null,
     stations: [],
     likedSongsStation: null,
     currStation: {},
-    currSongIdx: null,
+    currentUrl: null,
     lastRemovedStation: null,
-    player: null
 }
 
 export function stationReducer(state = initialState, action) {
@@ -20,18 +21,21 @@ export function stationReducer(state = initialState, action) {
         case 'SET_PLAYER':
             newState = { ...state, player: action.player }
             break
+        case 'SET_CURRENT_URL':
+            newState = { ...state, currentUrl: action.url }
+            break
         case 'SET_NEXT_PREV_SONG':
             if (currSongIdx + action.diff >= currStation.songs.length) {
                 currSongIdx = -1
                 console.log(currSongIdx);
             }
-            else if (currSongIdx + action.diff >= 0 && currSongIdx + action.diff < currStation.songs.length) {
+            else if (currSongIdx + action.diff >= 0 && currSongIdx + action.diff <= currStation.songs.length) {
                 // currentlyPlayingUrl = currStation.songs[currSongIdx + action.diff].url
             } else {
                 // currentlyPlayingUrl = currStation.songs[0].url
-                currSongIdx = -1
+                currSongIdx = currStation.songs.length
             }
-            newState = { ...state,  currSongIdx: currSongIdx + action.diff}
+            newState = { ...state, currSongIdx: currSongIdx + action.diff }
             break
         case 'SET_CURRENTLY_PLAYING_SONG_IDX':
             newState = { ...state, currSongIdx: action.songIdx }

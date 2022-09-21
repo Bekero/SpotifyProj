@@ -6,22 +6,24 @@ import { userService } from "../services/user.service"
 import { useSelector } from "react-redux"
 
 export function SongPreview({ station, playHover, onSongHover, playCurrUrl, addToLikedPlaylist, currSongIdx, addToPlaylist, user }) {
-    
+
     function isSongLiked(songId) {
-        if(!user) return false
+        if (!user) return false
         return user?.likedSongs?.some(song => song.id === songId)
     }
 
-    
+
     return <>
         {station.songs.map((song, songIdx) => {
             return <div onMouseOver={() => onSongHover(true, songIdx)} onMouseLeave={() => onSongHover(false, songIdx)} key={song.id} className="song-preview">
                 <div className="song-number-play">
                     {(playHover && (currSongIdx === songIdx)) ?
-                        <div className="play-song-preview"><button onClick={() => playCurrUrl(songIdx)}>{<PlaySong />}</button></div> : <div>{songIdx + 1}</div>}
+                        <div className="play-song-preview"><button onClick={() => playCurrUrl(songIdx, station._id)}>{<PlaySong />}</button></div> : <div>{songIdx + 1}</div>}
                 </div>
                 <div className='song-list-title-container'>
-                    <img className="song-img" src={`${song.imgUrl}`} />
+                    <div className="song-list-title-img-container">
+                        <img className="song-img" src={`${song.imgUrl}`} />
+                    </div>
                     <div className='song-list-title'>
                         <div className="song-title">{song.title}</div>
                         <div className="artists-name">Artists</div>
