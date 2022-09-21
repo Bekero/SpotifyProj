@@ -58,9 +58,7 @@ export const StationDetails = () => {
     }
 
     const playCurrUrl = (songIdx, currStationId) => {
-        console.log(songIdx);
-        console.log('stationFromStore', stationFromStore);
-        if(songIdx === undefined) return console.log('YOU LOST');
+        if (songIdx === undefined) return
         dispatch(setCurrPlayingSongIdx(songIdx))
         dispatch(setCurrStation(currStationId))
         // dispatch(setCurrPlayingSong(songIdx))

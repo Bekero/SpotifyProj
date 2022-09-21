@@ -3,8 +3,7 @@
     "_id": "5cksxjas89xjsa8xjsa8jxs09",
     "name": "Honestly, Nevermind",
     "tags": [
-      "Funk",
-      "Happy"
+      "Drake"
     ],
     "createdBy": {
       "_id": "32erwfg23rewf",
@@ -113,6 +112,138 @@
         "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
         "addedBy": {},
         "songDuration": "3:11"
+      }
+    ]
+  },
+  {
+    "_id": "retgftrr4trhwe",
+    "name": "Mr. Morale & The Big Steppers",
+    "tags": [
+      "Kendrick Lamar"
+    ],
+    "createdBy": {
+      "_id": "3rw4reth",
+      "fullname": "Nuki Shlomo",
+      "imgUrl": "https://media.pitchfork.com/photos/627c1023d3c744a67a846260/master/pass/Kendrick-Lamar-Mr-Morale-And-The-Big-Steppers.jpg"
+    },
+    "likedByUsers": [
+      "{minimal-user}",
+      "{minimal-user}"
+    ],
+    "songs": [
+      {
+        "id": "234rt5ryr433erf",
+        "title": "Count Me Out",
+        "url": "6nTcdw7bVdc",
+        "imgUrl": "https://media.pitchfork.com/photos/627c1023d3c744a67a846260/master/pass/Kendrick-Lamar-Mr-Morale-And-The-Big-Steppers.jpg",
+        "addedBy": "{minimal-user}",
+        "addedAt": 162521765262,
+        "songDuration": "3:32",
+        "featured": "Blxst & Amanda Reifer"
+      },
+      {
+        "id": "23qewrthy543re",
+        "title": "Die Hard",
+        "url": "Lx3MGrafykU",
+        "imgUrl": "https://media.pitchfork.com/photos/627c1023d3c744a67a846260/master/pass/Kendrick-Lamar-Mr-Morale-And-The-Big-Steppers.jpg",
+        "addedBy": "{minimal-user}",
+        "addedAt": 162521765262,
+        "songDuration": "3:32"
+      },
+      {
+        "id": "32er4tyr43erwf",
+        "title": "N95",
+        "url": "zI383uEwA6Q",
+        "imgUrl": "https://media.pitchfork.com/photos/627c1023d3c744a67a846260/master/pass/Kendrick-Lamar-Mr-Morale-And-The-Big-Steppers.jpg",
+        "addedBy": "{minimal-user}",
+        "addedAt": 162521765262,
+        "songDuration": "3:32"
+      },
+      {
+        "id": "r4t5rhgfrew3454y",
+        "title": "United In Grief",
+        "url": "tvNSXS4x9nc",
+        "imgUrl": "https://media.pitchfork.com/photos/627c1023d3c744a67a846260/master/pass/Kendrick-Lamar-Mr-Morale-And-The-Big-Steppers.jpg",
+        "addedBy": "{minimal-user}",
+        "addedAt": 162521765262,
+        "songDuration": "3:32"
+      },
+      {
+        "id": "34tr5yhgre4try5t",
+        "title": "Worldwide Steppers",
+        "url": "AxNXkI94tbY",
+        "imgUrl": "https://media.pitchfork.com/photos/627c1023d3c744a67a846260/master/pass/Kendrick-Lamar-Mr-Morale-And-The-Big-Steppers.jpg",
+        "addedBy": "{minimal-user}",
+        "addedAt": 162521765262,
+        "songDuration": "3:32"
+      },
+      {
+        "id": "3r4etgffrerty",
+        "title": "Father Time",
+        "url": "toEW7_-pvOY",
+        "imgUrl": "https://media.pitchfork.com/photos/627c1023d3c744a67a846260/master/pass/Kendrick-Lamar-Mr-Morale-And-The-Big-Steppers.jpg",
+        "addedBy": "{minimal-user}",
+        "addedAt": 162521765262,
+        "songDuration": "3:32",
+        "featured": "Sampga"
+      },
+      {
+        "id": "e3wrfrdgtydfe",
+        "title": "Rich Spirit",
+        "url": "hl3-ZPg-JAA",
+        "imgUrl": "https://media.pitchfork.com/photos/627c1023d3c744a67a846260/master/pass/Kendrick-Lamar-Mr-Morale-And-The-Big-Steppers.jpg",
+        "addedBy": "{minimal-user}",
+        "addedAt": 162521765262,
+        "songDuration": "3:32"
+      },
+      {
+        "id": "34retr5gfddser4t",
+        "title": "We Cry Together",
+        "url": "C_s9JJnqQqM",
+        "imgUrl": "https://media.pitchfork.com/photos/627c1023d3c744a67a846260/master/pass/Kendrick-Lamar-Mr-Morale-And-The-Big-Steppers.jpg",
+        "addedBy": "{minimal-user}",
+        "addedAt": 162521765262,
+        "songDuration": "3:32",
+        "featured": "Taylour Paige"
+      },
+      {
+        "id": "3r4etgffvdret",
+        "title": "Purple Hearts",
+        "url": "0kS-MtxPr9I",
+        "imgUrl": "https://media.pitchfork.com/photos/627c1023d3c744a67a846260/master/pass/Kendrick-Lamar-Mr-Morale-And-The-Big-Steppers.jpg",
+        "addedBy": "{minimal-user}",
+        "addedAt": 162521765262,
+        "songDuration": "3:32",
+        "featured": " Summer Walker & Ghostface Killah"
+      },
+      {
+        "id": "435rtfgdsertr",
+        "title": "Silent Hill",
+        "url": "00QQWJIFxDA",
+        "imgUrl": "https://media.pitchfork.com/photos/627c1023d3c744a67a846260/master/pass/Kendrick-Lamar-Mr-Morale-And-The-Big-Steppers.jpg",
+        "addedBy": "{minimal-user}",
+        "addedAt": 162521765262,
+        "songDuration": "3:32",
+        "featured": "Kodak Black"
+      },
+      {
+        "id": "3wer4tgfvdfert",
+        "title": "Mr. Morale",
+        "url": "SdwEIPD1bEw",
+        "imgUrl": "https://media.pitchfork.com/photos/627c1023d3c744a67a846260/master/pass/Kendrick-Lamar-Mr-Morale-And-The-Big-Steppers.jpg",
+        "addedBy": "{minimal-user}",
+        "addedAt": 162521765262,
+        "songDuration": "3:32",
+        "featured": "Tanna Leone"
+      },
+      {
+        "id": "3we4rgfdvfser4t",
+        "title": "Mirror",
+        "url": "OqR71_BYS-c",
+        "imgUrl": "https://media.pitchfork.com/photos/627c1023d3c744a67a846260/master/pass/Kendrick-Lamar-Mr-Morale-And-The-Big-Steppers.jpg",
+        "addedBy": "{minimal-user}",
+        "addedAt": 162521765262,
+        "songDuration": "3:32"
       }
     ]
   },
