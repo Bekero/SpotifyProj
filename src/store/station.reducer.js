@@ -30,7 +30,7 @@ export function stationReducer(state = initialState, action) {
                 // currentlyPlayingUrl = currStation.songs[0].url
                 currSongIdx = -1
             }
-            newState = { ...state,  currSongIdx: currSongIdx + action.diff}
+            newState = { ...state, currSongIdx: currSongIdx + action.diff }
             break
         case 'SET_CURRENTLY_PLAYING_SONG_IDX':
             newState = { ...state, currSongIdx: action.songIdx }
