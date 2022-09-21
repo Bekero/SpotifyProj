@@ -38,7 +38,7 @@
         max-width: 300px;
         white-space: nowrap;
         overflow: hidden;
-        text-overflow:clip;
+        text-overflow:ellipsis;
     }
     .play-song-tool-bar-search{
         display: flex;
@@ -47,7 +47,8 @@
         align-items: center;
     }
     &:hover{
-        background-color: $accent-clr;
+        // background-color: hsla(0,0%,100%,.3);  
+        background-color: hsla(0,0%,100%,.1);
         .play-song-btn{
             opacity: 1;
         }
