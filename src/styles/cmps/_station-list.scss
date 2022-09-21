@@ -7,32 +7,46 @@
         background-color: $accent-clr;
         padding: 16px;
         border-radius: 5px;
+        height: 100%;
+
+        &:hover{
+            background-color: $third-clr;
+        }
     }
-    
+
     .station-list-container {
-        
+
         display: grid;
         grid-gap: 12px;
         grid-template-columns: repeat($column-count, minmax(0, 220px));
         flex-wrap: nowrap;
-        
-        .img-details {
-            background-color: rgba(115, 104, 84, 0.371);
-            border: 4px;
+
+        .img-details-container {
+            height: 200px;
             margin-bottom: 16px;
-            box-shadow: 0 8px 24px rgb(0 0 0 / 50%);
-            border-radius: 5px;
+
+            .img-details {
+                background-color: rgba(115, 104, 84, 0.371);
+                border: 4px;
+                margin-bottom: 16px;
+                box-shadow: 0 8px 24px rgb(0 0 0 / 50%);
+                border-radius: 5px;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
         }
-        
+
         .station-preview-artist {
             min-height: 62px;
-            
+
             .station-preview-label {
                 color: $main-txt-clr;
                 font-size: 1rem;
                 font-weight: 700;
                 padding-block-end: 4px;
             }
+
             .station-preview-artist-name {
                 color: $sec-txt-clr;
                 font-size: 0.875rem;

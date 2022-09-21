@@ -9,7 +9,9 @@ export function StationPreview({ station }) {
     return (
         <Link className="text-decoration" to={`/playlist/${station._id}`}>
             <div className="station-preview">
-                <img className="img-details" src={station.createdBy.imgUrl} />
+                <div className="img-details-container">
+                    <img className="img-details" src={station.createdBy.imgUrl} />
+                </div>
                 <div className="station-preview-artist">
                     <div className="station-preview-label">{getLabels()}</div>
                     <div className="station-preview-artist-name">{station.name}</div>
