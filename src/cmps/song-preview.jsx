@@ -46,7 +46,7 @@ export function SongPreview({ station, playHover, onSongHover, playCurrUrl, addT
                 return <div onMouseOver={() => onSongHover(true, songIdx)} onMouseLeave={() => onSongHover(false, songIdx)} key={song.id} className="song-preview">
                     <div className="song-number-play">
                         {(playHover && (currSongIdx === songIdx)) ?
-                            <div className="play-song-preview"><button onClick={() => playCurrUrl(songIdx, user.id)}>{<PlaySong />}</button></div> : <div>{songIdx + 1}</div>}
+                            <div className="play-song-preview"><button onClick={() => playCurrUrl(songIdx, undefined, user)}>{<PlaySong />}</button></div> : <div>{songIdx + 1}</div>}
                     </div>
                     <div className='song-list-title-container'>
                         <div className='song-list-title-img-container'>
