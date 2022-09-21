@@ -1,7 +1,7 @@
 .main-details-container {
 
     .station-details {
-        color: #fff;
+        color: red;
         display: flex;
         max-width: none;
         overflow: hidden;
@@ -56,6 +56,10 @@
         }
     }
 
+    .station-details.liked {
+        background: linear-gradient(325deg, rgb(71, 78, 179) 15%, rgb(76 76 115) 68%);
+    }
+
     .details-tool-bar {
         padding: 24px 32px;
         display: flex;
@@ -70,8 +74,7 @@
         .play-song-tool-bar-container {
 
             button:hover {
-                inline-size: 57px;
-                block-size: 57px;
+                transform: scale(1.04);
             }
 
             svg {
@@ -151,8 +154,16 @@
             height: 56px;
             border-bottom: 1px solid $sec-txt-clr;
 
+            >* {
+                color: #b3b3b3
+            }
+
             .time-head-line {
                 justify-self: center;
+
+                svg {
+                    fill: #b3b3b3;
+                }
             }
         }
 
@@ -177,6 +188,26 @@
 
                     .add-to-playlist-btn {
                         visibility: visible;
+                    }
+                }
+
+                .song-list-title-container {
+                    .song-list-title {
+                        .artists-name {
+                            color: #ffffff;
+                        }
+                    }
+                }
+
+                .album-name {
+                    span {
+                        color: #fff;
+                    }
+                }
+
+                .date-added {
+                    span {
+                        color: #fff;
                     }
                 }
             }
@@ -205,6 +236,7 @@
                 flex-direction: row;
                 align-items: center;
                 justify-self: start;
+
                 .song-list-title-img-container {
                     margin-right: 16px;
                     width: 40px;
@@ -222,7 +254,11 @@
                     //     "artists-name" /auto 1fr;
 
                     >* {
-                        font-size: 1rem;
+                        font-size: 0.875rem;
+                    }
+
+                    .artists-name {
+                        color: #a7a7a7;
                     }
                 }
             }
@@ -243,6 +279,7 @@
 
                 span {
                     font-size: 0.875rem;
+                    color: #b3b3b3;
                 }
             }
 
@@ -252,6 +289,7 @@
                 align-items: center;
 
                 span {
+                    color: #b3b3b3;
                     font-size: 0.875rem;
                 }
             }

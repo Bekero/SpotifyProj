@@ -72,11 +72,10 @@ export const StationDetails = () => {
         // dispatch(setCurrPlayingSong(songIdx))
         // dispatch(setCurrPlayingUrl(songIdx))
     }
-    console.log('user', user);
     if (!station && !user) return <div>Loading...</div>
     return (
         <section className="main-details-container">
-            <div className="station-details">
+            <div className={station ? "station-details" : "station-details liked"}>
                 <StationHeaderDetails
                     station={station}
                     user={user}
