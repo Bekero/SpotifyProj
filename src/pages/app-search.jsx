@@ -23,7 +23,6 @@ export function AppSearch() {
   }, [term]);
 
   const addToLikedPlaylist = async (song) => {
-    console.log(song,'SONG ISSSSS');
     const filteredSong = {
       id: song.id.videoId,
       imgUrl: song.snippet.thumbnails.default,
@@ -33,10 +32,16 @@ export function AppSearch() {
     // dispatch(addLikedSong(song))
   }
 
-  const playCurrUrl = (url) => {
+  const playCurrUrl = (song) => {
     console.log(player);
-    dispatch(setCurrentUrl(url))
-    // player.loadVideoById(url)
+    const currSong = {
+      url: song.id.videoId,
+      imgUrl: song.snippet.thumbnails.default,
+      title: song.snippet.title
+    }
+    const station = { title: 'Barak and Tommy The GEVERS', songs: [currSong] }
+    dispatch({ type: 'SET_CURR_STATION', station })
+    dispatch({ type: 'SET_CURRENTLY_PLAYING_SONG_IDX', songIdx: 0 })
   }
 
   return (

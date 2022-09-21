@@ -4,7 +4,6 @@ const initialState = {
     stations: [],
     likedSongsStation: null,
     currStation: {},
-    currentUrl: null,
     lastRemovedStation: null,
 }
 
@@ -20,9 +19,6 @@ export function stationReducer(state = initialState, action) {
     switch (action.type) {
         case 'SET_PLAYER':
             newState = { ...state, player: action.player }
-            break
-        case 'SET_CURRENT_URL':
-            newState = { ...state, currentUrl: action.url }
             break
         case 'SET_NEXT_PREV_SONG':
             if (currSongIdx + action.diff >= currStation.songs.length) {

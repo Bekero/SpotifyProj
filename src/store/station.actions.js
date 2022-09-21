@@ -107,16 +107,6 @@ export function removeStation(stationId) {
         }
     }
 }
-export function setCurrentUrl(url) {
-    return async (dispatch) => {
-        try {
-            const action = { type: 'SET_CURRENT_URL', url }
-            dispatch(action)
-        } catch (err) {
-            console.log('Cannot find url', err)
-        }
-    }
-}
 
 export function setPlayer(player) {
     return async (dispatch) => {

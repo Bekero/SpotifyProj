@@ -15,22 +15,12 @@ import VolumeOn from './svg/volume-off-svg'
 import VolumeOff from './svg/volume-on-svg'
 import { utilService } from '../services/util.service';
 
-// import next from '../assets/img/next-song.svg'
-// import prev from '../assets/img/prev-song.svg'
-// import unmute from '../assets/img/volume-on.svg'
-// import mute from '../assets/img/volume-off.svg'
-//* setShuffle() , getPlaylist() , getDuration()
-//* React-Toastify
-//* Google API you user search
-//* react beautiful d&d
-
 export function MediaPlayer() {
 
     const currStation = useSelector(state => state.stationModule.currStation)
     const songIdx = useSelector(state => state.stationModule.currSongIdx)
     const currPlayer = useSelector(state => state.stationModule.player)
     // let player
-    const currentUrl = useSelector(state => state.stationModule.currentUrl)
     // const getSong()?.url = useSelector(state => state.stationModule.getSong()?.url)
     const [player, setPlayer] = useState(null)
 
@@ -54,7 +44,7 @@ export function MediaPlayer() {
         if (!songDuration) {
             setSongDuration(player.getDuration())
         }
-    }, [player, getSong()?.url, songDuration, songStartFrom, currentUrl])
+    }, [player, getSong()?.url, songDuration, songStartFrom])
 
     useEffect(() => {
         // dispatch(setCurrSongIsPlaying(playSong))
@@ -82,9 +72,9 @@ export function MediaPlayer() {
     }, [player])
 
     function getSong() {
-        if (!currStation.songs && currentUrl) {
-            return { url: currentUrl }
-        }
+        // if (!currStation.songs && currentUrl) {
+        //     return { url: currentUrl }
+        // }
         if (!currStation || !currStation.songs || songIdx === undefined) return null
         return currStation.songs[songIdx]
     }

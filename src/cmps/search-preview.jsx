@@ -10,7 +10,7 @@ export function SearchPreview({ song, playCurrUrl, addToLikedPlaylist }) {
           <img src={song.snippet.thumbnails.high.url} />
           <button
             className='play-song-btn'
-            onClick={() => playCurrUrl(song.id.videoId)}
+            onClick={() => playCurrUrl(song)}
           >
             <PlaySong />
           </button>

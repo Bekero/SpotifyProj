@@ -16,7 +16,7 @@ export function HomePage() {
     const loadStations = async () => {
         try {
             let newStations = await stationService.query()
-            newStations = newStations.filter(station => !station.isMyStation)
+            newStations = newStations.filter(station => !station.isMyStation && !station.isLikedStation)
             console.log('asd', newStations);
             setStations(newStations)
         } catch (err) {
