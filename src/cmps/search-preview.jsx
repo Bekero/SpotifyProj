@@ -3,6 +3,10 @@ import PlaySong from "./svg/play-song-svg";
 // import { setCurrPlayingUrlFromSearch } from "../store/station.actions";
 
 export function SearchPreview({ song, playCurrUrl, addToLikedPlaylist }) {
+
+ const songTitle = song.snippet.title.replace(/(\(.*?\))/g, '')
+  
+
   return (
     <div key={song.id.videoId} className='search-list-preview'>
         <div className="flex align-center">
@@ -16,8 +20,7 @@ export function SearchPreview({ song, playCurrUrl, addToLikedPlaylist }) {
           </button>
         </div>
         <div className="play-song-desc">
-          
-        <div className='play-song-title'>{song.snippet.title}</div>
+        <div className='play-song-title'>{songTitle}</div>
         <div className="play-song-author">Drake</div>
         </div>
       </div>
