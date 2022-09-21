@@ -6,11 +6,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { SongList } from '../cmps/song-list'
 import { stationService } from '../services/station.service'
-import { removeStation, setCurrPlayingSongIdx, setCurrPlayingUrl, setCurrStation, setCurrPlayingSong } from '../store/station.actions'
+import { removeStation, setCurrPlayingUrl, setCurrStation, setCurrPlayingSong } from '../store/station.actions'
 import { DetailsHeadLines } from '../cmps/details-head-lines'
 import { DetailsToolBar } from '../cmps/details-tool-bar'
 import { StationHeaderDetails } from '../cmps/station-header-details'
 import { loadLikedSongs } from '../store/user.actions'
+import { setCurrPlayingSongIdx } from '../store/song.actions'
 
 export const StationDetails = () => {
     const user = useSelector(state => state.userModule.user)
@@ -66,7 +67,7 @@ export const StationDetails = () => {
         // dispatch(setCurrPlayingSong(songIdx))
         // dispatch(setCurrPlayingUrl(songIdx))
     }
-
+    console.log('user', user);
     if (!station && !user) return <div>Loading...</div>
     return (
         <section className="main-details-container">

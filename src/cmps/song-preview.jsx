@@ -10,13 +10,14 @@ export function SongPreview({ station, playHover, onSongHover, playCurrUrl, addT
     }
 
     if (!station && !user) return <div>Loading...</div>
+    // TODO: Need to swap it to 2 different cmps 
     return <>
         {station ?
             station.songs.map((song, songIdx) => {
                 return <div onMouseOver={() => onSongHover(true, songIdx)} onMouseLeave={() => onSongHover(false, songIdx)} key={song.id} className="song-preview">
                     <div className="song-number-play">
                         {(playHover && (currSongIdx === songIdx)) ?
-                            <div className="play-song-preview"><button onClick={() => playCurrUrl(songIdx)}>{<PlaySong />}</button></div> : <div>{songIdx + 1}</div>}
+                            <div className="play-song-preview"><button onClick={() => playCurrUrl(songIdx, station._id)}>{<PlaySong />}</button></div> : <div>{songIdx + 1}</div>}
                     </div>
                     <div className='song-list-title-container'>
                         <div className='song-list-title-img-container'>
@@ -45,7 +46,7 @@ export function SongPreview({ station, playHover, onSongHover, playCurrUrl, addT
                 return <div onMouseOver={() => onSongHover(true, songIdx)} onMouseLeave={() => onSongHover(false, songIdx)} key={song.id} className="song-preview">
                     <div className="song-number-play">
                         {(playHover && (currSongIdx === songIdx)) ?
-                            <div className="play-song-preview"><button onClick={() => playCurrUrl(songIdx)}>{<PlaySong />}</button></div> : <div>{songIdx + 1}</div>}
+                            <div className="play-song-preview"><button onClick={() => playCurrUrl(songIdx, user.id)}>{<PlaySong />}</button></div> : <div>{songIdx + 1}</div>}
                     </div>
                     <div className='song-list-title-container'>
                         <div className='song-list-title-img-container'>

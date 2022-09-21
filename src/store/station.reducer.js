@@ -1,6 +1,4 @@
 const initialState = {
-    player: null,
-    currSongIdx: null,
     stations: [],
     likedSongsStation: null,
     currStation: {},
@@ -13,28 +11,8 @@ export function stationReducer(state = initialState, action) {
     let newStations
     let likedStationIdx
     let existLikedStation
-    let currStation = state.currStation
-    let currSongIdx = state.currSongIdx
 
     switch (action.type) {
-        case 'SET_PLAYER':
-            newState = { ...state, player: action.player }
-            break
-        case 'SET_NEXT_PREV_SONG':
-            if (currSongIdx + action.diff >= currStation.songs.length) {
-                currSongIdx = -1
-            }
-            else if (currSongIdx + action.diff >= 0 && currSongIdx + action.diff <= currStation.songs.length) {
-                // currentlyPlayingUrl = currStation.songs[currSongIdx + action.diff].url
-            } else {
-                // currentlyPlayingUrl = currStation.songs[0].url
-                currSongIdx = currStation.songs.length
-            }
-            newState = { ...state, currSongIdx: currSongIdx + action.diff }
-            break
-        case 'SET_CURRENTLY_PLAYING_SONG_IDX':
-            newState = { ...state, currSongIdx: action.songIdx }
-            break
         case 'SET_STATIONS':
             newState = { ...state, stations: action.stations }
             break
@@ -57,15 +35,11 @@ export function stationReducer(state = initialState, action) {
             break
         case 'ADD_LIKED_STATION':
             likedStationIdx = state.stations.findIndex(station => station._id === action.savedStation._id)
-            // existLikedStation = state.stations.filter(station => station._id === action.savedStation._id)
             if (likedStationIdx !== -1) {
                 newState = { ...state, stations: [...state.stations[likedStationIdx], existLikedStation[0]] }
                 break
             }
             newState = { ...state, stations: [...state.stations, action.savedStation] }
-
-            // state = { ...state, likedSongsStation: [...action.station] }
-            // newState = { ...state, stations: [...state.stations, action.savedStation] }
             break
         case 'ADD_SONG_TO_LIKED_PLAYLIST':
             newState = { ...state, stations: [...state.stations, action.station] }
@@ -85,20 +59,7 @@ export function stationReducer(state = initialState, action) {
             break
         default:
     }
-    // For debug:
     window.stationState = newState
-    // console.log('Prev State:', state)
-    // console.log('Action:', action)
-    // console.log('New State:', newState)
     return newState
 
 }
-
-//* stations[]
-
-            // myWantedPlaylist = state.stations.find(station => station._id === action.stuff.myPlaylistId)
-            // myWantedPlaylist = {...myWantedPlaylist, songs: [...myWantedPlaylist.songs, action.stuff.wantedSong]}
-            // wantedPlaylistIdx = state.stations.findIndex(station => station._id === myWantedPlaylist._id)
-            // const stations = state.stations.filter(station => station._id !== myWantedPlaylist._id)
-            // newState = {...state, stations: [...stations, myWantedPlaylist]}
-            // return {...state, state.stations[wantedPlaylistIdx].songs: [...songs, action.stuff.wantedSong] }

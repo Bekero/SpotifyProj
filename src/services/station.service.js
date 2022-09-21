@@ -29,7 +29,7 @@ window.cs = stationService
 
 async function query(filterBy) {
     let stations = await storageService.query(STORAGE_KEY)
-    if(!stations.length) return Promise.resolve(station)
+    if (!stations.length) return Promise.resolve(station)
     return stations
 }
 
@@ -198,8 +198,10 @@ function getEmptyStation() {
         tags: [],
         likedByUsers: [],
         createdBy: {
+            // username: null,
             fullname: null,
-            imgUrl: 'https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2'
+            imgUrl: 'https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2',
+            // isMyStation: true
         },
         isMyStation: true
     }
