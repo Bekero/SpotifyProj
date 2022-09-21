@@ -15,22 +15,14 @@ import VolumeOn from './svg/volume-off-svg'
 import VolumeOff from './svg/volume-on-svg'
 import { utilService } from '../services/util.service';
 
-// import next from '../assets/img/next-song.svg'
-// import prev from '../assets/img/prev-song.svg'
-// import unmute from '../assets/img/volume-on.svg'
-// import mute from '../assets/img/volume-off.svg'
-//* setShuffle() , getPlaylist() , getDuration()
-//* React-Toastify
-//* Google API you user search
-//* react beautiful d&d
-
 export function MediaPlayer() {
 
     const currStation = useSelector(state => state.stationModule.currStation)
     const songIdx = useSelector(state => state.stationModule.currSongIdx)
-    const player = useSelector(state => state.stationModule.player)
+    const currPlayer = useSelector(state => state.stationModule.player)
+    // let player
     // const getSong()?.url = useSelector(state => state.stationModule.getSong()?.url)
-    // const [player, setPlayer] = useState(null)
+    const [player, setPlayer] = useState(null)
 
     const [playSong, setPlay] = useState(false)
     const [songVolume, setSongVolume] = useState(50)
@@ -40,8 +32,6 @@ export function MediaPlayer() {
     const [songTimestamp, setSongTimestamp] = useState(0)
     const dispatch = useDispatch()
     const intervalRef = useRef()
-    // let videoTitle
-    // const getSong()?.url = song.url
     console.log(songIdx);
     console.log(currStation);
     // song = currStation?.songs[songIdx]
@@ -82,14 +72,19 @@ export function MediaPlayer() {
     }, [player])
 
     function getSong() {
-        console.log('asd');
-        console.log(player);
+        // if (!currStation.songs && currentUrl) {
+        //     return { url: currentUrl }
+        // }
         if (!currStation || !currStation.songs || songIdx === undefined) return null
         return currStation.songs[songIdx]
     }
 
-    const onReadyVideo = async (event) => {
-        await dispatch(setPlayer(event.target))
+    const onReadyVideo = (event) => {
+        // await dispatch(setPlayer(event.target))
+        console.log(event.target);
+        setPlayer(event.target)
+        // player = currPlayer ? currPlayer : event.target
+
         // setPlayer(event.target)
         setSongDuration(event.target.getDuration())
         setSongTimestamp(0)
@@ -153,6 +148,7 @@ export function MediaPlayer() {
             autoplay: 1,
         },
     };
+    console.log(opts);
     const condition = currStation?.createdBy?.fullname && getSong()?.title
     return <div className='media-player-container'>
         <div className='media-player-video-desc'>
@@ -193,7 +189,7 @@ export function MediaPlayer() {
                 <button disabled={getSong()?.url ? false : true} onClick={onMuteVideo}><VolumeOff /></button>}
             <input type="range" disabled={getSong()?.url ? false : true} onChange={(ev) => handleSongVolume(ev)} min="0" max="50" step="1" name="volume" id="volume" />
         </div>
-        {getSong()?.url &&
+        {(getSong()?.url) &&
             <YouTube
                 style={{ display: "none" }}
                 videoId={getSong()?.url}

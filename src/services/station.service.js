@@ -31,7 +31,6 @@ async function query(filterBy) {
     let stations = await storageService.query(STORAGE_KEY)
     if(!stations.length) return Promise.resolve(station)
     return stations
-
 }
 
 function getById(stationId) {
@@ -71,7 +70,7 @@ let stations = [
         "createdBy": {
             "_id": "u101",
             "fullname": "Puki Ben David",
-            "imgUrl": "http://some-photo/"
+            "imgUrl": "http://some-photo5/"
         },
         "likedByUsers": ['{minimal-user}', '{minimal-user}'],
         "songs": [

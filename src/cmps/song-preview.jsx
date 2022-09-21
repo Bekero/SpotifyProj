@@ -19,7 +19,9 @@ export function SongPreview({ station, playHover, onSongHover, playCurrUrl, addT
                             <div className="play-song-preview"><button onClick={() => playCurrUrl(songIdx)}>{<PlaySong />}</button></div> : <div>{songIdx + 1}</div>}
                     </div>
                     <div className='song-list-title-container'>
-                        <img className="song-img" src={`${song.imgUrl}`} />
+                        <div className='song-list-title-img-container'>
+                            <img className="song-img" src={`${song.imgUrl}`} />
+                        </div>
                         <div className='song-list-title'>
                             <div className="song-title">{song.title}</div>
                             <div className="artists-name">Artists</div>
@@ -46,7 +48,9 @@ export function SongPreview({ station, playHover, onSongHover, playCurrUrl, addT
                             <div className="play-song-preview"><button onClick={() => playCurrUrl(songIdx)}>{<PlaySong />}</button></div> : <div>{songIdx + 1}</div>}
                     </div>
                     <div className='song-list-title-container'>
-                        <img className="song-img" src={`${song.imgUrl}`} />
+                        <div className='song-list-title-img-container'>
+                            <img className="song-img" src={`${song.imgUrl}`} />
+                        </div>
                         <div className='song-list-title'>
                             <div className="song-title">{song.title}</div>
                             <div className="artists-name">Artists</div>

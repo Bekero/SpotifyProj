@@ -14,6 +14,7 @@ import { loadLikedSongs } from '../store/user.actions'
 
 export const StationDetails = () => {
     const user = useSelector(state => state.userModule.user)
+    const stationFromStore = useSelector(state => state.stationModule.currStation)
     const params = useParams()
     const [station, setStation] = useState(null)
     const [isEditStation, setEditStation] = useState(false)
@@ -56,8 +57,12 @@ export const StationDetails = () => {
         }
     }
 
-    const playCurrUrl = (songIdx) => {
+    const playCurrUrl = (songIdx, currStationId) => {
+        console.log(songIdx);
+        console.log('stationFromStore', stationFromStore);
+        if(songIdx === undefined) return console.log('YOU LOST');
         dispatch(setCurrPlayingSongIdx(songIdx))
+        dispatch(setCurrStation(currStationId))
         // dispatch(setCurrPlayingSong(songIdx))
         // dispatch(setCurrPlayingUrl(songIdx))
     }

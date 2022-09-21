@@ -118,7 +118,7 @@
   },
   {
     "_id": "5cksxjasasqwesyhdjxs25",
-    "name": "Drake",
+    "name": "Fallist Stars",
     "tags": [
       "Funk",
       "Happy"
@@ -126,7 +126,7 @@
     "createdBy": {
       "_id": "2eq3wefr",
       "fullname": "Nuki Shlomo",
-      "imgUrl": "http://some-photo/"
+      "imgUrl": "https://thesource.com/wp-content/uploads/2022/01/Weeknd-May-2021.jpg"
     },
     "likedByUsers": [
       "{minimal-user}",
@@ -152,7 +152,7 @@
   },
   {
     "_id": "5c124wesyhd123123asds333",
-    "name": "Kendrick Lamar",
+    "name": "Rick & Morty",
     "tags": [
       "Funk",
       "Happy"
@@ -160,7 +160,7 @@
     "createdBy": {
       "_id": "t42r2efr",
       "fullname": "Nuki Shlomo",
-      "imgUrl": "http://some-photo/"
+      "imgUrl": "https://m.media-amazon.com/images/M/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_.jpg"
     },
     "likedByUsers": [
       "{minimal-user}",
@@ -186,7 +186,7 @@
   },
   {
     "_id": "5qewaf2grbrw45we",
-    "name": "Jack Harlow",
+    "name": "Omer Adam",
     "tags": [
       "Funk",
       "Happy"
@@ -194,7 +194,7 @@
     "createdBy": {
       "_id": "3rw4reth",
       "fullname": "Nuki Shlomo",
-      "imgUrl": "http://some-photo/"
+      "imgUrl": "https://medias.timeout.co.il/www/uploads/2019/06/%D7%A2%D7%95%D7%9E%D7%A8-%D7%90%D7%93%D7%9D-%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%A8%D7%9E%D7%99-%D7%96%D7%A8%D7%A0%D7%92%D7%A8-1-Large-600x600-1559827037.jpg"
     },
     "likedByUsers": [
       "{minimal-user}",
@@ -231,7 +231,7 @@
     "createdBy": {
       "_id": "u203",
       "fullname": "Curr Username",
-      "imgUrl": ""
+      "imgUrl": "https://medias.timeout.co.il/www/uploads/2019/06/%D7%A2%D7%95%D7%9E%D7%A8-%D7%90%D7%93%D7%9D-%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%A8%D7%9E%D7%99-%D7%96%D7%A8%D7%A0%D7%92%D7%A8-1-Large-600x600-1559827037.jpg"
     },
     "likedByUsers": [
       "{minimal-user}",

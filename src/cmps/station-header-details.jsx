@@ -11,15 +11,11 @@ export function StationHeaderDetails({ station, onRemoveStation, onEditStation, 
                 <span>{station ? 'ALBUM' : 'PLAYLIST'}</span>
                 <h3 className="album-name">{station ? station.name : 'Guest'}</h3>
                 <div className="creator">
-                    {/* {user && <img className="artist-img-details" style={{ visibility: station.createdBy.imgUrl !== '' ? 'visible' : 'hidden' }} src={station.createdBy.imgUrl !== '' ? station.createdBy.imgUrl : ""} alt="" />}
-                    {station && <img className="artist-img-details" style={{ visibility: station.createdBy.artistImg !== '' ? 'visible' : 'hidden' }} src={station.createdBy.artistImg !== '' ? station.createdBy.artistImg : ""} alt="" />} */}
-                    {/* {user && <img className="artist-img-details" style={{ visibility: station.createdBy.imgUrl !== '' ? 'visible' : 'hidden' }} src={station.createdBy.imgUrl !== '' ? station.createdBy.imgUrl : ""} alt="" />} */}
                     {station && <img className="artist-img-details" style={{ visibility: station.createdBy.artistImg !== '' ? 'visible' : 'hidden' }} src={station.createdBy.artistImg !== '' ? station.createdBy.artistImg : ""} alt="" />}
-
                     {station && <h3>{station.createdBy.fullname} * songsLength + Time of all playlist</h3>}
                 </div>
             </div>
-            {!user && station.isMyStation &&
+            {user && station?.isMyStation &&
                 <div>
                     <button onClick={(ev) => onRemoveStation(station._id, ev)}>Delete</button>
                     <button onClick={(ev) => onEditStation(station._id, ev)}>Edit details</button>

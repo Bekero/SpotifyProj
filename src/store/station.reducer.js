@@ -1,10 +1,10 @@
 const initialState = {
+    player: null,
+    currSongIdx: null,
     stations: [],
     likedSongsStation: null,
     currStation: {},
-    currSongIdx: null,
     lastRemovedStation: null,
-    player: null
 }
 
 export function stationReducer(state = initialState, action) {
@@ -24,11 +24,11 @@ export function stationReducer(state = initialState, action) {
             if (currSongIdx + action.diff >= currStation.songs.length) {
                 currSongIdx = -1
             }
-            else if (currSongIdx + action.diff >= 0 && currSongIdx + action.diff < currStation.songs.length) {
+            else if (currSongIdx + action.diff >= 0 && currSongIdx + action.diff <= currStation.songs.length) {
                 // currentlyPlayingUrl = currStation.songs[currSongIdx + action.diff].url
             } else {
                 // currentlyPlayingUrl = currStation.songs[0].url
-                currSongIdx = -1
+                currSongIdx = currStation.songs.length
             }
             newState = { ...state, currSongIdx: currSongIdx + action.diff }
             break
