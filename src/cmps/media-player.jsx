@@ -2,7 +2,7 @@ import YouTube, { YouTubeProps } from 'react-youtube';
 import { useEffect, useRef, useState } from 'react'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setNextPrevSong, setPlayer } from '../store/song.actions';
+import { setIsPlayingSong, setNextPrevSong, setPlayer } from '../store/song.actions';
 // import play from '../assets/img/play.png'
 // import stop from '../assets/img/stop.png'
 // import stop from '../assets/img/stop-song.svg'
@@ -92,22 +92,22 @@ export function MediaPlayer() {
     const onPauseVideo = (ev) => {
         player.pauseVideo()
         setPlay(false)
+        dispatch(setIsPlayingSong(false))
     }
 
     const onPlayVideo = () => {
         player.playVideo()
         setPlay(true)
+        dispatch(setIsPlayingSong(true))
     }
 
     const onNextVideo = async () => {
         await dispatch(setNextPrevSong(1))
         setSongTimestamp(0)
-        onPauseVideo()
     }
     const onPrevVideo = async () => {
         await dispatch(setNextPrevSong(-1))
         setSongTimestamp(0)
-        onPauseVideo()
     }
 
     const onMuteVideo = () => {

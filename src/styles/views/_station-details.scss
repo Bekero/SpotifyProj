@@ -1,7 +1,6 @@
 .main-details-container {
 
     .station-details {
-        color: red;
         display: flex;
         max-width: none;
         overflow: hidden;
@@ -18,6 +17,7 @@
                 margin-top: 1em;
                 margin-left: 30px;
                 margin-right: 25px;
+                object-fit: cover;
             }
         }
 
@@ -174,10 +174,11 @@
             align-items: center;
             grid-gap: 16px;
             height: 56px;
-
+            
             &:hover {
                 background-color: $third-clr;
                 border-radius: 4px;
+                
 
                 .opts-menu-section {
                     .like-song-preview {

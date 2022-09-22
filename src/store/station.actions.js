@@ -24,10 +24,10 @@ export function getActionUpdateStation(station) {
     }
 }
 
-export function loadStations() {
+export function loadStations(filterBy = null) {
     return async (dispatch) => {
         try {
-            const stations = await stationService.query()
+            const stations = await stationService.query(filterBy)
             // console.log('Stations from DB:', stations)
             dispatch({
                 type: 'SET_STATIONS',
@@ -152,8 +152,9 @@ export function removeLikedSongFromMyPlaylist(wantedSong, myPlaylistId) {
 export function updateStation(station) {
     return (dispatch) => {
         stationService.save(station)
-            .then(savedStation => {
-                dispatch(getActionUpdateStation(savedStation))
+        .then(savedStation => {
+            dispatch(getActionUpdateStation(savedStation))
+            console.log(station);
                 showSuccessMsg('Station updated')
             })
             .catch(err => {
