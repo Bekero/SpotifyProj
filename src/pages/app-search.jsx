@@ -26,13 +26,13 @@ export function AppSearch() {
   }, [term, results]);
 
   const search = async () => {
+    loadStations(term)
     results = await youtubeService.getSongs(term)
     await setData(results.data.items);
     if (!data.length) return console.log('asdkhnjaskdygasdkhjasdajkshdjkashd');
     const details = await youtubeService.getSongsDetails(data)
     if (!details) return
     setSongDetails(details.data.items)
-    loadStations(term)
   };
   const loadStations = async (filterBy) => {
     try {

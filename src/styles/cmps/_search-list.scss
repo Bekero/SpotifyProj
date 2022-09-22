@@ -1,11 +1,31 @@
-.search-song-list-container{
-    background-color: aliceblue;
-}
+
 .search-list-preview{
     display: grid;
     grid-template-columns: 4fr minmax(120px,1fr);
-    padding: 0 32px;
-    height: 56px;
+
+      .play-song-tool-bar-search{
+        button{
+            border: none;
+        }
+        .like-song-preview {
+            visibility: hidden;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .is-liked-song-preview {
+            visibility: visible;
+            background-color: rgba(0, 0, 0, 0);
+
+            svg {
+                width: 16px;
+                height: 16px;
+
+                fill: $fill-svg-clr;
+            }
+        }
+      }
+   
+    
     img{
         width: 40px;
         height: 40px;
@@ -45,6 +65,10 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        height: 56px;
+        position: relative;
     }
     &:hover{
         // background-color: hsla(0,0%,100%,.3);  
@@ -53,4 +77,5 @@
             opacity: 1;
         }
     }
+
 }
