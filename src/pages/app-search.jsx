@@ -54,16 +54,15 @@ export function AppSearch() {
   }
 
   return (
-    <div>
-      <div className='ui form'>
+    <div className="main-search-container">
+      <div className='app-search'>
         <div className='search-field'>
-          <input className='search-input' onChange={(e) => setTerm(e.target.value)} />
+          <input className='search-input' onChange={(e) => setTerm(e.target.value)}
+          />
         </div>
       </div>
 
       <SearchList addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} data={data} />
-
-      <div className='ui celled list'></div>
     </div>
   );
 }

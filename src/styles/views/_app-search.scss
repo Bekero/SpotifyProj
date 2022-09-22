@@ -1,8 +1,24 @@
-
-.app-search {
-    background-color: rgb(213, 193, 193);
-
-    &.app-header{
-       display: none;
+    .main-search-container{
+        margin: 0;
+        max-width: 1955px;
+        padding: 0 16px;
+        .app-search {    
+            .search-field{
+                padding-left: 192px; 
+                padding-bottom: 16px;
+            }
+            .search-input{
+                background-color: #242424;
+                color: #fff!important;
+                height: 48px;
+                border: none;
+                width: 340px;
+                border-radius: 500px;    
+            }
+            
+        }
+   
     }
-}
+
+  
+    
