@@ -4,11 +4,16 @@ import { useSelector } from "react-redux";
 import { SearchList } from "../cmps/search-list";
 import { youtubeService } from "../services/youtube.service";
 import { addLikedSong } from "../store/user.actions";
-import { setCurrentUrl } from "../store/station.actions"
+import { loadStations, setCurrentUrl } from "../store/station.actions"
+import { stationService } from "../services/station.service";
+import { StationList } from "../cmps/station-list";
 
 
 export function AppSearch() {
-  const player = useSelector(state => state.songModule.player);
+
+  // const player = useSelector(state => state.songModule.player);
+  const [stations, setStations] = useState(null)
+
   const dispatch = useDispatch()
   const [data, setData] = useState([]);
   const [songDetails, setSongDetails] = useState([]);
@@ -23,14 +28,20 @@ export function AppSearch() {
   const search = async () => {
     results = await youtubeService.getSongs(term)
     await setData(results.data.items);
-    if(!data.length) return console.log('asdkhnjaskdygasdkhjasdajkshdjkashd');
-    console.log(data);
+    if (!data.length) return console.log('asdkhnjaskdygasdkhjasdajkshdjkashd');
     const details = await youtubeService.getSongsDetails(data)
     if (!details) return
     setSongDetails(details.data.items)
-    console.log('songDetails', songDetails)
+    loadStations(term)
   };
-
+  const loadStations = async (filterBy) => {
+    try {
+      let filteredStations = await stationService.query(filterBy)
+      setStations(filteredStations)
+    } catch (err) {
+      console.log('Cannot get stations :', err)
+    }
+  }
   const addToLikedPlaylist = async (song) => {
     const filteredSong = {
       id: song.id.videoId,
@@ -42,7 +53,6 @@ export function AppSearch() {
   }
 
   const playCurrUrl = (song) => {
-    console.log(player);
     const currSong = {
       url: song.id.videoId,
       imgUrl: song.snippet.thumbnails.default,
@@ -63,6 +73,9 @@ export function AppSearch() {
       </div>
 
       <SearchList addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} data={data} />
+
+      <div className='ui celled list'></div>
+      {/* {stations && <StationList stations={stations} />} */}
     </div>
   );
 }

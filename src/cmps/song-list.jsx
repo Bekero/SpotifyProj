@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { loadStations, addSongToMyPlaylist, removeLikedSongFromMyPlaylist, addStation } from '../store/station.actions'
 import { SongPreview } from './song-preview'
 import { addLikedSong, removeLikedSong } from '../store/user.actions'
+import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
 export const SongList = ({ station, playCurrUrl, user }) => {
     const [wantedSong, setWantedSong] = useState(null)
@@ -52,22 +53,25 @@ export const SongList = ({ station, playCurrUrl, user }) => {
         setCurrSongIdx(songIdx)
     }
 
-        return <>
-            {openModal && <ul onMouseLeave={() => setOpenModal(false)} style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }} className="song-list-opts-menu">
-                {myStations.map((station, myPlaylistIdx) =>
-                    <div key={myPlaylistIdx}>
-                        <li onClick={(ev) => onAddToMyPlaylist(myPlaylistIdx)}>Add to {station.name}</li>
-                    </div>)}
-            </ul>}
-            {/* Map to preview */}
-            <SongPreview
-                user={user}
-                station={station}
-                playHover={playHover}
-                onSongHover={onSongHover}
-                playCurrUrl={playCurrUrl}
-                addToLikedPlaylist={addToLikedPlaylist}
-                addToPlaylist={addToPlaylist}
-                currSongIdx={currSongIdx} />
-        </>
+
+    return <>
+
+        {openModal && <ul onMouseLeave={() => setOpenModal(false)} style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }} className="song-list-opts-menu">
+            {myStations.map((station, myPlaylistIdx) =>
+                <div key={myPlaylistIdx}>
+                    <li onClick={(ev) => onAddToMyPlaylist(myPlaylistIdx)}>Add to {station.name}</li>
+                </div>)}
+        </ul>}
+        {/* Map to preview */}
+        <SongPreview
+            user={user}
+            station={station}
+            playHover={playHover}
+            onSongHover={onSongHover}
+            playCurrUrl={playCurrUrl}
+            addToLikedPlaylist={addToLikedPlaylist}
+            addToPlaylist={addToPlaylist}
+            currSongIdx={currSongIdx} />
+
+    </>
 }
