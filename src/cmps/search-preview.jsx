@@ -4,6 +4,7 @@ import PlaySong from "./svg/play-song-svg";
 import UnfilledLikeToolBar from "./svg/unfilled-like-tool-bar"
 import FilledLikeToolBar from "./svg/filled-like-tool-bar"
 import OptsSvg from './svg/opts-song'
+import { utilService } from "../services/util.service";
 
 export function SearchPreview({ songDetails, song, playCurrUrl, addToLikedPlaylist }) {
   console.log(songDetails?.contentDetails?.duration);
@@ -33,7 +34,8 @@ export function SearchPreview({ songDetails, song, playCurrUrl, addToLikedPlayli
       </div>
       <div className="opts-menu-section">
         <button onClick={() => addToLikedPlaylist(song)} className={isSongLiked(song.id) ? "is-liked-song-preview" : "like-song-preview"}>{isSongLiked(song.id) ? <FilledLikeToolBar /> : <UnfilledLikeToolBar />}</button>
-        <div className="song-duration-container">{songDetails?.contentDetails?.duration}</div>
+        <div className="song-duration-container">0{utilService.getRandomIntInclusive(2, 4)}:{utilService.getRandomIntInclusive(10, 59)}</div>
+        {/* <div className="song-duration-container">{songDetails?.contentDetails?.duration}</div> */}
         <button className="add-to-playlist-btn" ><OptsSvg /></button>
         {/* <button onClick={(ev) => addToPlaylist(ev, song)} className="add-to-playlist-btn" ><OptsSvg /></button> */}
       </div>

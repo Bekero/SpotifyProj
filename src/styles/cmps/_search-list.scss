@@ -5,6 +5,13 @@
     .left {
         gap: 10px;
     }
+    .play-song-title{
+        font-size: 1rem;
+    }
+    .play-song-author{
+        color: $sec-txt-clr;
+        font-family: spotify-font-small;
+    }
     .play-song-tool-bar-search {
         button {
             border: none;
@@ -83,7 +90,10 @@
         align-items: center;
         grid-template-columns: 32px 1fr 32px;
         justify-self: end;
-
+        width: 100px;
+        .song-duration-container {
+            color: $third-txt-clr;
+        }
         button {
             background-color: rgba(245, 222, 179, 0);
             border: none;
@@ -131,6 +141,9 @@
 
     }
     &:hover {
+        .play-song-author{
+            color: $main-txt-clr;
+        }
         .opts-menu-section {
             .like-song-preview {
                 visibility: visible;
