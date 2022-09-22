@@ -54,9 +54,8 @@ export const SongList = ({ station, playCurrUrl, user }) => {
         setCurrSongIdx(songIdx)
     }
 
-
+    let currStation = station ? station.songs : user
     return <>
-
         {openModal && <ul onMouseLeave={() => setOpenModal(false)} style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }} className="song-list-opts-menu">
             {myStations.map((station, myPlaylistIdx) =>
                 <div key={myPlaylistIdx}>
@@ -64,15 +63,21 @@ export const SongList = ({ station, playCurrUrl, user }) => {
                 </div>)}
         </ul>}
         {/* Map to preview */}
-        <SongPreview
-            user={user}
-            station={station}
-            playHover={playHover}
-            onSongHover={onSongHover}
-            playCurrUrl={playCurrUrl}
-            addToLikedPlaylist={addToLikedPlaylist}
-            addToPlaylist={addToPlaylist}
-            currSongIdx={currSongIdx} />
+        {currStation.map((currSong, songIdx) => {
+            return <SongPreview
+                user={user}
+                station={station}
+                songIdx={songIdx}
+                currSong={currSong}
+                currSongIdx={currSongIdx}
+                currStation={currStation}
+                playHover={playHover}
+                onSongHover={onSongHover}
+                playCurrUrl={playCurrUrl}
+                addToLikedPlaylist={addToLikedPlaylist}
+                addToPlaylist={addToPlaylist}
+            />
+        })}
 
     </>
 }

@@ -15,8 +15,7 @@ export function SongPreview({ station, playHover, onSongHover, playCurrUrl, addT
     }
 
     if (!station && !user) return <div>Loading...</div>
-    // TODO: Need to swap it to 2 different cmps 
-    let currStation = station ? station.songs : user
+
     return <>
         {
             currStation.map((song, songIdx) => {
