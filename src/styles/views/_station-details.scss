@@ -181,12 +181,12 @@
 
 
                 .opts-menu-section {
-                    
+
                     .like-song-preview {
                         visibility: visible;
                     }
 
-                    
+
 
                     .add-to-playlist-btn {
                         visibility: visible;
@@ -299,7 +299,11 @@
                 grid-template-columns: 32px 1fr 32px;
                 justify-self: end;
                 width: 100%;
-               
+
+                .song-duration-container {
+                    text-align: center;
+                }
+
                 button {
                     background-color: rgba(245, 222, 179, 0);
                     border: none;
