@@ -44,6 +44,7 @@ export const SongList = ({ station, playCurrUrl, user }) => {
     }
 
     const onAddToMyPlaylist = (myPlaylistIdx) => {
+        console.log(myStations[myPlaylistIdx]._id);
         setOpenModal(false)
         dispatch(addSongToMyPlaylist(wantedSong, myStations[myPlaylistIdx]._id))
     }
@@ -59,7 +60,7 @@ export const SongList = ({ station, playCurrUrl, user }) => {
         {openModal && <ul onMouseLeave={() => setOpenModal(false)} style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }} className="song-list-opts-menu">
             {myStations.map((station, myPlaylistIdx) =>
                 <div key={myPlaylistIdx}>
-                    <li onClick={(ev) => onAddToMyPlaylist(myPlaylistIdx)}>Add to {station.name}</li>
+                    <li onClick={() => onAddToMyPlaylist(myPlaylistIdx)}>Add to {station.name}</li>
                 </div>)}
         </ul>}
         {/* Map to preview */}
