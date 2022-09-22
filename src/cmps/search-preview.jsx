@@ -9,7 +9,7 @@ import { utilService } from "../services/util.service";
 export function SearchPreview({ songDetails, song, playCurrUrl, addToLikedPlaylist }) {
   const songTitle = song.snippet.title.replace(/(\(.*?\))/g, '')
   function isSongLiked(songId) {
-    return (song => song.id === songId)
+    return (song => song.id.videoId === songId.videoId)
   }
 
 
@@ -32,7 +32,7 @@ export function SearchPreview({ songDetails, song, playCurrUrl, addToLikedPlayli
         </div>
       </div>
       <div className="opts-menu-section">
-        <button onClick={() => addToLikedPlaylist(song)} className={isSongLiked(song.id) ? "is-liked-song-preview" : "like-song-preview"}>{isSongLiked(song.id) ? <FilledLikeToolBar /> : <UnfilledLikeToolBar />}</button>
+        <button onClick={() => addToLikedPlaylist(song)} className={!isSongLiked(song.id) ? "is-liked-song-preview" : "like-song-preview"}>{isSongLiked(song.id) ? <FilledLikeToolBar /> : <UnfilledLikeToolBar />}</button>
         <div className="song-duration-container">0{utilService.getRandomIntInclusive(2, 4)}:{utilService.getRandomIntInclusive(10, 59)}</div>
         {/* <div className="song-duration-container">{songDetails?.contentDetails?.duration}</div> */}
         <button className="add-to-playlist-btn" ><OptsSvg /></button>
