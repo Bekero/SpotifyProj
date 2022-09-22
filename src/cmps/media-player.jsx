@@ -32,13 +32,10 @@ export function MediaPlayer() {
     const [songTimestamp, setSongTimestamp] = useState(0)
     const dispatch = useDispatch()
     const intervalRef = useRef()
-    console.log(songIdx);
     // song = currStation?.songs[songIdx]
 
-    console.log('currStation', currStation);
     useEffect(() => {
         if (!player) return
-        console.log(player);
         setPlay(true)
         if (!songDuration) {
             setSongDuration(player.getDuration())
@@ -80,7 +77,6 @@ export function MediaPlayer() {
 
     const onReadyVideo = (event) => {
         // await dispatch(setPlayer(event.target))
-        console.log(event.target);
         setPlayer(event.target)
         // player = currPlayer ? currPlayer : event.target
 
@@ -136,7 +132,6 @@ export function MediaPlayer() {
         setSongStartFrom(songStartFromValue)
     }
 
-    console.log('player', player);
 
     const opts = {
         height: '0',
@@ -147,7 +142,6 @@ export function MediaPlayer() {
             autoplay: 1,
         },
     };
-    console.log(opts);
     const condition = currStation?.createdBy?.fullname && getSong()?.title
     return <div className='media-player-container'>
         <div className='media-player-video-desc'>

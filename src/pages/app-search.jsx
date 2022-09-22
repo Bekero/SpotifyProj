@@ -20,7 +20,6 @@ export function AppSearch() {
   const [term, setTerm] = useState([]);
   let results
   useEffect(() => {
-    console.log('term', term);
     if (term === '' || !term.length) return;
     search()
   }, [term, results]);
@@ -29,15 +28,19 @@ export function AppSearch() {
 
 
   const search = async () => {
+    loadStations(term)
     results = await youtubeService.getSongs(term)
     await setData(results.data.items);
-    if (!data.length) return console.log('asdkhnjaskdygasdkhjasdajkshdjkashd');
+    getSongsData(data)
+  }
+
+  const getSongsData = async (data)=>{
     const details = await youtubeService.getSongsDetails(data)
     console.log(details.data.items[0].contentDetails,'hhh')
     if (!details) return
     setSongDetails(details.data.items)
-    loadStations(term)
-  };
+  }
+
   const loadStations = async (filterBy) => {
     try {
       let filteredStations = await stationService.query(filterBy)
@@ -52,7 +55,6 @@ export function AppSearch() {
       imgUrl: song.snippet.thumbnails.default,
       title: song.snippet.title
     }
-    console.log(filteredSong);
     // dispatch(addLikedSong(song))
   }
 
@@ -66,20 +68,19 @@ export function AppSearch() {
     dispatch({ type: 'SET_CURR_STATION', station })
     dispatch({ type: 'SET_CURRENTLY_PLAYING_SONG_IDX', songIdx: 0 })
   }
-
   return (
     <div className="main-search-container">
       <div className='app-search'>
         <div className='search-field'>
-          <input className='search-input' onChange={(e) => setTerm(e.target.value)}
+          <input className='search-input' placeholder="What do you want to listen to?" onChange={(e) => setTerm(e.target.value)}
           />
         </div>
       </div>
 
-      <SearchList addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} data={data} />
+      <SearchList addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} data={data} songDetails={songDetails} />
 
       <div className='ui celled list'></div>
-      {/* {stations && <StationList stations={stations} />} */}
+      {stations && <StationList stations={stations} />}
     </div>
   );
 }

@@ -1,4 +1,5 @@
 @import '../setup/typography';
+
 * {
     box-sizing: border-box;
 }
@@ -9,7 +10,7 @@
 }
 
 html {
-    font-family: open-sans, sans-serif;
+    font-family: spotify-font, open-sans, sans-serif;
     line-height: 1.6;
     color: $main-txt-clr;
 }
@@ -19,7 +20,7 @@ body {
     margin: 0;
     // max-width: 1024px;
     margin: auto;
-    font-family: open-sans, sans-serif;
+    font-family: spotify-font, open-sans, sans-serif;
 }
 
 input[type='range'] {
@@ -29,12 +30,13 @@ input[type='range'] {
     height: 4px;
     background-color: #b3b3b3;
 }
+
 input[type='range']:hover::-webkit-slider-thumb {
     box-shadow: -1200px 0 0 1200px #1db954;
 }
 
 input[type='range']::-webkit-slider-thumb {
-    box-shadow: -1200px 0 0 1200px  #fff;
+    box-shadow: -1200px 0 0 1200px #fff;
 }
 
 h2,

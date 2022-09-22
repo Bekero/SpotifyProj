@@ -1,18 +1,18 @@
 import { SearchPreview } from "./search-preview";
 
 
-export function SearchList({ data, playCurrUrl, addToLikedPlaylist }) {
-    console.log(data, 'list')
+export function SearchList({ data, playCurrUrl, addToLikedPlaylist, songDetails }) {
     return (
 
         <div className="search-songs-list-container">
-            {data.map(song =>{
+            {data.map((song, idx) => {
                 return <SearchPreview song={song}
+                    songDetails={songDetails[idx]}
                     key={song.id.videoId}
                     playCurrUrl={playCurrUrl}
                     addToLikedPlaylist={addToLikedPlaylist}
                 />
-                }
+            }
             )}
         </div>
     )

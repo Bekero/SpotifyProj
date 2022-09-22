@@ -32,6 +32,7 @@ async function query(filterBy) {
     if (!stations.length) return Promise.resolve(station)
     if (filterBy && filterBy.length) {
         stations = stations.filter(station => {
+            if(station?.isMyStation) return //Need to remove it and use the logged in user!!!
             return (station.createdBy.fullname.toUpperCase().includes(filterBy.toUpperCase()) ||
                 station.name.toUpperCase().includes(filterBy.toUpperCase()))
         })

@@ -65,7 +65,6 @@ export function setCurrStation(stationId) {
     return async (dispatch) => {
         try {
             const station = await stationService.getById(stationId)
-            console.log('station from station.action', station);
             const action = { type: 'SET_CURR_STATION', station }
             dispatch(action)
         } catch (err) {
@@ -154,7 +153,6 @@ export function updateStation(station) {
         stationService.save(station)
         .then(savedStation => {
             dispatch(getActionUpdateStation(savedStation))
-            console.log(station);
                 showSuccessMsg('Station updated')
             })
             .catch(err => {
