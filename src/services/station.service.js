@@ -30,11 +30,18 @@ window.cs = stationService
 async function query(filterBy) {
     let stations = await storageService.query(STORAGE_KEY)
     if (!stations.length) return Promise.resolve(station)
+    if (filterBy && filterBy.length) {
+        stations = stations.filter(station => {
+            if(station?.isMyStation) return //Need to remove it and use the logged in user!!!
+            return (station.createdBy.fullname.toUpperCase().includes(filterBy.toUpperCase()) ||
+                station.name.toUpperCase().includes(filterBy.toUpperCase()))
+        })
+    }
     return stations
 }
 
 function getById(stationId) {
-    return query(STORAGE_KEY, stationId)
+    return query('', STORAGE_KEY, stationId)
         .then(stations => stations.find(station => station._id === stationId))
     // return axios.get(`/api/station/${stationId}`)
 }

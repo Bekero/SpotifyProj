@@ -1,21 +1,29 @@
 .side-nav {
     background-color: $main-clr;
-    
-    // grid-row: 1 / -1;
-    // grid-column: 1 / 2;
-   
+
+
+    .header-logo {
+        font-size: 1.5rem;
+        color: $main-txt-clr;
+    }
+
+    .playlist-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
     width: 242px;
-    padding: 10px;
     height: 100%;
+    padding: 24px;
 
- 
-
-    ul{
+    ul {
         list-style-type: none;
         display: flex;
         flex-direction: column;
         gap: 16px;
-        > li a{
+
+        >li a {
             gap: 16px;
         }
     }
@@ -31,46 +39,56 @@
     a {
         text-decoration: none;
         color: $sec-txt-clr;
-        
     }
 
     a:hover:not(.header-logo) {
         color: $main-txt-clr;
     }
 
-
     a:focus:not(.header-logo) {
         color: $main-txt-clr;
     }
 
     .like-nav-link {
-        padding: 8px;
         font-size: .8em;
+        display: flex;
+        gap: 16px;
 
-
+        .like-nav-icon {
+            display: grid;
+            place-items: center;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(325deg, rgb(71, 78, 179) 15%, rgb(76 76 115) 68%);
+        }
+        &:hover{
+            svg{
+                opacity: 1;
+            }
+        }
     }
 
-
-    .like-nav{
-        background: linear-gradient(135deg,#450af5,#c4efd9);
-    border-radius: 2px;
-    height: 100%;
-    justify-content: center;
-    position: absolute;
-    width: 100%;
+    .like-nav {
+        background: linear-gradient(135deg, #450af5, #c4efd9);
+        border-radius: 2px;
+        height: 100%;
+        justify-content: center;
+        position: absolute;
+        width: 100%;
     }
 
     .nav-container {
-        margin-top: 30px;
+
+        // margin-top: 30px;
 
         >* {
-            margin-bottom: 10px;
+            padding: unset;
+            margin: unset;
+            margin-top: 30px;
             font-size: .8em;
-            padding: 16px;
-            //display: block;
-
         }
-        >a{
+
+        >a {
             gap: 16px;
         }
     }
@@ -83,4 +101,11 @@
         min-height: 1px;
     }
 
+}
+
+.like-nav-asset {
+    height: 40px;
+    a {
+        flex-grow: 1;
+    }
 }

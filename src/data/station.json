@@ -249,10 +249,9 @@
   },
   {
     "_id": "5cksxjasasqwesyhdjxs25",
-    "name": "Fallist Stars",
+    "name": "The Weeknd",
     "tags": [
-      "Funk",
-      "Happy"
+      "After Hours"
     ],
     "createdBy": {
       "_id": "2eq3wefr",
@@ -285,13 +284,12 @@
     "_id": "5c124wesyhd123123asds333",
     "name": "Rick & Morty",
     "tags": [
-      "Funk",
-      "Happy"
+      "Schwifty"
     ],
     "createdBy": {
       "_id": "t42r2efr",
       "fullname": "Nuki Shlomo",
-      "imgUrl": "https://m.media-amazon.com/images/M/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_.jpg"
+      "imgUrl": "https://d.newsweek.com/en/full/1829970/ricka-nd-morty-still-season-5.jpg?w=1600&h=1600&q=88&f=3d72cded2ef21c9e4a5dcb493cf211b7"
     },
     "likedByUsers": [
       "{minimal-user}",
@@ -319,8 +317,7 @@
     "_id": "5qewaf2grbrw45we",
     "name": "Omer Adam",
     "tags": [
-      "Funk",
-      "Happy"
+      "שני משוגעים"
     ],
     "createdBy": {
       "_id": "3rw4reth",
@@ -362,7 +359,7 @@
     "createdBy": {
       "_id": "u203",
       "fullname": "Curr Username",
-      "imgUrl": "https://medias.timeout.co.il/www/uploads/2019/06/%D7%A2%D7%95%D7%9E%D7%A8-%D7%90%D7%93%D7%9D-%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%A8%D7%9E%D7%99-%D7%96%D7%A8%D7%A0%D7%92%D7%A8-1-Large-600x600-1559827037.jpg"
+      "imgUrl": "https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"
     },
     "likedByUsers": [
       "{minimal-user}",

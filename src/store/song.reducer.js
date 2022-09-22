@@ -1,6 +1,7 @@
 const initialState = {
     player: null,
     currSongIdx: null,
+    isPlayingSong: false
 }
 
 export function songReducer(state = initialState, action) {
@@ -10,6 +11,9 @@ export function songReducer(state = initialState, action) {
     switch (action.type) {
         case 'SET_PLAYER':
             newState = { ...state, player: action.player }
+            break
+        case 'SET_IS_SONG_PLAYING':
+            newState = { ...state, isPlayingSong: action.isPlayingSong }
             break
         case 'SET_NEXT_PREV_SONG':
             const { currStation } = action

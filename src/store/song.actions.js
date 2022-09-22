@@ -24,3 +24,9 @@ export function setCurrPlayingSongIdx(songIdx) {
         dispatch(action)
     }
 }
+export function setIsPlayingSong(isPlayingSong) {
+    return (dispatch) => {
+        const action = { type: 'SET_IS_SONG_PLAYING', isPlayingSong }
+        dispatch(action)
+    }
+}

@@ -1,8 +1,25 @@
+    .main-search-container {
+        margin: 0;
+        max-width: 1955px;
 
-.app-search {
-    background-color: rgb(213, 193, 193);
+        .app-search {
+            .search-field {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-bottom: 16px;
+            }
 
-    &.app-header{
-       display: none;
+            .search-input {
+                background-color: #242424;
+                color: #fff !important;
+                height: 48px;
+                border: none;
+                width: 340px;
+                padding: 0 20px;
+                border-radius: 500px;
+            }
+
+        }
+
     }
-}

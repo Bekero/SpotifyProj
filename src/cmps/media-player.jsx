@@ -2,7 +2,7 @@ import YouTube, { YouTubeProps } from 'react-youtube';
 import { useEffect, useRef, useState } from 'react'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setNextPrevSong, setPlayer } from '../store/song.actions';
+import { setIsPlayingSong, setNextPrevSong, setPlayer } from '../store/song.actions';
 // import play from '../assets/img/play.png'
 // import stop from '../assets/img/stop.png'
 // import stop from '../assets/img/stop-song.svg'
@@ -32,13 +32,10 @@ export function MediaPlayer() {
     const [songTimestamp, setSongTimestamp] = useState(0)
     const dispatch = useDispatch()
     const intervalRef = useRef()
-    console.log(songIdx);
     // song = currStation?.songs[songIdx]
 
-    console.log('currStation', currStation);
     useEffect(() => {
         if (!player) return
-        console.log(player);
         setPlay(true)
         if (!songDuration) {
             setSongDuration(player.getDuration())
@@ -80,7 +77,6 @@ export function MediaPlayer() {
 
     const onReadyVideo = (event) => {
         // await dispatch(setPlayer(event.target))
-        console.log(event.target);
         setPlayer(event.target)
         // player = currPlayer ? currPlayer : event.target
 
@@ -92,22 +88,22 @@ export function MediaPlayer() {
     const onPauseVideo = (ev) => {
         player.pauseVideo()
         setPlay(false)
+        dispatch(setIsPlayingSong(false))
     }
 
     const onPlayVideo = () => {
         player.playVideo()
         setPlay(true)
+        dispatch(setIsPlayingSong(true))
     }
 
     const onNextVideo = async () => {
         await dispatch(setNextPrevSong(1))
         setSongTimestamp(0)
-        onPauseVideo()
     }
     const onPrevVideo = async () => {
         await dispatch(setNextPrevSong(-1))
         setSongTimestamp(0)
-        onPauseVideo()
     }
 
     const onMuteVideo = () => {
@@ -136,7 +132,6 @@ export function MediaPlayer() {
         setSongStartFrom(songStartFromValue)
     }
 
-    console.log('player', player);
 
     const opts = {
         height: '0',
@@ -147,7 +142,6 @@ export function MediaPlayer() {
             autoplay: 1,
         },
     };
-    console.log(opts);
     const condition = currStation?.createdBy?.fullname && getSong()?.title
     return <div className='media-player-container'>
         <div className='media-player-video-desc'>

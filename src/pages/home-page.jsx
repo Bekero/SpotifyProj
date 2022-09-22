@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export function HomePage() {
     const [stations, setStations] = useState(null)
 
-    const notify = () => toast("Hola Ninio");
+    // const notify = () => toast("Hola Ninio");
     useEffect(() => {
         loadStations()
     }, [])
@@ -17,7 +17,6 @@ export function HomePage() {
         try {
             let newStations = await stationService.query()
             newStations = newStations.filter(station => !station.isMyStation && !station.isLikedStation)
-            console.log('asd', newStations);
             setStations(newStations)
         } catch (err) {
             console.log('Cannot get stations :', err)
@@ -26,7 +25,7 @@ export function HomePage() {
     if (!stations) return
     return (
         <div className="app-home main-view">
-            <button onClick={notify}>Notify!</button>
+            {/* <button onClick={notify}>Notify!</button> */}
 
             <StationList stations={stations} />
             <div className="toast-container">
