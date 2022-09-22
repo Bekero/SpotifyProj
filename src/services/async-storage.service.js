@@ -1,4 +1,6 @@
 import station from '../data/station.json'
+import user from '../data/user.json'
+
 
 export const storageService = {
     query,
@@ -13,7 +15,10 @@ function query(entityType, delay = 0) {
     var entities = JSON.parse(localStorage.getItem(entityType)) || []
     if(entityType === 'station' && !entities.length){
         _save(entityType, station)
+    }else if(entityType === 'user' && !entities.length){
+        _save(entityType, user)
     }
+
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             // reject('OOOOPs')

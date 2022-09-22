@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { loadStations, addSongToMyPlaylist, removeLikedSongFromMyPlaylist, addStation } from '../store/station.actions'
 import { SongPreview } from './song-preview'
 import { addLikedSong, removeLikedSong } from '../store/user.actions'
-import { DragDropContext, Droppable } from 'react-beautiful-dnd'
+// import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
 export const SongList = ({ station, playCurrUrl, user }) => {
     const [wantedSong, setWantedSong] = useState(null)

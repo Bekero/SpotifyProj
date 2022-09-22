@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import PrevPage from "./svg/prev-page";
-import NextPage from "./svg/next-page";
+import PrevPageSvg from "./svg/prev-page";
+import NextPageSvg from "./svg/next-page";
+
+import {
+  onLogin,
+  onLogout,
+  onSignup,
+  loadUsers,
+  removeUser,
+} from "../store/user.actions.js";
+import { LoginSignup } from "../pages/login-signup";
+import { useDispatch, useSelector } from "react-redux";
 
 export function AppHeader({ scrollTop }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.userModule.user);
+
+  console.log(user, "user");
+
+  useEffect(() => {}, []);
 
   const onBack = () => {
     navigate(-1);
@@ -14,6 +30,15 @@ export function AppHeader({ scrollTop }) {
     navigate(+1);
   };
 
+  const onUserController = () => {
+    navigate("/login");
+  };
+
+  const logout = () => {
+    dispatch(onLogout());
+  };
+  
+
   return (
     <div
       className='app-header'
@@ -22,14 +47,15 @@ export function AppHeader({ scrollTop }) {
       <div className='app-header-top-bar'>
         <div className='dir-btns'>
           <button onClick={onBack} className='go-back-btn'>
-            <PrevPage />
+            <PrevPageSvg />
           </button>
           <button onClick={onForward} className='forward-btn'>
-            <NextPage />
+            <NextPageSvg />
           </button>
         </div>
         <div className='user-bar'>
-          <button className='user-icon'>
+          {user && <button onClick={logout}>Logout</button>}
+          <button className='user-icon' onClick={onUserController}>
             <svg
               role='img'
               fill='white'
@@ -45,10 +71,6 @@ export function AppHeader({ scrollTop }) {
     </div>
   );
 }
-
-
-
-
 
 // -webkit-box-align: center;
 // -ms-flex-align: center;

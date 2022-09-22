@@ -25,11 +25,15 @@ export function AppSearch() {
     search()
   }, [term, results]);
 
+  // songsDetails = songsDetails.replace(/[^0-9]/, ':');
+
+
   const search = async () => {
     results = await youtubeService.getSongs(term)
     await setData(results.data.items);
     if (!data.length) return console.log('asdkhnjaskdygasdkhjasdajkshdjkashd');
     const details = await youtubeService.getSongsDetails(data)
+    console.log(details.data.items[0].contentDetails,'hhh')
     if (!details) return
     setSongDetails(details.data.items)
     loadStations(term)

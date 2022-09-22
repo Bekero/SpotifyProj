@@ -66,6 +66,7 @@ export function onLogin(credentials) {
         } catch (err) {
             showErrorMsg('Cannot login')
             console.log('Cannot login', err)
+            throw err
         }
     }
 }
@@ -82,6 +83,7 @@ export function onSignup(credentials) {
         } catch (err) {
             showErrorMsg('Cannot signup')
             console.log('Cannot signup', err)
+            throw err
         }
 
     }
