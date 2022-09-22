@@ -2,7 +2,6 @@ import { SearchPreview } from "./search-preview";
 
 
 export function SearchList({ data, playCurrUrl, addToLikedPlaylist, songDetails }) {
-    console.log(data, 'list')
     return (
 
         <div className="search-songs-list-container">

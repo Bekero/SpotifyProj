@@ -7,7 +7,6 @@ import OptsSvg from './svg/opts-song'
 import { utilService } from "../services/util.service";
 
 export function SearchPreview({ songDetails, song, playCurrUrl, addToLikedPlaylist }) {
-  console.log(songDetails?.contentDetails?.duration);
   const songTitle = song.snippet.title.replace(/(\(.*?\))/g, '')
   function isSongLiked(songId) {
     return (song => song.id === songId)

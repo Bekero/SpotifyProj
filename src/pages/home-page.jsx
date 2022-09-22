@@ -17,7 +17,6 @@ export function HomePage() {
         try {
             let newStations = await stationService.query()
             newStations = newStations.filter(station => !station.isMyStation && !station.isLikedStation)
-            console.log('asd', newStations);
             setStations(newStations)
         } catch (err) {
             console.log('Cannot get stations :', err)

@@ -28,7 +28,6 @@ export const StationDetails = () => {
 
     useEffect(() => {
         if (params.stationId) {
-            console.log('user', user);
             loadStation()
             if (!user) {
                 dispatch(loadLikedSongs())
@@ -65,7 +64,6 @@ export const StationDetails = () => {
     }
 
     const playCurrUrl = (songIdx, currStationId, songs) => {
-        console.log('asdasdasdasdasdasdasdasd', songs);
         dispatch(setIsPlayingSong(!isPlayingSong))
         if (!currStationId) {
             const station = { title: 'Falling stars', songs: songs }
@@ -97,7 +95,6 @@ export const StationDetails = () => {
     };
 
     if (!station && !user) return <div>Loading...</div>
-    console.log(station, user);
     return (
         <section className="main-details-container">
             <div className={station ? "station-details" : "station-details liked"}>

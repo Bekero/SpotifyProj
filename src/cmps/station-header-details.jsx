@@ -10,7 +10,7 @@ export function StationHeaderDetails({ station, onRemoveStation, onEditStation, 
             </div>
             <div className="details-container">
                 <span>{station ? 'ALBUM' : 'PLAYLIST'}</span>
-                <h3 className="album-name">{station ? station.name : 'Guest'}</h3>
+                <h3 className="album-name">{station ? station.name : 'Liked Songs'}</h3>
                 <div className="creator">
                     {station && <img className="artist-img-details" style={{ visibility: station.createdBy.artistImg !== '' ? 'visible' : 'hidden' }} src={station.createdBy.artistImg !== '' ? station.createdBy.artistImg : ""} alt="" />}
                     {station && <h3>{station.createdBy.fullname} | {station.songs.length} Songs </h3>}

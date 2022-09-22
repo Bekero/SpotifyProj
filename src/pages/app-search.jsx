@@ -20,7 +20,6 @@ export function AppSearch() {
   const [term, setTerm] = useState([]);
   let results
   useEffect(() => {
-    console.log('term', term);
     if (term === '' || !term.length) return;
     search()
   }, [term, results]);
@@ -52,7 +51,6 @@ export function AppSearch() {
       imgUrl: song.snippet.thumbnails.default,
       title: song.snippet.title
     }
-    console.log(filteredSong);
     // dispatch(addLikedSong(song))
   }
 
@@ -66,8 +64,6 @@ export function AppSearch() {
     dispatch({ type: 'SET_CURR_STATION', station })
     dispatch({ type: 'SET_CURRENTLY_PLAYING_SONG_IDX', songIdx: 0 })
   }
-console.log('songDetails',songDetails);
-console.log('data',data);
   return (
     <div className="main-search-container">
       <div className='app-search'>
