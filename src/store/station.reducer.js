@@ -17,7 +17,9 @@ export function stationReducer(state = initialState, action) {
             newState = { ...state, stations: action.stations }
             break
         case 'SET_CURR_STATION':
+            console.log(action.station)
             newState = { ...state, currStation: action.station }
+            console.log(newState)
             break
         case 'REMOVE_STATION':
             const lastRemovedStation = state.stations.find(station => station._id === action.stationId)

@@ -7,24 +7,30 @@ const initialState = {
 }
 export function userReducer(state = initialState, action) {
     var newState = state;
+    let likedSongs = state?.user?.likedSongs
+
+
     switch (action.type) {
 
         case 'SET_USER':
             newState = { ...state, user: action.user }
             break;
         case 'SET_LIKED_SONGS':
-            if (!state.user) {
-                newState = { ...state, user: action.songs }
-            }
-            else {
-                newState = { ...state, user: [...state.user, action.songs] }
-            }
+            // if (!state.user) {
+            newState = { ...state, user: { ...state.user, likedSongs: action.songs } }
+            // }
+            // else {
+            //     newState = { ...state, user: {...state.user, likedSongs: [action.songs] }}
+            // }
             break
         case 'ADD_LIKED_SONG':
-            newState = { ...state, user: [...state.user, action.song] }
+            newState = { ...state, user: { ...state.user, likedSongs: [...state.user?.likedSongs, action.song] } }
             break
         case 'REMOVE_LIKED_SONG':
-            newState = { ...state, user: state.user.filter(song => song.id !== action.song.id) }
+            likedSongs = likedSongs.filter(song => song.id !== action.song.id)
+            newState = { ...state, user: { ...state.user, likedSongs: likedSongs } }
+            // newState = { ...state, user: { ...state.user, likedSongs: [state.user.likedSongs.filter(song => song.id !== action.song.id)] } }
+            console.log(newState)
             break
         case 'REMOVE_USER':
             newState = {

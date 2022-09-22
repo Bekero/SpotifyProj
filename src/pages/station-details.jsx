@@ -26,6 +26,7 @@ export const StationDetails = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
+
     useEffect(() => {
         if (params.stationId) {
             loadStation()

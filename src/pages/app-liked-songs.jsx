@@ -9,25 +9,20 @@ import { StationDetails } from './station-details'
 
 export function LikedSongs() {
     const user = useSelector(state => state.userModule.user)
-
     const dispatch = useDispatch()
 
-    //!The user in the details section is rendered as separate song and not array with songs
-
     useEffect(() => {
+        console.log(user)
         if (!user) {
-            //*Get the songs from localStorage()
             dispatch(loadLikedSongs())
         } else if (user) {
             //*Get the Liked Songs from the user and render them
         }
     }, [user])
-    // if (!user) return <div>Loading User///</div>
     return (
         <div className="liked-station-container">
             <ol>
                 <StationDetails />
-                {/* {user?.likedSongs && <pre>{JSON.stringify(user?.likedSongs)}</pre>} */}
             </ol>
         </div>
     )
