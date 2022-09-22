@@ -8,7 +8,7 @@ import { useEffect } from "react"
 
 export function SongPreview({ station, playHover, onSongHover, playCurrUrl, addToLikedPlaylist, currSongIdx, addToPlaylist, user }) {
     const isPlayingSong = useSelector(state => state.songModule.isPlayingSong)
-    
+
     function isSongLiked(songId) {
         if (!user) return false
         return user?.some(song => song.id === songId)
@@ -26,7 +26,7 @@ export function SongPreview({ station, playHover, onSongHover, playCurrUrl, addT
                             ref={provided.innerRef}
                             {...provided.dragHandleProps}
                             {...provided.draggableProps}
-                            onMouseOver={() => onSongHover(true, songIdx)}
+                            onMouseOver={() => onSongHover(true, songIdx)} // TODO: CHANGE THIS!!!! CSS ONLY
                             onMouseLeave={() => onSongHover(false, songIdx)}
                             className={`song-preview ${(isPlayingSong && currSongIdx === songIdx) ? 'active' : ''}`}>
                             <div className="song-number-play">

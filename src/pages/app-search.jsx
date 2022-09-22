@@ -29,15 +29,18 @@ export function AppSearch() {
     loadStations(term)
     results = await youtubeService.getSongs(term)
     await setData(results.data.items);
-    if (!data.length) return console.log('asdkhnjaskdygasdkhjasdajkshdjkashd');
+    getSongsData(data)
+  }
+
+  const getSongsData = async (data)=>{
     const details = await youtubeService.getSongsDetails(data)
     if (!details) return
     setSongDetails(details.data.items)
-  };
+  }
+
   const loadStations = async (filterBy) => {
     try {
       let filteredStations = await stationService.query(filterBy)
-      console.log('asdasdasdasd');
       setStations(filteredStations)
     } catch (err) {
       console.log('Cannot get stations :', err)
@@ -63,17 +66,18 @@ export function AppSearch() {
     dispatch({ type: 'SET_CURR_STATION', station })
     dispatch({ type: 'SET_CURRENTLY_PLAYING_SONG_IDX', songIdx: 0 })
   }
-
+console.log('songDetails',songDetails);
+console.log('data',data);
   return (
-    <div>
-      <div className='ui form'>
-        <div className='field'>
-          <label>Search Term</label>
-          <input className='input' onChange={(e) => setTerm(e.target.value)} />
+    <div className="main-search-container">
+      <div className='app-search'>
+        <div className='search-field'>
+          <input className='search-input' placeholder="What do you want to listen to?" onChange={(e) => setTerm(e.target.value)}
+          />
         </div>
       </div>
 
-      <SearchList addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} data={data} />
+      <SearchList addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} data={data} songDetails={songDetails} />
 
       <div className='ui celled list'></div>
       {stations && <StationList stations={stations} />}

@@ -1,15 +1,14 @@
 .create-station {
 
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     margin-top: 24px;
     font-size: 0.8em;
-    padding: 5px;
     border: none;
 
     >* {
-        height: 50px;
-        
+        height: 40px;
+
     }
 
     // // :last-child {
@@ -19,14 +18,37 @@
     .create-station-btn {
         background-color: rgba(41, 206, 93, 0);
         padding: 0;
-        display: inline-block;
+        flex-grow: 1;
+        display: flex;
         text-align: start;
+        align-items: center;
         border: none;
         cursor: pointer;
         color: $sec-txt-clr;
+        font-family: spotify-font;
+        font-size: 1em;
+        gap: 16px;
+
+        .create-station-icon {
+            width: 24px;
+            height: 24px;
+            background-color: #fff;
+            opacity: 0.7;
+            border-radius: 2px;
+            display: grid;
+            place-items: center;
+
+            svg {
+                fill: #000;
+            }
+        }
 
         &:hover {
             color: $main-txt-clr;
+
+            .create-station-icon {
+                opacity: 1;
+            }
         }
 
     }
