@@ -37,6 +37,7 @@ export function AppSearch() {
   const loadStations = async (filterBy) => {
     try {
       let filteredStations = await stationService.query(filterBy)
+      console.log('asdasdasdasd');
       setStations(filteredStations)
     } catch (err) {
       console.log('Cannot get stations :', err)
@@ -75,7 +76,7 @@ export function AppSearch() {
       <SearchList addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} data={data} />
 
       <div className='ui celled list'></div>
-      {/* {stations && <StationList stations={stations} />} */}
+      {stations && <StationList stations={stations} />}
     </div>
   );
 }

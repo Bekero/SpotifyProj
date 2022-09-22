@@ -4,8 +4,8 @@
 .search-list-preview{
     display: grid;
     grid-template-columns: 4fr minmax(120px,1fr);
-   
-    
+    padding: 0 32px;
+    height: 56px;
     img{
         width: 40px;
         height: 40px;
