@@ -146,6 +146,10 @@
             flex-flow: row nowrap;
             max-width: 722px;
             width: 100%;
+            >div{
+                display: flex;
+                gap: 8px;
+            }
         }
 
         button {

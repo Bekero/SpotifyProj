@@ -5,6 +5,7 @@ import PlaySong from '../cmps/svg/play-song-svg'
 import { Draggable } from "react-beautiful-dnd"
 import { useSelector } from "react-redux"
 import { useEffect } from "react"
+import { utilService } from "../services/util.service"
 
 export function SongPreview({ station, currSong, songIdx, currStation, playHover, onSongHover, playCurrUrl, addToLikedPlaylist, currSongIdx, addToPlaylist, user }) {
     const isPlayingSong = useSelector(state => state.songModule.isPlayingSong)
@@ -47,7 +48,7 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
                         </div>
                         <div className="opts-menu-section">
                             <button onClick={() => addToLikedPlaylist(currSong)} className={isSongLiked(currSong.id) ? "is-liked-song-preview" : "like-song-preview"}>{isSongLiked(currSong.id) ? <FilledLikeToolBar /> : <UnfilledLikeToolBar />}</button>
-                            <div className="song-duration-container">{currSong.songDuration}</div>
+                            <div className="song-duration-container">{utilService.setTimestampToTime(currSong.songDuration)}</div>
                             <button onClick={(ev) => addToPlaylist(ev, currSong)} className="add-to-playlist-btn" ><OptsSvg /></button>
                         </div>
                     </div>

@@ -2,7 +2,7 @@ import YouTube, { YouTubeProps } from 'react-youtube';
 import { useEffect, useRef, useState } from 'react'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setIsPlayingSong, setNextPrevSong, setPlayer } from '../store/song.actions';
+import { setCurrPlayingSongIdx, setIsPlayingSong, setNextPrevSong, setPlayer } from '../store/song.actions';
 // import play from '../assets/img/play.png'
 // import stop from '../assets/img/stop.png'
 // import stop from '../assets/img/stop-song.svg'
@@ -25,6 +25,8 @@ export function MediaPlayer() {
     const [player, setPlayer] = useState(null)
 
     const [playSong, setPlay] = useState(false)
+    const [songEnded, setSongEnded] = useState(false)
+    const [repeatSong, setRepeatSong] = useState(false)
     const [songVolume, setSongVolume] = useState(50)
     const [isSongMuted, setSongMuted] = useState(false)
     const [songDuration, setSongDuration] = useState(0)
@@ -44,11 +46,12 @@ export function MediaPlayer() {
 
     useEffect(() => {
         // dispatch(setCurrSongIsPlaying(playSong))
+        if (songEnded) return
         if (playSong) {
             intervalRef.current = setInterval(() => {
-                setSongTimestamp((prevTimestamp) => {
+                setSongTimestamp(prevTimestamp => {
                     if (prevTimestamp + 1 >= songDuration) {
-                        onNextVideo()
+                        setSongEnded(true)
                         clearInterval(intervalRef.current)
                         onPauseVideo()
                     }
@@ -60,12 +63,14 @@ export function MediaPlayer() {
             clearInterval(intervalRef.current)
         }
 
-    }, [playSong])
+    }, [playSong, songEnded])
 
     useEffect(() => {
+        if (songEnded) isSongEnded()
         if (!player) return
         setSongStartFrom(player.getCurrentTime())
-    }, [player])
+    }, [player, songEnded])
+
 
     function getSong() {
         // if (!currStation.songs && currentUrl) {
@@ -73,6 +78,17 @@ export function MediaPlayer() {
         // }
         if (!currStation || !currStation.songs || songIdx === undefined) return null
         return currStation.songs[songIdx]
+    }
+    const isSongEnded = async () => {
+        if (!repeatSong) {
+            console.log('repeatSong', repeatSong);
+            onNextVideo()
+        } else {
+            console.log('repeatSong', repeatSong);
+            await dispatch(setNextPrevSong(0))
+            onSetTimestamp(0)
+        }
+        onPlayVideo()
     }
 
     const onReadyVideo = (event) => {
@@ -83,6 +99,7 @@ export function MediaPlayer() {
         // setPlayer(event.target)
         setSongDuration(event.target.getDuration())
         setSongTimestamp(0)
+        setSongEnded(false)
     }
 
     const onPauseVideo = (ev) => {
@@ -104,6 +121,28 @@ export function MediaPlayer() {
     const onPrevVideo = async () => {
         await dispatch(setNextPrevSong(-1))
         setSongTimestamp(0)
+    }
+
+    const onSetTimestamp = async (timestamp) => {
+        setSongEnded(false)
+        setSongTimestamp(timestamp)
+        player.seekTo(timestamp)
+    }
+    const onIncreaseDecreaseTenSeconds = async (diff) => {
+        setSongTimestamp(songTimestamp + diff)
+        player.seekTo(songTimestamp)
+    }
+
+    const onShuffle = async () => {
+        let randomSongIdx = utilService.getRandomIntInclusive(0, currStation.songs.length - 1)
+        while (randomSongIdx === songIdx) {
+            randomSongIdx = utilService.getRandomIntInclusive(0, currStation.songs.length - 1)
+        }
+        await dispatch(setCurrPlayingSongIdx(randomSongIdx))
+    }
+
+    const onRepeat = () => {
+        setRepeatSong(!repeatSong)
     }
 
     const onMuteVideo = () => {
@@ -163,12 +202,16 @@ export function MediaPlayer() {
         <div className='media-player-action'>
             <div className='media-player-btn-action'>
                 <div className='player-control-left'>
+                    <button disabled={getSong()?.url ? false : true} onClick={onShuffle}>Shuffle</button>
+                    <button disabled={getSong()?.url ? false : true} onClick={() => onIncreaseDecreaseTenSeconds(-5)}>-5</button>
                     <button disabled={getSong()?.url ? false : true} onClick={onPrevVideo}><Prev /></button>
                 </div>
                 {playSong ? <button className='media-player-play-stop-btn' disabled={getSong()?.url ? false : true} onClick={onPauseVideo}><Stop /></button> :
                     <button className='media-player-play-stop-btn' disabled={getSong()?.url ? false : true} onClick={onPlayVideo}><Play /></button>}
                 <div className='player-control-right'>
                     <button disabled={getSong()?.url ? false : true} onClick={onNextVideo}><Next /></button>
+                    <button disabled={getSong()?.url ? false : true} onClick={() => onIncreaseDecreaseTenSeconds(5)}>+5</button>
+                    <button style={{ color: repeatSong ? 'green' : 'red' }} disabled={getSong()?.url ? false : true} onClick={onRepeat}>Repeat</button>
                 </div>
             </div>
             <div className='song-timestamp flex align-center'>

@@ -6,6 +6,7 @@ import { addLikedSong, removeLikedSong } from '../store/user.actions'
 // import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
 export const SongList = ({ station, playCurrUrl, user }) => {
+    const currUser = useSelector(state => state.userModule.user)
     const [wantedSong, setWantedSong] = useState(null)
     const [openModal, setOpenModal] = useState(null)
     const [modalPos, setModalPos] = useState(null)
@@ -55,8 +56,8 @@ export const SongList = ({ station, playCurrUrl, user }) => {
     }
 
     let currStation = station ? station.songs : user.likedSongs
-    
-    if(!currStation) return <></>
+
+    if (!currStation) return <></>
     return <>
         {/* {openModal && <ul onMouseLeave={() => setOpenModal(false)} style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }} className="song-list-opts-menu">
             {myStations.map((station, myPlaylistIdx) =>

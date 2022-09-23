@@ -73,6 +73,7 @@ async function signup(userCred) {
   if (isUser) {
     return Promise.reject("username is already taken");
   }
+  userCred.likedSongs = []
   const user = await storageService.post("user", userCred);
 
   // const user = await httpService.post('auth/signup', userCred)

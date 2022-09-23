@@ -1,13 +1,16 @@
 [
-  {  "_id": "u101",
+  {
+    "_id": "u101",
     "username": "reut",
     "password": "12345",
-    "fullName": "reut maharat"
-},
-{  "_id": "u102",
-"username": "admin",
-"password": "1234567",
-"fullName": "admin Master"
-}
-
+    "fullName": "reut maharat",
+    "likedSongs": []
+  },
+  {
+    "_id": "u102",
+    "username": "admin",
+    "password": "1234567",
+    "fullName": "admin Master",
+    "likedSongs": []
+  }
 ]
