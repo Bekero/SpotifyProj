@@ -75,8 +75,6 @@ export const StationDetails = () => {
         if (songIdx === undefined) return
         dispatch(setCurrPlayingSongIdx(songIdx))
         dispatch(setCurrStation(currStationId))
-        // dispatch(setCurrPlayingSong(songIdx))
-        // dispatch(setCurrPlayingUrl(songIdx))
     }
 
     const handleDrop = (droppedItem) => {

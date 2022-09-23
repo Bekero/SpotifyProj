@@ -48,16 +48,21 @@
                     "title title"
                     "badges subtitle" /auto 1fr;
                 margin: 0 14px;
+                align-self: center;
+                height: 40px;
 
                 .media-title {
                     grid-area: 'title';
                     justify-self: start;
                     width: 100%;
+                    font-size: 0.875rem;
                 }
 
                 .media-fullname {
                     grid-area: 'subtitle';
                     grid-column-start: 'badges';
+                    font-size: 0.6875rem;
+                    color: $sec-txt-clr;
                 }
             }
         }
@@ -72,12 +77,13 @@
 
             &:hover {
                 transform: scale(1.06);
-                transition: none 33ms cubic-bezier(.3,0,0,1);
+                transition: none 33ms cubic-bezier(.3, 0, 0, 1);
                 transition-property: all;
             }
+
             .clicked {
                 transform: scale(1.06);
-                transition: none 33ms cubic-bezier(.3,0,0,1);
+                transition: none 33ms cubic-bezier(.3, 0, 0, 1);
                 transition-property: all;
             }
 
@@ -93,6 +99,7 @@
             display: flex;
             align-items: center;
             justify-content: flex-end;
+
             button {
                 display: flex;
                 align-items: center;
@@ -146,7 +153,8 @@
             flex-flow: row nowrap;
             max-width: 722px;
             width: 100%;
-            >div{
+
+            >div {
                 display: flex;
                 gap: 8px;
             }
