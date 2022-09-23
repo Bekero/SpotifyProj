@@ -7,6 +7,7 @@ import { addLikedSong } from "../store/user.actions";
 import { loadStations, setCurrentUrl } from "../store/station.actions"
 import { stationService } from "../services/station.service";
 import { StationList } from "../cmps/station-list";
+import { utilService } from "../services/util.service";
 
 
 export function AppSearch() {
@@ -34,10 +35,44 @@ export function AppSearch() {
     getSongsData(data)
   }
 
+
+
   const getSongsData = async (data)=>{
     const details = await youtubeService.getSongsDetails(data)
-    console.log(details.data.items[0].contentDetails,'hhh')
     if (!details) return
+    console.log(details.data.items,'hhh')
+    const det = details.data.items[0].contentDetails.duration
+    console.log(det);
+    const myRe = /(?<=PT)(.*)(?=H)/g;
+    let myReMin
+    let myReSec
+    let hourTime = 0
+    let minTime=0
+    let secTime =0
+    const hours= myRe.exec(det);
+    if(hours){
+      console.log('hours', hours[0]) 
+      hourTime = (+hours[0]) * 60 * 60
+       myReMin = /(?<=H)(.*)(?=M)/g;
+    }else{
+      myReMin = /(?<=T)(.*)(?=M)/g;
+
+    }
+    const minutes= myReMin.exec(det);
+    if(minutes){
+      console.log('minutes', minutes[0])
+      minTime = +minutes[0] * 60
+      myReSec = /(?<=M)(.*)(?=S)/g;
+    }else{
+      myReSec = /(?<=T)(.*)(?=S)/g;
+    }
+    const seconds= myReSec.exec(det);
+    if(seconds){
+      secTime=+seconds[0]
+      console.log('seconds', seconds[0])
+    }
+    const duration = hourTime + minTime + secTime
+    console.log((utilService.setTimestampToTime(duration)))
     setSongDetails(details.data.items)
   }
 
