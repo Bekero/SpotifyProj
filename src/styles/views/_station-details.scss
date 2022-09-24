@@ -230,18 +230,18 @@
 
             .song-number-play {
                 display: flex;
+                
                 align-items: center;
                 >* {
-                    // color: #b3b3b3;
-                    color: red;
+                    color: #b3b3b3;
                 }
-
                 .song-index {
                     visibility: visible;
                 }
 
                 .play-song-preview {
                     visibility: hidden;
+                    color: #fff;
 
                     button {
                         background-color: $transparent;

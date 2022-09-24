@@ -18,9 +18,7 @@ export function AppHeader({ scrollTop }) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userModule.user);
 
-  console.log(user, "user");
-
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   const onBack = () => {
     navigate(-1);
@@ -37,7 +35,7 @@ export function AppHeader({ scrollTop }) {
   const logout = () => {
     dispatch(onLogout());
   };
-  
+
 
   return (
     <div

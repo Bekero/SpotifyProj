@@ -50,11 +50,6 @@ export const SongList = ({ station, playCurrUrl, user }) => {
         dispatch(addSongToMyPlaylist(wantedSong, stations[myPlaylistIdx]._id))
     }
 
-    const onSongHover = (diff, songIdx) => {
-        setPlayHover(diff)
-        setCurrSongIdx(songIdx)
-    }
-
     let currStation = station ? station.songs : user.likedSongs
 
     if (!currStation) return <></>
@@ -76,7 +71,6 @@ export const SongList = ({ station, playCurrUrl, user }) => {
                 currSongIdx={currSongIdx}
                 currStation={currStation}
                 playHover={playHover}
-                onSongHover={onSongHover}
                 playCurrUrl={playCurrUrl}
                 addToLikedPlaylist={addToLikedPlaylist}
                 addToPlaylist={addToPlaylist}

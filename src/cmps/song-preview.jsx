@@ -15,7 +15,6 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
         if (!user) return false
         return user.likedSongs?.some(song => song.id === songId)
     }
-    console.log(songHover);
     if (!station && !user) return <div>Loading...</div>
     return <>
         {
@@ -50,7 +49,7 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
                         </div>
                         <div className="opts-menu-section">
                             <button onClick={() => addToLikedPlaylist(currSong)} className={isSongLiked(currSong.id) ? "is-liked-song-preview" : "like-song-preview"}>{isSongLiked(currSong.id) ? <FilledLikeToolBar /> : <UnfilledLikeToolBar />}</button>
-                            <div className="song-duration-container">{utilService.setTimestampToTime(currSong.songDuration)}</div>
+                            <div className="song-duration-container">{currSong.songDuration}</div>
                             <button onClick={(ev) => addToPlaylist(ev, currSong)} className="add-to-playlist-btn" ><OptsSvg /></button>
                         </div>
                     </div>

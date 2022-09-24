@@ -67,7 +67,8 @@ export const StationDetails = () => {
     const playCurrUrl = (songIdx, currStationId, songs) => {
         dispatch(setIsPlayingSong(!isPlayingSong))
         if (!currStationId) {
-            const station = { title: 'Falling stars', songs: songs }
+            console.log(songIdx, currStationId, songs)
+            const station = { title: 'Falling stars', songs: songs.likedSongs }
             dispatch(setCurrPlayingSongIdx(songIdx))
             dispatch({ type: 'SET_CURR_STATION', station })
             return
