@@ -7,6 +7,7 @@ import { Draggable } from "react-beautiful-dnd"
 import { useSelector, useDispatch } from "react-redux"
 import { useState } from "react"
 import { setCurrPlayingSongIdx, setIsPlayingSong, setNextPrevSong, setPlayer } from '../store/song.actions';
+import { utilService } from "../services/util.service"
 
 export function SongPreview({ station, currSong, songIdx, currStation, playHover, playCurrUrl, addToLikedPlaylist, addToPlaylist, user }) {
     const dispatch = useDispatch()
@@ -21,12 +22,12 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
 
     //? player from stationReducer is undefined , need to understand why /
     //* its stop me from doing pause
-    const onPauseVideo = async () => {
-        console.log('player', player)
-        player.pauseVideo()
-        await dispatch(setIsPlayingSong(false))
-        setPlay(false)
-    }
+    // const onPauseVideo = async () => {
+    //     console.log('player', player)
+    //     // player.pauseVideo()
+    //     await dispatch(setIsPlayingSong(false))
+    //     setPlay(false)
+    // }
 
     function isSongLiked(songId) {
         if (!user) return false
@@ -46,9 +47,9 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
                         onMouseLeave={() => setSongHover(false)}
                         className={`song-preview ${(isPlayingSong && currSongIdx === songIdx) ? 'active' : ''}`}>
                         <div className="song-number-play">
-                            {isSongPlaying && currSongIdx === songIdx ? <div className="pause-video" onClick={() => onPauseVideo()}><button><PauseSongSvg /></button></div>
+                            {isSongPlaying && currSongIdx === songIdx ? <div className="pause-video" onClick={() => { station ? playCurrUrl(songIdx, station._id, undefined, false) : playCurrUrl(songIdx, undefined, user, false) }}><button><PauseSongSvg /></button></div>
                                 :
-                                <div> {songHover ? <div className="play-song-preview"><button onClick={() => { station ? playCurrUrl(songIdx, station._id) : playCurrUrl(songIdx, undefined, user) }}>{<PlaySong />}</button></div>
+                                <div> {songHover ? <div className="play-song-preview"><button onClick={() => { station ? playCurrUrl(songIdx, station._id, undefined, true) : playCurrUrl(songIdx, undefined, user, true) }}>{<PlaySong />}</button></div>
                                     :
                                     <div className="song-index">{songIdx + 1}</div>}</div>
                             }
@@ -70,7 +71,7 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
                         </div>
                         <div className="opts-menu-section">
                             <button onClick={() => addToLikedPlaylist(currSong)} className={isSongLiked(currSong.id) ? "is-liked-song-preview" : "like-song-preview"}>{isSongLiked(currSong.id) ? <FilledLikeToolBar /> : <UnfilledLikeToolBar />}</button>
-                            <div className="song-duration-container">{currSong.songDuration}</div>
+                            <div className="song-duration-container">{utilService.setTimestampToTime(currSong.songDuration)}</div>
                             <button onClick={(ev) => addToPlaylist(ev, currSong)} className="add-to-playlist-btn" ><OptsSvg /></button>
                         </div>
                     </div>

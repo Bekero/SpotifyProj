@@ -18,6 +18,7 @@ export function AppSearch() {
   const dispatch = useDispatch()
   const [data, setData] = useState([]);
   const [songDetails, setSongDetails] = useState([]);
+  const [songDuration, setSongDuration] = useState([]);
   const [term, setTerm] = useState([]);
   let results
   useEffect(() => {
@@ -35,45 +36,14 @@ export function AppSearch() {
     getSongsData(data)
   }
 
-
-
-  const getSongsData = async (data)=>{
+  const getSongsData = async (data) => {
     const details = await youtubeService.getSongsDetails(data)
     if (!details) return
-    console.log(details.data.items,'hhh')
-    const det = details.data.items[0].contentDetails.duration
-    console.log(det);
-    const myRe = /(?<=PT)(.*)(?=H)/g;
-    let myReMin
-    let myReSec
-    let hourTime = 0
-    let minTime=0
-    let secTime =0
-    const hours= myRe.exec(det);
-    if(hours){
-      console.log('hours', hours[0]) 
-      hourTime = (+hours[0]) * 60 * 60
-       myReMin = /(?<=H)(.*)(?=M)/g;
-    }else{
-      myReMin = /(?<=T)(.*)(?=M)/g;
-
-    }
-    const minutes= myReMin.exec(det);
-    if(minutes){
-      console.log('minutes', minutes[0])
-      minTime = +minutes[0] * 60
-      myReSec = /(?<=M)(.*)(?=S)/g;
-    }else{
-      myReSec = /(?<=T)(.*)(?=S)/g;
-    }
-    const seconds= myReSec.exec(det);
-    if(seconds){
-      secTime=+seconds[0]
-      console.log('seconds', seconds[0])
-    }
-    const duration = hourTime + minTime + secTime
-    console.log((utilService.setTimestampToTime(duration)))
-    setSongDetails(details.data.items)
+    console.log(details);
+    const durations = youtubeService.getSongsDuration(details)
+    console.log('durations', durations);
+    setSongDuration(durations)
+    setSongDetails(details)
   }
 
   const loadStations = async (filterBy) => {
@@ -85,14 +55,25 @@ export function AppSearch() {
     }
   }
   const addToLikedPlaylist = async (song) => {
-    const filteredSong = {
-      id: song.id.videoId,
-      imgUrl: song.snippet.thumbnails.default,
-      title: song.snippet.title
-    }
+    // const filteredSong = {
+    //   id: song.id.videoId,
+    //   imgUrl: song.snippet.thumbnails.default,
+    //   title: song.snippet.title
+    // }
     // dispatch(addLikedSong(song))
   }
-
+  // const addToLikedPlaylist = (wantedSong) => {
+  //   if (!user) {
+  //     dispatch(addLikedSong(wantedSong))
+  //     return
+  //   }
+  //   else {
+  //     let isSongExists = user.likedSongs?.find(song => song.id === wantedSong.id)
+  //     if (isSongExists) dispatch(removeLikedSong(wantedSong))
+  //     else if (!isSongExists) dispatch(addLikedSong(wantedSong))
+  //     return
+  //   }
+  // }
   const playCurrUrl = (song) => {
     const currSong = {
       url: song.id.videoId,
@@ -112,7 +93,7 @@ export function AppSearch() {
         </div>
       </div>
 
-      <SearchList addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} data={data} songDetails={songDetails} />
+      <SearchList addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} data={data} songDetails={songDetails} songDuration={songDuration} />
 
       <div className='ui celled list'></div>
       {stations && <StationList stations={stations} />}

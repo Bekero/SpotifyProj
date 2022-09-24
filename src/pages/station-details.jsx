@@ -63,8 +63,8 @@ export const StationDetails = () => {
         }
     }
 
-    const playCurrUrl = (songIdx, currStationId, songs) => {
-        dispatch(setIsPlayingSong(!isPlayingSong))
+    const playCurrUrl = (songIdx, currStationId, songs, isSongPlaying) => {
+        dispatch(setIsPlayingSong(isSongPlaying))
         if (!currStationId) {
             console.log(songIdx, currStationId, songs)
             const station = { title: 'Falling stars', songs: songs.likedSongs }
