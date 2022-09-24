@@ -4,17 +4,18 @@ import OptsSvg from './svg/opts-song'
 import PlaySong from '../cmps/svg/play-song-svg'
 import { Draggable } from "react-beautiful-dnd"
 import { useSelector } from "react-redux"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { utilService } from "../services/util.service"
 
-export function SongPreview({ station, currSong, songIdx, currStation, playHover, onSongHover, playCurrUrl, addToLikedPlaylist, currSongIdx, addToPlaylist, user }) {
+export function SongPreview({ station, currSong, songIdx, currStation, playHover, playCurrUrl, addToLikedPlaylist, currSongIdx, addToPlaylist, user }) {
     const isPlayingSong = useSelector(state => state.songModule.isPlayingSong)
+    const [songHover, setSongHover] = useState()
 
     function isSongLiked(songId) {
         if (!user) return false
         return user.likedSongs?.some(song => song.id === songId)
     }
-
+    console.log(songHover);
     if (!station && !user) return <div>Loading...</div>
     return <>
         {
@@ -24,12 +25,13 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
                         ref={provided.innerRef}
                         {...provided.dragHandleProps}
                         {...provided.draggableProps}
-                        onMouseOver={() => onSongHover(true, songIdx)} // TODO: CHANGE THIS!!!! CSS ONLY
-                        onMouseLeave={() => onSongHover(false, songIdx)}
+                        onMouseOver={() => setSongHover(true)}
+                        onMouseLeave={() => setSongHover(false)}
                         className={`song-preview ${(isPlayingSong && currSongIdx === songIdx) ? 'active' : ''}`}>
                         <div className="song-number-play">
-                            {(playHover && (currSongIdx === songIdx)) ?
-                                <div className="play-song-preview"><button onClick={() => { station ? playCurrUrl(songIdx, station._id) : playCurrUrl(songIdx, undefined, user) }}>{<PlaySong />}</button></div> : <div>{songIdx + 1}</div>}
+                            {songHover ? <div className="play-song-preview"><button onClick={() => { station ? playCurrUrl(songIdx, station._id) : playCurrUrl(songIdx, undefined, user) }}>{<PlaySong />}</button></div> : 
+                            <div className="song-index">{songIdx + 1}</div>
+}
                         </div>
                         <div className='song-list-title-container'>
                             <div className='song-list-title-img-container'>
