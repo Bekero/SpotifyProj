@@ -17,7 +17,6 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 export const StationDetails = () => {
     const user = useSelector(state => state.userModule.user)
     const isPlayingSong = useSelector(state => state.songModule.isPlayingSong)
-    const stationFromStore = useSelector(state => state.stationModule.currStation)
     const params = useParams()
     const [station, setStation] = useState(null)
     const [itemList, setItemList] = useState(station?.songs);

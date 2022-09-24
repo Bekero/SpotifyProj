@@ -33,5 +33,4 @@ export function songReducer(state = initialState, action) {
     }
     window.stationState = newState
     return newState
-
 }

@@ -37,7 +37,6 @@ export function MediaPlayer() {
     const [songTimestamp, setSongTimestamp] = useState(0)
     const dispatch = useDispatch()
     const intervalRef = useRef()
-    // song = currStation?.songs[songIdx]
 
     useEffect(() => {
         if (!player) return
@@ -76,8 +75,6 @@ export function MediaPlayer() {
         setSongStartFrom(player.getCurrentTime())
         if (!isPlayingSong) onPauseVideo()
         else onPlayVideo()
-        console.log(isPlayingSong);
-        console.log(playSong);
     }, [player, songEnded, isPlayingSong])
 
     function getSong() {
