@@ -23,9 +23,9 @@
 
         display: grid;
         grid-gap: 12px;
-        grid-template-columns: repeat($column-count, minmax(0, 220px));
-        flex-wrap: nowrap;
-
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        height: 290px;
+        overflow-y: hidden;
         //  grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
         //  grid-gap: 24px;
         //  gap: 24px;
