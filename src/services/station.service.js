@@ -206,9 +206,10 @@ function getEmptyStation() {
         likedByUsers: [],
         createdBy: {
             // username: null,
+            _id: user?._id,
             fullname: null,
             // isMyStation: true
-            _id: user?._id
+            artistImg: ''
         },
         isMyStation: true
     }

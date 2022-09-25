@@ -17,12 +17,12 @@ export function AppSearch() {
   const [songDetails, setSongDetails] = useState([]);
   const [songDuration, setSongDuration] = useState([]);
   const [term, setTerm] = useState([]);
-  const DebounceSearch = useDebounce(term,1000)
+  const DebounceSearch = useDebounce(term, 600)
   // const [results,setResults] =useState(null)
 
 
   useEffect(() => {
-    if (DebounceSearch === '' || !DebounceSearch.length) return;
+    if (DebounceSearch === '' || !DebounceSearch.length) return setSongDetails([])
     search()
   }, [DebounceSearch]);
 
@@ -85,10 +85,10 @@ export function AppSearch() {
   }
   return (
     <div className="main-search-container">
-        <div className='search-field'>
-          <input className='search-input' placeholder="What do you want to listen to?" onChange={(ev) => setTerm(ev.target.value)}
-          />
-        </div>
+      <div className='search-field'>
+        <input className='search-input' placeholder="What do you want to listen to?" onChange={(ev) => setTerm(ev.target.value)}
+        />
+      </div>
 
       <SearchList addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} songDetails={songDetails} songDuration={songDuration} />
 
