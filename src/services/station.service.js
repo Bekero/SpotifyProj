@@ -32,7 +32,7 @@ async function query(filterBy) {
     if (!stations.length) return Promise.resolve(station)
     if (filterBy && filterBy.length) {
         stations = stations.filter(station => {
-            if(station?.isMyStation) return //Need to remove it and use the logged in user!!!
+            if (station?.isMyStation) return //Need to remove it and use the logged in user!!!
             return (station.createdBy.fullname.toUpperCase().includes(filterBy.toUpperCase()) ||
                 station.name.toUpperCase().includes(filterBy.toUpperCase()))
         })
@@ -59,7 +59,7 @@ async function save(station) {
         // stationChannel.postMessage(getActionUpdateStation(savedStation))
     } else {
         // Later, owner is set by the backend
-        station.owner = userService.getLoggedinUser()
+        station.createdBy = userService.getLoggedinUser()
         savedStation = await storageService.post(STORAGE_KEY, station)
         // stationChannel.postMessage(getActionAddStation(savedStation))
     }
@@ -196,7 +196,7 @@ let stations = [
 function getStations() {
     return stations
 }
-const user = {}
+const user = userService.getLoggedinUser()
 
 function getEmptyStation() {
     return {
@@ -207,8 +207,8 @@ function getEmptyStation() {
         createdBy: {
             // username: null,
             fullname: null,
-            imgUrl: 'https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2',
             // isMyStation: true
+            _id: user?._id
         },
         isMyStation: true
     }

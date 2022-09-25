@@ -1,6 +1,7 @@
 import React from 'react'
 import { StationEditModal } from '../cmps/station-edit-modal'
 import { utilService } from '../services/util.service'
+import NewPlaylistDetailsSvg from './svg/new-playlist-details-svg'
 
 export function StationHeaderDetails({ station, onRemoveStation, onEditStation, isEditStation, onCloseStation, user }) {
 
@@ -9,18 +10,19 @@ export function StationHeaderDetails({ station, onRemoveStation, onEditStation, 
         station.songs.forEach(song => sum += +song.songDuration)
         return utilService.setTimestampToTime(sum)
     }
-
     return (
         <>
             <div className="img-container">
-                <img className="img-details" src={station ? station.createdBy.imgUrl : "https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"} alt="" />
+                {!station?.createdBy?.imgUrl ? <div> <NewPlaylistDetailsSvg /> </div> :
+                    <img className="img-details" src={station?.createdBy?.imgUrl} />}
+
             </div>
             <div className="details-container">
                 <span>{station ? 'ALBUM' : 'PLAYLIST'}</span>
                 <h3 className="album-name">{station ? station.name : 'Liked Songs'}</h3>
                 <div className="creator">
-                    {station && <img className="artist-img-details" style={{ visibility: station.createdBy.artistImg !== '' ? 'initial' : 'hidden' }} src={station.createdBy.artistImg !== '' ? station.createdBy.artistImg : ""} alt="" />}
-                    {station && <h3>{station.createdBy.fullname} | {station.songs.length} Songs, <span>Playlist duraion: {getPlaylistDuration()} </span></h3>}                </div>
+                    {station && <img className="artist-img-details" style={{ visibility: station?.createdBy?.artistImg !== '' ? 'initial' : 'hidden' }} src={station?.createdBy?.artistImg !== '' ? station?.createdBy?.artistImg : ""} alt="" />}
+                    {station && <h3>{station?.createdBy?.fullname} | {station?.songs?.length} Songs, <span>Playlist duraion: {getPlaylistDuration()} </span></h3>}                </div>
             </div>
             {user && station?.isMyStation &&
                 <div>

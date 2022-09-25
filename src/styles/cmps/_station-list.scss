@@ -9,7 +9,7 @@
         border-radius: 5px;
         height: 100%;
 
-        &:hover{
+        &:hover {
             background-color: $third-clr;
         }
     }
@@ -24,6 +24,15 @@
         .img-details-container {
             height: 200px;
             margin-bottom: 16px;
+
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                border-radius: 4px;
+                background-color: #333333;
+            }
 
             .img-details {
                 background-color: rgba(115, 104, 84, 0.371);

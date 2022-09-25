@@ -35,7 +35,7 @@ export function addLikedSong(song) {
         // }
         const action = { type: 'ADD_LIKED_SONG', song }
         await dispatch(action)
-        if (user) {
+        if (user?.username) {
             user = getState().userModule.user
             userService.update(user)
         }
@@ -52,7 +52,7 @@ export function removeLikedSong(song) {
         }
         const action = { type: 'REMOVE_LIKED_SONG', song }
         await dispatch(action)
-        if (user) {
+        if (user?.username) {
             user = getState().userModule.user
             userService.update(user)
         }

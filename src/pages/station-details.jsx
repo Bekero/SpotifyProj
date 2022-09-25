@@ -13,6 +13,8 @@ import { StationHeaderDetails } from '../cmps/station-header-details'
 import { loadLikedSongs } from '../store/user.actions'
 import { setCurrPlayingSongIdx, setIsPlayingSong } from '../store/song.actions'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
+import { SearchList } from '../cmps/search-list'
+import { youtubeService } from '../services/youtube.service'
 
 export const StationDetails = () => {
     const user = useSelector(state => state.userModule.user)
@@ -22,9 +24,18 @@ export const StationDetails = () => {
     const [itemList, setItemList] = useState(station?.songs);
     const [isEditStation, setEditStation] = useState(false)
     const [isDraggedItem, setIsDraggedItem] = useState(false)
+    const [term, setTerm] = useState([]);
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const [data, setData] = useState([]);
+    const [songDetails, setSongDetails] = useState([]);
+    const [songDuration, setSongDuration] = useState([]);
+    let results
 
+    useEffect(() => {
+        if (term === '') return
+        search()
+    }, [term, results])
 
     useEffect(() => {
         if (params.stationId) {
@@ -35,6 +46,24 @@ export const StationDetails = () => {
         }
         else if (!params.stationId) return
     }, [params.stationId, isDraggedItem])
+
+    const search = async () => {
+        results = await youtubeService.getSongs(term)
+        await setData(results.data.items);
+        getSongsData(data)
+    }
+
+    const getSongsData = async (data) => {
+        const details = await youtubeService.getSongsDetails(data)
+        if (!details) return
+        console.log(details);
+        const durations = youtubeService.getSongsDuration(details)
+        console.log('durations', durations);
+        setSongDuration(durations)
+        setSongDetails(details)
+    }
+    const addToLikedPlaylist = async (song) => {
+    }
 
     const onRemoveStation = async (stationId) => {
         // ev.stopPropagation()
@@ -94,6 +123,7 @@ export const StationDetails = () => {
     };
 
     if (!station && !user) return <div>Loading...</div>
+    console.log('user', user);
     return (
         <section className="main-details-container">
             <div className={station ? "station-details" : "station-details liked"}>
@@ -132,6 +162,12 @@ export const StationDetails = () => {
                     </Droppable>
                 </DragDropContext >
             </div>
+            {station?.createdBy?._id === user._id && <div className='search-field'>
+                <input className='search-input' placeholder="What do you want to listen to?" onChange={(ev) => setTerm(ev.target.value)}
+                />
+                <SearchList addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} data={data} songDetails={songDetails} songDuration={songDuration} />
+
+            </div>}
         </section >
     )
 }
