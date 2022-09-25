@@ -18,9 +18,7 @@ export function AppHeader({ scrollTop }) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userModule.user);
 
-  console.log(user, "user");
-
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   const onBack = () => {
     navigate(-1);
@@ -37,7 +35,7 @@ export function AppHeader({ scrollTop }) {
   const logout = () => {
     dispatch(onLogout());
   };
-  
+
 
   return (
     <div
@@ -54,7 +52,7 @@ export function AppHeader({ scrollTop }) {
           </button>
         </div>
         <div className='user-bar'>
-          {user && <button onClick={logout}>Logout</button>}
+          {user?.username && <button onClick={logout}>Logout</button>}
           <button className='user-icon' onClick={onUserController}>
             <svg
               role='img'

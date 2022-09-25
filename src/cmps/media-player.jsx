@@ -11,6 +11,8 @@ import Stop from './svg/stop-song-svg'
 import Play from './svg/play-song-svg'
 import Next from './svg/next-song-svg'
 import Prev from './svg/prev-song-svg'
+import Shuffle from './svg/shuffle-song-svg.jsx'
+import Repeat from './svg/repeat-song-svg.jsx'
 import VolumeOn from './svg/volume-off-svg'
 import VolumeOff from './svg/volume-on-svg'
 import { utilService } from '../services/util.service';
@@ -20,6 +22,7 @@ export function MediaPlayer() {
     const currStation = useSelector(state => state.stationModule.currStation)
     const songIdx = useSelector(state => state.songModule.currSongIdx)
     const currPlayer = useSelector(state => state.songModule.player)
+    const isPlayingSong = useSelector(state => state.songModule.isPlayingSong)
     // let player
     // const getSong()?.url = useSelector(state => state.stationModule.getSong()?.url)
     const [player, setPlayer] = useState(null)
@@ -34,7 +37,6 @@ export function MediaPlayer() {
     const [songTimestamp, setSongTimestamp] = useState(0)
     const dispatch = useDispatch()
     const intervalRef = useRef()
-    // song = currStation?.songs[songIdx]
 
     useEffect(() => {
         if (!player) return
@@ -44,10 +46,12 @@ export function MediaPlayer() {
         }
     }, [player, getSong()?.url, songDuration, songStartFrom])
 
+    
+
     useEffect(() => {
         // dispatch(setCurrSongIsPlaying(playSong))
         if (songEnded) return
-        if (playSong) {
+        if (playSong && isPlayingSong) {
             intervalRef.current = setInterval(() => {
                 setSongTimestamp(prevTimestamp => {
                     if (prevTimestamp + 1 >= songDuration) {
@@ -59,18 +63,19 @@ export function MediaPlayer() {
                 })
             }, 1000)
         }
-        if (!playSong || songTimestamp >= songDuration) {
+        if ((!playSong && !isPlayingSong) || songTimestamp >= songDuration) {
             clearInterval(intervalRef.current)
         }
 
-    }, [playSong, songEnded])
+    }, [playSong, songEnded, isPlayingSong])
 
     useEffect(() => {
         if (songEnded) isSongEnded()
         if (!player) return
         setSongStartFrom(player.getCurrentTime())
-    }, [player, songEnded])
-
+        if (!isPlayingSong) onPauseVideo()
+        else onPlayVideo()
+    }, [player, songEnded, isPlayingSong])
 
     function getSong() {
         // if (!currStation.songs && currentUrl) {
@@ -92,26 +97,22 @@ export function MediaPlayer() {
     }
 
     const onReadyVideo = (event) => {
-        // await dispatch(setPlayer(event.target))
         setPlayer(event.target)
-        // player = currPlayer ? currPlayer : event.target
-
-        // setPlayer(event.target)
         setSongDuration(event.target.getDuration())
         setSongTimestamp(0)
         setSongEnded(false)
     }
 
-    const onPauseVideo = (ev) => {
+    const onPauseVideo = async () => {
         player.pauseVideo()
+        await dispatch(setIsPlayingSong(false))
         setPlay(false)
-        dispatch(setIsPlayingSong(false))
     }
 
-    const onPlayVideo = () => {
+    const onPlayVideo = async () => {
         player.playVideo()
+        await dispatch(setIsPlayingSong(true))
         setPlay(true)
-        dispatch(setIsPlayingSong(true))
     }
 
     const onNextVideo = async () => {
@@ -202,16 +203,16 @@ export function MediaPlayer() {
         <div className='media-player-action'>
             <div className='media-player-btn-action'>
                 <div className='player-control-left'>
-                    <button disabled={getSong()?.url ? false : true} onClick={onShuffle}>Shuffle</button>
-                    <button disabled={getSong()?.url ? false : true} onClick={() => onIncreaseDecreaseTenSeconds(-5)}>-5</button>
+                    <button disabled={getSong()?.url ? false : true} onClick={onShuffle}><Shuffle /></button>
+                    {/* <button disabled={getSong()?.url ? false : true} onClick={() => onIncreaseDecreaseTenSeconds(-5)}>-5</button> */}
                     <button disabled={getSong()?.url ? false : true} onClick={onPrevVideo}><Prev /></button>
                 </div>
-                {playSong ? <button className='media-player-play-stop-btn' disabled={getSong()?.url ? false : true} onClick={onPauseVideo}><Stop /></button> :
+                {(isPlayingSong) ? <button className='media-player-play-stop-btn' disabled={getSong()?.url ? false : true} onClick={onPauseVideo}><Stop /></button> :
                     <button className='media-player-play-stop-btn' disabled={getSong()?.url ? false : true} onClick={onPlayVideo}><Play /></button>}
                 <div className='player-control-right'>
                     <button disabled={getSong()?.url ? false : true} onClick={onNextVideo}><Next /></button>
-                    <button disabled={getSong()?.url ? false : true} onClick={() => onIncreaseDecreaseTenSeconds(5)}>+5</button>
-                    <button style={{ color: repeatSong ? 'green' : 'red' }} disabled={getSong()?.url ? false : true} onClick={onRepeat}>Repeat</button>
+                    {/* <button disabled={getSong()?.url ? false : true} onClick={() => onIncreaseDecreaseTenSeconds(5)}>+5</button> */}
+                    <button disabled={getSong()?.url ? false : true} onClick={onRepeat}><Repeat repeatSong={repeatSong} /></button>
                 </div>
             </div>
             <div className='song-timestamp flex align-center'>

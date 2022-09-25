@@ -94,7 +94,6 @@ function saveLocalUser(user) {
 
 function getLoggedinUser() {
   let user = JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER));
-  console.log("user :", user);
   return user;
 }
 

@@ -26,9 +26,19 @@ export function loadLikedSongs() {
 
 export function addLikedSong(song) {
     return async (dispatch, getState) => {
-        userService.addLikedSong(song)
+        let user = getState().userModule.user
+        if (!user?.username) {
+            userService.addLikedSong(song)
+        }
+        // } else{
+        //     userService.update(user)
+        // }
         const action = { type: 'ADD_LIKED_SONG', song }
-        dispatch(action)
+        await dispatch(action)
+        if (user?.username) {
+            user = getState().userModule.user
+            userService.update(user)
+        }
         // TODO: Add song to user's liked song array
         // dispatch 
     }
@@ -36,9 +46,16 @@ export function addLikedSong(song) {
 
 export function removeLikedSong(song) {
     return async (dispatch, getState) => {
-        userService.removeLikedSong(song)
+        let user = getState().userModule.user
+        if (!user?.username) {
+            userService.removeLikedSong(song)
+        }
         const action = { type: 'REMOVE_LIKED_SONG', song }
-        dispatch(action)
+        await dispatch(action)
+        if (user?.username) {
+            user = getState().userModule.user
+            userService.update(user)
+        }
         // TODO: Add song to user's liked song array
         // dispatch 
     }

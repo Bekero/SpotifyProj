@@ -3,6 +3,11 @@
     padding: 0 32px;
     background-color: $transparent;
 
+    // grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    // grid-gap: 24px;
+    // gap: 24px;
+    // height: 335px;
+
     .station-preview {
         background-color: $accent-clr;
         padding: 16px;
@@ -20,6 +25,11 @@
         grid-gap: 12px;
         grid-template-columns: repeat($column-count, minmax(0, 220px));
         flex-wrap: nowrap;
+
+        //  grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+        //  grid-gap: 24px;
+        //  gap: 24px;
+        //  height: 335px;
 
         .img-details-container {
             height: 200px;

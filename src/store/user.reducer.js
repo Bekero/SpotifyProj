@@ -25,6 +25,7 @@ export function userReducer(state = initialState, action) {
             break
         case 'ADD_LIKED_SONG':
             newState = { ...state, user: { ...state.user, likedSongs: [...state.user?.likedSongs, action.song] } }
+            console.log(newState)
             break
         case 'REMOVE_LIKED_SONG':
             likedSongs = likedSongs.filter(song => song.id !== action.song.id)

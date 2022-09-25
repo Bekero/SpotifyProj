@@ -66,7 +66,10 @@ export const LoginSignup = () => {
         setIsSignup(!isSignup)
     }
     
-    return (<div className="login-page">
+    return (
+        <div className='login-page'>
+
+    <div className="login-container">
     <p>
         <button className="btn-link" onClick={toggleSignup}>{!isSignup ? 'Signup' : 'Login'}</button>
     </p>
@@ -79,7 +82,7 @@ export const LoginSignup = () => {
                 onChange={handleChange}
                 required
                 autoFocus
-            />
+                />
             <input
                 type="password"
                 name="password"
@@ -87,7 +90,7 @@ export const LoginSignup = () => {
                 placeholder="Password"
                 onChange={handleChange}
                 required
-            />
+                />
         <button>Login!</button>
     </form>}
     <div className="signup-section">
@@ -99,7 +102,7 @@ export const LoginSignup = () => {
                 placeholder="Fullname"
                 onChange={handleChange}
                 required
-            />
+                />
             <input
                 type="text"
                 name="username"
@@ -107,7 +110,7 @@ export const LoginSignup = () => {
                 placeholder="Username"
                 onChange={handleChange}
                 required
-            />
+                />
             <input
                 type="password"
                 name="password"
@@ -115,10 +118,11 @@ export const LoginSignup = () => {
                 placeholder="Password"
                 onChange={handleChange}
                 required
-            />                    
+                />                    
             <button >Signup!</button>
         </form>}
     </div>
+</div>
 </div>
 )
 }

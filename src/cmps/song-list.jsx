@@ -1,19 +1,19 @@
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react'
-import { loadStations, addSongToMyPlaylist, removeLikedSongFromMyPlaylist, addStation } from '../store/station.actions'
+import { loadStations, addSongToMyPlaylist } from '../store/station.actions'
 import { SongPreview } from './song-preview'
 import { addLikedSong, removeLikedSong } from '../store/user.actions'
 // import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
 export const SongList = ({ station, playCurrUrl, user }) => {
-    const currUser = useSelector(state => state.userModule.user)
     const [wantedSong, setWantedSong] = useState(null)
+    
+    const dispatch = useDispatch()
+    
+    const [playHover, setPlayHover] = useState(false)
+    const currUser = useSelector(state => state.userModule.user)
     const [openModal, setOpenModal] = useState(null)
     const [modalPos, setModalPos] = useState(null)
-    const [playHover, setPlayHover] = useState(false)
-    const [currSongIdx, setCurrSongIdx] = useState(null)
-
-    const dispatch = useDispatch()
 
     let stations = useSelector(state => state.stationModule.stations)
     // let myStations = stations.filter(station => station.isMyStation === true)
@@ -50,11 +50,6 @@ export const SongList = ({ station, playCurrUrl, user }) => {
         dispatch(addSongToMyPlaylist(wantedSong, stations[myPlaylistIdx]._id))
     }
 
-    const onSongHover = (diff, songIdx) => {
-        setPlayHover(diff)
-        setCurrSongIdx(songIdx)
-    }
-
     let currStation = station ? station.songs : user.likedSongs
 
     if (!currStation) return <></>
@@ -73,10 +68,8 @@ export const SongList = ({ station, playCurrUrl, user }) => {
                 station={station}
                 songIdx={songIdx}
                 currSong={currSong}
-                currSongIdx={currSongIdx}
                 currStation={currStation}
                 playHover={playHover}
-                onSongHover={onSongHover}
                 playCurrUrl={playCurrUrl}
                 addToLikedPlaylist={addToLikedPlaylist}
                 addToPlaylist={addToPlaylist}

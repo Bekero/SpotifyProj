@@ -51,8 +51,9 @@
                     margin-left: 20px;
                     margin: 0;
                     font-size: 0.875rem;
-                    span{
-                        color: hsla(0,0%,100%,.7);
+
+                    span {
+                        color: hsla(0, 0%, 100%, .7);
                     }
                 }
             }
@@ -178,10 +179,20 @@
             grid-gap: 16px;
             height: 56px;
 
+
             &:hover {
                 background-color: $third-clr;
                 border-radius: 4px;
 
+
+                .song-number-play {
+                    .song-index {
+                        visibility: hidden;
+                    }
+                    .play-song-preview {
+                        visibility: visible;
+                    }
+                }
 
                 .opts-menu-section {
 
@@ -220,20 +231,39 @@
             .song-number-play {
                 display: flex;
                 align-items: center;
+                .pause-video {
+                    button {
+                        border: none;
+                        background-color: rgba(255, 255, 255, 0);
+                    }
+                }
+                >* {
+                    color: #b3b3b3;
+                }
+                .song-index {
+                    visibility: visible;
+                }
 
                 .play-song-preview {
+                    visibility: hidden;
+                    color: #fff;
+
                     button {
                         background-color: $transparent;
                         border: none;
                     }
 
                     svg {
-                        width: 16px;
-                        height: 16px;
                         fill: $main-txt-clr;
                         opacity: 0.9;
                     }
                 }
+
+                //! Fix this when hover , its wont render
+                // Just a normal render while hover 
+                // .play-song-preview {
+
+                // }
             }
 
             .song-list-title-container {

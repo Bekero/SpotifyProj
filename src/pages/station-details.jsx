@@ -17,7 +17,6 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 export const StationDetails = () => {
     const user = useSelector(state => state.userModule.user)
     const isPlayingSong = useSelector(state => state.songModule.isPlayingSong)
-    const stationFromStore = useSelector(state => state.stationModule.currStation)
     const params = useParams()
     const [station, setStation] = useState(null)
     const [itemList, setItemList] = useState(station?.songs);
@@ -64,10 +63,11 @@ export const StationDetails = () => {
         }
     }
 
-    const playCurrUrl = (songIdx, currStationId, songs) => {
-        dispatch(setIsPlayingSong(!isPlayingSong))
+    const playCurrUrl = (songIdx, currStationId, songs, isSongPlaying) => {
+        dispatch(setIsPlayingSong(isSongPlaying))
         if (!currStationId) {
-            const station = { title: 'Falling stars', songs: songs }
+            console.log(songIdx, currStationId, songs)
+            const station = { title: 'Falling stars', songs: songs.likedSongs }
             dispatch(setCurrPlayingSongIdx(songIdx))
             dispatch({ type: 'SET_CURR_STATION', station })
             return
@@ -75,8 +75,6 @@ export const StationDetails = () => {
         if (songIdx === undefined) return
         dispatch(setCurrPlayingSongIdx(songIdx))
         dispatch(setCurrStation(currStationId))
-        // dispatch(setCurrPlayingSong(songIdx))
-        // dispatch(setCurrPlayingUrl(songIdx))
     }
 
     const handleDrop = (droppedItem) => {
