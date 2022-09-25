@@ -100,6 +100,7 @@ export const LoginSignup = () => {
               />
               <button>Login!</button>
               <h3>OR</h3>
+              <button>Signup!</button>
             </form>
           )}
           <div className='signup-section'>
@@ -133,7 +134,6 @@ export const LoginSignup = () => {
                     />
                   </div>
                 </div>
-                <button>Signup!</button>
               </form>
             )}
           </div>

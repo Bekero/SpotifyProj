@@ -8,12 +8,12 @@ export const youtubeService = {
 }
 
 function getSongs(term) {
-    const API_KEY = 'AIzaSyDgbFfLi0LGl6lOJ_0cN4A-lcrS4UtryCU'
+    const API_KEY = 'AIzaSyBKmZyRd0g8AEKqh9tNR3VNFn4ERzmmoIY'
     const results = axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${API_KEY}&q=${term}/category=Music&maxResults=50`)
     return Promise.resolve(results)
 }
 async function getSongsDetails(songs) {
-    const API_KEY = 'AIzaSyDgbFfLi0LGl6lOJ_0cN4A-lcrS4UtryCU'
+    const API_KEY = 'AIzaSyBKmZyRd0g8AEKqh9tNR3VNFn4ERzmmoIY'
     if (!songs || !songs.length) return null
     const songId = songs.map(song => song.id.videoId)
     console.log(songs[0].snippet.title);
