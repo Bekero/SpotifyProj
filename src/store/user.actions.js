@@ -83,6 +83,7 @@ export function onLogin(credentials) {
         } catch (err) {
             showErrorMsg('Cannot login')
             console.log('Cannot login', err)
+            throw err
         }
     }
 }

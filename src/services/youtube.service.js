@@ -7,17 +7,20 @@ export const youtubeService = {
     getSongsDuration
 }
 
+const API_KEYS = []
+
 function getSongs(term) {
-    const API_KEY = 'AIzaSyDgbFfLi0LGl6lOJ_0cN4A-lcrS4UtryCU'
-    const results = axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${API_KEY}&q=${term}/category=Music&maxResults=50`)
-    return Promise.resolve(results)
+    const API_KEY = 'AIzaSyBKmZyRd0g8AEKqh9tNR3VNFn4ERzmmoIY'
+   return axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${API_KEY}&q=${term}&maxResults=50`)
+  
 }
 async function getSongsDetails(songs) {
-    const API_KEY = 'AIzaSyDgbFfLi0LGl6lOJ_0cN4A-lcrS4UtryCU'
+    const API_KEY = 'AIzaSyBKmZyRd0g8AEKqh9tNR3VNFn4ERzmmoIY'
     if (!songs || !songs.length) return null
     const songId = songs.map(song => song.id.videoId)
     console.log(songs[0].snippet.title);
     const songsDetails = axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${songId.join(',')}&part=contentDetails&key=${API_KEY}`)
+    console.log(songsDetails)
     let songsDetailsAwait = await Promise.resolve(songsDetails)
     songs.forEach((song, idx) => {
         songsDetailsAwait.data.items[idx].contentDetails.imgUrl = song.snippet.thumbnails.high.url

@@ -46,7 +46,7 @@ export function MediaPlayer() {
         }
     }, [player, getSong()?.url, songDuration, songStartFrom])
 
-    
+
 
     useEffect(() => {
         // dispatch(setCurrSongIsPlaying(playSong))
@@ -111,6 +111,7 @@ export function MediaPlayer() {
 
     const onPlayVideo = async () => {
         player.playVideo()
+        if (isPlayingSong) return
         await dispatch(setIsPlayingSong(true))
         setPlay(true)
     }

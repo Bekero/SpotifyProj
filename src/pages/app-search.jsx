@@ -12,24 +12,22 @@ export function AppSearch() {
   const [stations, setStations] = useState(null)
 
   const dispatch = useDispatch()
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const [songDetails, setSongDetails] = useState([]);
   const [songDuration, setSongDuration] = useState([]);
   const [term, setTerm] = useState([]);
-  let results
   useEffect(() => {
     if (term === '') return;
     search()
-  }, [term, results]);
+  }, [term]);
 
   // songsDetails = songsDetails.replace(/[^0-9]/, ':');
 
 
   const search = async () => {
     loadStations(term)
-    results = await youtubeService.getSongs(term)
-    await setData(results.data.items);
-    getSongsData(data)
+    const results = await youtubeService.getSongs(term)
+    getSongsData(results.data.items)
   }
 
   const getSongsData = async (data) => {
@@ -87,7 +85,7 @@ export function AppSearch() {
           />
         </div>
 
-      <SearchList addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} data={data} songDetails={songDetails} songDuration={songDuration} />
+      <SearchList addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} songDetails={songDetails} songDuration={songDuration} />
 
       <div className='ui celled list'></div>
       {stations && <StationList stations={stations} />}
