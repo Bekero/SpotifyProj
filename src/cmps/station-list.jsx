@@ -1,6 +1,6 @@
 import { StationPreview } from "./station-preview";
 
-export function StationList({ stations, user, library }) {
+export function StationList({ stations, user }) {
   const path = window.location.pathname
   console.log(path);
   return (
@@ -8,7 +8,7 @@ export function StationList({ stations, user, library }) {
       {path === '/' && < h1 > Good afternoon</h1>}
       <div className={`station-list-container ${path === '/' && 'height overflowY'}`}>
         {stations.map(station => {
-          if (library) {
+          if (path === '/collection/playlist') {
             if (station?.createdBy?._id === user?._id) {
               return <StationPreview key={station._id} station={station} />
             }

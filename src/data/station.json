@@ -3,7 +3,8 @@
     "_id": "5cksxjas89xjsa8xjsa8jxs09",
     "name": "Honestly, Nevermind",
     "tags": [
-      "Drake"
+      "Drake",
+      "HardCoded"
     ],
     "createdBy": {
       "_id": "32erwfg23rewf",
@@ -119,7 +120,8 @@
     "_id": "retgftrr4trhwe",
     "name": "Mr. Morale & The Big Steppers",
     "tags": [
-      "Kendrick Lamar"
+      "Kendrick Lamar",
+      "HardCoded"
     ],
     "createdBy": {
       "_id": "3rw4reth",
@@ -251,7 +253,8 @@
     "_id": "5cksxjasasqwesyhdjxs25",
     "name": "The Weeknd",
     "tags": [
-      "After Hours"
+      "After Hours",
+      "HardCoded"
     ],
     "createdBy": {
       "_id": "2eq3wefr",
@@ -284,7 +287,8 @@
     "_id": "5c124wesyhd123123asds333",
     "name": "Rick & Morty",
     "tags": [
-      "Schwifty"
+      "Schwifty",
+      "HardCoded"
     ],
     "createdBy": {
       "_id": "t42r2efr",
@@ -317,7 +321,8 @@
     "_id": "5qewaf2grbrw45we",
     "name": "Omer Adam",
     "tags": [
-      "שני משוגעים"
+      "שני משוגעים",
+      "HardCoded"
     ],
     "createdBy": {
       "_id": "3rw4reth",
