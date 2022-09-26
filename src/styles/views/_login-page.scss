@@ -1,7 +1,4 @@
-
-
 .login-page{
-    
     position: fixed;
      top: 0;
      left: 0;
@@ -45,7 +42,7 @@
                    border: none;
                 }
 
-                button{
+                .login-btn, .signup-btn{
                     color: #fff;
                     width: 80%;
                     height: 2.8125rem;
@@ -54,6 +51,25 @@
                     font-size: 1.2rem;
                     text-transform: uppercase;
                     border: none;
+                }
+
+                .link-btn-sec{
+                    display: flex;
+                    /* margin: 20px; */
+                    margin-top: 20px;
+
+                    >h3{
+                        margin-top: 20px;
+                    }
+                }
+
+                .btn-link{
+                    color: #fff;
+                    font-size: 1.125rem;
+                    text-decoration: underline;
+                    background-color: transparent;
+                    border: none;
+                    margin-bottom: 3px;
                 }
               
 

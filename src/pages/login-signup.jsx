@@ -71,11 +71,11 @@ export const LoginSignup = () => {
     <div className='login-page'>
       <div className='login-container'>
         <p>
-          <button className='btn-link' onClick={toggleSignup}>
-            {!isSignup ? "Signup" : "Login"}
-          </button>
         </p>
         <div className='login-signup'>
+          {/* <button className='btn-link' onClick={toggleSignup}>
+            {!isSignup ? "Signup" : "Login"}
+          </button> */}
           <h1>Harmony</h1>
           {/* <h6>Life Are Better With Music</h6> */}
           <h2>Login to continue.</h2>
@@ -98,9 +98,7 @@ export const LoginSignup = () => {
                 onChange={handleChange}
                 required
               />
-              <button>Login!</button>
-              <h3>OR</h3>
-              <button>Signup!</button>
+              <button className="login-btn" onSubmit={login}>login</button>
             </form>
           )}
           <div className='signup-section'>
@@ -132,10 +130,17 @@ export const LoginSignup = () => {
                       onChange={handleChange}
                       required
                     />
+                     <button className="signup-btn" onSubmit={signup}>signup</button>
                   </div>
                 </div>
               </form>
             )}
+          </div>
+          <div className="link-btn-sec">
+          <h3 >{!isSignup ? "dont have an account" : "already have an account"}</h3>
+          <button className='btn-link' onClick={toggleSignup}>
+            {!isSignup ? "Signup" : "Login"}
+          </button>
           </div>
         </div>
       </div>
