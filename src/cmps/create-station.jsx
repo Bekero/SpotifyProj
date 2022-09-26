@@ -11,11 +11,12 @@ export function CreateStation() {
 
     const navigate = useNavigate()
 
-    const onCreateStation = () => {
+    const onCreateStation = async () => {
         console.log('Creating!!!')
         const station = stationService.getEmptyStation()
         // addStation(station)
-        stationService.save({ ...station }).then((station) => navigate(`/playlist/${station._id}`))
+        const savedStation = await stationService.save({ ...station })
+        navigate(`/playlist/${savedStation._id}`)
 
     }
 
