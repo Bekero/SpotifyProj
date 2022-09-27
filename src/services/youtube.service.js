@@ -30,7 +30,7 @@ async function getSongsDetails(songs) {
     console.log('songsDetailsAwait', songsDetailsAwait);
     const songDuration = getSongsDuration(songsDetailsAwait)
     let results = songsDetailsAwait?.data?.items.filter((song, idx) => (songDuration[idx] >= 120 && songDuration[idx] <= 480))
-    results = results.splice(0, 10)
+    results = results.splice(0, 50)
     return results
 }
 

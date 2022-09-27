@@ -6,6 +6,7 @@
       "Drake",
       "pop",
       "HardCoded"
+
     ],
     "createdBy": {
       "_id": "32erwfg23rewf",
@@ -117,6 +118,704 @@
       }
     ]
   },
+  {
+    "_id": "5cks222xjas89x",
+    "name": "Best of Tuna",
+    "tags": [
+      "טונה",
+      "HardCoded"
+    ],
+    "createdBy": {
+      "_id": "32erwfg23rewf32",
+      "fullname": "טונה",
+      "imgUrl": "https://i.ytimg.com/an/eDfcyn5jLII/10090218923319696479_mq.jpg?v=61b85ecf",
+      "artistImg": "https://kaspit-art.co.il/wp-content/uploads/2019/12/%D7%98%D7%95%D7%A0%D7%94.jpg"
+    },
+    "likedByUsers": [
+      "{minimal-user}",
+      "{minimal-user}"
+    ],
+    "songs": [
+      {
+        "id": "231eqwrf",
+        "title": "נגה ארז x טונה – עומס לב &amp; Views",
+        "url": "InC16eWeIj4",
+        "imgUrl": "https://i.ytimg.com/vi/I",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "235"
+      },
+      {
+        "id": "231eqwrf1",
+        "title": "טונה ויסמין מועלם - סהרה (חי בלייב פארק)",
+        "url": "qALEkPoY-Hg",
+        "imgUrl": "https://i.ytimg.com/vi/qALEkPoY-Hg/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "432" 
+
+      },
+      {
+        "id": "231eqwrf12",
+        "title":"טונה - היי בייב",
+        "url":  "eDfcyn5jLII",
+        "imgUrl":"https://i.ytimg.com/vi/qALEkPoY-Hg/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "308" 
+
+      },
+      {
+        "id": "231eqwrf123",
+        "title":"טונה - בסיבוב (עם צליל דנין) ",
+        "url":  "EqCRjJ-wdPA",
+        "imgUrl":"https://i.ytimg.com/vi/EqCRjJ-wdPA/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "514" 
+
+      },
+      {
+        "id": "231eqwrf1234",
+        "title":"טונה - סחרחורת",
+        "url": "upnBxPFcLY8",
+        "imgUrl":"https://i.ytimg.com/vi/upnBxPFcLY8/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "418" 
+
+      },
+      {
+        "id": "231eqwrf12345",
+        "title":"טונה - גם זה יעבור",
+        "url": "3PJmE-ucx_o",
+        "imgUrl":"https://i.ytimg.com/vi/3PJmE-ucx_o/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "511" 
+
+      },
+      {
+        "id": "231eqwrf123467",
+        "title":"טונה - י״א 2",
+        "url": "9AvlUb4ObB8",
+        "imgUrl":"https://i.ytimg.com/vi/9AvlUb4ObB8/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "257" 
+
+      },
+      {
+        "id": "231eqwrf123467",
+        "title":"טונה - עולם משוגע (עם רביד פלוטניק) ",
+        "url": "04Xu9eiqeGU",
+        "imgUrl":"https://i.ytimg.com/vi/04Xu9eiqeGU/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "265" 
+
+      },
+      {
+        "id": "231eqwrf12343674",
+        "title":"טונה - רוק 30",
+        "url": "GIRbXNousaI",
+        "imgUrl":"https://i.ytimg.com/vi/GIRbXNousaI/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "341" 
+
+      },
+      {
+        "id": "231eqwrf1234367741",
+        "title":"טונה - גלגל ענק",
+        "url":"XDqUeDCtxV4",
+        "imgUrl":"https://i.ytimg.com/vi/XDqUeDCtxV4/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "457" 
+
+      },
+      {
+        "id": "231eqwrf1234367741a",
+        "title":"טונה - עד הבוקר",
+        "url":"6Ddluh-W_8w",
+        "imgUrl":"https://i.ytimg.com/vi/6Ddluh-W_8w/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "245" 
+
+      }
+    ]
+  },
+
+
+
+  {
+    "_id": "5cks222xjas89xx1x",
+    "name": "Rihanna's Hits",
+    "tags": [
+      "Rihanna",
+      "HardCoded",
+      "pop"
+    ],
+    "createdBy": {
+      "_id": "5cks222xjas89xx1x",
+      "fullname": "Rihanna",
+      "imgUrl": "https://pbs.twimg.com/media/FSaQ1ThUcAAqz5k?format=jpg&name=large",
+      "artistImg": "https://pbs.twimg.com/media/FSaQ1ThUcAAqz5k?format=jpg&name=large"
+    },
+    "likedByUsers": [
+      "{minimal-user}",
+      "{minimal-user}"
+    ],
+    "songs": [
+      {
+        "id": "231eqwrf12343677471a",
+        "title":"DJ Khaled - Wild Thoughts ft. Rihanna, Bryson Tiller",
+        "url":"fyaI4-5849w",
+        "imgUrl":"https://i.ytimg.com/vi/fyaI4-5849w/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "245" 
+
+      },
+      {
+        "id": "231eqwrf12343677491a",
+        "title":"Rihanna - We Found Love ft. Calvin Harris",
+        "url":"tg00YEETFzg",
+        "imgUrl":"https://i.ytimg.com/vi/tg00YEETFzg/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "245" 
+
+      },
+      {
+        "id": "231eqwrf1234367749j91a",
+        "title":"Rihanna, Kanye West, Paul McCartney - FourFiveSeconds",
+        "url":"kt0g4dWxEBo",
+        "imgUrl":"https://i.ytimg.com/vi/kt0g4dWxEBo/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "245" 
+
+      },
+      {
+        "id": "231eqwrf1234367749y78yj91a",
+        "title":"Love On The Brain",
+        "url":"QMP-o8WXSPM",
+        "imgUrl":"https://i.ytimg.com/vi/QMP-o8WXSPM/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "245" 
+
+      }
+
+
+    ]
+
+
+  },
+
+
+  {
+    "_id": "5cks222xjas89xxxjjxx1x",
+    "name": "Bob Marley",
+    "tags": [
+      "bob marley ",
+      "HardCoded",
+      "reggae"
+    ],
+    "createdBy": {
+      "_id": "5cks222xjas89xxxjjxx1x",
+      "fullname": "Bob Marley",
+      "imgUrl": "https://cdn.europosters.eu/image/750/posters/bob-marley-redemption-i86329.jpg",
+      "artistImg": "https://cdn.europosters.eu/image/750/posters/bob-marley-redemption-i86329.jpg"
+    },
+    "likedByUsers": [
+      "{minimal-user}",
+      "{minimal-user}"
+    ],
+    "songs": [
+
+      {
+        "id": "231eqwrf1234u1a",
+        "title":"Bob Marley - Is This Love",
+        "url":"CHekNnySAfM",
+        "imgUrl":"https://i.ytimg.com/vi/CHekNnySAfM/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "245" 
+        
+      },
+      {
+        "id": "231eqwrf1234u18ua",
+        "title":"Bob Marley - One Love",
+        "url":"vdB-8eLEW8g",
+        "imgUrl":"https://i.ytimg.com/vi/vdB-8eLEW8g/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "245" 
+        
+      },
+      {
+        "id": "231eqwrf1234u1a",
+        "title":"Bob Marley- Three Little Birds",
+        "url":"LanCLS_hIo4",
+        "imgUrl":"https://i.ytimg.com/vi/CHekNnySAfM/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "245" 
+        
+      },
+      {
+        "id": "231eqwrf12hgf34u1a",
+        "title":"Bob Marley - Get Up, Stand Up",
+        "url":"RhJ0q7X3DLM",
+        "imgUrl":"https://i.ytimg.com/vi/RhJ0q7X3DLM/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "245" 
+        
+      },
+      {
+        "id": "231eqwrf123jj4u1a",
+        "title":"Bob Marley - Everything Gonna Be Alright",
+        "url":"OD3F7J2PeYU",
+        "imgUrl":"https://i.ytimg.com/vi/OD3F7J2PeYU/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "245" 
+        
+      }
+    ]
+  },
+
+
+  {
+    "_id": "5cks222xja22s89x33",
+    "name": "Beyonce's Best Hits",
+    "tags": [
+      "Beyonce",
+      "HardCoded",
+      "pop"
+    ],
+    "createdBy": {
+      "_id": "32erwfg23rewf32",
+      "fullname": "Beyonce",
+      "imgUrl": "https://cdns-images.dzcdn.net/images/artist/6203637647172f2323ce340c24219d39/500x500.jpg",
+      "artistImg": "https://cdns-images.dzcdn.net/images/artist/6203637647172f2323ce340c24219d39/500x500.jpg"
+    },
+    "likedByUsers": [
+      "{minimal-user}",
+      "{minimal-user}"
+    ],
+    "songs": [
+
+      {
+        "id": "231eq1",
+        "title":"Beyoncé - BREAK MY SOUL",
+        "url":"yjki-9Pthh0",
+        "imgUrl":"https://i.ytimg.com/vi/yjki-9Pthh0/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "447" 
+
+      },
+      {
+        "id": "231eq12",
+        "title":"Beyoncé - Halo",
+        "url":"bnVUHWCynig",
+        "imgUrl":"https://i.ytimg.com/vi/bnVUHWCynig/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "354" 
+
+      },
+      {
+        "id": "231eq13",
+        "title":"Heated - Beyonce",
+        "url":"khIg08iHk8E",
+        "imgUrl":"https://i.ytimg.com/vi/khIg08iHk8E/hqdefault_live.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "458" 
+
+      },
+      {
+        "id": "231eq14",
+        "title":"Beyoncé - ALIEN SUPERSTAR",
+        "url":"e_aT9pAGQo8",
+        "imgUrl":"https://i.ytimg.com/vi/e_aT9pAGQo8/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "337" 
+
+      },
+      {
+        "id": "231eq15",
+        "title":"Beyoncé - Love On Top",
+        "url":"Ob7vObnFUJc",
+        "imgUrl":"https://i.ytimg.com/vi/Ob7vObnFUJc/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "447" 
+
+      },
+      {
+        "id": "231eq6",
+        "title":"Beyoncé - Crazy In Love ft. JAY Z",
+        "url":"ViwtNLUqkMY",
+        "imgUrl":"https://i.ytimg.com/vi/ViwtNLUqkMY/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "357" 
+
+      },
+      {
+        "id": "WDZJPJV__bQ",
+        "title":"Beyoncé - Formation",
+        "url":"ViwtNLUqkMY",
+        "imgUrl":"https://i.ytimg.com/vi/WDZJPJV__bQ/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "357" 
+
+      },
+      {
+        "id": "231eq6",
+        "title":"Naughty Boy ft. Beyoncé",
+        "url":"eJSik6ejkr0",
+        "imgUrl":"https://i.ytimg.com/vi/eJSik6ejkr0/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "344" 
+
+      }
+    ]
+  },
+
+  {
+    "_id": "5cks222xjjjas89x",
+    "name": "Noa Kirel",
+    "tags": [
+      "Noa Kirel",
+      "HardCoded"
+    ],
+    "createdBy": {
+      "_id": "32erwfg2jj3rewf32",
+      "fullname": "Noa Kirel",
+      "imgUrl": "https://i.scdn.co/image/ab6761610000e5ebde81f512fa6fa38eea1da671",
+      "artistImg": "https://i.scdn.co/image/ab6761610000e5ebde81f512fa6fa38eea1da671"
+    },
+    "likedByUsers": [
+      "{minimal-user}",
+      "{minimal-user}"
+    ],
+    "songs": [
+      {
+        "id": "231eq622",
+        "title":"נועה קירל - פנתרה",
+        "url":"ZOf7aMbzQAM",
+        "imgUrl":"https://i.ytimg.com/vi/ZOf7aMbzQAM/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "344" 
+
+      },
+      {
+        "id": "231eq722",
+        "title":"Noa Kirel - Thought About That",
+        "url":"RdVx-GrnQzk",
+        "imgUrl":"https://i.ytimg.com/vi/RdVx-GrnQzk/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "344" 
+      },
+      {
+        "id": "231eq8",
+        "title":"Noa Kirel - Bad Little Thing",
+        "url":"ZOf7aMbzQAM",
+        "imgUrl":"https://i.ytimg.com/vi/mZo94QhrX7k/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "344" 
+
+      },
+      {
+        "id": "231eq6",
+        "title":"נועה קירל - פנתרה",
+        "url":"ZOf7aMbzQAM",
+        "imgUrl":"https://i.ytimg.com/vi/ZOf7aMbzQAM/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "344" 
+
+      },
+      {
+        "id": "231eq6",
+        "title":"נועה קירל - פנתרה",
+        "url":"ZOf7aMbzQAM",
+        "imgUrl":"https://i.ytimg.com/vi/ZOf7aMbzQAM/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "344" 
+
+      }
+
+    ]
+
+  },  
+
+  {
+    "_id": "5cks222xjjjas89x23456",
+    "name": "Lauryn Hill",
+    "tags": [
+      "Lauryn Hill",
+      "HardCoded"
+    ],
+    "createdBy": {
+      "_id": "5cks222xjjjas89x23456",
+      "fullname": "Lauryn Hill",
+      "imgUrl": "https://static.stereogum.com/uploads/2013/08/lauryn-hill.jpg",
+      "artistImg": "https://static.stereogum.com/uploads/2013/08/lauryn-hill.jpg"
+    },
+    "likedByUsers": [
+      "{minimal-user}",
+      "{minimal-user}"
+    ],
+    "songs": [
+      {
+        "id": "231eq6321",
+        "title":"Lauryn Hill - Doo-Wop (That Thing)",
+        "url":"T6QKqFPRZSA",
+        "imgUrl":"https://i.ytimg.com/vi/T6QKqFPRZSA/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "357" 
+
+      },
+      {
+        "id": "231eq632154",
+        "title":"Lauryn Hill - Ex-Factor",
+        "url":"cE-bnWqLqxE",
+        "imgUrl":"https://i.ytimg.com/vi/T6QKqFPRZSA/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "357" 
+
+      },
+      {
+        "id": "231eq63215a4",
+        "title":"Lauryn Hill -Take My Eyes Off Of You ",
+        "url":"wVzvXW9bo5U",
+        "imgUrl":"https://i.ytimg.com/vi/wVzvXW9bo5U/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "357" 
+
+      },
+      {
+        "id": "231eq6321b54",
+        "title":"Lauryn Hill - Everything Is Everything",
+        "url":"i3_dOWYHS7I",
+        "imgUrl":"https://i.ytimg.com/vi/i3_dOWYHS7I/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "357" 
+
+      },
+      {
+        "id": "231eq632154",
+        "title":"Lauryn Hill - Killing Me Softly",
+        "url":"oKOtzIo-uYw",
+        "imgUrl":"https://i.ytimg.com/vi/T6QKqFPRZSA/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "357" 
+
+      },
+      {
+        "id": "231eq632kkk154",
+        "title":"Lauryn Hill - To Zion",
+        "url":"1sQjh261rU8",
+        "imgUrl":"https://i.ytimg.com/vi/1sQjh261rU8/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "357" 
+
+      }
+
+    ]
+  },
+
+  {
+    "_id": "5cks222xjjjas89x2xxx",
+    "name": "Frank Ocean Radio",
+    "tags": [
+      "Frank Ocean",
+      "RnB",
+      "HardCoded"
+    ],
+    "createdBy": {
+      "_id": "5cks222xjjjas89x2xxx",
+      "fullname": "Frank Ocean",
+      "imgUrl": "https://i.redd.it/rw3s6gl703q91.jpg",
+      "artistImg": "https://i.redd.it/rw3s6gl703q91.jpg"
+    },
+    "likedByUsers": [
+      "{minimal-user}",
+      "{minimal-user}"
+    ],
+    "songs": [
+      {
+        "id": "r4l9bFqgMa111Q",
+        "title":"Frank Ocean - Nights",
+        "url":"r4l9bFqgMaQ",
+        "imgUrl":"https://i.ytimg.com/vi/r4l9bFqgMaQ/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "357" 
+
+      },
+      {
+        "id": "r4l9bFqgMa1121Q",
+        "title":"Frank Ocean - Pink + White",
+        "url":"uzS3WG6__G4",
+        "imgUrl":"https://i.ytimg.com/vi/uzS3WG6__G4/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "357" 
+
+      },
+      {
+        "id": "r4l9bFqgMa11321Q",
+        "title":"Frank Ocean - Chanel",
+        "url":"XnbsIl2BnWw",
+        "imgUrl":"https://i.ytimg.com/vi/XnbsIl2BnWw/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "357" 
+
+      },
+      {
+        "id": "r4l9bFqgMa11241Q",
+        "title":"Frank Ocean - Godspeed",
+        "url":"P18g4rKns6Q",
+        "imgUrl":"https://i.ytimg.com/vi/P18g4rKns6Q/hqdefault.jpg"        ,
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "357" 
+
+      },
+      {
+        "id": "r4l9bFqgMa1125541Q",
+        "title":"Frank Ocean - White Ferrari",
+        "url":"uzS3WG6__G4",
+        "imgUrl":"https://i.ytimg.com/vi/Dlz_XHeUUis/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "357" 
+
+      }
+
+    ]
+  },
+
+  {
+    "_id": "5cks222xjjjas89x2xxx",
+    "name": "Ariana Grande",
+    "tags": [
+      "Ariana Grande",
+      "pop",
+      "HardCoded"
+    ],
+    "createdBy": {
+      "_id": "5cks222xjjjas89x2xxx",
+      "fullname": "Ariana Grande",
+      "imgUrl": "https://media.allure.com/photos/5d3325c7d083520008d87415/master/pass/ARI01.jpg",
+      "artistImg": "https://images.wallpapersden.com/image/download/ariana-grande-2022_bWdrbWuUmZqaraWkpJRoZWxnrWllbms.jpg"
+    },
+    "likedByUsers": [
+      "{minimal-user}",
+      "{minimal-user}"
+    ],
+    "songs": [
+      {
+        "id": "r4l9bFqgMa11q12",
+        "title":"Ariana Grande - 7 rings",
+        "url":"QYh6mYIJG2Y",
+        "imgUrl":"https://i.ytimg.com/vi/QYh6mYIJG2Y/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "357" 
+
+      },
+      {
+        "id": "r4l9bFqgMa11q123",
+        "title":"Ariana Grande - Almost Is Never Enough ft. Nathan Sykes",
+        "url":"91yw1SS48ig",
+        "imgUrl":"https://i.ytimg.com/vi/91yw1SS48ig/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "357" 
+
+      },
+      {
+        "id": "r4l9bFqgMa11q1234",
+        "title":"Ariana Grande - positions",
+        "url":"tcYodQoapMg",
+        "imgUrl":"https://i.ytimg.com/vi/tcYodQoapMg/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "357" 
+
+      },
+      {
+        "id": "r4l9bFqgMa11q12345",
+        "title":"Ariana Grande ft. Nicki Minaj - Side To Side ft. Nicki Minaj",
+        "url":"SXiSVQZLje8",
+        "imgUrl":"https://i.ytimg.com/vi/SXiSVQZLje8/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "357" 
+
+      },
+      {
+        "id": "r4l9bFqgMa11q123456",
+        "title":"Ariana Grande - 34+35",
+        "url":"B6_iQvaIjXw",
+        "imgUrl":"https://i.ytimg.com/vi/SXiSVQZLje8/hqdefault.jpg",
+        "addedBy": {},
+        "addedAt": 162521765262,
+        "songDuration": "357" 
+
+      }
+
+    ]
+  },
+
+  {
+    "_id": "5cksxjas89xjsa8xjsa8jxs09",
+    "name": "michael jackson",
+    "tags": [
+      "michael jackson",
+      "pop",
+      "HardCoded"
+
+    ],
+    "createdBy": {
+      "_id": "32erwfg23rewf",
+      "fullname": "michael jackson",
+      "imgUrl": "https://cdns-images.dzcdn.net/images/artist/86b13342a65ffe06fa151ce353a7b278/500x500.jpg",
+      "artistImg": "https://cdns-images.dzcdn.net/images/artist/86b13342a65ffe06fa151ce353a7b278/500x500.jpg"
+    },
+    "likedByUsers": [
+      "{minimal-user}",
+      "{minimal-user}"
+    ],
+    "songs": []
+  },
+  
   {
     "_id": "retgftrr4trhwe",
     "name": "Mr. Morale",
