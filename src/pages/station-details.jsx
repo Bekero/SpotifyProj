@@ -79,7 +79,7 @@ export const StationDetails = () => {
         dispatch(setCurrStation(currStationId))
     }
 
-    const handleDrop = (droppedItem) => {
+    const handleDrop = async (droppedItem) => {
         // Ignore drop outside droppable container
         if (!droppedItem.destination) return
         let updatedList = [...itemList]
@@ -88,9 +88,9 @@ export const StationDetails = () => {
         // Add dropped item
         updatedList.splice(droppedItem.destination.index, 0, reorderedItem)
         // Update State
-        setItemList(updatedList)
+        await setItemList(updatedList)
         const newStation = { ...station, songs: updatedList }
-        dispatch(updateStation(newStation))
+        await dispatch(updateStation(newStation))
         setIsDraggedItem(!isDraggedItem) // Rendering Station after dragging something...
         // dispatch({ type: 'SET_CURRENTLY_PLAYING_SONG_IDX', songIdx: droppedItem.destination.index })
     };

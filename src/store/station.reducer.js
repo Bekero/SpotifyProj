@@ -1,7 +1,7 @@
 const initialState = {
     stations: [],
     likedSongsStation: null,
-    currStation: {},
+    currStation: null,
     lastRemovedStation: null,
 }
 

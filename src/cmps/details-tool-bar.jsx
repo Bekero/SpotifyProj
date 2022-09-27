@@ -4,14 +4,21 @@ import PauseSongToolBar from '../cmps/svg/pause-song-tool-bar'
 import LikeToolBar from '../cmps/svg/unfilled-like-tool-bar'
 import OptsToolBar from '../cmps/svg/opts-song'
 import { useSelector } from 'react-redux'
-import { setIsPlayingSong } from '../store/song.actions'
+import { setCurrPlayingSongIdx, setIsPlayingSong } from '../store/song.actions'
 import { useDispatch } from 'react-redux'
 
 export function DetailsToolBar({ station, user }) {
     const isPlayingSong = useSelector(state => state.songModule.isPlayingSong)
+    const currSongIdx = useSelector(state => state.songModule.currSongIdx)
+    const currStation = useSelector(state => state.stationModule.currStation)
     const dispatch = useDispatch()
 
-    const playCurrUrl = () => {
+    const playCurrUrl = async () => {
+        if (!currSongIdx) {
+            await dispatch(setCurrPlayingSongIdx(0))
+        }
+        console.log('currSongIdx', currSongIdx);
+        console.log('currStation', currStation);
         dispatch(setIsPlayingSong(!isPlayingSong))
     }
     return (

@@ -113,7 +113,10 @@
             align-items: center;
             min-width: 180px;
             width: 40%;
-
+            .song-range-container{
+                width: 100%;
+                display: flex;
+            }
             .song-timestamp {
                 justify-content: space-between;
                 width: 100%;
