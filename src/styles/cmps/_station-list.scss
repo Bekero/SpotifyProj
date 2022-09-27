@@ -24,14 +24,37 @@
         display: grid;
         grid-gap: 12px;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+        .station-preview {
+            &:hover {
+                .play-btn-preview {
+                    opacity: 1;
+                }
+            }
+        }
+
         // height: 322px;
         // overflow-y: hidden;
-
         .img-details-container {
             height: 200px;
             margin-bottom: 16px;
+            position: relative;
 
-            div {
+            .play-btn-preview {
+                border-radius: 500px;
+                bottom: 8px;
+                box-shadow: 0 8px 8pxrgba(0, 0, 0, .3);
+                opacity: 0;
+                right: 8px;
+                pointer-events: none;
+                position: absolute;
+                transform: translateY(8px);
+                transition: all .3s ease;
+                z-index: 2;
+
+            }
+
+            .img-details-new-playlist {
                 display: flex;
                 justify-content: center;
                 align-items: center;

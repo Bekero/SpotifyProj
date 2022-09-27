@@ -77,7 +77,6 @@ export const LoginSignup = () => {
             </button>
           </p>
           <h1>Harmony</h1>
-          {/* <h6>Life Are Better With Music</h6> */}
           <h2>Login to continue.</h2>
           {!isSignup && (
             <form className='login-form' onSubmit={login}>

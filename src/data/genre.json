@@ -1,0 +1,42 @@
+[
+  {
+    "_id": "g101",
+    "genre": "pop",
+    "color": "red"
+  },
+  {
+    "_id": "g102",
+    "genre": "rnb",
+    "color": "cyan"
+  },
+  {
+    "_id": "g103",
+    "genre": "israeli",
+    "color": "green"
+  },
+  {
+    "_id": "g104",
+    "genre": "rock",
+    "color": "blue"
+  },
+  {
+    "_id": "g105",
+    "genre": "regaton",
+    "color": "yellow"
+  },
+  {
+    "_id": "g106",
+    "genre": "alternative",
+    "color": "wheat"
+  },
+  {
+    "_id": "g107",
+    "genre": "jazz",
+    "color": "brown"
+  },
+  {
+    "_id": "g108",
+    "genre": "anime",
+    "color": "lime"
+  }
+]

@@ -6,6 +6,7 @@ import { youtubeService } from "../services/youtube.service";
 import { stationService } from "../services/station.service";
 import { StationList } from "../cmps/station-list";
 import { useDebounce } from "../cmps/use-debounce"
+import { StationListContainer } from "../cmps/station-list-container";
 
 export function AppSearch() {
 
@@ -95,6 +96,7 @@ export function AppSearch() {
 
       <div className='ui celled list'></div>
       {stations && <StationList stations={stations} />}
+      <StationListContainer />
     </div>
   );
 }

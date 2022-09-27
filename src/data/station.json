@@ -1,9 +1,10 @@
 [
   {
     "_id": "5cksxjas89xjsa8xjsa8jxs09",
-    "name": "Honestly, Nevermind",
+    "name": "Drake",
     "tags": [
       "Drake",
+      "pop",
       "HardCoded"
     ],
     "createdBy": {
@@ -118,9 +119,10 @@
   },
   {
     "_id": "retgftrr4trhwe",
-    "name": "Mr. Morale & The Big Steppers",
+    "name": "Mr. Morale",
     "tags": [
       "Kendrick Lamar",
+      "pop",
       "HardCoded"
     ],
     "createdBy": {

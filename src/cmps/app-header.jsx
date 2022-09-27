@@ -18,7 +18,6 @@ export function AppHeader({ scrollTop }) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userModule.user);
 
-  useEffect(() => { }, []);
 
   const onBack = () => {
     navigate(-1);
