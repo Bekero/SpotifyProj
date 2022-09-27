@@ -7,16 +7,19 @@ import { addLikedSong, removeLikedSong } from '../store/user.actions'
 
 export const SongList = ({ station, playCurrUrl, user }) => {
     const [wantedSong, setWantedSong] = useState(null)
-    
+
     const dispatch = useDispatch()
-    
+
     const [playHover, setPlayHover] = useState(false)
     const currUser = useSelector(state => state.userModule.user)
     const [openModal, setOpenModal] = useState(null)
     const [modalPos, setModalPos] = useState(null)
-
     let stations = useSelector(state => state.stationModule.stations)
-    // let myStations = stations.filter(station => station.isMyStation === true)
+    let myStations
+    myStations = stations.filter(station => station.createdBy._id === user?._id)
+    if (!user?.username) {
+        // myStations = myStations.filter(station => {})
+    }
 
     useEffect(() => {
         dispatch(loadStations())
@@ -54,12 +57,12 @@ export const SongList = ({ station, playCurrUrl, user }) => {
 
     if (!currStation) return <></>
     return <>
-        {/* {openModal && <ul onMouseLeave={() => setOpenModal(false)} style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }} className="song-list-opts-menu">
+        {openModal && <ul onMouseLeave={() => setOpenModal(false)} style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }} className="song-list-opts-menu">
             {myStations.map((station, myPlaylistIdx) =>
                 <div key={myPlaylistIdx}>
                     <li onClick={(ev) => onAddToMyPlaylist(myPlaylistIdx)}>Add to {station.name}</li>
-                </div>)} */}
-        {/* </ul>} */}
+                </div>)}
+        </ul>}
         {/* Map to preview */}
         {currStation.map((currSong, songIdx) => {
             return <SongPreview

@@ -135,7 +135,7 @@ export const StationDetails = () => {
                     </Droppable>
                 </DragDropContext >
             </div>
-            {station?.createdBy?._id === user._id && <div className='search-field'>
+            {station?.createdBy?._id === user?._id && <div className='search-field'>
                 <AppSearch />
             </div>}
         </section >

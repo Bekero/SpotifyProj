@@ -11,13 +11,13 @@
   .user-bar {
     display: flex;
 
-    >button{
+    .logout-btn {
       background-color: transparent;
       color: #fff;
       border: 0;
       text-decoration: underline;
       margin-right: 20px;
-      
+
     }
   }
 
