@@ -70,12 +70,12 @@ export const LoginSignup = () => {
   return (
     <div className='login-page'>
       <div className='login-container'>
-        <p>
-        </p>
         <div className='login-signup'>
-          {/* <button className='btn-link' onClick={toggleSignup}>
-            {!isSignup ? "Signup" : "Login"}
-          </button> */}
+          <p>
+            <button className='btn-link' onClick={toggleSignup}>
+              {!isSignup ? "Create a new user" : "Already have a user"}
+            </button>
+          </p>
           <h1>Harmony</h1>
           {/* <h6>Life Are Better With Music</h6> */}
           <h2>Login to continue.</h2>
@@ -98,50 +98,38 @@ export const LoginSignup = () => {
                 onChange={handleChange}
                 required
               />
-              <button className="login-btn" onSubmit={login}>login</button>
+              <button>Login!</button>
             </form>
           )}
-          <div className='signup-section'>
             {isSignup && (
               <form className='signup-form' onSubmit={signup}>
-                <div className='user-info'>
-                  <div className='input-container'>
-                    <input
-                      type='text'
-                      name='fullname'
-                      value={credentials.fullname}
-                      placeholder='Fullname'
-                      onChange={handleChange}
-                      required
-                    />
-                    <input
-                      type='text'
-                      name='username'
-                      value={credentials.username}
-                      placeholder='Username'
-                      onChange={handleChange}
-                      required
-                    />
-                    <input
-                      type='password'
-                      name='password'
-                      value={credentials.password}
-                      placeholder='Password'
-                      onChange={handleChange}
-                      required
-                    />
-                     <button className="signup-btn" onSubmit={signup}>signup</button>
-                  </div>
-                </div>
+                <input
+                  type='text'
+                  name='fullname'
+                  value={credentials.fullname}
+                  placeholder='Fullname'
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  type='text'
+                  name='username'
+                  value={credentials.username}
+                  placeholder='Username'
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  type='password'
+                  name='password'
+                  value={credentials.password}
+                  placeholder='Password'
+                  onChange={handleChange}
+                  required
+                />
+                <button>Sign Up!</button>
               </form>
             )}
-          </div>
-          <div className="link-btn-sec">
-          <h3 >{!isSignup ? "dont have an account" : "already have an account"}</h3>
-          <button className='btn-link' onClick={toggleSignup}>
-            {!isSignup ? "Signup" : "Login"}
-          </button>
-          </div>
         </div>
       </div>
     </div>
