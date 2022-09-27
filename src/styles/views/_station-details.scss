@@ -102,17 +102,7 @@
                 opacity: 1;
             }
 
-            .play-song-tool-bar {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                inline-size: 56px;
-                block-size: 56px;
-                border-radius: 500px;
-                border: none;
-                background-color: $fill-svg-clr;
 
-            }
         }
 
         .like-tool-bar-container {
@@ -405,5 +395,19 @@
 
             }
         }
+    }
+}
+
+.play-song-tool-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 56px;
+    block-size: 56px;
+    border-radius: 500px;
+    border: none;
+    background-color: $fill-svg-clr;
+    svg{
+        fill: unset;
     }
 }

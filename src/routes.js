@@ -34,7 +34,7 @@ const routes = [
     component: <StationDetails />,
   },
   {
-    path: "/genre/:label",
+    path: "/genre/:genre",
     component: <GenreDetails />,
   },
 ];

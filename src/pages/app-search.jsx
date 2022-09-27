@@ -8,6 +8,7 @@ import { StationList } from "../cmps/station-list";
 import { useDebounce } from "../cmps/use-debounce"
 import { systemReducer } from "../store/system.reducer"
 
+import { StationListContainer } from "../cmps/station-list-container";
 
 export function AppSearch() {
 
@@ -76,6 +77,7 @@ export function AppSearch() {
       <SearchList addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} songDetails={songDetails} songDuration={songDuration} />
       <div className='ui celled list'></div>
       {stations && <StationList stations={stations} />}
+      <StationListContainer />
     </div>
   );
 }

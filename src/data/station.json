@@ -1,14 +1,15 @@
 [
   {
-    "_id": "5cksxjas89xjsa8xjsa8jxsii09",
-    "name": "Honestly, Nevermind",
+    "_id": "5cksxjas89xjsa8xjsa8jxs09",
+    "name": "Drake",
     "tags": [
       "Drake",
+      "pop",
       "HardCoded"
 
     ],
     "createdBy": {
-      "_id": "32erwfg23rewf",
+      "_id": "32erdwwfg23rewf",
       "fullname": "Drake",
       "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
       "artistImg": "https://i.scdn.co/image/ab6761610000f1784293385d324db8558179afd9"
@@ -44,7 +45,7 @@
         "songDuration": "250"
       },
       {
-        "id": "utjyrhtg12b",
+        "id": "utjyrhtg1ss2b",
         "title": "A Keeper",
         "url": "RaskP_FC9VA",
         "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
@@ -52,7 +53,7 @@
         "songDuration": "400"
       },
       {
-        "id": "utasdadb",
+        "id": "utasdasqdb",
         "title": "Calling My Name",
         "url": "fhumS5MsRyE",
         "imgUrl": "https://upload.wikimedia.org/wikipedia/he/8/8b/HONESTLY_NEVERMIND.jpg",
@@ -118,14 +119,14 @@
     ]
   },
   {
-    "_id": "5cks222xjas89x",
+    "_id": "5cks222xssqjas89x",
     "name": "Best of Tuna",
     "tags": [
       "טונה",
       "HardCoded"
     ],
     "createdBy": {
-      "_id": "32erwfg23rewf32",
+      "_id": "32erwfddgd23rewf32",
       "fullname": "טונה",
       "imgUrl": "https://i.ytimg.com/an/eDfcyn5jLII/10090218923319696479_mq.jpg?v=61b85ecf",
       "artistImg": "https://kaspit-art.co.il/wp-content/uploads/2019/12/%D7%98%D7%95%D7%A0%D7%94.jpg"
@@ -250,7 +251,7 @@
 
 
   {
-    "_id": "5cks222xjas89xx1x",
+    "_id": "5cks222xdwdjaqs89xx1x",
     "name": "Rihanna's Hits",
     "tags": [
       "Rihanna",
@@ -258,7 +259,7 @@
       "pop"
     ],
     "createdBy": {
-      "_id": "5cks222xjas89xx1x",
+      "_id": "5cks2dwfd22xjas89xx1x",
       "fullname": "Rihanna",
       "imgUrl": "https://pbs.twimg.com/media/FSaQ1ThUcAAqz5k?format=jpg&name=large",
       "artistImg": "https://pbs.twimg.com/media/FSaQ1ThUcAAqz5k?format=jpg&name=large"
@@ -269,7 +270,7 @@
     ],
     "songs": [
       {
-        "id": "231eqwrf12343677471a",
+        "id": "231eqwrfqq12343677471a",
         "title":"DJ Khaled - Wild Thoughts ft. Rihanna, Bryson Tiller",
         "url":"fyaI4-5849w",
         "imgUrl":"https://i.ytimg.com/vi/fyaI4-5849w/hqdefault.jpg",
@@ -279,7 +280,7 @@
 
       },
       {
-        "id": "231eqwrf12343677491a",
+        "id": "231eqwrf123436774qq91a",
         "title":"Rihanna - We Found Love ft. Calvin Harris",
         "url":"tg00YEETFzg",
         "imgUrl":"https://i.ytimg.com/vi/tg00YEETFzg/hqdefault.jpg",
@@ -317,7 +318,7 @@
 
 
   {
-    "_id": "5cks222xjas89xxxjjxx1x",
+    "_id": "5cks222xjas89xxxxxjjxx1x",
     "name": "Bob Marley",
     "tags": [
       "bob marley ",
@@ -325,7 +326,7 @@
       "reggae"
     ],
     "createdBy": {
-      "_id": "5cks222xjas89xxxjjxx1x",
+      "_id": "5cks222x12jas89xxsxjjxx1x",
       "fullname": "Bob Marley",
       "imgUrl": "https://cdn.europosters.eu/image/750/posters/bob-marley-redemption-i86329.jpg",
       "artistImg": "https://cdn.europosters.eu/image/750/posters/bob-marley-redemption-i86329.jpg"
@@ -391,7 +392,7 @@
 
 
   {
-    "_id": "5cks222xja22s89x33",
+    "_id": "5cks222wwxjaaa22s89x33",
     "name": "Beyonce's Best Hits",
     "tags": [
       "Beyonce",
@@ -399,7 +400,7 @@
       "pop"
     ],
     "createdBy": {
-      "_id": "32erwfg23rewf32",
+      "_id": "32ewrwfg2ss3rewf32",
       "fullname": "Beyonce",
       "imgUrl": "https://cdns-images.dzcdn.net/images/artist/6203637647172f2323ce340c24219d39/500x500.jpg",
       "artistImg": "https://cdns-images.dzcdn.net/images/artist/6203637647172f2323ce340c24219d39/500x500.jpg"
@@ -494,14 +495,14 @@
   },
 
   {
-    "_id": "5cks222xjcccjjas89x",
+    "_id": "5cks222xjcccjjwas89x",
     "name": "Noa Kirel",
     "tags": [
       "Noa Kirel",
       "HardCoded"
     ],
     "createdBy": {
-      "_id": "32erwfg2jjwe3rewf32",
+      "_id": "32erwfg2jjwe3wrewf32",
       "fullname": "Noa Kirel",
       "imgUrl": "https://i.scdn.co/image/ab6761610000e5ebde81f512fa6fa38eea1da671",
       "artistImg": "https://i.scdn.co/image/ab6761610000e5ebde81f512fa6fa38eea1da671"
@@ -566,14 +567,14 @@
   },  
 
   {
-    "_id": "5cks222xjjjas89x23456",
+    "_id": "5cks222xjjjas89xw23456",
     "name": "Lauryn Hill",
     "tags": [
       "Lauryn Hill",
       "HardCoded"
     ],
     "createdBy": {
-      "_id": "5cks222xjjjas89x23456",
+      "_id": "5cks222xjjjas89x2w3456",
       "fullname": "Lauryn Hill",
       "imgUrl": "https://static.stereogum.com/uploads/2013/08/lauryn-hill.jpg",
       "artistImg": "https://static.stereogum.com/uploads/2013/08/lauryn-hill.jpg"
@@ -648,7 +649,7 @@
   },
 
   {
-    "_id": "5cks222xjjjas8ii9x2xxx",
+    "_id": "5cks222xjjjas8wdwii9x2xxx",
     "name": "Frank Ocean Radio",
     "tags": [
       "Frank Ocean",
@@ -656,7 +657,7 @@
       "HardCoded"
     ],
     "createdBy": {
-      "_id": "5cks222xjjjas8ii9x2xxx",
+      "_id": "5cks222xjjjaswd8ii9x2xxx",
       "fullname": "Frank Ocean",
       "imgUrl": "https://i.redd.it/rw3s6gl703q91.jpg",
       "artistImg": "https://i.redd.it/rw3s6gl703q91.jpg"
@@ -721,7 +722,7 @@
   },
 
   {
-    "_id": "5cks222xjjjas89x2xxx",
+    "_id": "5cks222xjjjasddw89x2xxx",
     "name": "Ariana Grande",
     "tags": [
       "Ariana Grande",
@@ -729,7 +730,7 @@
       "HardCoded"
     ],
     "createdBy": {
-      "_id": "5cks222xjjjas89x2xxx",
+      "_id": "5cks222xjjjas89xdd2xxx",
       "fullname": "Ariana Grande",
       "imgUrl": "https://media.allure.com/photos/5d3325c7d083520008d87415/master/pass/ARI01.jpg",
       "artistImg": "https://images.wallpapersden.com/image/download/ariana-grande-2022_bWdrbWuUmZqaraWkpJRoZWxnrWllbms.jpg"
@@ -794,7 +795,7 @@
   },
 
   {
-    "_id": "5cksxjas89xajsa8xjsa8jxs09",
+    "_id": "5cksxjas89xadwjsa8xjsa8jxs09",
     "name": "michael jackson",
     "tags": [
       "michael jackson",
@@ -803,7 +804,7 @@
 
     ],
     "createdBy": {
-      "_id": "32erwfg23rewf",
+      "_id": "32erwfdwg23rewf",
       "fullname": "michael jackson",
       "imgUrl": "https://cdns-images.dzcdn.net/images/artist/86b13342a65ffe06fa151ce353a7b278/500x500.jpg",
       "artistImg": "https://cdns-images.dzcdn.net/images/artist/86b13342a65ffe06fa151ce353a7b278/500x500.jpg"
@@ -827,14 +828,15 @@
   },
   
   {
-    "_id": "retgftrr4trhwe",
-    "name": "Mr. Morale & The Big Steppers",
+    "_id": "retgftrrw4trhwe",
+    "name": "Mr. Morale",
     "tags": [
       "Kendrick Lamar",
+      "pop",
       "HardCoded"
     ],
     "createdBy": {
-      "_id": "3rw4reth",
+      "_id": "3rw4reddth",
       "fullname": "Nuki Shlomo",
       "imgUrl": "https://media.pitchfork.com/photos/627c1023d3c744a67a846260/master/pass/Kendrick-Lamar-Mr-Morale-And-The-Big-Steppers.jpg"
     },
@@ -960,14 +962,14 @@
     ]
   },
   {
-    "_id": "5cksxjasasqwesyhdjxs25",
+    "_id": "5cksxjasasdwqwesyhdjxs25",
     "name": "The Weeknd",
     "tags": [
       "After Hours",
       "HardCoded"
     ],
     "createdBy": {
-      "_id": "2eq3wefr",
+      "_id": "2eqdw3wefr",
       "fullname": "Nuki Shlomo",
       "imgUrl": "https://thesource.com/wp-content/uploads/2022/01/Weeknd-May-2021.jpg"
     },
@@ -994,14 +996,14 @@
     ]
   },
   {
-    "_id": "5c124wesyhd123123asds333",
+    "_id": "5c124wedsyhd123123asds333",
     "name": "Rick & Morty",
     "tags": [
       "Schwifty",
       "HardCoded"
     ],
     "createdBy": {
-      "_id": "t42r2efr",
+      "_id": "t42dr2efr",
       "fullname": "Nuki Shlomo",
       "imgUrl": "https://d.newsweek.com/en/full/1829970/ricka-nd-morty-still-season-5.jpg?w=1600&h=1600&q=88&f=3d72cded2ef21c9e4a5dcb493cf211b7"
     },
@@ -1035,7 +1037,7 @@
       "HardCoded"
     ],
     "createdBy": {
-      "_id": "3rw4reth",
+      "_id": "3rwwq4reth",
       "fullname": "Nuki Shlomo",
       "imgUrl": "https://medias.timeout.co.il/www/uploads/2019/06/%D7%A2%D7%95%D7%9E%D7%A8-%D7%90%D7%93%D7%9D-%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%A8%D7%9E%D7%99-%D7%96%D7%A8%D7%A0%D7%92%D7%A8-1-Large-600x600-1559827037.jpg"
     },
@@ -1064,7 +1066,7 @@
     ]
   },
   {
-    "_id": "5qewagrwesdveg",
+    "_id": "5qewagrwdwesdveg",
     "name": "Liked Songs",
     "isLikedStation": true,
     "tags": [
@@ -1072,7 +1074,7 @@
       "Happy"
     ],
     "createdBy": {
-      "_id": "u203",
+      "_id": "u2dq0993",
       "fullname": "Curr Username",
       "imgUrl": "https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"
     },
