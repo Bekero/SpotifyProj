@@ -5,17 +5,9 @@ import { userService } from './user.service.js'
 import { getActionRemoveStation, getActionAddStation, getActionUpdateStation } from '../store/station.actions.js'
 import { store } from '../store/store'
 import station from '../data/station.json'
+import { httpService } from './http.service.js'
 
-// This file demonstrates how to use a BroadcastChannel to notify other browser tabs 
-
-const STORAGE_KEY = 'station'
-// const stationChannel = new BroadcastChannel('stationChannel')
-
-// ; (() => {
-//     stationChannel.addEventListener('message', (ev) => {
-//         store.dispatch(ev.data)
-//     })
-// })()
+const BASE_URL = '/'
 
 export const stationService = {
     query,
@@ -28,7 +20,7 @@ export const stationService = {
 window.cs = stationService
 
 async function query(filterBy) {
-    let stations = await storageService.query(STORAGE_KEY)
+    let stations = await httpService.get(BASE_URL, { params: filterBy })
     if (!stations.length) return Promise.resolve(station)
     if (filterBy && filterBy.length) {
         stations = stations.filter(station => {
@@ -41,13 +33,13 @@ async function query(filterBy) {
 }
 
 function getById(stationId) {
-    return query('', STORAGE_KEY, stationId)
+    return httpService.get(BASE_URL + stationId)
         .then(stations => stations.find(station => station._id === stationId))
     // return axios.get(`/api/station/${stationId}`)
 }
 
 async function remove(stationId) {
-    await storageService.remove(STORAGE_KEY, stationId)
+    await httpService.delete(BASE_URL, stationId)
     // stationChannel.postMessage(getActionRemoveStation(stationId))
 }
 
@@ -55,7 +47,7 @@ async function save(station) {
     let savedStation
     let user = userService.getLoggedinUser()
     if (station._id) {
-        savedStation = await storageService.put(STORAGE_KEY, station)
+        savedStation = await httpService.put(BASE_URL, station)
         // * The problomis here after the DB Saving its just makes an array and saves it to the DB and also to the action!
         // stationChannel.postMessage(getActionUpdateStation(savedStation))
     } else {
@@ -64,7 +56,7 @@ async function save(station) {
             user.artistImg = ''
             station.createdBy = user
         }
-        savedStation = await storageService.post(STORAGE_KEY, station)
+        savedStation = await httpService.post(BASE_URL, station)
         // stationChannel.postMessage(getActionAddStation(savedStation))
     }
     return savedStation
@@ -200,9 +192,9 @@ let stations = [
 function getStations() {
     return stations
 }
-const user = userService.getLoggedinUser()
 
 function getEmptyStation() {
+    const user = userService.getLoggedinUser()
     return {
         name: 'My Playlist #' + utilService.getRandomIntInclusive(1, 9),
         songs: [],
@@ -220,4 +212,4 @@ function getEmptyStation() {
 }
 
 // TEST DATA
-// storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))
+// storageService.post(BASE_URL, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))

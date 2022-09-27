@@ -74,10 +74,11 @@ export function AppSearch() {
   //   }
   // }
   const playCurrUrl = (song) => {
+    const { contentDetails: { imgUrl, title }, id } = song;
     const currSong = {
-      url: song.id.videoId,
-      imgUrl: song.snippet.thumbnails.default,
-      title: song.snippet.title
+      url: id,
+      imgUrl,
+      title
     }
     const station = { title: 'Falling stars', songs: [currSong] }
     dispatch({ type: 'SET_CURR_STATION', station })

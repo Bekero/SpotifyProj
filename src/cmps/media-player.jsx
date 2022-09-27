@@ -218,14 +218,16 @@ export function MediaPlayer() {
             </div>
             <div className='song-timestamp flex align-center'>
                 <div className='song-timestamp-left'>{songTimestamp ? utilService.setTimestampToTime(songTimestamp) : '00:00'}</div>
-                <input type="range" value={songTimestamp} disabled={getSong()?.url ? false : true} onChange={(ev) => handleSongStartFrom(ev)} min="0" max={songDuration.toString()} step="1" name="duration" id="duration" />
+                <div className='song-range-container'><input className='slider' type="range" value={songTimestamp} disabled={getSong()?.url ? false : true} onChange={(ev) => handleSongStartFrom(ev)} min="0" max={songDuration.toString()} step="1" name="duration" id="duration" />
+                </div>
                 <div className='song-timestamp-right'>{utilService.setTimestampToTime(songDuration)}</div>
             </div>
         </div>
         <div className='media-player-video-settings'>
             {(isSongMuted) ? <button disabled={getSong()?.url ? false : true} onClick={onSetVolumeVideo}><VolumeOn /></button> :
                 <button disabled={getSong()?.url ? false : true} onClick={onMuteVideo}><VolumeOff /></button>}
-            <input type="range" disabled={getSong()?.url ? false : true} onChange={(ev) => handleSongVolume(ev)} min="0" max="50" step="1" name="volume" id="volume" />
+            <div className='song-range-container flex'><input className='slider' type="range" disabled={getSong()?.url ? false : true} onChange={(ev) => handleSongVolume(ev)} min="0" max="50" step="1" name="volume" id="volume" />
+            </div>
         </div>
         {(getSong()?.url) &&
             <YouTube

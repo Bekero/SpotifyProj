@@ -1,14 +1,25 @@
 
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { setCurrStation } from "../store/station.actions";
 import NewPlaylistPreviewSvg from "./svg/new-playlist-preview-svg";
 
 export function StationPreview({ station }) {
+    const currStation = useSelector(state => state.stationModule.currStation)
+    const dispatch = useDispatch()
     const getLabels = () => {
         return station.tags.join(', ')
     }
 
+    const onSetCurrStation = async () => {
+        if (!currStation) {
+            await dispatch(setCurrStation(station._id))
+        }
+    }
+
     return (
-        <Link className="text-decoration" to={`/playlist/${station._id}`}>
+        <Link onClick={onSetCurrStation} className="text-decoration" to={`/playlist/${station._id}`}>
             <div className="station-preview">
                 <div className="img-details-container">
                     {!station?.createdBy?.imgUrl ? <div> <NewPlaylistPreviewSvg /> </div> :
