@@ -56,7 +56,7 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
                         </div>
                         <div className='song-list-title-container'>
                             <div className='song-list-title-img-container'>
-                                <img className="song-img" src={`${currSong.imgUrl}`} />
+                                <img className="song-img" src={`${currSong?.imgUrl}`} />
                             </div>
                             <div className='song-list-title'>
                                 <div className="song-title">{currSong.title}</div>

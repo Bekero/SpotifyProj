@@ -129,6 +129,7 @@ export function MediaPlayer() {
         await dispatch(setNextPrevSong(1))
         setSongTimestamp(0)
     }
+    
     const onPrevVideo = async () => {
         await dispatch(setNextPrevSong(-1))
         setSongTimestamp(0)

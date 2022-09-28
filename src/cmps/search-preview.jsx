@@ -19,7 +19,7 @@ export function SearchPreview({ songDuration, addSongToPlaylist, song, playCurrU
     <div key={song.id} className='search-list-preview'>
       <div className="left flex align-center">
         <div className='play-song-btn-container'>
-          <img src={song.contentDetails.imgUrl} />
+          <img src={song?.contentDetails?.imgUrl} />
           <button
             className='play-song-btn'
             onClick={() => playCurrUrl(song)}
