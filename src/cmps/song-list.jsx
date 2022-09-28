@@ -15,11 +15,7 @@ export const SongList = ({ station, playCurrUrl, user }) => {
     const [openModal, setOpenModal] = useState(null)
     const [modalPos, setModalPos] = useState(null)
     let stations = useSelector(state => state.stationModule.stations)
-    let myStations
-    myStations = stations.filter(station => station.createdBy._id === user?._id)
-    if (!user?.username) {
-        // myStations = myStations.filter(station => {})
-    }
+    let myStations = stations.filter(station => station.createdBy._id === user?._id)
 
     useEffect(() => {
         dispatch(loadStations())
@@ -48,9 +44,10 @@ export const SongList = ({ station, playCurrUrl, user }) => {
     }
 
     const onAddToMyPlaylist = (myPlaylistIdx) => {
-        // console.log(myStations[myPlaylistIdx]._id);
+        // console.log(myStations[myPlaylistIdx]._id);l
+        console.log('wantedSong', wantedSong);
         setOpenModal(false)
-        dispatch(addSongToMyPlaylist(wantedSong, stations[myPlaylistIdx]._id))
+        dispatch(addSongToMyPlaylist(wantedSong, myStations[myPlaylistIdx]._id))
     }
 
     let currStation = station ? station.songs : user.likedSongs

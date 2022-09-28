@@ -25,7 +25,7 @@ export function StationHeaderDetails({ station, onRemoveStation, onEditStation, 
                     {station && <img className="artist-img-details" src={station?.createdBy?.artistImg !== '' ? station?.createdBy?.artistImg : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png"} alt="" />}
                     {station && <h3>{station?.createdBy?.fullname} | {station?.songs?.length} Songs, <span>Playlist duraion: {getPlaylistDuration()} </span></h3>}</div>
             </div>
-            {user && station?.isMyStation &&
+            {user && station?.createdBy?._id === user?._id &&
                 <div>
                     <button onClick={(ev) => onRemoveStation(station._id, ev)}>Delete</button>
                     <button onClick={(ev) => onEditStation(station._id, ev)}>Edit details</button>

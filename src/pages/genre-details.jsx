@@ -32,8 +32,6 @@ export function GenreDetails() {
         }
     }
     if (!stations) return
-
-
     return (
         <div>
             <h2>Hello from Genre details</h2>

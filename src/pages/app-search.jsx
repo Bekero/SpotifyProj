@@ -6,12 +6,17 @@ import { youtubeService } from "../services/youtube.service";
 import { stationService } from "../services/station.service";
 import { StationList } from "../cmps/station-list";
 import { useDebounce } from "../cmps/use-debounce"
-import { StationListContainer } from "../cmps/station-list-container";
+import { systemReducer } from "../store/system.reducer"
 
-export function AppSearch() {
+import { StationListContainer } from "../cmps/station-list-container";
+import { addSongToMyPlaylist } from "../store/station.actions";
+
+export function AppSearch({ addSongToPlaylist }) {
 
   // const player = useSelector(state => state.songModule.player);
   const [stations, setStations] = useState(null)
+  const path = window.location.pathname
+  console.log('path', path);
 
   const dispatch = useDispatch()
   // const [data, setData] = useState([]);
@@ -19,6 +24,7 @@ export function AppSearch() {
   const [songDuration, setSongDuration] = useState([]);
   const [term, setTerm] = useState([]);
   const DebounceSearch = useDebounce(term, 600)
+  const [loading, setLoading] = useState(false)
   // const [results,setResults] =useState(null)
 
 
@@ -35,7 +41,6 @@ export function AppSearch() {
     const results = await youtubeService.getSongs(DebounceSearch)
     getSongsData(results.data.items)
   }
-
   const getSongsData = async (data) => {
     const details = await youtubeService.getSongsDetails(data)
     if (!details) return
@@ -44,15 +49,6 @@ export function AppSearch() {
     console.log('durations', durations);
     setSongDuration(durations)
     setSongDetails(details)
-  }
-
-  const loadStations = async (filterBy) => {
-    try {
-      let filteredStations = await stationService.query(filterBy)
-      setStations(filteredStations)
-    } catch (err) {
-      console.log('Cannot get stations :', err)
-    }
   }
   const addToLikedPlaylist = async (song) => {
     // const filteredSong = {
@@ -74,6 +70,15 @@ export function AppSearch() {
   //     return
   //   }
   // }
+
+  const loadStations = async (filterBy) => {
+    try {
+      let filteredStations = await stationService.query(filterBy)
+      setStations(filteredStations)
+    } catch (err) {
+      console.log('Cannot get stations :', err)
+    }
+  }
   const playCurrUrl = (song) => {
     const { contentDetails: { imgUrl, title }, id } = song;
     const currSong = {
@@ -85,18 +90,17 @@ export function AppSearch() {
     dispatch({ type: 'SET_CURR_STATION', station })
     dispatch({ type: 'SET_CURRENTLY_PLAYING_SONG_IDX', songIdx: 0 })
   }
+
   return (
     <div className="main-search-container">
       <div className='search-field'>
         <input className='search-input' placeholder="What do you want to listen to?" onChange={(ev) => setTerm(ev.target.value)}
         />
       </div>
-
-      <SearchList addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} songDetails={songDetails} songDuration={songDuration} />
-
+      <SearchList addSongToPlaylist={addSongToPlaylist} addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} songDetails={songDetails} songDuration={songDuration} />
       <div className='ui celled list'></div>
       {stations && <StationList stations={stations} />}
-      <StationListContainer />
+      {path === '/search' && <StationListContainer />}
     </div>
   );
 }

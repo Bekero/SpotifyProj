@@ -3,8 +3,7 @@ import React, { useEffect } from 'react'
 import { StationList } from '../cmps/station-list'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import { loadStations, removeStation } from '../store/station.actions'
-import { userService } from '../services/user.service'
+import { loadStations } from '../store/station.actions'
 
 export function StationLibrary() {
     let stations = useSelector(state => state.stationModule.stations)
@@ -15,7 +14,7 @@ export function StationLibrary() {
         dispatch(loadStations())
     }, [])
 
-    stations = stations.filter(station => station.isMyStation === true)
+    stations = stations.filter(station => station?.createdBy?._id === user?._id)
     if (!stations.length) return <div>You have no playlists...</div>
     if (!stations) return <div>Loading...</div>
     return (

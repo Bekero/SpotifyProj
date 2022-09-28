@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { SongList } from '../cmps/song-list'
 import { stationService } from '../services/station.service'
-import { removeStation, setCurrStation, updateStation } from '../store/station.actions'
+import { addSongToMyPlaylist, removeStation, setCurrStation, updateStation } from '../store/station.actions'
 import { DetailsHeadLines } from '../cmps/details-head-lines'
 import { DetailsToolBar } from '../cmps/details-tool-bar'
 import { StationHeaderDetails } from '../cmps/station-header-details'
@@ -19,7 +19,7 @@ import { AppSearch } from './app-search'
 
 export const StationDetails = () => {
     const user = useSelector(state => state.userModule.user)
-    const isPlayingSong = useSelector(state => state.songModule.isPlayingSong)
+    const currStataion = useSelector(state => state.stationModule.currStataion)
     const params = useParams()
     const [station, setStation] = useState(null)
     const [itemList, setItemList] = useState(station?.songs);
@@ -29,6 +29,7 @@ export const StationDetails = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        console.log(params);
         if (params.stationId) {
             loadStation()
             if (!user) {
@@ -36,7 +37,7 @@ export const StationDetails = () => {
             }
         }
         else if (!params.stationId) return
-    }, [params.stationId, isDraggedItem])
+    }, [params.stationId, isDraggedItem, currStataion])
 
     const onRemoveStation = async (stationId) => {
         // ev.stopPropagation()
@@ -60,6 +61,7 @@ export const StationDetails = () => {
             const station = await stationService.getById(stationId)
             setStation(station)
             setItemList(station?.songs)
+            dispatch(setCurrStation(stationId))
         } catch (err) {
             console.log('Cannot get station :', err)
         }
@@ -77,6 +79,22 @@ export const StationDetails = () => {
         if (songIdx === undefined) return
         dispatch(setCurrPlayingSongIdx(songIdx))
         dispatch(setCurrStation(currStationId))
+    }
+
+    const addSongToPlaylist = async (ev, song) => {
+        ev.stopPropagation()
+        console.log('song', song);
+        const filteredSong = {
+            id: song.id,
+            url: song.id,
+            imgUrl: song.contentDetails.imgUrl,
+            title: song.contentDetails.title.replace(/(\(.*?\))/g, ''),
+            songDuration: youtubeService.getSongDuration(song.contentDetails.duration)
+        }
+        console.log(filteredSong);
+        console.log('setStation', station);
+        await dispatch(addSongToMyPlaylist(filteredSong))
+        loadStation()
     }
 
     const handleDrop = async (droppedItem) => {
@@ -136,7 +154,7 @@ export const StationDetails = () => {
                 </DragDropContext >
             </div>
             {station?.createdBy?._id === user?._id && <div className='search-field'>
-                <AppSearch />
+                <AppSearch addSongToPlaylist={addSongToPlaylist} />
             </div>}
         </section >
     )

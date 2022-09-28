@@ -46,12 +46,12 @@ export function stationReducer(state = initialState, action) {
         case 'ADD_SONG_TO_LIKED_PLAYLIST':
             newState = { ...state, stations: [...state.stations, action.station] }
             break
-        case 'ADD_UPDATED_PLAYLIST_TO_STATIONS':
+        case 'UPDATE_PLAYLIST':
             stations = state.stations.filter(station => station._id !== action.updatedStation._id)
             newState = { ...state, stations: [...stations, action.updatedStation] }
             break
         case 'UPDATE_STATION':
-            stations = state.stations.map(station => (station._id === action.station._id) ? action.station : station)
+            stations = state.stations.map(station => (station?._id === action.station?._id) ? action.station : station)
             newState = { ...state, stations }
             break
         case 'UNDO_REMOVE_STATION':

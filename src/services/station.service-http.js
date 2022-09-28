@@ -20,11 +20,12 @@ export const stationService = {
 window.cs = stationService
 
 async function query(filterBy) {
+    let user = userService.getLoggedinUser()
     let stations = await httpService.get(BASE_URL, { params: filterBy })
     if (!stations.length) return Promise.resolve(station)
     if (filterBy && filterBy.length) {
         stations = stations.filter(station => {
-            if (station?.isMyStation) return //Need to remove it and use the logged in user!!!
+            if (station?.createdBy?._id === user?._id) return //Need to remove it and use the logged in user!!!
             return (station.createdBy.fullname.toUpperCase().includes(filterBy.toUpperCase()) ||
                 station.name.toUpperCase().includes(filterBy.toUpperCase()))
         })
@@ -64,7 +65,7 @@ async function save(station) {
 
 let stations = [
     {
-        "_id": "5cksxjas89xjsa8xjsa8jxs09",
+        "_id": "5cksxxjas89xjsa8xjsa8jxs09",
         "name": "Funky Monks",
         "tags": [
             "Funk",
@@ -206,8 +207,7 @@ function getEmptyStation() {
             fullname: null,
             // isMyStation: true
             artistImg: ''
-        },
-        isMyStation: true
+        }
     }
 }
 

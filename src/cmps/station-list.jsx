@@ -5,7 +5,7 @@ export function StationList({ stations, user }) {
   console.log(path);
   return (
     <section className='station-list-main-container'>
-      {path === '/' && < h1 > Good afternoon</h1>}
+      {path === '/' && <h1> Good afternoon</h1>}
       <div className={`station-list-container ${path === '/' && 'height overflowY'}`}>
         {stations.map(station => {
           if (path === '/collection/playlist') {

@@ -114,17 +114,39 @@ export function addStation(currStation) {
 
 export function addSongToMyPlaylist(wantedSong, myPlaylistId) {
     return async (dispatch, getState) => {
+        console.log('myPlaylistId', myPlaylistId);
         let stations = getState().stationModule.stations
-        let myLikedStation = structuredClone(stations.find(station => station.isLikedStation === true))
-        let checkIfLikedSongExist = myLikedStation.songs.find(song => song.id === wantedSong.id)
+        let currStation = getState().stationModule.currStation
+        let myStation
+        if (!myPlaylistId) {
+            myStation = currStation
+        } else {
+            myStation = stations.find(station => station._id === myPlaylistId)
+        }
+        let checkIfLikedSongExist = myStation.songs.find(song => song.id === wantedSong.id)
         if (checkIfLikedSongExist) return
-        wantedSong.isLiked = true
-        myLikedStation.songs.push(wantedSong)
-        const updatedStation = await stationService.save(myLikedStation)
-        const action = { type: 'ADD_UPDATED_PLAYLIST_TO_STATIONS', updatedStation }
+        myStation.songs.push(wantedSong)
+        console.log(myStation);
+        const updatedStation = await stationService.save(myStation)
+        const action = { type: 'UPDATE_STATION', updatedStation }
         dispatch(action)
     }
 }
+
+// export function addSongToMyPlaylist(wantedSong, myPlaylistId) {
+//     return async (dispatch, getState) => {
+//         console.log('myPlaylistId', myPlaylistId);
+//         let stations = getState().stationModule.stations
+//         let myLikedStation = structuredClone(stations.find(station => station.isLikedStation === true))
+//         let checkIfLikedSongExist = myLikedStation.songs.find(song => song.id === wantedSong.id)
+//         if (checkIfLikedSongExist) return
+//         wantedSong.isLiked = true
+//         myLikedStation.songs.push(wantedSong)
+//         const updatedStation = await stationService.save(myLikedStation)
+//         const action = { type: 'UPDATE_PLAYLIST', updatedStation }
+//         dispatch(action)
+//     }
+// }
 
 export function removeLikedSongFromMyPlaylist(wantedSong, myPlaylistId) {
     return async (dispatch, getState) => {
@@ -136,7 +158,7 @@ export function removeLikedSongFromMyPlaylist(wantedSong, myPlaylistId) {
         // console.log(stationsWithCurrLikedSong)
         // stationsWithCurrLikedSong.map(station => station.songs.map(song => { if (song.id === wantedSong.id) { song.isLiked = false } }))
         const updatedStation = await stationService.save(likedStation)
-        const action = { type: 'ADD_UPDATED_PLAYLIST_TO_STATIONS', updatedStation }
+        const action = { type: 'UPDATE_PLAYLIST', updatedStation }
         dispatch(action)
     }
 }
@@ -151,8 +173,8 @@ export function removeLikedSongFromMyPlaylist(wantedSong, myPlaylistId) {
 export function updateStation(station) {
     return (dispatch) => {
         stationService.save(station)
-        .then(savedStation => {
-            dispatch(getActionUpdateStation(savedStation))
+            .then(savedStation => {
+                dispatch(getActionUpdateStation(savedStation))
                 showSuccessMsg('Station updated')
             })
             .catch(err => {
