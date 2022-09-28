@@ -86,10 +86,8 @@ export function MediaPlayer() {
     }
     const isSongEnded = async () => {
         if (!repeatSong) {
-            console.log('repeatSong', repeatSong);
             onNextVideo()
         } else {
-            console.log('repeatSong', repeatSong);
             await dispatch(setNextPrevSong(0))
             onSetTimestamp(0)
         }

@@ -17,8 +17,6 @@ export function DetailsToolBar({ station, user }) {
         if (!currSongIdx) {
             await dispatch(setCurrPlayingSongIdx(0))
         }
-        console.log('currSongIdx', currSongIdx);
-        console.log('currStation', currStation);
         dispatch(setIsPlayingSong(!isPlayingSong))
     }
     return (

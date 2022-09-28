@@ -2,7 +2,6 @@ import { SearchPreview } from "./search-preview";
 
 
 export function SearchList({ addSongToPlaylist, playCurrUrl, songDuration, addToLikedPlaylist, songDetails }) {
-    console.log('songDetails from SearchList', songDetails);
     if (!songDetails || !songDetails.length) return
     return (
 

@@ -20,7 +20,7 @@ import { AppSearch } from './app-search'
 
 export const StationDetails = () => {
     const user = useSelector(state => state.userModule.user)
-    const currStataion = useSelector(state => state.stationModule.currStataion)
+    const currStation = useSelector(state => state.stationModule.currStation)
     const params = useParams()
     const [station, setStation] = useState(null)
     const [itemList, setItemList] = useState(station?.songs);
@@ -28,13 +28,12 @@ export const StationDetails = () => {
     const [isDraggedItem, setIsDraggedItem] = useState(false)
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const [imgColor,setImgColor] = useState('white')
-    const [txtColor,setTxtColor] = useState('white')
+    const [imgColor, setImgColor] = useState('white')
+    const [txtColor, setTxtColor] = useState('white')
 
 
 
     useEffect(() => {
-        console.log(params);
         if (params.stationId) {
             loadStation()
             if (!user) {
@@ -42,7 +41,7 @@ export const StationDetails = () => {
             }
         }
         else if (!params.stationId) return
-    }, [params.stationId, isDraggedItem, currStataion])
+    }, [params.stationId, isDraggedItem])
 
     const onRemoveStation = async (stationId) => {
         // ev.stopPropagation()
@@ -56,10 +55,11 @@ export const StationDetails = () => {
         setEditStation(!isEditStation)
     }
 
-    const onEditStation = (station) => {
+    const onEditStation = (stationId) => {
+        console.log('stationId :', stationId)
         setEditStation(!isEditStation)
         if (!isEditStation) return
-        setStation(station)
+        setStation(stationId)
     }
 
     const loadStation = async () => {
@@ -77,7 +77,6 @@ export const StationDetails = () => {
     const playCurrUrl = (songIdx, currStationId, songs, isSongPlaying) => {
         dispatch(setIsPlayingSong(isSongPlaying))
         if (!currStationId) {
-            console.log(songIdx, currStationId, songs)
             const station = { title: 'Falling stars', songs: songs.likedSongs }
             dispatch(setCurrPlayingSongIdx(songIdx))
             dispatch({ type: 'SET_CURR_STATION', station })
@@ -88,16 +87,15 @@ export const StationDetails = () => {
         dispatch(setCurrStation(currStationId))
     }
 
-    const getBgcImg = (imgClr= '#121212',txtClr='#121212') =>{
+    const getBgcImg = (imgClr = '#121212', txtClr = '#121212') => {
         setImgColor(imgClr)
         setTxtColor(txtClr)
-        
+
     }
 
 
     const addSongToPlaylist = async (ev, song) => {
         ev.stopPropagation()
-        console.log('song', song);
         const filteredSong = {
             id: song.id,
             url: song.id,
@@ -105,8 +103,6 @@ export const StationDetails = () => {
             title: song.contentDetails.title.replace(/(\(.*?\))/g, ''),
             songDuration: youtubeService.getSongDuration(song.contentDetails.duration)
         }
-        console.log(filteredSong);
-        console.log('setStation', station);
         await dispatch(addSongToMyPlaylist(filteredSong))
         loadStation()
     }
@@ -128,10 +124,9 @@ export const StationDetails = () => {
     };
 
     if (!station && !user) return <div>Loading...</div>
-    console.log('user', user);
     return (
         <section className="main-details-container">
-            <div style={{backgroundColor: imgColor, color: txtColor}} className={station ? "station-details" : "station-details liked"}>
+            <div style={{ backgroundColor: imgColor, color: txtColor }} className={station ? "station-details" : "station-details liked"}>
                 <StationHeaderDetails
                     station={station}
                     user={user}
@@ -168,9 +163,15 @@ export const StationDetails = () => {
                     </Droppable>
                 </DragDropContext >
             </div>
-            {station?.createdBy?._id === user?._id && <div className='search-field'>
-                <AppSearch addSongToPlaylist={addSongToPlaylist} />
-            </div>}
+            {station ? <div>
+                {station?.createdBy?._id === user?._id && <div className='search-field'>
+                    <AppSearch addSongToPlaylist={addSongToPlaylist} />
+                </div>
+                }
+            </div>
+                :
+                <></>
+            }
         </section >
     )
 }

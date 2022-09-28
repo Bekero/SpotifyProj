@@ -16,7 +16,6 @@ export function AppSearch({ addSongToPlaylist }) {
   // const player = useSelector(state => state.songModule.player);
   const [stations, setStations] = useState(null)
   const path = window.location.pathname
-  console.log('path', path);
 
   const dispatch = useDispatch()
   // const [data, setData] = useState([]);
@@ -44,9 +43,7 @@ export function AppSearch({ addSongToPlaylist }) {
   const getSongsData = async (data) => {
     const details = await youtubeService.getSongsDetails(data)
     if (!details) return
-    console.log(details);
     const durations = youtubeService.getSongsDuration(details)
-    console.log('durations', durations);
     setSongDuration(durations)
     setSongDetails(details)
   }

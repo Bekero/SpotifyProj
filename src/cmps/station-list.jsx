@@ -2,7 +2,6 @@ import { StationPreview } from "./station-preview";
 
 export function StationList({ stations, user }) {
   const path = window.location.pathname
-  console.log(path);
   return (
     <section className='station-list-main-container'>
       {path === '/' && <h1> Good afternoon</h1>}

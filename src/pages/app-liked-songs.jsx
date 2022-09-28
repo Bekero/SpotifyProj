@@ -12,7 +12,6 @@ export function LikedSongs() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        console.log(user)
         if (!user) {
             dispatch(loadLikedSongs())
         } else if (user) {
