@@ -15,7 +15,7 @@ export const SongList = ({ station, playCurrUrl, user }) => {
     const [openModal, setOpenModal] = useState(null)
     const [modalPos, setModalPos] = useState(null)
     let stations = useSelector(state => state.stationModule.stations)
-    let myStations = stations.filter(station => station.createdBy._id === user?._id)
+    let myStations = stations.filter(station => station?.createdBy?._id === user?._id)
 
     useEffect(() => {
         dispatch(loadStations())
