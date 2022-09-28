@@ -6,7 +6,6 @@ import { stationService } from "../services/station.service";
 export function GenreDetails() {
     const params = useParams()
     useEffect(() => {
-        console.log(params.genre);
     }, [])
 
 

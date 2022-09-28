@@ -30,6 +30,7 @@ export function MediaPlayer() {
     const [playSong, setPlay] = useState(false)
     const [songEnded, setSongEnded] = useState(false)
     const [repeatSong, setRepeatSong] = useState(false)
+    const [isShuffleSong, setIsShuffleSong] = useState(false)
     const [songVolume, setSongVolume] = useState(50)
     const [isSongMuted, setSongMuted] = useState(false)
     const [songDuration, setSongDuration] = useState(0)
@@ -85,11 +86,18 @@ export function MediaPlayer() {
         return currStation.songs[songIdx]
     }
     const isSongEnded = async () => {
+        if (isShuffleSong) {
+            let randomSongIdx = utilService.getRandomIntInclusive(0, currStation.songs.length - 1)
+            while (randomSongIdx === songIdx) {
+                randomSongIdx = utilService.getRandomIntInclusive(0, currStation.songs.length - 1)
+            }
+            await dispatch(setCurrPlayingSongIdx(randomSongIdx))
+            onPlayVideo()
+            return
+        }
         if (!repeatSong) {
-            console.log('repeatSong', repeatSong);
             onNextVideo()
         } else {
-            console.log('repeatSong', repeatSong);
             await dispatch(setNextPrevSong(0))
             onSetTimestamp(0)
         }
@@ -136,11 +144,7 @@ export function MediaPlayer() {
     }
 
     const onShuffle = async () => {
-        let randomSongIdx = utilService.getRandomIntInclusive(0, currStation.songs.length - 1)
-        while (randomSongIdx === songIdx) {
-            randomSongIdx = utilService.getRandomIntInclusive(0, currStation.songs.length - 1)
-        }
-        await dispatch(setCurrPlayingSongIdx(randomSongIdx))
+        setIsShuffleSong(!isShuffleSong)
     }
 
     const onRepeat = () => {
@@ -204,7 +208,7 @@ export function MediaPlayer() {
         <div className='media-player-action'>
             <div className='media-player-btn-action'>
                 <div className='player-control-left'>
-                    <button disabled={getSong()?.url ? false : true} onClick={onShuffle}><Shuffle /></button>
+                    <button disabled={getSong()?.url ? false : true} onClick={onShuffle}><Shuffle isShuffleSong={isShuffleSong} /></button>
                     {/* <button disabled={getSong()?.url ? false : true} onClick={() => onIncreaseDecreaseTenSeconds(-5)}>-5</button> */}
                     <button disabled={getSong()?.url ? false : true} onClick={onPrevVideo}><Prev /></button>
                 </div>

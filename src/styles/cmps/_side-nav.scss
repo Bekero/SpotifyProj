@@ -5,6 +5,13 @@
     .header-logo {
         font-size: 1.5rem;
         color: $main-txt-clr;
+        display: flex;
+        gap: 16px;
+        img{
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
     }
 
     .playlist-container {

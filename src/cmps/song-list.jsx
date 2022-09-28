@@ -45,7 +45,6 @@ export const SongList = ({ station, playCurrUrl, user }) => {
 
     const onAddToMyPlaylist = (myPlaylistIdx) => {
         // console.log(myStations[myPlaylistIdx]._id);l
-        console.log('wantedSong', wantedSong);
         setOpenModal(false)
         dispatch(addSongToMyPlaylist(wantedSong, myStations[myPlaylistIdx]._id))
     }

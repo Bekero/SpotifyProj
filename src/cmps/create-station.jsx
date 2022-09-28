@@ -15,6 +15,7 @@ export function CreateStation() {
         console.log('Creating!!!')
         const station = stationService.getEmptyStation()
         // addStation(station)
+        console.log('station', station);
         const savedStation = await stationService.save({ ...station })
         navigate(`/playlist/${savedStation._id}`)
 

@@ -59,8 +59,6 @@ async function update(user) {
 async function login(userCred) {
   const users = await storageService.query("user");
   const user = users.find((user) => user.username === userCred.username);
-  console.log('user', user);
-  console.log('userCred', userCred);
   // const user = await httpService.post('auth/login', userCred)
   if (user) {
     // socketService.login(user._id)

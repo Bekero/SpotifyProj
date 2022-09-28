@@ -4,9 +4,10 @@ import { utilService } from '../services/util.service'
 import NewPlaylistDetailsSvg from './svg/new-playlist-details-svg'
 import { FastAverageColor } from 'fast-average-color';
 import { useEffect } from 'react';
+import { uploadService } from '../services/upload.service';
 
 
-export function StationHeaderDetails({ station, onRemoveStation, onEditStation, isEditStation, onCloseStation, user,getBgcImg }) {
+export function StationHeaderDetails({ station, onRemoveStation, onEditStation, isEditStation, onCloseStation, user, getBgcImg }) {
     // const [imgColor,setImgColor] = useState('white')
     const getPlaylistDuration = () => {
         let sum = 0
@@ -14,35 +15,40 @@ export function StationHeaderDetails({ station, onRemoveStation, onEditStation, 
         return utilService.setTimestampToTime(sum)
     }
 
-    useEffect(() =>{
-       
-    },[]) 
-        const fac = new FastAverageColor();
-        const container = document.querySelector('.img-container');
+    useEffect(() => {
 
-        fac.getColorAsync(station?.createdBy?.imgUrl)
-            .then(color => {
-                // container.style.backgroundColor = color.rgba;
-                // container.style.color = color.isDark ? '#fff' : '#000';
-                const imgColor = color.rgba
-                const txtColor = color.isDark ? '#fff' : '#000'
-                getBgcImg(imgColor,txtColor)
-                console.log(txtColor);
-                console.log('Average color', color);
-            })
-            .catch(e => {
-                console.log(e);
-            });
-    
+    }, [])
+    const fac = new FastAverageColor();
+    const container = document.querySelector('.img-container');
 
-    console.log(station?.createdBy?.artistImg);
+    fac.getColorAsync(station?.createdBy?.imgUrl)
+        .then(color => {
+            // container.style.backgroundColor = color.rgba;
+            // container.style.color = color.isDark ? '#fff' : '#000';
+            const imgColor = color?.rgba
+            const txtColor = color.isDark ? '#fff' : '#000'
+            getBgcImg(imgColor, txtColor)
+        })
+        .catch(e => {
+            console.log(e);
+        });
+
+    const onUploadImg = async (ev) => {
+        console.log(ev.target.value);
+        console.log(ev.target);
+        // addEventListener('load')
+        // const reader = new FileReader()
+        // console.log('reader', reader);
+        // const res = uploadService.uploadImg(ev)
+        // console.log('res', res);
+    }
+
     return (
         <>
             <div className="img-container">
-
+                {/* <input type="file" onChange={(ev) => onUploadImg(ev)} /> */}
                 {!station?.createdBy?.imgUrl ? <div> <NewPlaylistDetailsSvg /> </div> :
-                <img 
-                    className="img-details" src={station?.createdBy?.imgUrl} />}
+                    <img className="img-details" src={station?.createdBy?.imgUrl} />}
 
             </div>
             <div className="details-container">

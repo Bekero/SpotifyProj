@@ -19,16 +19,13 @@ async function getSongsDetails(songs) {
     const API_KEY = 'AIzaSyBKmZyRd0g8AEKqh9tNR3VNFn4ERzmmoIY'
     if (!songs || !songs.length) return null
     const songId = songs.map(song => song.id.videoId)
-    console.log(songs[0].snippet.title);
     const songsDetails = axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${songId.join(',')}&part=contentDetails&key=${API_KEY}`)
-    console.log(songsDetails)
     let songsDetailsAwait = await Promise.resolve(songsDetails)
     songs.forEach((song, idx) => {
         songsDetailsAwait.data.items[idx].contentDetails.imgUrl = song.snippet.thumbnails.high.url
         songsDetailsAwait.data.items[idx].contentDetails.channelTitle = song.snippet.channelTitle
         return songsDetailsAwait.data.items[idx].contentDetails.title = song.snippet.title
     })
-    console.log('songsDetailsAwait', songsDetailsAwait);
     const songDuration = getSongsDuration(songsDetailsAwait)
     let results = songsDetailsAwait?.data?.items.filter((song, idx) => (songDuration[idx] >= 120 && songDuration[idx] <= 480))
     results = results.splice(0, 50)

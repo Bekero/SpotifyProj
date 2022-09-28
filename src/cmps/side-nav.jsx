@@ -7,12 +7,13 @@ import SearchIcon from '../cmps/svg/search-svg'
 import LibraryIcon from '../cmps/svg/library-svg'
 import LikeLinkSvg from '../cmps/svg/like-nav-link'
 import { useState } from "react";
+import harmonyLogo from "../assets/img/harmony-logo3.jpg"
 
 export function SideNav() {
     const [isHomeActive, setIsHomeActive] = useState(false)
     const [isSearchActive, setSearchIsActive] = useState(false)
     const [isLibraryActive, setLibraryIsActive] = useState(false)
-    
+
     const iBtnActive = (btn) => {
         switch (btn) {
             case 'home':
@@ -43,10 +44,10 @@ export function SideNav() {
     return (
         <div className="side-nav">
 
-            <NavLink className="header-logo" to='/' > Harmony  </NavLink>
+            <NavLink className="header-logo" to='/' > <img src={harmonyLogo} />Harmony  </NavLink>
             <nav className="nav-container flex column">
                 <ul className="flex">
-                    <li ><NavLink onClick={() => iBtnActive('home')} to='/' className='flex'> <HomeIcon isActive={isHomeActive}/>Home</NavLink></li>
+                    <li ><NavLink onClick={() => iBtnActive('home')} to='/' className='flex'> <HomeIcon isActive={isHomeActive} />Home</NavLink></li>
                     <li ><NavLink onClick={() => iBtnActive('search')} to='/search' className='flex'><SearchIcon isActive={isSearchActive} />Search</NavLink> </li>
                     <li ><NavLink onClick={() => iBtnActive('library')} to='/collection/playlist' className='flex'> <LibraryIcon isActive={isLibraryActive} />Your Library</NavLink></li>
                 </ul>

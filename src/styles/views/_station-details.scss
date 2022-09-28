@@ -1,7 +1,6 @@
 .main-details-container {
 
     .station-details {
-        color: #fff;
         display: flex;
         max-width: none;
         gap: 24px;
@@ -287,6 +286,11 @@
                     margin-right: 16px;
                     width: 40px;
                     height: 40px;
+
+                    img {
+                        height: 100%;
+                        object-fit: cover;
+                    }
                 }
 
                 .song-list-title {
@@ -407,7 +411,8 @@
     border-radius: 500px;
     border: none;
     background-color: $fill-svg-clr;
-    svg{
+
+    svg {
         fill: unset;
     }
 }

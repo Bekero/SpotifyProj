@@ -44,7 +44,7 @@ export function StationPreview({ station }) {
                     {!station?.createdBy?.imgUrl ? <div className="img-details-new-playlist"> <NewPlaylistPreviewSvg /> </div> :
                         <img className="img-details" src={station?.createdBy?.imgUrl} />}
                     <div className="play-btn-preview">
-                        <div className="play-song-tool-bar-container"><button onClick={(ev) => playCurrUrl(ev)} className="play-song-tool-bar">{!isPlayingSong ? <PlaySongToolBar /> : <PauseSongToolBar />}</button></div>
+                        <div  className="play-song-tool-bar-container"><button onClick={playCurrUrl} className="play-song-tool-bar">{!isPlayingSong ? <PlaySongToolBar /> : <PauseSongToolBar />}</button></div>
                     </div>
                 </div>
                 <div className="station-preview-artist">
