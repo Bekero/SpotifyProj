@@ -48,7 +48,7 @@ export function StationHeaderDetails({ station, onRemoveStation, onEditStation, 
             <div className="img-container">
                 {station ? <div>
                     {station?.createdBy?.imgUrl ? <img className="img-details" src={station?.createdBy?.imgUrl} /> :
-                        <div> <NewPlaylistDetailsSvg /> </div>
+                        <div><NewPlaylistDetailsSvg /></div>
                     } </div>
                     :
                     <div><img src={likedStationImg} /></div>
@@ -63,7 +63,7 @@ export function StationHeaderDetails({ station, onRemoveStation, onEditStation, 
             </div>
             {station ? <div>
                 {user && station?.createdBy?._id === user?._id &&
-                    <div>
+                    <div className='details-container-btn'>
                         <button onClick={(ev) => onRemoveStation(station._id, ev)}>Delete</button>
                         <button onClick={(ev) => onEditStation(station._id, ev)}>Edit details</button>
                     </div>

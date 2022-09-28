@@ -109,6 +109,7 @@ export function MediaPlayer() {
         setSongDuration(event.target.getDuration())
         setSongTimestamp(0)
         setSongEnded(false)
+        setPlay(true)
     }
 
     const onPauseVideo = async () => {

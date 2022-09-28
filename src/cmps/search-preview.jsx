@@ -42,7 +42,7 @@ export function SearchPreview({ songDuration, addSongToPlaylist, song, playCurrU
       </div> :
         <div className="flex align-center justify-center">
           {/* <button>Add</button> */}
-          <button onClick={(ev) => addSongToPlaylist(ev, song)} className="add-to-playlist-btn" >Add</button>
+          <button  onClick={(ev) => addSongToPlaylist(ev, song)} className="add1-to-playlist-btn" >Add</button>
         </div>
       }
     </div>

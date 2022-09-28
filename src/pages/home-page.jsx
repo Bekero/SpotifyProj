@@ -16,7 +16,7 @@ export function HomePage() {
     const loadStations = async () => {
         try {
             let newStations = await stationService.query()
-            newStations = newStations.filter(station => {
+            newStations = newStations?.filter(station => {
                 for (let i = 0; i < station?.tags?.length; i++) {
                     if (station.tags[i] === 'HardCoded')
                         return station
