@@ -145,8 +145,6 @@
             }
         }
 
-
-
     }
 
     .main-details {
@@ -156,7 +154,7 @@
 
         .details-head-lines {
             display: grid;
-            grid-template-columns: 16px 6fr 4fr 3fr minmax(130px, 1fr);
+            grid-template-columns: 16px 4fr 2fr minmax(130px, 0fr);
             justify-items: flex-start;
             align-items: center;
             grid-gap: 16px;
@@ -178,7 +176,7 @@
 
         .song-preview {
             display: grid;
-            grid-template-columns: 16px 6fr 4fr 3fr minmax(130px, 1fr);
+            grid-template-columns: 16px 4fr 2fr minmax(130px, 0fr);
             justify-items: center;
             align-items: center;
             grid-gap: 16px;

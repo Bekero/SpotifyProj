@@ -26,7 +26,7 @@ export function StationHeaderDetails({ station, onRemoveStation, onEditStation, 
             // container.style.backgroundColor = color.rgba;
             // container.style.color = color.isDark ? '#fff' : '#000';
             const imgColor = color?.rgba
-            const txtColor = color.isDark ? '#fff' : '#000'
+            const txtColor = color?.isDark ? '#fff' : '#000'
             getBgcImg(imgColor, txtColor)
         })
         .catch(e => {
