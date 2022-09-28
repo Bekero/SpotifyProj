@@ -28,6 +28,7 @@ export function StationPreview({ station }) {
     }
 
     const playCurrUrl = async (ev) => {
+        debugger
         ev.stopPropagation()
         if (!currSongIdx) {
             await dispatch(setCurrPlayingSongIdx(0))

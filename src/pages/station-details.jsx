@@ -20,7 +20,7 @@ import { AppSearch } from './app-search'
 
 export const StationDetails = () => {
     const user = useSelector(state => state.userModule.user)
-    const currStataion = useSelector(state => state.stationModule.currStataion)
+    const currStation = useSelector(state => state.stationModule.currStation)
     const params = useParams()
     const [station, setStation] = useState(null)
     const [itemList, setItemList] = useState(station?.songs);
@@ -41,7 +41,7 @@ export const StationDetails = () => {
             }
         }
         else if (!params.stationId) return
-    }, [params.stationId, isDraggedItem, currStataion])
+    }, [params.stationId, isDraggedItem])
 
     const onRemoveStation = async (stationId) => {
         // ev.stopPropagation()
@@ -55,10 +55,11 @@ export const StationDetails = () => {
         setEditStation(!isEditStation)
     }
 
-    const onEditStation = (station) => {
+    const onEditStation = (stationId) => {
+        console.log('stationId :', stationId)
         setEditStation(!isEditStation)
         if (!isEditStation) return
-        setStation(station)
+        setStation(stationId)
     }
 
     const loadStation = async () => {
@@ -161,9 +162,15 @@ export const StationDetails = () => {
                     </Droppable>
                 </DragDropContext >
             </div>
-            {station?.createdBy?._id === user?._id && <div className='search-field'>
-                <AppSearch addSongToPlaylist={addSongToPlaylist} />
-            </div>}
+            {station ? <div>
+                {station?.createdBy?._id === user?._id && <div className='search-field'>
+                    <AppSearch addSongToPlaylist={addSongToPlaylist} />
+                </div>
+                }
+            </div>
+                :
+                <></>
+            }
         </section >
     )
 }

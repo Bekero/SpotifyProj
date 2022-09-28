@@ -23,7 +23,6 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
     //? player from stationReducer is undefined , need to understand why /
     //* its stop me from doing pause
     // const onPauseVideo = async () => {
-    //     console.log('player', player)
     //     // player.pauseVideo()
     //     await dispatch(setIsPlayingSong(false))
     //     setPlay(false)

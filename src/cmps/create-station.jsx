@@ -12,7 +12,6 @@ export function CreateStation() {
     const navigate = useNavigate()
 
     const onCreateStation = async () => {
-        console.log('Creating!!!')
         const station = stationService.getEmptyStation()
         // addStation(station)
         console.log('station', station);

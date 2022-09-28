@@ -44,13 +44,11 @@ export const SongList = ({ station, playCurrUrl, user }) => {
     }
 
     const onAddToMyPlaylist = (myPlaylistIdx) => {
-        // console.log(myStations[myPlaylistIdx]._id);l
         setOpenModal(false)
         dispatch(addSongToMyPlaylist(wantedSong, myStations[myPlaylistIdx]._id))
     }
 
     let currStation = station ? station.songs : user.likedSongs
-
     if (!currStation) return <></>
     return <>
         {openModal && <ul onMouseLeave={() => setOpenModal(false)} style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }} className="song-list-opts-menu">
