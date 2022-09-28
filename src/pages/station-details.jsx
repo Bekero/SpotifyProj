@@ -68,7 +68,9 @@ export const StationDetails = () => {
             const station = await stationService.getById(stationId)
             setStation(station)
             setItemList(station?.songs)
-            // dispatch(setCurrStation(stationId))
+            if(!currStation){
+                dispatch(setCurrStation(stationId))
+            }
         } catch (err) {
             console.log('Cannot get station :', err)
         }
@@ -163,7 +165,7 @@ export const StationDetails = () => {
                 </DragDropContext >
             </div>
             {station ? <div>
-                {station?.createdBy?._id === user?._id && <div className='search-field'>
+                {station?.createdBy?._id === user?._id && <div>
                     <AppSearch addSongToPlaylist={addSongToPlaylist} />
                 </div>
                 }

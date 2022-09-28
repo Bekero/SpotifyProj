@@ -299,6 +299,14 @@
                     column-gap: 8px;
                     display: grid;
                     gap: 4px;
+
+                    .song-title {
+                        max-width: 300px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
                     // grid-template:
                     //     "song-title song-title"
                     //     "artists-name" /auto 1fr;
