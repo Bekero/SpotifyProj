@@ -21,6 +21,50 @@
             font-size: 1.5rem;
             margin: 0;
         }
+
+        button{
+            background-color: transparent;
+            border: 0;
+        }
+    }
+
+    .edit-details-form{
+        margin-left: 16px;
+
+        form{
+            display: flex;
+            justify-content: space-between;
+            height: 100%;
+            flex-direction: column;
+        }
+
+        input{
+            background: hsla(0,0%,100%,.1);
+            border: 1px solid transparent;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 14px;
+            height: 40px;
+            padding: 0 12px;
+            width: 100%;
+        }
+
+      
+
+    button{
+        height: 40px;
+        width: 59px;
+        border-radius: 14px;
+        padding-block: 8px;
+        padding-inline: 32px;
+        align-self: flex-end;
+        border: none;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    
+        
+        }
     }
 
     .edit-details-container {
@@ -45,5 +89,10 @@
             border-radius: 4px;
             box-shadow: 0 4px 60px rgba(0,0,0,.5);
         }
+    }
+
+    .confirm-txt{
+        font-size: 12px;
+        padding: 0 24px 24px;
     }
 }

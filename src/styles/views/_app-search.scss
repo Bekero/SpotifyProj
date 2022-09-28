@@ -1,6 +1,21 @@
 .main-search-container {
     margin: 0;
     max-width: 1955px;
+
+
+.add1-to-playlist-btn{
+    padding-block: 3px;
+    padding-inline: 15px;
+    border: 1px solid var(--essential-subdued, #878787);
+    color: #fff;
+    transition-property: background-color, border-color, color, box-shadow, filter, transform;
+    background-color: transparent;
+    border-radius: 500px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+}
+
+
 }
 
 .search-field {
