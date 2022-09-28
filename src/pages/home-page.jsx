@@ -16,13 +16,12 @@ export function HomePage() {
     const loadStations = async () => {
         try {
             let newStations = await stationService.query()
-            newStations = newStations?.filter(station => {
+            newStations = newStations.filter(station => {
                 for (let i = 0; i < station?.tags?.length; i++) {
                     if (station.tags[i] === 'HardCoded')
                         return station
                 }
             })
-            // newStations = newStations.filter(station => !station.isMyStation && !station.isLikedStation)
             setStations(newStations)
         } catch (err) {
             console.log('Cannot get stations :', err)
@@ -31,7 +30,6 @@ export function HomePage() {
     if (!stations) return
     return (
         <div className="app-home main-view">
-            {/* <button onClick={notify}>Notify!</button> */}
 
             <StationList stations={stations} />
             <div className="toast-container">

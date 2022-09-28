@@ -17,7 +17,6 @@ import { SearchList } from '../cmps/search-list'
 import { youtubeService } from '../services/youtube.service'
 import { AppSearch } from './app-search'
 
-
 export const StationDetails = () => {
     const user = useSelector(state => state.userModule.user)
     const currStation = useSelector(state => state.stationModule.currStation)
@@ -30,8 +29,6 @@ export const StationDetails = () => {
     const dispatch = useDispatch()
     const [imgColor, setImgColor] = useState('#121212')
     const [txtColor, setTxtColor] = useState('white')
-
-
 
     useEffect(() => {
         if (params.stationId) {
@@ -48,8 +45,6 @@ export const StationDetails = () => {
         await dispatch(removeStation(stationId))
         navigate('/collection/playlist')
     }
-
-
 
     const onCloseStation = () => {
         setEditStation(!isEditStation)
@@ -97,13 +92,18 @@ export const StationDetails = () => {
 
     const addSongToPlaylist = async (ev, song) => {
         ev.stopPropagation()
+        console.log('Date.now() :', Date.now())
         const filteredSong = {
             id: song.id,
             url: song.id,
             imgUrl: song.contentDetails.imgUrl,
             title: song.contentDetails.title.replace(/(\(.*?\))/g, ''),
             songDuration: youtubeService.getSongDuration(song.contentDetails.duration),
+<<<<<<< HEAD
             addedAt: Date.now()
+=======
+            addedAt: Date.now(),
+>>>>>>> c5249f91b721087b12aa4cb19fee3d96692da86f
         }
         await dispatch(addSongToMyPlaylist(filteredSong))
         loadStation()

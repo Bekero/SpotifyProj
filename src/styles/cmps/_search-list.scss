@@ -111,13 +111,16 @@
             justify-content: center;
             align-items: center;
             visibility: hidden;
-            background-color: rgba(0, 0, 0, 0);
+            background-color: rgba(237, 232, 232, 0);
 
+            
+           
             svg {
                 width: 16px;
                 height: 16px;
             }
         }
+        
 
         .like-song-preview {
             visibility: hidden;

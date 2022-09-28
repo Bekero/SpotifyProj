@@ -1,5 +1,20 @@
 .main-details-container {
 
+    .details-container-btn{
+        >button{
+
+            padding-block: 3px;
+            padding-inline: 15px;
+            border: 1px solid var(--essential-subdued, #878787);
+            color: #fff;
+            transition-property: background-color, border-color, color, box-shadow, filter, transform;
+            background-color: transparent;
+            border-radius: 500px;
+            font-size: 0.8125rem;
+            margin-right: 10px;
+        }
+    }
+
     .station-details {
         display: flex;
         max-width: none;
@@ -145,8 +160,6 @@
             }
         }
 
-
-
     }
 
     .main-details {
@@ -156,7 +169,7 @@
 
         .details-head-lines {
             display: grid;
-            grid-template-columns: 16px 6fr 4fr 3fr minmax(130px, 1fr);
+            grid-template-columns: 16px 4fr 2fr minmax(130px, 0fr);
             justify-items: flex-start;
             align-items: center;
             grid-gap: 16px;
@@ -178,7 +191,7 @@
 
         .song-preview {
             display: grid;
-            grid-template-columns: 16px 6fr 4fr 3fr minmax(130px, 1fr);
+            grid-template-columns: 16px 4fr 2fr minmax(130px, 0fr);
             justify-items: center;
             align-items: center;
             grid-gap: 16px;
@@ -377,6 +390,8 @@
                     align-items: center;
                     visibility: hidden;
                     background-color: rgba(0, 0, 0, 0);
+
+                    
 
                     svg {
                         width: 16px;

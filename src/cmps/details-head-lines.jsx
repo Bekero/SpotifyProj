@@ -7,7 +7,7 @@ export function DetailsHeadLines() {
         <>
             <div>#</div>
             <div className="title-head-line">TITLE</div>
-            <div className="album-head-line">ALBUM</div>
+            {/* <div className="album-head-line">ALBUM</div> */}
             <div className="date-added-head-line">DATE ADDED</div>
             <div className="time-head-line"><DurationHeadLines /></div>
         </>
