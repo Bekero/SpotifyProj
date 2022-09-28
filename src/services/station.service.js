@@ -40,7 +40,7 @@ function getById(stationId) {
 }
 
 async function remove(stationId) {
-    await httpService.delete(BASE_URL, stationId)
+    await httpService.delete(BASE_URL + stationId, stationId)
     // stationChannel.postMessage(getActionRemoveStation(stationId))
 }
 

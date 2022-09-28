@@ -11,7 +11,7 @@ export const storageService = {
     postMany
 }
 
-function query(entityType, delay = 0) {
+function query(entityType, delay = 600) {
     var entities = JSON.parse(localStorage.getItem(entityType)) || []
     if(entityType === 'station' && !entities.length){
         _save(entityType, station)

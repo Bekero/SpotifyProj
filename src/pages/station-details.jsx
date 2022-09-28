@@ -102,7 +102,8 @@ export const StationDetails = () => {
             url: song.id,
             imgUrl: song.contentDetails.imgUrl,
             title: song.contentDetails.title.replace(/(\(.*?\))/g, ''),
-            songDuration: youtubeService.getSongDuration(song.contentDetails.duration)
+            songDuration: youtubeService.getSongDuration(song.contentDetails.duration),
+            addedAt: Date.now()
         }
         await dispatch(addSongToMyPlaylist(filteredSong))
         loadStation()
