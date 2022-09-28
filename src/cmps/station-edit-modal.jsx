@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useForm } from "../hooks/useForm"
 import { stationService } from "../services/station.service"
 import { updateStation } from "../store/station.actions"
-
+import NewPlaylistDetailsSvg from './svg/new-playlist-details-svg'
 
 export const StationEditModal = ({ station, onEditStation, onCloseStation }) => {
 
@@ -29,7 +29,10 @@ export const StationEditModal = ({ station, onEditStation, onCloseStation }) => 
                 <button onClick={onCloseStation}>x</button>
             </div>
             <div className="edit-details-container">
-                <img className="img-details" src={station.createdBy.imgUrl} alt="" />
+                {/* <img className="img-details" src={station.createdBy.imgUrl} alt="" /> */}
+                <div className="img-or-svg">{station?.createdBy?.imgUrl ? <img className="img-details" src={station?.createdBy?.imgUrl} /> :
+                    <div><NewPlaylistDetailsSvg /></div>
+                }</div>
                 <div className="edit-details-form">
                     <form onSubmit={onSaveStation}>
                         <input value={newStation.name} onChange={handleChange} name="name" id="name" />

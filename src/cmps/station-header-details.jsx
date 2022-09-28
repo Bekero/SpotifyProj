@@ -48,7 +48,7 @@ export function StationHeaderDetails({ station, onRemoveStation, onEditStation, 
             <div className="img-container">
                 {station ? <div>
                     {station?.createdBy?.imgUrl ? <img className="img-details" src={station?.createdBy?.imgUrl} /> :
-                        <div> <NewPlaylistDetailsSvg /> </div>
+                        <div><NewPlaylistDetailsSvg /></div>
                     } </div>
                     :
                     <div><img src={likedStationImg} /></div>
