@@ -17,6 +17,7 @@ import { SearchList } from '../cmps/search-list'
 import { youtubeService } from '../services/youtube.service'
 import { AppSearch } from './app-search'
 
+
 export const StationDetails = () => {
     const user = useSelector(state => state.userModule.user)
     const isPlayingSong = useSelector(state => state.songModule.isPlayingSong)
@@ -27,6 +28,10 @@ export const StationDetails = () => {
     const [isDraggedItem, setIsDraggedItem] = useState(false)
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const [imgColor,setImgColor] = useState('white')
+    const [txtColor,setTxtColor] = useState('white')
+
+
 
     useEffect(() => {
         if (params.stationId) {
@@ -43,6 +48,8 @@ export const StationDetails = () => {
         await dispatch(removeStation(stationId))
         navigate('/collection/playlist')
     }
+
+
 
     const onCloseStation = () => {
         setEditStation(!isEditStation)
@@ -79,6 +86,13 @@ export const StationDetails = () => {
         dispatch(setCurrStation(currStationId))
     }
 
+    const getBgcImg = (imgClr= '#121212',txtClr='#121212') =>{
+        setImgColor(imgClr)
+        setTxtColor(txtClr)
+        
+    }
+
+
     const handleDrop = async (droppedItem) => {
         // Ignore drop outside droppable container
         if (!droppedItem.destination) return
@@ -99,7 +113,7 @@ export const StationDetails = () => {
     console.log('user', user);
     return (
         <section className="main-details-container">
-            <div className={station ? "station-details" : "station-details liked"}>
+            <div style={{backgroundColor: imgColor, color: txtColor}} className={station ? "station-details" : "station-details liked"}>
                 <StationHeaderDetails
                     station={station}
                     user={user}
@@ -107,6 +121,7 @@ export const StationDetails = () => {
                     onEditStation={onEditStation}
                     onCloseStation={onCloseStation}
                     isEditStation={isEditStation}
+                    getBgcImg={getBgcImg}
                 />
             </div>
             <div className="details-tool-bar">

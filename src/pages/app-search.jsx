@@ -68,6 +68,10 @@ export function AppSearch() {
     dispatch({ type: 'SET_CURRENTLY_PLAYING_SONG_IDX', songIdx: 0 })
   }
  
+const addToLikedPlaylist = () =>{
+
+}
+
   return (
     <div className="main-search-container">
       <div className='search-field'>

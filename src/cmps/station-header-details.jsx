@@ -1,21 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StationEditModal } from '../cmps/station-edit-modal'
 import { utilService } from '../services/util.service'
 import NewPlaylistDetailsSvg from './svg/new-playlist-details-svg'
+import { FastAverageColor } from 'fast-average-color';
+import { useEffect } from 'react';
 
-export function StationHeaderDetails({ station, onRemoveStation, onEditStation, isEditStation, onCloseStation, user }) {
 
+export function StationHeaderDetails({ station, onRemoveStation, onEditStation, isEditStation, onCloseStation, user,getBgcImg }) {
+    // const [imgColor,setImgColor] = useState('white')
     const getPlaylistDuration = () => {
         let sum = 0
         station.songs.forEach(song => sum += +song.songDuration)
         return utilService.setTimestampToTime(sum)
     }
+
+    useEffect(() =>{
+       
+    },[]) 
+        const fac = new FastAverageColor();
+        const container = document.querySelector('.img-container');
+
+        fac.getColorAsync(station?.createdBy?.imgUrl)
+            .then(color => {
+                // container.style.backgroundColor = color.rgba;
+                // container.style.color = color.isDark ? '#fff' : '#000';
+                const imgColor = color.rgba
+                const txtColor = color.isDark ? '#fff' : '#000'
+                getBgcImg(imgColor,txtColor)
+                console.log(txtColor);
+                console.log('Average color', color);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    
+
     console.log(station?.createdBy?.artistImg);
     return (
         <>
             <div className="img-container">
+
                 {!station?.createdBy?.imgUrl ? <div> <NewPlaylistDetailsSvg /> </div> :
-                    <img className="img-details" src={station?.createdBy?.imgUrl} />}
+                <img 
+                    className="img-details" src={station?.createdBy?.imgUrl} />}
 
             </div>
             <div className="details-container">
