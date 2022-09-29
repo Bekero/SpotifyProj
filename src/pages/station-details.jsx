@@ -16,13 +16,13 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { SearchList } from '../cmps/search-list'
 import { youtubeService } from '../services/youtube.service'
 import { AppSearch } from './app-search'
+import { socketService } from '../services/socket.service'
 
 export const StationDetails = () => {
     const user = useSelector(state => state.userModule.user)
     const currStation = useSelector(state => state.stationModule.currStation)
     const params = useParams()
     const [station, setStation] = useState(null)
-    const [itemList, setItemList] = useState(station?.songs);
     const [isEditStation, setEditStation] = useState(false)
     const [isDraggedItem, setIsDraggedItem] = useState(false)
     const navigate = useNavigate()
@@ -30,6 +30,15 @@ export const StationDetails = () => {
     const [imgColor, setImgColor] = useState('#121212')
     const [txtColor, setTxtColor] = useState('white')
 
+    useEffect(()=>{
+        socketService.on('update-station', (updatedStation)=>{
+            console.log('hello from socket', updatedStation)
+            updateLocalStation(updatedStation)
+        })
+        return () => {
+            socketService.off('update-station', updateLocalStation)
+        }
+    },[])
     useEffect(() => {
         if (params.stationId) {
             loadStation()
@@ -38,7 +47,16 @@ export const StationDetails = () => {
             }
         }
         else if (!params.stationId) return
-    }, [params.stationId, isDraggedItem])
+        socketService.emit('curr-visited-station', params.stationId)
+        
+    }, [params.stationId])
+
+    function updateLocalStation(updatedStation) {
+        setStation(updatedStation)
+    }
+    // useEffect(()=>{
+
+    // },[isDraggedItem])
 
     const onRemoveStation = async (stationId) => {
         // ev.stopPropagation()
@@ -62,7 +80,6 @@ export const StationDetails = () => {
         try {
             const station = await stationService.getById(stationId)
             setStation(station)
-            setItemList(station?.songs)
             if(!currStation){
                 dispatch(setCurrStation(stationId))
             }
@@ -107,15 +124,17 @@ export const StationDetails = () => {
     const handleDrop = async (droppedItem) => {
         // Ignore drop outside droppable container
         if (!droppedItem.destination) return
-        let updatedList = [...itemList]
+        let updatedList = [...station.songs]
         // Remove dragged item
         const [reorderedItem] = updatedList.splice(droppedItem.source.index, 1)
         // Add dropped item
         updatedList.splice(droppedItem.destination.index, 0, reorderedItem)
         // Update State
-        await setItemList(updatedList)
         const newStation = { ...station, songs: updatedList }
         await dispatch(updateStation(newStation))
+        await setStation(newStation)
+        socketService.emit('update-station' , newStation)
+        
         setIsDraggedItem(!isDraggedItem) // Rendering Station after dragging something...
         // dispatch({ type: 'SET_CURRENTLY_PLAYING_SONG_IDX', songIdx: droppedItem.destination.index })
     };
