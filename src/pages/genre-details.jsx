@@ -18,9 +18,10 @@ export function GenreDetails() {
     const loadStations = async () => {
         try {
             let newStations = await stationService.query()
+            if(params.genre.toUpperCase() === "All".toUpperCase()) return setStations(newStations)
             newStations = newStations.filter(station => {
                 for (let i = 0; i < station.tags.length; i++) {
-                    if (station.tags[i] === params.genre)
+                    if (station.tags[i].toUpperCase() === params.genre.toUpperCase())
                         return station
                 }
             })

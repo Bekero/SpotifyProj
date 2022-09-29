@@ -1,10 +1,10 @@
 import { StationPreview } from "./station-preview";
 
-export function StationList({ stations, user }) {
+export function StationList({ stations, user, header }) {
   const path = window.location.pathname
   return (
     <section className='station-list-main-container'>
-      {path === '/' && <h1> Good afternoon</h1>}
+      {path === '/' && <h1>{header}</h1>}
       <div className={`station-list-container ${path === '/' && 'height overflowY'}`}>
         {stations.map(station => {
           if (path === '/collection/playlist') {

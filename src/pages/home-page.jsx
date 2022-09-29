@@ -6,32 +6,68 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export function HomePage() {
-    const [stations, setStations] = useState(null)
+    const [hardCodedStations, setHardCodedStations] = useState(null)
+    const [bestOfStations, setBestOfStations] = useState(null)
+    const [divaStations, setDivaStations] = useState(null)
 
     // const notify = () => toast("Hola Ninio");
     useEffect(() => {
-        loadStations()
+        loadHardCodedStations()
+        loadBestOfStations()
+        loadDivaStations()
     }, [])
 
-    const loadStations = async () => {
+    const loadHardCodedStations = async () => {
         try {
             let newStations = await stationService.query()
             newStations = newStations.filter(station => {
                 for (let i = 0; i < station?.tags?.length; i++) {
-                    if (station.tags[i] === 'HardCoded')
+                    if (station.tags[i].toUpperCase() === 'HardCoded'.toUpperCase())
                         return station
                 }
             })
-            setStations(newStations)
+            setHardCodedStations(newStations)
         } catch (err) {
             console.log('Cannot get stations :', err)
         }
     }
-    if (!stations) return
+
+    const loadBestOfStations = async () => {
+        try {
+            let newStations = await stationService.query()
+            newStations = newStations.filter(station => {
+                for (let i = 0; i < station?.tags?.length; i++) {
+                    if (station.tags[i].toUpperCase() === 'BestOf'.toUpperCase())
+                        return station
+                }
+            })
+            setBestOfStations(newStations)
+        } catch (err) {
+            console.log('Cannot get stations :', err)
+        }
+    }
+    const loadDivaStations = async () => {
+        try {
+            let newStations = await stationService.query()
+            newStations = newStations.filter(station => {
+                for (let i = 0; i < station?.tags?.length; i++) {
+                    if (station.tags[i].toUpperCase() === 'Diva'.toUpperCase())
+                        return station
+                }
+            })
+            setDivaStations(newStations)
+        } catch (err) {
+            console.log('Cannot get stations :', err)
+        }
+    }
+
+    if (!hardCodedStations || !bestOfStations || !divaStations) return
     return (
         <div className="app-home main-view">
 
-            <StationList stations={stations} />
+            <StationList stations={hardCodedStations} header={'Good afternoon'} />
+            <StationList stations={bestOfStations} header={'Best of'} />
+            <StationList stations={divaStations} header={'More of Divas'} />
             <div className="toast-container">
                 <ToastContainer
                     position="bottom-center"

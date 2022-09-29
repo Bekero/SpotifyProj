@@ -49,17 +49,18 @@ async function save(station) {
     let user = userService.getLoggedinUser()
     if (station._id) {
         savedStation = await httpService.put(BASE_URL + station._id, station)
-        console.log(savedStation)
         // * The problomis here after the DB Saving its just makes an array and saves it to the DB and also to the action!
         // stationChannel.postMessage(getActionUpdateStation(savedStation))
     } else {
         if (user) {
             user.artistImg = ''
+            if(!user.fullname){
+                user.fullname = 'Guest'
+            }
             station.createdBy = user
         }
         const status = await httpService.post(BASE_URL, station)
         savedStation = {...station, _id: status.insertedId}
-        console.log(savedStation)
         // stationChannel.postMessage(getActionAddStation(savedStation))
     }
     return savedStation
@@ -206,7 +207,7 @@ function getEmptyStation() {
         createdBy: {
             // username: null,
             _id: user?._id,
-            fullname: null,
+            fullname: user?.fullname || 'Guest',
             // isMyStation: true
             artistImg: ''
         }

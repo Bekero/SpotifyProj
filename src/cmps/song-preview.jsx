@@ -28,7 +28,6 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
     //     await dispatch(setIsPlayingSong(false))
     //     setPlay(false)
     // }
-    console.log('Hey yarin')
 
     function isSongLiked(songId) {
         if (!user) return false
