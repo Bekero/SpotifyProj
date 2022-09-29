@@ -37,7 +37,7 @@ export function addLikedSong(song) {
         await dispatch(action)
         if (user?.username) {
             user = getState().userModule.user
-            console.log('user :', user)
+            ('user :', user)
             userService.update(user)
         }
         // TODO: Add song to user's liked song array

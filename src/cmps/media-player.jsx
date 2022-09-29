@@ -195,7 +195,7 @@ export function MediaPlayer() {
             <div className='flex'>
 
                 <div className='media-player-video-desc-img-holder'>
-                    <img style={{ visibility: !condition ? "hidden" : "initial" }} src={condition ? currStation.createdBy.artistImg : ''} alt="" />
+                    <img style={{ visibility: !condition ? "hidden" : "initial" }} src={condition ? currStation.songs[songIdx].imgUrl : ''} alt="" />
                 </div>
                 <div className='media-player-video-desc-name'>
                     {getSong()?.title && <div className='media-title'>{getSong()?.title}</div>}

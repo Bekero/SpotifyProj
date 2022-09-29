@@ -85,7 +85,6 @@ export const StationDetails = () => {
     }
 
     const getBgcImg = (imgClr = '#121212', txtClr = '#121212') => {
-        console.log(imgClr, txtClr);
         setImgColor(imgClr)
         setTxtColor(txtClr)
     }
