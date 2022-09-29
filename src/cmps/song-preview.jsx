@@ -28,6 +28,7 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
     //     await dispatch(setIsPlayingSong(false))
     //     setPlay(false)
     // }
+    console.log('Hey yarin')
 
     function isSongLiked(songId) {
         if (!user) return false
@@ -56,7 +57,7 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
                         </div>
                         <div className='song-list-title-container'>
                             <div className='song-list-title-img-container'>
-                                <img className="song-img" src={`${currSong.imgUrl}`} />
+                                <img className="song-img" src={`${currSong?.imgUrl}`} />
                             </div>
                             <div className='song-list-title'>
                                 <div className="song-title">{currSong.title}</div>
@@ -66,10 +67,14 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
                         <div className='date-added'>
                             <span>{new Date(+currSong?.addedAt).toLocaleDateString()}</span>
                         </div>
-                        <div className="opts-menu-section">
+                        <div className="opts-menu-section flex align-center justify-center">
                             <button onClick={() => addToLikedPlaylist(currSong)} className={isSongLiked(currSong.id) ? "is-liked-song-preview" : "like-song-preview"}>{isSongLiked(currSong.id) ? <FilledLikeToolBar /> : <UnfilledLikeToolBar />}</button>
                             <div className="song-duration-container">{utilService.setTimestampToTime(currSong.songDuration)}</div>
+<<<<<<< HEAD
                             <button onClick={(ev) => addToPlaylist(ev, currSong)} className="add-to-playlist-btn" >+</button>
+=======
+                            <button onClick={(ev) => addToPlaylist(ev, currSong)} className="add1-to-playlist-btn" >Add</button>
+>>>>>>> a79c79df3f3f36908a1f4ad40b2ecb8f907ad480
                             {/* <button onClick={(ev) => addToPlaylist(ev, currSong)} className="add-to-playlist-btn" ><OptsSvg /></button> */}
                         </div>
                     </div>

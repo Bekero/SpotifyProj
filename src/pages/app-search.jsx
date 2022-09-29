@@ -10,6 +10,7 @@ import { systemReducer } from "../store/system.reducer"
 
 import { StationListContainer } from "../cmps/station-list-container";
 import { addSongToMyPlaylist } from "../store/station.actions";
+import { utilService } from "../services/util.service";
 
 export function AppSearch({ addSongToPlaylist }) {
 
@@ -70,6 +71,7 @@ export function AppSearch({ addSongToPlaylist }) {
 
   const loadStations = async (filterBy) => {
     try {
+      await utilService.delay(600)
       let filteredStations = await stationService.query(filterBy)
       setStations(filteredStations)
     } catch (err) {

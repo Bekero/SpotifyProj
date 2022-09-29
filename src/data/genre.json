@@ -38,5 +38,75 @@
     "_id": "g108",
     "genre": "Anime",
     "color": "rgb(156, 240, 225)"
+  },
+  {
+    "_id": "g109",
+    "genre": "Funny",
+    "color": "rgb(186, 93, 7)"
+  },
+  {
+    "_id": "g110",
+    "genre": "Metal",
+    "color": "rgb(186, 93, 7)"
+  },
+  {
+    "_id": "g111",
+    "genre": "Hard",
+    "color": "rgb(119, 119, 119)"
+  },
+  {
+    "_id": "g112",
+    "genre": "Soft",
+    "color": "rgb(71, 125, 149)"
+  },
+  {
+    "_id": "g113",
+    "genre": "Gaming",
+    "color": "rgb(232, 17, 91)"
+  },
+  {
+    "_id": "g114",
+    "genre": "Hebrew",
+    "color": "rgb(13, 115, 236)"
+  },
+  {
+    "_id": "g115",
+    "genre": "Light",
+    "color": "rgb(156, 240, 225)"
+  },
+  {
+    "_id": "g116",
+    "genre": "BestOf",
+    "color": "rgb(255, 70, 50)"
+  },
+  {
+    "_id": "g117",
+    "genre": "MostLiked",
+    "color": "rgb(71, 125, 149)"
+  },
+  {
+    "_id": "g118",
+    "genre": "Loud",
+    "color": "rgb(80, 55, 80)"
+  },
+  {
+    "_id": "g119",
+    "genre": "Mizrahit",
+    "color": "rgb(215, 242, 125)"
+  },
+  {
+    "_id": "g120",
+    "genre": "Amami",
+    "color": "rgb(119, 119, 119)"
+  },
+  {
+    "_id": "g121",
+    "genre": "OldSchool",
+    "color": "rgb(13, 115, 236)"
+  },
+  {
+    "_id": "g122",
+    "genre": "Party",
+    "color": "rgb(20, 138, 8)"
   }
 ]

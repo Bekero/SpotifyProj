@@ -1,7 +1,7 @@
 .main-details-container {
 
-    .details-container-btn{
-        >button{
+    .details-container-btn {
+        >button {
 
             padding-block: 3px;
             padding-inline: 15px;
@@ -169,7 +169,7 @@
 
         .details-head-lines {
             display: grid;
-            grid-template-columns: 16px 4fr 2fr minmax(130px, 0fr);
+            grid-template-columns: 16px 4fr 2fr minmax(180px, 0fr);
             justify-items: flex-start;
             align-items: center;
             grid-gap: 16px;
@@ -191,7 +191,7 @@
 
         .song-preview {
             display: grid;
-            grid-template-columns: 16px 4fr 2fr minmax(130px, 0fr);
+            grid-template-columns: 16px 4fr 2fr minmax(180px, 0fr);
             justify-items: center;
             align-items: center;
             grid-gap: 16px;
@@ -219,9 +219,7 @@
                         visibility: visible;
                     }
 
-
-
-                    .add-to-playlist-btn {
+                    .add1-to-playlist-btn {
                         visibility: visible;
                     }
                 }
@@ -363,35 +361,38 @@
 
             .opts-menu-section {
                 display: grid;
+                gap: 10px;
                 align-items: center;
-                grid-template-columns: 32px 1fr 32px;
+                grid-template-columns: 50px 1fr 50px;
                 justify-self: end;
-                width: 100%;
+                width: 100%;            
 
                 .song-duration-container {
                     color: $sec-txt-clr;
                     text-align: center;
                 }
 
-                button {
-                    background-color: rgba(245, 222, 179, 0);
-                    border: none;
+                // button {
+                //     background-color: rgba(245, 222, 179, 0);
+                //     border: none;
+                // }
 
-                }
 
                 svg {
                     width: 16px;
                     height: 16px;
                 }
 
-                .add-to-playlist-btn {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
+                .add1-to-playlist-btn {
+                    padding-block: 4px;
                     visibility: hidden;
-                    background-color: rgba(0, 0, 0, 0);
-
-                    
+                    border: 1px solid var(--essential-subdued, #878787);
+                    color: #fff;
+                    transition-property: background-color, border-color, color, box-shadow, filter, transform;
+                    background-color: transparent;
+                    border-radius: 500px;
+                    font-size: 0.8125rem;
+                    font-weight: 700;
 
                     svg {
                         width: 16px;
@@ -402,15 +403,19 @@
                 .like-song-preview {
                     visibility: hidden;
                     width: 16px;
+                    justify-self: center;
                     height: 16px;
                     background-color: rgba(0, 0, 0, 0);
+                    border: none;    
                 }
 
                 .is-liked-song-preview {
                     visibility: visible;
                     width: 16px;
+                    justify-self: center;
                     height: 16px;
                     background-color: rgba(0, 0, 0, 0);
+                    border: none;                
 
                     svg {
                         width: 16px;
@@ -419,11 +424,11 @@
                         fill: $fill-svg-clr;
                     }
                 }
-
             }
         }
     }
 }
+
 
 .play-song-tool-bar {
     display: flex;
