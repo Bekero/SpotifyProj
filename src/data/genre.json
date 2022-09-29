@@ -1,6 +1,12 @@
 [
   
   {
+    "_id": "ga101",
+    "genre": "Made For You",
+    "genreImg": "https://t.scdn.co/images/ea364e99656e46a096ea1df50f581efe",
+    "color": "rgb(30, 50, 100)"
+  },
+  {
     "_id": "g100",
     "genre": "All",
     "color": "rgb(30, 50, 100)"

@@ -205,11 +205,11 @@
 
                 .song-number-play {
                     .song-index {
-                        visibility: hidden;
+                        display: none;
                     }
 
                     .play-song-preview {
-                        visibility: visible;
+                        display: block;
                     }
                 }
 
@@ -261,11 +261,11 @@
                 }
 
                 .song-index {
-                    visibility: visible;
+                    display: block;
                 }
 
                 .play-song-preview {
-                    visibility: hidden;
+                    display: none;
                     color: #fff;
 
                     button {

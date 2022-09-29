@@ -97,9 +97,10 @@ export function AppSearch({ addSongToPlaylist }) {
         />
       </div>
       <SearchList addSongToPlaylist={addSongToPlaylist} addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} songDetails={songDetails} songDuration={songDuration} />
-      <div className='ui celled list'></div>
+      {/* <div className='ui celled list'></div> */}
+      <></>
       {stations && <StationList stations={stations} />}
-      {path === '/search' && <StationListContainer />}
+        {path === '/search' && <StationListContainer />}
     </div>
   );
 }
