@@ -69,7 +69,7 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
                         <div className="opts-menu-section">
                             <button onClick={() => addToLikedPlaylist(currSong)} className={isSongLiked(currSong.id) ? "is-liked-song-preview" : "like-song-preview"}>{isSongLiked(currSong.id) ? <FilledLikeToolBar /> : <UnfilledLikeToolBar />}</button>
                             <div className="song-duration-container">{utilService.setTimestampToTime(currSong.songDuration)}</div>
-                            <button onClick={(ev) => addToPlaylist(ev, currSong)} className="add-to-playlist-btn" ><FontAwesomeIcon icon="fa-duotone fa-plus-large" /></button>
+                            <button onClick={(ev) => addToPlaylist(ev, currSong)} className="add-to-playlist-btn" >+</button>
                             {/* <button onClick={(ev) => addToPlaylist(ev, currSong)} className="add-to-playlist-btn" ><OptsSvg /></button> */}
                         </div>
                     </div>
