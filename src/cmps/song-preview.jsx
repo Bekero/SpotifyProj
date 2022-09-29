@@ -8,7 +8,6 @@ import { useSelector, useDispatch } from "react-redux"
 import { useState } from "react"
 import { setCurrPlayingSongIdx, setIsPlayingSong, setNextPrevSong, setPlayer } from '../store/song.actions';
 import { utilService } from "../services/util.service"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export function SongPreview({ station, currSong, songIdx, currStation, playHover, playCurrUrl, addToLikedPlaylist, addToPlaylist, user }) {
     const dispatch = useDispatch()
@@ -60,7 +59,6 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
                             </div>
                             <div className='song-list-title'>
                                 <div className="song-title">{currSong.title}</div>
-                                {/* <div><FontAwesomeIcon icon="fa-duotone fa-plus" /></div> */}
                             </div>
                         </div>
                         <div className='date-added'>
@@ -69,8 +67,7 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
                         <div className="opts-menu-section flex align-center justify-center">
                             <button onClick={() => addToLikedPlaylist(currSong)} className={isSongLiked(currSong.id) ? "is-liked-song-preview" : "like-song-preview"}>{isSongLiked(currSong.id) ? <FilledLikeToolBar /> : <UnfilledLikeToolBar />}</button>
                             <div className="song-duration-container">{utilService.setTimestampToTime(currSong.songDuration)}</div>
-                            <button onClick={(ev) => addToPlaylist(ev, currSong)} className="add1-to-playlist-btn" >Add</button>
-                            {/* <button onClick={(ev) => addToPlaylist(ev, currSong)} className="add-to-playlist-btn" ><OptsSvg /></button> */}
+                            <button onClick={(ev) => addToPlaylist(ev, currSong)} className="add-to-playlist-btn" ><OptsSvg /></button>
                         </div>
                     </div>
                 )}

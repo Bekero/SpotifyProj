@@ -219,7 +219,7 @@
                         visibility: visible;
                     }
 
-                    .add1-to-playlist-btn {
+                    .add-to-playlist-btn {
                         visibility: visible;
                     }
                 }
@@ -365,7 +365,7 @@
                 align-items: center;
                 grid-template-columns: 50px 1fr 50px;
                 justify-self: end;
-                width: 100%;            
+                width: 100%;
 
                 .song-duration-container {
                     color: $sec-txt-clr;
@@ -383,16 +383,13 @@
                     height: 16px;
                 }
 
-                .add1-to-playlist-btn {
-                    padding-block: 4px;
+                .add-to-playlist-btn {
                     visibility: hidden;
-                    border: 1px solid var(--essential-subdued, #878787);
-                    color: #fff;
-                    transition-property: background-color, border-color, color, box-shadow, filter, transform;
-                    background-color: transparent;
-                    border-radius: 500px;
-                    font-size: 0.8125rem;
-                    font-weight: 700;
+                    width: 16px;
+                    justify-self: center;
+                    height: 16px;
+                    background-color: rgba(0, 0, 0, 0);
+                    border: none;
 
                     svg {
                         width: 16px;
@@ -406,7 +403,7 @@
                     justify-self: center;
                     height: 16px;
                     background-color: rgba(0, 0, 0, 0);
-                    border: none;    
+                    border: none;
                 }
 
                 .is-liked-song-preview {
@@ -415,7 +412,7 @@
                     justify-self: center;
                     height: 16px;
                     background-color: rgba(0, 0, 0, 0);
-                    border: none;                
+                    border: none;
 
                     svg {
                         width: 16px;
