@@ -24,23 +24,26 @@ body {
 }
 
 input[type='range'] {
-    overflow: hidden;
-    width: 80px;
+    // overflow: hidden;
+    width: 20px;
     -webkit-appearance: none;
     height: 4px;
     background-color: #b3b3b3;
 }
 
 input[type='range']:hover::-webkit-slider-thumb {
-    box-shadow: -1200px 0 0 1200px #1db954;
+    // box-shadow: -20px 0 0 20px #1db954;
+    // background: green;
 }
 
+
+
 input[type='range']::-webkit-slider-thumb {
-    box-shadow: -1200px 0 0 1200px #fff;
+    // box-shadow: -1200px 0 0 1200px #fff;
     // -webkit-appearance: none;
     // appearance: none;
-    width: 12px;
-    height: 12px;
+    // width: 12px;
+    // height: 12px;
     border-radius: 50%;
     background: #fff;
     cursor: pointer;
@@ -79,3 +82,126 @@ p {
 // a:hover {}
 
 // a:focus {}
+
+::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+}
+
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(255, 255, 255, 0.3);
+    border: 0px none #ffffff;
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgb(255, 255, 255, 0.65);
+}
+
+::-webkit-scrollbar-track {
+    background: #c3888800;
+    border: 0px dotted #ffffff;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: #654da800;
+}
+
+::-webkit-scrollbar-track:active {
+    background: #20644e00;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+input[type=range] {
+    // -webkit-appearance: none;
+    /* Hides the slider so that custom slider can be made */
+
+    width: 100%;
+    /* Specific width is required for Firefox. */
+    // background: transparent;
+    /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+    // -webkit-appearance: none;
+    box-shadow: -1200px 0 0 1200px #fff;
+}
+
+input[type=range]:focus {
+    outline: none;
+    /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+
+    /* Hides the slider so custom styles can be added */
+    // background: transparent;
+    // border-color: transparent;
+    // color: transparent;
+}
+
+// input[type=range]::-webkit-slider-thumb {
+//     -webkit-appearance: none;
+//     // border: 1px solid #000000;
+//     height: 36px;
+//     width: 16px;
+//     border-radius: 3px;
+//     background: #ffffff;
+//     cursor: pointer;
+//     margin-top: -14px;
+//     /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+//     // box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+//     box-shadow: -1200px 0 0 1200px #fff;
+//     /* Add cool effects to your sliders! */
+// }
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background: #ffffff;
+    cursor: pointer;
+    margin-top: -6px;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.9);
+    /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    /*box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+}

@@ -6,9 +6,12 @@ import likedStationImg from '../assets/img/like-station-details.png'
 import { FastAverageColor } from 'fast-average-color';
 import { useEffect } from 'react';
 import { uploadService } from '../services/upload.service';
+import { useDispatch } from 'react-redux'
+import { updateStation } from '../store/station.actions'
 
-export function StationHeaderDetails({ station, onRemoveStation, onEditStation, isEditStation, onCloseStation, user, getBgcImg }) {
+export function StationHeaderDetails({ station, updateLocalStation,onRemoveStation, onEditStation, isEditStation, onCloseStation, user, getBgcImg }) {
     // const [imgColor,setImgColor] = useState('white')
+    const dispatch = useDispatch()
     const getPlaylistDuration = () => {
         let sum = 0
         station.songs.forEach(song => sum += +song.songDuration)
@@ -34,24 +37,26 @@ export function StationHeaderDetails({ station, onRemoveStation, onEditStation, 
         });
 
     const onUploadImg = async (ev) => {
-        console.log(ev.target.value);
-        console.log(ev.target);
-        // addEventListener('load')
-        // const reader = new FileReader()
-        // console.log('reader', reader);
-        // const res = uploadService.uploadImg(ev)
-        // console.log('res', res);
+        if(!ev.target.value) return
+        const { url } = await uploadService.uploadImg(ev)
+        const newStation = {...station, createdBy: {...station.createdBy, imgUrl: url}}
+        await dispatch(updateStation(newStation))
+        updateLocalStation(newStation)
     }
 
     return (
         <>
             <div className="img-container">
+                    <label>
+                    <input type="file" onInput={onUploadImg} />
+                    </label>
                 {station ? <div>
                     {station?.createdBy?.imgUrl ? <img className="img-details" src={station?.createdBy?.imgUrl} /> :
                         <div><NewPlaylistDetailsSvg /></div>
                     } </div>
                     :
-                    <div><img src={likedStationImg} /></div>
+                    <div><img src={likedStationImg} />
+                    </div>
                 }
             </div>
             <div className="details-container">
@@ -59,7 +64,7 @@ export function StationHeaderDetails({ station, onRemoveStation, onEditStation, 
                 <h3 className="album-name">{station ? station.name : 'Liked Songs'}</h3>
                 <div className="creator">
                     {station && <img className="artist-img-details" src={station?.createdBy?.artistImg !== '' ? station?.createdBy?.artistImg : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png"} alt="" />}
-                    {station && <h3>{station?.createdBy?.fullname} | {station?.songs?.length} Songs, <span>Playlist duraion: {getPlaylistDuration()} </span></h3>}</div>
+                    {station && <h3>{station?.createdBy?.fullname} | {station?.songs?.length} Songs, <span>Playlist duration: {getPlaylistDuration()} </span></h3>}</div>
             </div>
             {station ? <div>
                 {user && station?.createdBy?._id === user?._id &&

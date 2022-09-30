@@ -1,31 +1,26 @@
 .song-list-opts-menu {
-    background-color: #282828;
     z-index: 9999;
+    padding: 4px;
+    background-color: #282828;
+    border-radius: 6px;
     position: absolute;
+    max-width: 350px;
+    min-width: 160px;
+    overflow-y: auto;
     inset: 0px 0px auto auto;
     margin: 0px;
     list-style: none;
+    cursor: default;
 
-
-
-
-
-    .add-to-playlist-modal {
-        >* {
-            background-color: wheat;
-            position: absolute;
-        }
-
-        >* {
-
-            &:hover {
-                background-color: $sec-clr;
-            }
+    .add-to-playlist-section {
+        svg {
+            transform: rotate(270deg);
         }
     }
 
-    >*>* {
+    >* {
         background-color: #282828;
+        padding: 12px;
         list-style: none;
 
         &:hover {
@@ -34,29 +29,30 @@
     }
 }
 
-// .add-to-playlist-modal {
-//     background-color: #282828;
-//     display: flex;
-//     align-items: center;
-//     position: relative;
-//     width: 136px;
-//     z-index: 10;
-//     flex-direction: column;
-//     list-style: none;
-//     padding: 0;
+.add-to-playlist-modal {
+    z-index: 9999;
+    padding: 4px;
+    background-color: #282828;
+    border-radius: 4px;
+    position: absolute;
+    max-width: 350px;
+    min-width: 160px;
+    overflow-y: auto;
+    inset: 0px 0px auto auto;
+    margin: 0px;
+    list-style: none;
+    border: none;
+    max-height: 500px;
+    cursor: default;
 
-//     .song-list-title-container {
-//         display: flex;
-//         // columns: 2;
-//         flex-direction: column;
-//     }
+    >* {
+        padding: 12px;
+    }
 
+    >* {
 
-//     >* {
-
-
-//         &:hover {
-//             background-color: $sec-clr;
-//         }
-//     }
-// }
+        &:hover {
+            background-color: $sec-clr;
+        }
+    }
+}

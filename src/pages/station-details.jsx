@@ -19,26 +19,29 @@ import { AppSearch } from './app-search'
 import { socketService } from '../services/socket.service'
 
 export const StationDetails = () => {
+
     const user = useSelector(state => state.userModule.user)
     const currStation = useSelector(state => state.stationModule.currStation)
+
     const params = useParams()
-    const [station, setStation] = useState(null)
-    const [isEditStation, setEditStation] = useState(false)
-    const [isDraggedItem, setIsDraggedItem] = useState(false)
+
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const [imgColor, setImgColor] = useState('#121212')
-    const [txtColor, setTxtColor] = useState('white')
 
-    useEffect(()=>{
-        socketService.on('update-station', (updatedStation)=>{
-            console.log('hello from socket', updatedStation)
+    const [station, setStation] = useState(null)
+    const [txtColor, setTxtColor] = useState('white')
+    const [imgColor, setImgColor] = useState('#121212')
+    const [isEditStation, setEditStation] = useState(false)
+    const [isDraggedItem, setIsDraggedItem] = useState(false)
+
+    useEffect(() => {
+        socketService.on('update-station', (updatedStation) => {
             updateLocalStation(updatedStation)
         })
         return () => {
             socketService.off('update-station', updateLocalStation)
         }
-    },[])
+    }, [])
     useEffect(() => {
         if (params.stationId) {
             loadStation()
@@ -48,7 +51,7 @@ export const StationDetails = () => {
         }
         else if (!params.stationId) return
         socketService.emit('curr-visited-station', params.stationId)
-        
+
     }, [params.stationId])
 
     function updateLocalStation(updatedStation) {
@@ -80,7 +83,7 @@ export const StationDetails = () => {
         try {
             const station = await stationService.getById(stationId)
             setStation(station)
-            if(!currStation){
+            if (!currStation) {
                 dispatch(setCurrStation(stationId))
             }
         } catch (err) {
@@ -133,9 +136,9 @@ export const StationDetails = () => {
         const newStation = { ...station, songs: updatedList }
         await dispatch(updateStation(newStation))
         await setStation(newStation)
-        socketService.emit('update-station' , newStation)
-        
-        setIsDraggedItem(!isDraggedItem) 
+        socketService.emit('update-station', newStation)
+
+        setIsDraggedItem(!isDraggedItem)
         // Rendering Station after dragging something...
         // dispatch({ type: 'SET_CURRENTLY_PLAYING_SONG_IDX', songIdx: droppedItem.destination.index })
     };
@@ -145,6 +148,7 @@ export const StationDetails = () => {
         <section className="main-details-container">
             <div style={{ backgroundColor: imgColor, color: txtColor }} className={station ? "station-details" : "station-details liked"}>
                 <StationHeaderDetails
+                updateLocalStation={updateLocalStation}
                     station={station}
                     user={user}
                     onRemoveStation={onRemoveStation}

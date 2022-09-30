@@ -7,7 +7,7 @@ import { Draggable } from "react-beautiful-dnd"
 import { useSelector, useDispatch } from "react-redux"
 import { utilService } from "../services/util.service"
 
-export function SongPreview({ station, currSong, songIdx, currStation, playHover, playCurrUrl, addToLikedPlaylist, addToPlaylist, user }) {
+export function SongPreview({ station, currSong, songIdx, currStation, playHover, playCurrUrl, addToLikedPlaylist, openOptsModal, user }) {
 
     const isPlayingSong = useSelector(state => state.songModule.isPlayingSong)
 
@@ -57,7 +57,7 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
                         <div className="opts-menu-section flex align-center justify-center">
                             <button onClick={() => addToLikedPlaylist(currSong)} className={isSongLiked(currSong.id) ? "is-liked-song-preview" : "like-song-preview"}>{isSongLiked(currSong.id) ? <FilledLikeToolBar /> : <UnfilledLikeToolBar />}</button>
                             <div className="song-duration-container">{utilService.setTimestampToTime(currSong.songDuration)}</div>
-                            <button onClick={(ev) => addToPlaylist(ev, currSong)} className="add-to-playlist-btn" ><OptsSvg /></button>
+                            <button onClick={(ev) => openOptsModal(ev, currSong)} className="add-to-playlist-btn" ><OptsSvg /></button>
                         </div>
                     </div>
                 )}
