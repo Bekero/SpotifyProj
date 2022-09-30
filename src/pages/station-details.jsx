@@ -148,7 +148,7 @@ export const StationDetails = () => {
         <section className="main-details-container">
             <div style={{ backgroundColor: imgColor, color: txtColor }} className={station ? "station-details" : "station-details liked"}>
                 <StationHeaderDetails
-                updateLocalStation={updateLocalStation}
+                    updateLocalStation={updateLocalStation}
                     station={station}
                     user={user}
                     onRemoveStation={onRemoveStation}

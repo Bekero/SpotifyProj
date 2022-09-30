@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react'
-import { loadStations, addSongToMyPlaylist } from '../store/station.actions'
+import { loadStations, addSongToMyPlaylist, removeSongFromMyPlaylist } from '../store/station.actions'
 import { SongPreview } from './song-preview'
 import { addLikedSong, removeLikedSong } from '../store/user.actions'
 import ArrowInOptsMenu from './svg/arrow-in-opts-menu'
@@ -24,7 +24,6 @@ export const SongList = ({ station, playCurrUrl, user }) => {
     }, [])
 
     const addToPlaylist = (diff) => {
-        console.log('addToPlaylistModal :', addToPlaylistModal)
         setAddToPlaylistModal(diff)
     }
 
@@ -37,9 +36,16 @@ export const SongList = ({ station, playCurrUrl, user }) => {
         setOpenModal(true)
     }
 
-    const setAllOptsMenu = (diff) => {
-        setOpenModal(diff)
-        setAddToPlaylistModal(diff)
+    // const setAllOptsMenu = (diff) => {
+    //     setOpenModal(diff)
+    //     setAddToPlaylistModal(diff)
+    // }
+
+    const removeFromPlaylist = () => {
+        //Its not re-renders
+        setOpenModal(false)
+        setAddToPlaylistModal(false)
+        dispatch(removeSongFromMyPlaylist(wantedSong, station._id))
     }
 
     const addToLikedPlaylist = (wantedSong) => {
@@ -64,31 +70,22 @@ export const SongList = ({ station, playCurrUrl, user }) => {
     let currStation = station ? station.songs : user.likedSongs
     if (!currStation) return <></>
     return <div>
-        {openModal && <OptsMenu
-            addToPlaylistModal={addToPlaylistModal}
-            modalPos={modalPos}
-            addToPlaylist={addToPlaylist}
-            ArrowInOptsMenu={ArrowInOptsMenu}
-            myStations={myStations}
-            onAddToMyPlaylist={onAddToMyPlaylist}
-        />}
-
-        {/* <ul className="add-to-playlist-modal" style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }}>
-            {addToPlaylistModal &&
-                myStations.map((station, myPlaylistIdx) =>
-                    <div key={myPlaylistIdx}>
-                        <li onClick={(ev) => onAddToMyPlaylist(myPlaylistIdx)}>Add to {station.name}</li>
-                    </div>)}
-        </ul> */}
-        {/* {openModal && <ul onMouseLeave={() => setOpenModal(false)} style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }} className="song-list-opts-menu">
-            {myStations.map((station, myPlaylistIdx) =>
-                <div key={myPlaylistIdx}>
-                    <li onClick={(ev) => onAddToMyPlaylist(myPlaylistIdx)}>Add to {station.name}</li>
-                </div>)}
-        </ul>} */}
-        {/* Map to preview */}
+        {
+            openModal && <OptsMenu
+                station={station}
+                currStation={currStation}
+                addToPlaylistModal={addToPlaylistModal}
+                modalPos={modalPos}
+                addToPlaylist={addToPlaylist}
+                ArrowInOptsMenu={ArrowInOptsMenu}
+                removeFromPlaylist={removeFromPlaylist}
+                myStations={myStations}
+                onAddToMyPlaylist={onAddToMyPlaylist}
+            />
+        }
         {
             currStation.map((currSong, songIdx) => {
+                {/* Map to preview */ }
                 return <SongPreview
                     key={currSong.id}
                     user={user}

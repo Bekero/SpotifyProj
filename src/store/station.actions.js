@@ -88,7 +88,6 @@ export function removeStation(stationId) {
     }
 }
 
-
 export function addStation(currStation) {
 
     return async (dispatch, getState) => {
@@ -110,6 +109,18 @@ export function addStation(currStation) {
             showErrorMsg('Cannot add station')
             console.log('Cannot add station', err)
         }
+    }
+}
+
+export function removeSongFromMyPlaylist(wantedSong, myPlaylistId) {
+    return async (dispatch, getState) => {
+        let stations = getState().stationModule.stations
+        let wantedStation = stations.find(station => station._id === myPlaylistId)
+        let wantedSongIdx = wantedStation.songs.findIndex(song => song.id === wantedSong.id)
+        wantedStation.songs.splice(wantedSongIdx, 1)
+        const updatedStation = await stationService.save(wantedStation)
+        const action = { type: 'UPDATE_STATION', updatedStation }
+        dispatch(action)
     }
 }
 
