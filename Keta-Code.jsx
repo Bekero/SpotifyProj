@@ -1,26 +1,22 @@
-const onPlayVideo = async () => {
-    player.playVideo()
-    if (isPlayingSong) return
-    await dispatch(setIsPlayingSong(true))
-    setPlay(true)
-}
+// Keta code
 
-const onNextVideo = async () => {
-    await dispatch(setNextPrevSong(1))
+
+// Cmp
+const onChangeSong = async (diff) => {
+    await dispatch(changeSong(diff))
     setSongTimestamp(0)
 }
 
-const onPrevVideo = async () => {
-    await dispatch(setNextPrevSong(-1))
-    setSongTimestamp(0)
-}
-export function setNextPrevSong(diff) {
+// Action
+function changeSong(diff) {
     return (dispatch, getState) => {
         const currStation = getState().stationModule.currStation
         const action = { type: 'SET_NEXT_PREV_SONG', diff, currStation }
         dispatch(action)
     }
 }
+
+// Reducer
 switch (action.type) {
     case 'SET_NEXT_PREV_SONG':
         const { currStation } = action
@@ -34,3 +30,5 @@ switch (action.type) {
         break
     default:
 }
+
+

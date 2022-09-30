@@ -33,7 +33,7 @@ export function StationHeaderDetails({ station, updateLocalStation,onRemoveStati
             getBgcImg(imgColor, txtColor)
         })
         .catch(e => {
-            console.log(e);
+            // console.log(e);
         });
 
     const onUploadImg = async (ev) => {

@@ -3,6 +3,7 @@ const initialState = {
     likedSongsStation: null,
     currStation: null,
     lastRemovedStation: null,
+    playingStation: null,
 }
 
 export function stationReducer(state = initialState, action) {
@@ -19,6 +20,8 @@ export function stationReducer(state = initialState, action) {
         case 'SET_CURR_STATION':
             newState = { ...state, currStation: action.station }
             break
+        case 'SET_PLAYING_STATION':
+            return { ...state, playingStation: action.station }
         case 'REMOVE_STATION':
             const lastRemovedStation = state.stations.find(station => station._id === action.stationId)
             newStations = state.stations.filter(station => station._id !== action.stationId)

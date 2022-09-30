@@ -73,6 +73,16 @@ export function setCurrStation(stationId) {
         }
     }
 }
+export function setCurrPlayingStation(station) {
+    return async (dispatch) => {
+        try {
+            const action = { type: 'SET_PLAYING_STATION', station }
+            dispatch(action)
+        } catch (err) {
+            console.log('Cannot find currently station', err)
+        }
+    }
+}
 
 export function removeStation(stationId) {
     return async (dispatch) => {
@@ -104,6 +114,7 @@ export function addStation(currStation) {
             const action = { type: 'ADD_STATION', savedStation }
             dispatch(action)
             showSuccessMsg('Station added')
+            return savedStation
         }
         catch (err) {
             showErrorMsg('Cannot add station')
@@ -129,16 +140,16 @@ export function addSongToMyPlaylist(wantedSong, myPlaylistId) {
         console.log('myPlaylistId', myPlaylistId);
         let stations = getState().stationModule.stations
         let currStation = getState().stationModule.currStation
-        let myStation
-        if (!myPlaylistId) {
-            myStation = currStation
-        } else {
-            myStation = stations.find(station => station._id === myPlaylistId)
-        }
+        const myStation = stations.find(station => station._id === myPlaylistId)
+
+        // if (!myPlaylistId) {
+            // myStation = currStation
+        // } else {
+        // }
+        console.log(myStation)
         let checkIfLikedSongExist = myStation.songs.find(song => song.id === wantedSong.id)
         if (checkIfLikedSongExist) return
         myStation.songs.push(wantedSong)
-        console.log(myStation);
         const updatedStation = await stationService.save(myStation)
         const action = { type: 'UPDATE_STATION', updatedStation }
         dispatch(action)
