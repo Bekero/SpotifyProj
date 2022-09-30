@@ -21,9 +21,9 @@ export function StationPreview({ station }) {
     }
 
     const onSetCurrStation = async () => {
-        if (!currStation) {
-            await dispatch(setCurrStation(station._id))
-        }
+        // if (!currStation) {
+            // await dispatch(setCurrStation(station._id))
+        // }
         navigate(`/playlist/${station._id}`)
     }
 

@@ -2,7 +2,7 @@ import YouTube, { YouTubeProps } from 'react-youtube';
 import { useEffect, useRef, useState } from 'react'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setCurrPlayingSongIdx, setIsPlayingSong, setNextPrevSong, setPlayer } from '../store/song.actions';
+import { setCurrPlayingSongIdx, setIsPlayingSong, changeSong, setPlayer } from '../store/song.actions';
 // import play from '../assets/img/play.png'
 // import stop from '../assets/img/stop.png'
 // import stop from '../assets/img/stop-song.svg'
@@ -96,9 +96,9 @@ export function MediaPlayer() {
             return
         }
         if (!repeatSong) {
-            onNextVideo()
+            onChangeSong(1)
         } else {
-            await dispatch(setNextPrevSong(0))
+            await dispatch(changeSong(0))
             onSetTimestamp(0)
         }
         onPlayVideo()
@@ -125,13 +125,8 @@ export function MediaPlayer() {
         setPlay(true)
     }
 
-    const onNextVideo = async () => {
-        await dispatch(setNextPrevSong(1))
-        setSongTimestamp(0)
-    }
-    
-    const onPrevVideo = async () => {
-        await dispatch(setNextPrevSong(-1))
+    const onChangeSong = async (diff) => {
+        await dispatch(changeSong(diff))
         setSongTimestamp(0)
     }
 
@@ -212,12 +207,12 @@ export function MediaPlayer() {
                 <div className='player-control-left'>
                     <button disabled={getSong()?.url ? false : true} onClick={onShuffle}><Shuffle isShuffleSong={isShuffleSong} /></button>
                     {/* <button disabled={getSong()?.url ? false : true} onClick={() => onIncreaseDecreaseTenSeconds(-5)}>-5</button> */}
-                    <button disabled={getSong()?.url ? false : true} onClick={onPrevVideo}><Prev /></button>
+                    <button disabled={getSong()?.url ? false : true} onClick={() => onChangeSong(-1)}><Prev /></button>
                 </div>
                 {(isPlayingSong) ? <button className='media-player-play-stop-btn' disabled={getSong()?.url ? false : true} onClick={onPauseVideo}><Stop /></button> :
                     <button className='media-player-play-stop-btn' disabled={getSong()?.url ? false : true} onClick={onPlayVideo}><Play /></button>}
                 <div className='player-control-right'>
-                    <button disabled={getSong()?.url ? false : true} onClick={onNextVideo}><Next /></button>
+                    <button disabled={getSong()?.url ? false : true} onClick={() => onChangeSong(1)}><Next /></button>
                     {/* <button disabled={getSong()?.url ? false : true} onClick={() => onIncreaseDecreaseTenSeconds(5)}>+5</button> */}
                     <button disabled={getSong()?.url ? false : true} onClick={onRepeat}><Repeat repeatSong={repeatSong} /></button>
                 </div>

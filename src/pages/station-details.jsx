@@ -44,6 +44,7 @@ export const StationDetails = () => {
     }, [])
     useEffect(() => {
         if (params.stationId) {
+            console.log('Hekllo');
             loadStation()
             if (!user) {
                 dispatch(loadLikedSongs())
@@ -83,8 +84,10 @@ export const StationDetails = () => {
         try {
             const station = await stationService.getById(stationId)
             setStation(station)
+            console.log(currStation);
             if (!currStation) {
-                dispatch(setCurrStation(stationId))
+                console.log('inside if')
+                // dispatch(setCurrStation(stationId))
             }
         } catch (err) {
             console.log('Cannot get station :', err)
@@ -120,8 +123,10 @@ export const StationDetails = () => {
             songDuration: youtubeService.getSongDuration(song.contentDetails.duration),
             addedAt: Date.now()
         }
-        await dispatch(addSongToMyPlaylist(filteredSong))
-        loadStation()
+        await dispatch(addSongToMyPlaylist(filteredSong, station._id))
+        const updatedStation = {...station, songs: [...station.songs, filteredSong]}
+        setStation(updatedStation)
+        // loadStation()
     }
 
     const handleDrop = async (droppedItem) => {
