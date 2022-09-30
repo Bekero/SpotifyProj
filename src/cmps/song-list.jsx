@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react'
-import { loadStations, addSongToMyPlaylist, removeSongFromMyPlaylist } from '../store/station.actions'
+import { loadStations, addSongToMyPlaylist } from '../store/station.actions'
 import { SongPreview } from './song-preview'
 import { addLikedSong, removeLikedSong } from '../store/user.actions'
 import ArrowInOptsMenu from './svg/arrow-in-opts-menu'
 import { OptsMenu } from './opts-menu'
 // import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
-export const SongList = ({ station, playCurrUrl, user }) => {
+export const SongList = ({ station, playCurrUrl, user, removeFromPlaylist }) => {
     const dispatch = useDispatch()
 
     const [wantedSong, setWantedSong] = useState(null)
@@ -41,11 +41,15 @@ export const SongList = ({ station, playCurrUrl, user }) => {
     //     setAddToPlaylistModal(diff)
     // }
 
-    const removeFromPlaylist = () => {
+    const onRemoveFromPlaylist = () => {
         //Its not re-renders
+        console.log('I made it')
         setOpenModal(false)
         setAddToPlaylistModal(false)
-        dispatch(removeSongFromMyPlaylist(wantedSong, station._id))
+        removeFromPlaylist(wantedSong)
+        // dispatch(removeSongFromMyPlaylist(wantedSong, station._id))
+        // const updatedSongs = station.songs.filter(song => song.id !== wantedSong.id)
+        // const updatedStation = { ...station, songs: updatedSongs }
     }
 
     const addToLikedPlaylist = (wantedSong) => {
@@ -78,7 +82,7 @@ export const SongList = ({ station, playCurrUrl, user }) => {
                 modalPos={modalPos}
                 addToPlaylist={addToPlaylist}
                 ArrowInOptsMenu={ArrowInOptsMenu}
-                removeFromPlaylist={removeFromPlaylist}
+                onRemoveFromPlaylist={onRemoveFromPlaylist}
                 myStations={myStations}
                 onAddToMyPlaylist={onAddToMyPlaylist}
             />

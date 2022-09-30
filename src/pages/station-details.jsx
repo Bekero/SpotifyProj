@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { SongList } from '../cmps/song-list'
 import { stationService } from '../services/station.service'
-import { addSongToMyPlaylist, removeStation, setCurrStation, updateStation } from '../store/station.actions'
+import { addSongToMyPlaylist, removeStation, setCurrStation, updateStation, removeSongFromMyPlaylist } from '../store/station.actions'
 import { DetailsHeadLines } from '../cmps/details-head-lines'
 import { DetailsToolBar } from '../cmps/details-tool-bar'
 import { StationHeaderDetails } from '../cmps/station-header-details'
@@ -94,6 +94,17 @@ export const StationDetails = () => {
         }
     }
 
+
+
+    const removeFromPlaylist = (wantedSong) => {
+        //Its not re-renders
+        dispatch(removeSongFromMyPlaylist(wantedSong, station._id))
+        const updatedSongs = station.songs.filter(song => song.id !== wantedSong.id)
+        const updatedStation = { ...station, songs: updatedSongs }
+        console.log('updatedStation :', updatedStation)
+        setStation(updatedStation)
+    }
+
     const playCurrUrl = (songIdx, currStationId, songs, isSongPlaying) => {
         dispatch(setIsPlayingSong(isSongPlaying))
         if (!currStationId) {
@@ -124,7 +135,7 @@ export const StationDetails = () => {
             addedAt: Date.now()
         }
         await dispatch(addSongToMyPlaylist(filteredSong, station._id))
-        const updatedStation = {...station, songs: [...station.songs, filteredSong]}
+        const updatedStation = { ...station, songs: [...station.songs, filteredSong] }
         setStation(updatedStation)
         // loadStation()
     }
@@ -181,6 +192,7 @@ export const StationDetails = () => {
                                 <SongList
                                     station={station}
                                     playCurrUrl={playCurrUrl}
+                                    removeFromPlaylist={removeFromPlaylist}
                                     user={user}
                                 />
                                 {provided.placeholder}
