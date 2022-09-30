@@ -20,10 +20,7 @@ export function songReducer(state = initialState, action) {
             if (currSongIdx + action.diff >= currStation.songs.length) {
                 currSongIdx = -1
             }
-            else if (currSongIdx + action.diff >= 0 && currSongIdx + action.diff <= currStation.songs.length) {
-
-            }
-             else {
+            else if (currSongIdx + action.diff < 0) {
                 currSongIdx = currStation.songs.length
             }
             newState = { ...state, currSongIdx: currSongIdx + action.diff }
