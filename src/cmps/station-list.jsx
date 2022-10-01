@@ -1,7 +1,8 @@
 import { StationPreview } from "./station-preview";
 
 export function StationList({ stations, user, header }) {
-  const path = window.location.pathname
+
+    const path = window.location.pathname
   return (
     <section className='station-list-main-container'>
       {path === '/' && <h1>{header}</h1>}
