@@ -5,7 +5,7 @@ import { stationService } from "../services/station.service"
 import { updateStation } from "../store/station.actions"
 import NewPlaylistDetailsSvg from './svg/new-playlist-details-svg'
 
-export const StationEditModal = ({ station, onEditStation, onCloseStation }) => {
+export const StationEditModal = ({ station, onEditStation, onCloseStation, updateLocalStation }) => {
 
     const [newStation, handleChange, setStation] = useForm({
         name: '',
@@ -16,10 +16,12 @@ export const StationEditModal = ({ station, onEditStation, onCloseStation }) => 
         setStation(station)
     }, [])
 
-    const onSaveStation = (ev) => {
+    const onSaveStation = async (ev) => {
         ev.preventDefault()
-        dispatch(updateStation({ ...newStation }))
+        await dispatch(updateStation({ ...newStation }))
         onEditStation(newStation)
+        // await dispatch(updateStation(newStation))
+        updateLocalStation(newStation)
     }
 
     return (
@@ -40,7 +42,7 @@ export const StationEditModal = ({ station, onEditStation, onCloseStation }) => 
                     </form>
                 </div>
             </div>
-                    <p className="confirm-txt">By proceeding, you agree to give Harmony access to the image you choose to upload. Please make sure you have the right to upload the image.</p>
+            <p className="confirm-txt">By proceeding, you agree to give Harmony access to the image you choose to upload. Please make sure you have the right to upload the image.</p>
         </div>
     )
 }

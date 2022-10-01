@@ -12,7 +12,7 @@ const API_KEYS = []
 
 function getSongs(term) {
     const API_KEY = 'AIzaSyANnQm2L0En8Rj2JZ-C4j50Y5l754jdB6s'
-    return axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${API_KEY}&q=${term}&maxResults=10`)
+    return axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${API_KEY}&q=${term}&maxResults=50`)
 
 }
 async function getSongsDetails(songs) {

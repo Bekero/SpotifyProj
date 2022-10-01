@@ -84,7 +84,7 @@ export function StationHeaderDetails({ station, updateLocalStation, onRemoveStat
                 :
                 <></>
             }
-            {isEditStation && <StationEditModal station={station} onCloseStation={onCloseStation} onEditStation={onEditStation} />}
+            {isEditStation && <StationEditModal station={station} onCloseStation={onCloseStation} onEditStation={onEditStation} updateLocalStation={updateLocalStation} />}
         </>
     )
 }
