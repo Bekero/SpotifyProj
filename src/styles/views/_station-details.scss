@@ -213,12 +213,16 @@
 
         .details-head-lines {
             display: grid;
-            grid-template-columns: 16px 4fr 2fr minmax(180px, 0fr);
+            grid-template-columns: 25px 4fr 2fr minmax(180px, 0fr);
             justify-items: flex-start;
             align-items: center;
-            grid-gap: 16px;
+            grid-gap: 12px;
             height: 56px;
             border-bottom: 1px solid $sec-txt-clr;
+
+            :first-child {
+                justify-self: center;
+            }
 
             >* {
                 color: #b3b3b3
@@ -235,10 +239,10 @@
 
         .song-preview {
             display: grid;
-            grid-template-columns: 16px 4fr 2fr minmax(180px, 0fr);
+            grid-template-columns: 25px 4fr 2fr minmax(180px, 0fr);
             justify-items: center;
             align-items: center;
-            grid-gap: 16px;
+            grid-gap: 12px;
             height: 56px;
 
             &:hover {
