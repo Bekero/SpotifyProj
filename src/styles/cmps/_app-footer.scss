@@ -105,7 +105,6 @@
             justify-content: center;
             align-items: center;
             // min-width: 180px;
-            width: 55%;
 
             .song-range-container {
                 width: 100%;
@@ -171,24 +170,35 @@
 @media (max-width: 600px) {
     .main-footer-container {
         position: fixed;
-        bottom: 38px;
+        bottom: 50px;
         z-index: 25;
 
-       
-            .media-player-video-desc {
-                width: 15%;
-                .media-player-video-desc-child{
-                    gap: 5px;
-                }
+
+        .media-player-video-desc {
+            width: 15%;
+
+            .media-player-video-desc-name {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                max-width: 200px;
             }
-        
+
+            .media-player-video-desc-child {
+                gap: 5px;
+            }
+        }
+
 
         .media-player-action {
+            margin-left: auto;
+            width: unset;
             .media-player-btn-action {
 
+                .change-song-btn,
                 .shuffle-btn,
                 .repeat-btn {
-                    visibility: hidden;
+                    display: none;
                 }
             }
 
@@ -210,14 +220,16 @@
         }
 
         .media-player-container {
+            height: unset;
             padding: 0;
 
             .media-player-video-settings {
                 width: 5%;
 
-                button{
+                button {
                     margin-bottom: 8px;
                 }
+
                 input {
                     display: none;
                 }

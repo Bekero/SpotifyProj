@@ -341,7 +341,6 @@
                 gap: 10px;
 
                 .song-list-title-img-container {
-                    margin-right: 16px;
                     width: 40px;
                     height: 40px;
 
@@ -493,23 +492,26 @@
             flex-direction: column;
             align-items: center;
             padding: 24px 0 0 0;
-
+            .song-list-title-img-container {
+                margin-right: unset;
+            }
             .details-container {
                 align-items: center;
 
                 .album-name {
                     text-align: center;
+                    font-size: 3.5rem;
                     margin: 0 0 0.1em;
                 }
             }
         }
 
         .details-tool-bar {
-            padding: 0;
+            padding: 0 10px;
         }
 
         .main-details {
-            padding: 0;
+            padding: 0 10px;
 
             .details-head-lines {
                 grid-template-columns: 16px 4fr minmax(180px, 0fr);
@@ -548,6 +550,9 @@
 }
 
 @media (min-width: 600px) {
+    .song-list-title-img-container {
+        margin-right: 16px;
+    }
     .like-song-preview {
         visibility: hidden;
     }

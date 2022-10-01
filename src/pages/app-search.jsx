@@ -73,10 +73,10 @@ export function AppSearch({ addSongToPlaylist }) {
   const loadStations = async (filterBy) => {
     try {
       setIsLoading(true)
+      console.log('isLoading!!!!!!! :', isLoading)
       await utilService.delay(600)
       let filteredStations = await stationService.query(filterBy)
       setStations(filteredStations)
-      setIsLoading(false)
     } catch (err) {
       console.log('Cannot get stations :', err)
     }
@@ -98,7 +98,6 @@ export function AppSearch({ addSongToPlaylist }) {
     dispatch({ type: 'SET_LOADING', diff })
   }
 
-  console.log('isLoading :', isLoading)
   return (
     <div className="main-search-container">
       <div className='search-field'>
