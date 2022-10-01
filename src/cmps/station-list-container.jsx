@@ -17,7 +17,7 @@ export function StationListContainer() {
             className="text-decoration"
             to={`/genre/${genre.genre}`}>
             <div style={{ backgroundColor: genre.color }} className="genre-preview">
-              {/* <img src={genre.genreImg}/> */}
+              <img src={genre.genreImg}/>
               <span>{genre.genre}</span>
             </div></Link>
         })}
