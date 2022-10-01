@@ -18,6 +18,13 @@
         font-weight: 700;
     }
 
+    .loading{
+        >img{
+            height: 59px;
+            width: 59px;
+        }
+            
+    }
 
 }
 
@@ -149,5 +156,7 @@
             display: flex;
             // position: absolute;
         }
+
+   
     }
 }

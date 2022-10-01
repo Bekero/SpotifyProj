@@ -104,7 +104,7 @@ export function AppSearch({ addSongToPlaylist }) {
       <div className='search-field'>
         <input className='search-input' placeholder="What do you want to listen to?" onChange={(ev) => setTerm(ev.target.value)} />
       </div>
-      {!stations && isLoading && <div>Loading...</div>}
+      {!stations && isLoading && <div className="loading"><img src="https://media0.giphy.com/media/XD4AGF33DE3ADaucqt/giphy.gif?cid=ecf05e47hcj0piy50kbuangxxxzibzc9tkaorh1irjn4fqpu&rid=giphy.gif&ct=s"/></div>}
       <SearchList setIsLoading={setIsLoading} addSongToPlaylist={addSongToPlaylist} addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} songDetails={songDetails} songDuration={songDuration} user={user} />
       {stations && <StationList stations={stations} />}
       {path === '/search' && <StationListContainer />}
