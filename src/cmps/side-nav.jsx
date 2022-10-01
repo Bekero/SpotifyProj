@@ -67,7 +67,7 @@ export function SideNav() {
                 <ul className="flex">
                     <li ><NavLink onClick={() => iBtnActive('home')} to='/' className='flex'> <HomeIcon isActive={isHomeActive} /><span>Home</span></NavLink></li>
                     <li ><NavLink onClick={() => iBtnActive('search')} to='/search' className='flex'><SearchIcon isActive={isSearchActive} /><span>Search</span></NavLink> </li>
-                    <li ><NavLink onClick={() => iBtnActive('library')} to='/collection/playlist' className='flex'> <LibraryIcon isActive={isLibraryActive} /><span>Your Library</span></NavLink></li>
+                    <li ><NavLink onClick={() => iBtnActive('library')} to='/collection/playlist' className='flex'> <LibraryIcon isActive={isLibraryActive} /><span>Library</span></NavLink></li>
                 </ul>
             </nav>
             <div className="playlist-container">

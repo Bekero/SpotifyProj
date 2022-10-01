@@ -205,12 +205,12 @@ export function MediaPlayer() {
                 <div className='player-control-left'>
                     <button className='shuffle-btn' disabled={getSong()?.url ? false : true} onClick={onShuffle}><Shuffle isShuffleSong={isShuffleSong} /></button>
                     {/* <button disabled={getSong()?.url ? false : true} onClick={() => onIncreaseDecreaseTenSeconds(-5)}>-5</button> */}
-                    <button disabled={getSong()?.url ? false : true} onClick={() => onChangeSong(-1)}><Prev /></button>
+                    <button className='change-song-btn' disabled={getSong()?.url ? false : true} onClick={() => onChangeSong(-1)}><Prev /></button>
                 </div>
                 {(isPlayingSong) ? <button className='media-player-play-stop-btn' disabled={getSong()?.url ? false : true} onClick={onPauseVideo}><Stop /></button> :
                     <button className='media-player-play-stop-btn' disabled={getSong()?.url ? false : true} onClick={onPlayVideo}><Play /></button>}
                 <div className='player-control-right'>
-                    <button disabled={getSong()?.url ? false : true} onClick={() => onChangeSong(1)}><Next /></button>
+                    <button className='change-song-btn' disabled={getSong()?.url ? false : true} onClick={() => onChangeSong(1)}><Next /></button>
                     {/* <button disabled={getSong()?.url ? false : true} onClick={() => onIncreaseDecreaseTenSeconds(5)}>+5</button> */}
                     <button className='repeat-btn' disabled={getSong()?.url ? false : true} onClick={onRepeat}><Repeat repeatSong={repeatSong} /></button>
                 </div>
