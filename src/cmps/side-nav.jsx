@@ -79,7 +79,7 @@ export function SideNav() {
                 <div className="side-nav-station-container">
 
                     {!stations.length ? <div> You have no playlists...</div> :
-                        stations.map(station => <div className="side-nav-station" onClick={() => onNavigateToStation(station._id)}> {station.name}</div>)}
+                        stations.map(station => <div key={station._id} className="side-nav-station" onClick={() => onNavigateToStation(station._id)}> {station.name}</div>)}
                 </div>
 
                 {/* <MyStations /> */}
