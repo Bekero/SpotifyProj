@@ -13,7 +13,7 @@ import { addSongToMyPlaylist } from "../store/station.actions";
 import { utilService } from "../services/util.service";
 import { addLikedSong, removeLikedSong } from "../store/user.actions";
 
-export function AppSearch({ addSongToPlaylist }) {
+export function AppSearch({ station, addSongToPlaylist }) {
 
   const [stations, setStations] = useState(null)
   const path = window.location.pathname
@@ -103,7 +103,7 @@ export function AppSearch({ addSongToPlaylist }) {
       <div className='search-field'>
         <input className='search-input' placeholder="What do you want to listen to?" onChange={(ev) => setTerm(ev.target.value)} />
       </div>
-      {!stations && isLoading && <div>Loading...</div>}
+      {/* {!stations && isLoading && <div>Loading...</div>} */}
       <SearchList setIsLoading={setIsLoading} addSongToPlaylist={addSongToPlaylist} addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} songDetails={songDetails} songDuration={songDuration} user={user} />
       {stations && <StationList stations={stations} />}
       {path === '/search' && <StationListContainer />}

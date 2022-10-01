@@ -11,12 +11,12 @@ export const youtubeService = {
 const API_KEYS = []
 
 function getSongs(term) {
-    const API_KEY = 'AIzaSyBKmZyRd0g8AEKqh9tNR3VNFn4ERzmmoIY'
-    return axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${API_KEY}&q=${term}&maxResults=50`)
+    const API_KEY = 'AIzaSyANnQm2L0En8Rj2JZ-C4j50Y5l754jdB6s'
+    return axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${API_KEY}&q=${term}&maxResults=10`)
 
 }
 async function getSongsDetails(songs) {
-    const API_KEY = 'AIzaSyBKmZyRd0g8AEKqh9tNR3VNFn4ERzmmoIY'
+    const API_KEY = 'AIzaSyANnQm2L0En8Rj2JZ-C4j50Y5l754jdB6s'
     if (!songs || !songs.length) return null
     const songId = songs.map(song => song.id.videoId)
     const songsDetails = axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${songId.join(',')}&part=contentDetails&key=${API_KEY}`)

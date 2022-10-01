@@ -42,6 +42,7 @@ export const StationDetails = () => {
             socketService.off('update-station', updateLocalStation)
         }
     }, [])
+
     useEffect(() => {
         if (params.stationId) {
             console.log('Hekllo');
@@ -58,9 +59,6 @@ export const StationDetails = () => {
     function updateLocalStation(updatedStation) {
         setStation(updatedStation)
     }
-    // useEffect(()=>{
-
-    // },[isDraggedItem])
 
     const onRemoveStation = async (stationId) => {
         // ev.stopPropagation()
@@ -94,8 +92,6 @@ export const StationDetails = () => {
         }
     }
 
-
-
     const removeFromPlaylist = (wantedSong) => {
         //Its not re-renders
         dispatch(removeSongFromMyPlaylist(wantedSong, station._id))
@@ -125,7 +121,8 @@ export const StationDetails = () => {
 
     const addSongToPlaylist = async (ev, song) => {
         ev.stopPropagation()
-        console.log('Date.now() :', Date.now())
+        const res = station.songs.find(currSong => currSong.id === song.id)
+        if (res) return
         const filteredSong = {
             id: song.id,
             url: song.id,
@@ -203,7 +200,7 @@ export const StationDetails = () => {
             </div>
             {station ? <div>
                 {station?.createdBy?._id === user?._id && <div>
-                    <AppSearch addSongToPlaylist={addSongToPlaylist} />
+                    <AppSearch station={station} addSongToPlaylist={addSongToPlaylist} />
                 </div>
                 }
             </div>

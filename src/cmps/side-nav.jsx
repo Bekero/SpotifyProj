@@ -62,7 +62,7 @@ export function SideNav() {
     return (
         <div className="side-nav">
 
-            <NavLink className="header-logo" to='/' > <img src={harmonyLogo} />Harmony  </NavLink>
+            <NavLink className="header-logo" to='/' > <div><img src={harmonyLogo} /></div>Harmony  </NavLink>
             <nav className="nav-container flex column">
                 <ul className="flex">
                     <li ><NavLink onClick={() => iBtnActive('home')} to='/' className='flex'> <HomeIcon isActive={isHomeActive} /><span>Home</span></NavLink></li>
@@ -79,7 +79,7 @@ export function SideNav() {
                 <div className="side-nav-station-container">
 
                     {!stations.length ? <div> You have no playlists...</div> :
-                        stations.map(station => <div className="side-nav-station" onClick={() => onNavigateToStation(station._id)}> {station.name}</div>)}
+                        stations.map(station => <div key={station._id} className="side-nav-station" onClick={() => onNavigateToStation(station._id)}> {station.name}</div>)}
                 </div>
 
                 {/* <MyStations /> */}
