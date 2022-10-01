@@ -14,8 +14,6 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
     const isSongPlaying = useSelector(state => state.songModule.isPlayingSong)
     const currSongIdx = useSelector(state => state.songModule.currSongIdx)
 
-    //? player from stationReducer is undefined , need to understand why /
-
     function isSongLiked(songId) {
         if (!user) return false
         return user.likedSongs?.some(song => song.id === songId)
@@ -38,9 +36,6 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
                                     <div className="play-song-preview"><button onClick={() => { station ? playCurrUrl(songIdx, station._id, undefined, true) : playCurrUrl(songIdx, undefined, user, true) }}>{<PlaySong />}</button></div>
                                     <div className="song-index">{songIdx + 1}</div>
                                 </div>
-                                // <div> {songHover ? <div className="play-song-preview"><button onClick={() => { station ? playCurrUrl(songIdx, station._id, undefined, true) : playCurrUrl(songIdx, undefined, user, true) }}>{<PlaySong />}</button></div>
-                                //     :
-                                //     <div className="song-index">{songIdx + 1}</div>}</div>
                             }
                         </div>
                         <div className='song-list-title-container'>

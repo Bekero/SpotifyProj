@@ -187,7 +187,7 @@ export function MediaPlayer() {
     const condition = currStation?.createdBy?.fullname && getSong()?.title
     return <div className='media-player-container'>
         <div className='media-player-video-desc'>
-            <div className='flex'>
+            <div className='media-player-video-desc-child flex'>
 
                 <div className='media-player-video-desc-img-holder'>
                     <img style={{ visibility: !condition ? "hidden" : "initial" }} src={condition ? currStation.songs[songIdx].imgUrl : ''} alt="" />
@@ -197,15 +197,13 @@ export function MediaPlayer() {
                     <div></div>
                     {condition && <div className='media-fullname'>{currStation.createdBy.fullname}</div>}
                 </div>
-                <button></button>
-                <div></div>
             </div>
             {/* {videoTitle && <h3>{videoTitle}</h3>} */}
         </div>
         <div className='media-player-action'>
             <div className='media-player-btn-action'>
                 <div className='player-control-left'>
-                    <button disabled={getSong()?.url ? false : true} onClick={onShuffle}><Shuffle isShuffleSong={isShuffleSong} /></button>
+                    <button className='shuffle-btn' disabled={getSong()?.url ? false : true} onClick={onShuffle}><Shuffle isShuffleSong={isShuffleSong} /></button>
                     {/* <button disabled={getSong()?.url ? false : true} onClick={() => onIncreaseDecreaseTenSeconds(-5)}>-5</button> */}
                     <button disabled={getSong()?.url ? false : true} onClick={() => onChangeSong(-1)}><Prev /></button>
                 </div>
@@ -214,7 +212,7 @@ export function MediaPlayer() {
                 <div className='player-control-right'>
                     <button disabled={getSong()?.url ? false : true} onClick={() => onChangeSong(1)}><Next /></button>
                     {/* <button disabled={getSong()?.url ? false : true} onClick={() => onIncreaseDecreaseTenSeconds(5)}>+5</button> */}
-                    <button disabled={getSong()?.url ? false : true} onClick={onRepeat}><Repeat repeatSong={repeatSong} /></button>
+                    <button className='repeat-btn' disabled={getSong()?.url ? false : true} onClick={onRepeat}><Repeat repeatSong={repeatSong} /></button>
                 </div>
             </div>
             <div className='song-timestamp flex align-center'>

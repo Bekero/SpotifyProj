@@ -206,7 +206,6 @@
             grid-gap: 16px;
             height: 56px;
 
-
             &:hover {
                 background-color: $third-clr;
                 border-radius: 4px;
@@ -393,7 +392,6 @@
                 }
 
                 .add-to-playlist-btn {
-                    visibility: hidden;
                     width: 16px;
                     justify-self: center;
                     height: 16px;
@@ -407,7 +405,6 @@
                 }
 
                 .like-song-preview {
-                    visibility: hidden;
                     width: 16px;
                     justify-self: center;
                     height: 16px;
@@ -448,5 +445,75 @@
 
     svg {
         fill: unset;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-details-container {
+        .station-details {
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 0 0 0;
+
+            .details-container {
+                align-items: center;
+
+                .album-name {
+                    text-align: center;
+                    margin: 0 0 0.1em;
+                }
+            }
+        }
+
+        .details-tool-bar {
+            padding: 0;
+        }
+
+        .main-details {
+            padding: 0;
+
+            .details-head-lines {
+                grid-template-columns: 16px 4fr minmax(180px, 0fr);
+
+                .date-added-head-line {
+                    display: none;
+                }
+            }
+
+            .song-preview {
+                grid-template-columns: 16px 4fr minmax(180px, 0fr);
+
+                .song-img {
+                    min-width: 40px;
+                    min-height: 40px;
+                }
+
+                .date-added {
+                    display: none;
+                }
+
+                .opts-menu-section {
+                    button {
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+    }
+
+    .song-preview {
+        .date-added {
+            display: unset;
+        }
+    }
+}
+
+@media (min-width: 600px) {
+    .like-song-preview {
+        visibility: hidden;
+    }
+
+    .add-to-playlist-btn {
+        visibility: hidden;
     }
 }
