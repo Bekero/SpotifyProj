@@ -11,6 +11,7 @@ import { systemReducer } from "../store/system.reducer"
 import { StationListContainer } from "../cmps/station-list-container";
 import { addSongToMyPlaylist } from "../store/station.actions";
 import { utilService } from "../services/util.service";
+import { addLikedSong, removeLikedSong } from "../store/user.actions";
 
 export function AppSearch({ addSongToPlaylist }) {
 
@@ -25,6 +26,7 @@ export function AppSearch({ addSongToPlaylist }) {
   const [term, setTerm] = useState([]);
   const DebounceSearch = useDebounce(term, 600)
   const [loading, setLoading] = useState(false)
+  const user = useSelector(state => state.userModule.user)
   // const [results,setResults] =useState(null)
 
 
@@ -48,26 +50,31 @@ export function AppSearch({ addSongToPlaylist }) {
     setSongDuration(durations)
     setSongDetails(details)
   }
+
+
+
   const addToLikedPlaylist = async (song) => {
-    // const filteredSong = {
-    //   id: song.id.videoId,
-    //   imgUrl: song.snippet.thumbnails.default,
-    //   title: song.snippet.title
-    // }
-    // dispatch(addLikedSong(song))
+    const filteredSong = {
+      id: song.id,
+      url: song.id,
+      imgUrl: song.contentDetails.imgUrl,
+      title: song.contentDetails.title.replace(/(\(.*?\))/g, ''),
+      songDuration: youtubeService.getSongDuration(song.contentDetails.duration),
+      addedAt: Date.now()
+    }
+    console.log(filteredSong);
+    if (!user) {
+      dispatch(addLikedSong(filteredSong))
+      return
+    }
+    else {
+      let isSongExists = user.likedSongs?.find(song => song.id === filteredSong.id)
+      console.log('isSongExists', isSongExists);
+      if (isSongExists) dispatch(removeLikedSong(filteredSong))
+      else if (!isSongExists) dispatch(addLikedSong(filteredSong))
+      return
+    }
   }
-  // const addToLikedPlaylist = (wantedSong) => {
-  //   if (!user) {
-  //     dispatch(addLikedSong(wantedSong))
-  //     return
-  //   }
-  //   else {
-  //     let isSongExists = user.likedSongs?.find(song => song.id === wantedSong.id)
-  //     if (isSongExists) dispatch(removeLikedSong(wantedSong))
-  //     else if (!isSongExists) dispatch(addLikedSong(wantedSong))
-  //     return
-  //   }
-  // }
 
   const loadStations = async (filterBy) => {
     try {
@@ -96,11 +103,11 @@ export function AppSearch({ addSongToPlaylist }) {
         <input className='search-input' placeholder="What do you want to listen to?" onChange={(ev) => setTerm(ev.target.value)}
         />
       </div>
-      <SearchList addSongToPlaylist={addSongToPlaylist} addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} songDetails={songDetails} songDuration={songDuration} />
+      <SearchList addSongToPlaylist={addSongToPlaylist} addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} songDetails={songDetails} songDuration={songDuration} user={user} />
       {/* <div className='ui celled list'></div> */}
       <></>
       {stations && <StationList stations={stations} />}
-        {path === '/search' && <StationListContainer />}
+      {path === '/search' && <StationListContainer />}
     </div>
   );
 }

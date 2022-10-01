@@ -94,8 +94,19 @@
         width: 200px;
         background-color: green;
         border-radius: 8px;
+        overflow: hidden;
+        position: relative;
 
-        span {
+        img{
+            bottom: 0;
+            height: 100px;
+            position: absolute;
+            width: 100px;
+            right: 0;
+            transform: rotate(25deg) translate(18%,-2%);
+        }
+
+        span {  
             font-size: 1.5rem;
             padding: 16px;
             color: #fff;

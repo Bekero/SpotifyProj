@@ -48,6 +48,7 @@ export const SongList = ({ station, playCurrUrl, user, removeFromPlaylist }) => 
         }
         else {
             let isSongExists = user.likedSongs?.find(song => song.id === wantedSong.id)
+            console.log('isSongExists', isSongExists);
             if (isSongExists) dispatch(removeLikedSong(wantedSong))
             else if (!isSongExists) dispatch(addLikedSong(wantedSong))
             return
