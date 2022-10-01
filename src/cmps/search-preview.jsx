@@ -1,6 +1,4 @@
-import { useDispatch } from "react-redux";
 import PlaySong from "./svg/play-song-svg";
-// import { setCurrPlayingUrlFromSearch } from "../store/station.actions";
 import UnfilledLikeToolBar from "./svg/unfilled-like-tool-bar"
 import FilledLikeToolBar from "./svg/filled-like-tool-bar"
 import OptsSvg from './svg/opts-song'
@@ -10,9 +8,6 @@ export function SearchPreview({ songDuration, addSongToPlaylist, song, playCurrU
   const songTitle = song.contentDetails.title.replace(/(\(.*?\))/g, '')
   const path = window.location.pathname
 
-  // function isSongLiked(songId) {
-  //   return (song => song.id === songId.videoId)
-  // }
   function isSongLiked(songId) {
     if (!user) return false
     return user.likedSongs?.some(song => song.id === songId)

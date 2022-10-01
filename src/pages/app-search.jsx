@@ -15,28 +15,22 @@ import { addLikedSong, removeLikedSong } from "../store/user.actions";
 
 export function AppSearch({ addSongToPlaylist }) {
 
-  // const player = useSelector(state => state.songModule.player);
   const [stations, setStations] = useState(null)
   const path = window.location.pathname
-
   const dispatch = useDispatch()
-  // const [data, setData] = useState([]);
+  const isLoading = useSelector(state => state.stationModule.isLoading)
   const [songDetails, setSongDetails] = useState([]);
   const [songDuration, setSongDuration] = useState([]);
   const [term, setTerm] = useState([]);
   const DebounceSearch = useDebounce(term, 600)
   const [loading, setLoading] = useState(false)
   const user = useSelector(state => state.userModule.user)
-  // const [results,setResults] =useState(null)
 
 
   useEffect(() => {
     if (DebounceSearch === '' || !DebounceSearch.length) return setSongDetails([])
     search()
   }, [DebounceSearch]);
-
-  // songsDetails = songsDetails.replace(/[^0-9]/, ':');
-
 
   const search = async () => {
     loadStations(DebounceSearch)
@@ -78,13 +72,16 @@ export function AppSearch({ addSongToPlaylist }) {
 
   const loadStations = async (filterBy) => {
     try {
+      setIsLoading(true)
       await utilService.delay(600)
       let filteredStations = await stationService.query(filterBy)
       setStations(filteredStations)
+      setIsLoading(false)
     } catch (err) {
       console.log('Cannot get stations :', err)
     }
   }
+
   const playCurrUrl = (song) => {
     const { contentDetails: { imgUrl, title }, id } = song;
     const currSong = {
@@ -97,15 +94,18 @@ export function AppSearch({ addSongToPlaylist }) {
     dispatch({ type: 'SET_CURRENTLY_PLAYING_SONG_IDX', songIdx: 0 })
   }
 
+  const setIsLoading = (diff) => {
+    dispatch({ type: 'SET_LOADING', diff })
+  }
+
+  console.log('isLoading :', isLoading)
   return (
     <div className="main-search-container">
       <div className='search-field'>
-        <input className='search-input' placeholder="What do you want to listen to?" onChange={(ev) => setTerm(ev.target.value)}
-        />
+        <input className='search-input' placeholder="What do you want to listen to?" onChange={(ev) => setTerm(ev.target.value)} />
       </div>
-      <SearchList addSongToPlaylist={addSongToPlaylist} addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} songDetails={songDetails} songDuration={songDuration} user={user} />
-      {/* <div className='ui celled list'></div> */}
-      <></>
+      {!stations && isLoading && <div>Loading...</div>}
+      <SearchList setIsLoading={setIsLoading} addSongToPlaylist={addSongToPlaylist} addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} songDetails={songDetails} songDuration={songDuration} user={user} />
       {stations && <StationList stations={stations} />}
       {path === '/search' && <StationListContainer />}
     </div>

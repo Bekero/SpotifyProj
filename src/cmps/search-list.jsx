@@ -1,8 +1,7 @@
 import { SearchPreview } from "./search-preview";
 
+export function SearchList({ addSongToPlaylist, playCurrUrl, songDuration, addToLikedPlaylist, songDetails, user, }) {
 
-export function SearchList({ addSongToPlaylist, playCurrUrl, songDuration, addToLikedPlaylist, songDetails, user }) {
-    if (!songDetails || !songDetails.length) return
     return (
 
         <div className="search-songs-list-container">
