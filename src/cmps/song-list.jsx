@@ -5,7 +5,6 @@ import { SongPreview } from './song-preview'
 import { addLikedSong, removeLikedSong } from '../store/user.actions'
 import ArrowInOptsMenu from './svg/arrow-in-opts-menu'
 import { OptsMenu } from './opts-menu'
-// import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
 export const SongList = ({ station, playCurrUrl, user, removeFromPlaylist }) => {
     const dispatch = useDispatch()
@@ -36,20 +35,10 @@ export const SongList = ({ station, playCurrUrl, user, removeFromPlaylist }) => 
         setOpenModal(true)
     }
 
-    // const setAllOptsMenu = (diff) => {
-    //     setOpenModal(diff)
-    //     setAddToPlaylistModal(diff)
-    // }
-
     const onRemoveFromPlaylist = () => {
-        //Its not re-renders
-        console.log('I made it')
         setOpenModal(false)
         setAddToPlaylistModal(false)
         removeFromPlaylist(wantedSong)
-        // dispatch(removeSongFromMyPlaylist(wantedSong, station._id))
-        // const updatedSongs = station.songs.filter(song => song.id !== wantedSong.id)
-        // const updatedStation = { ...station, songs: updatedSongs }
     }
 
     const addToLikedPlaylist = (wantedSong) => {
