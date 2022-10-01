@@ -36,7 +36,6 @@
         // overflow-y: hidden;
         .img-details-container {
             height: 200px;
-            width: 200px;
             margin-bottom: 16px;
             position: relative;
 
@@ -97,9 +96,14 @@
 
 @media (max-width: 600px) {
     .station-list-container {
+        .img-details-container {
+            width: 200px;
+        }
+
         display: flex;
     }
 }
+
 @media (min-width: 600px) {
     .station-list-container {
         display: grid;

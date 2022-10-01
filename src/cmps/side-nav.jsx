@@ -7,7 +7,7 @@ import SearchIcon from '../cmps/svg/search-svg'
 import LibraryIcon from '../cmps/svg/library-svg'
 import LikeLinkSvg from '../cmps/svg/like-nav-link'
 import { useState } from "react";
-import harmonyLogo from "../assets/img/new-logo-h.ico"
+import harmonyLogo from "../assets/img/new-logo-h.png"
 import { useDispatch, useSelector } from "react-redux";
 import { loadStations } from "../store/station.actions";
 
