@@ -189,6 +189,8 @@
             flex-direction: column;
             padding: 8px 0px;
             gap: 15px;
+            max-height: 730px;
+            overflow-y: auto;
 
             .side-nav-station {
                 font-size: 0.875rem;
