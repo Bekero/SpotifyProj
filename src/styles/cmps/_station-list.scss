@@ -21,7 +21,6 @@
 
     .station-list-container {
 
-        display: grid;
         grid-gap: 12px;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
@@ -37,6 +36,7 @@
         // overflow-y: hidden;
         .img-details-container {
             height: 200px;
+            width: 200px;
             margin-bottom: 16px;
             position: relative;
 
@@ -92,5 +92,16 @@
 
         }
 
+    }
+}
+
+@media (max-width: 600px) {
+    .station-list-container {
+        display: flex;
+    }
+}
+@media (min-width: 600px) {
+    .station-list-container {
+        display: grid;
     }
 }

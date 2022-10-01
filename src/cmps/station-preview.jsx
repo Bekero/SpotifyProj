@@ -35,7 +35,7 @@ export function StationPreview({ station }) {
         }
         dispatch(setIsPlayingSong(!isPlayingSong))
     }
-
+    
     return (
         // <Link onClick={onSetCurrStation} className="text-decoration" to={`/playlist/${station._id}`}>
         <div onClick={onSetCurrStation}>
