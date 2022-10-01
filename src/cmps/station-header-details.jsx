@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { StationEditModal } from '../cmps/station-edit-modal'
 import { utilService } from '../services/util.service'
 import NewPlaylistDetailsSvg from './svg/new-playlist-details-svg'
+import HoverNewPlaylistDetailsSvg from './svg/hover-new-playlist-details-svg.jsx'
 import likedStationImg from '../assets/img/like-station-details.png'
 import { FastAverageColor } from 'fast-average-color';
 import { useEffect } from 'react';
@@ -9,7 +10,7 @@ import { uploadService } from '../services/upload.service';
 import { useDispatch } from 'react-redux'
 import { updateStation } from '../store/station.actions'
 
-export function StationHeaderDetails({ station, updateLocalStation,onRemoveStation, onEditStation, isEditStation, onCloseStation, user, getBgcImg }) {
+export function StationHeaderDetails({ station, updateLocalStation, onRemoveStation, onEditStation, isEditStation, onCloseStation, user, getBgcImg }) {
     // const [imgColor,setImgColor] = useState('white')
     const dispatch = useDispatch()
     const getPlaylistDuration = () => {
@@ -37,9 +38,9 @@ export function StationHeaderDetails({ station, updateLocalStation,onRemoveStati
         });
 
     const onUploadImg = async (ev) => {
-        if(!ev.target.value) return
+        if (!ev.target.value) return
         const { url } = await uploadService.uploadImg(ev)
-        const newStation = {...station, createdBy: {...station.createdBy, imgUrl: url}}
+        const newStation = { ...station, createdBy: { ...station.createdBy, imgUrl: url } }
         await dispatch(updateStation(newStation))
         updateLocalStation(newStation)
     }
@@ -47,12 +48,18 @@ export function StationHeaderDetails({ station, updateLocalStation,onRemoveStati
     return (
         <>
             <div className="img-container">
-                    <label>
+                <label>
                     <input type="file" onInput={onUploadImg} />
-                    </label>
+                </label>
                 {station ? <div>
                     {station?.createdBy?.imgUrl ? <img className="img-details" src={station?.createdBy?.imgUrl} /> :
-                        <div><NewPlaylistDetailsSvg /></div>
+                        <div className="no-photo-img-details">
+                            <div className="un-hover-new-playlist-bg"><NewPlaylistDetailsSvg /></div>
+                            <div className="hover-new-playlist-bg">
+                                <HoverNewPlaylistDetailsSvg />
+                                <span>Choose photo</span>
+                            </div>
+                        </div>
                     } </div>
                     :
                     <div><img src={likedStationImg} />

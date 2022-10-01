@@ -9,116 +9,133 @@
   {
     "_id": "g100",
     "genre": "All",
+    "genreImg":"https://t.scdn.co/images/fe16a1ff4da342f890f79383233f53e7",
     "color": "rgb(30, 50, 100)"
   },
   {
     "_id": "g101",
     "genre": "Pop",
+    "genreImg":"https://t.scdn.co/media/derived/pop-274x274_447148649685019f5e2a03a39e78ba52_0_0_274_274.jpg",
     "color": "rgb(240, 55, 165)"
   },
   {
     "_id": "g102",
     "genre": "Rnb",
+    "genreImg":"https://i.scdn.co/image/ab67706f000000023c5a4aaf5df054a9beeb3d82",
     "color": "rgb(30, 50, 100)"
-  },
-  {
-    "_id": "g103",
-    "genre": "Israeli",
-    "color": "rgb(141, 103, 171)"
   },
   {
     "_id": "g104",
     "genre": "Rock",
+    "genreImg":"https://t.scdn.co/media/derived/rock_9ce79e0a4ef901bbd10494f5b855d3cc_0_0_274_274.jpg",
     "color": "rgb(232, 17, 91)"
   },
   {
     "_id": "g105",
     "genre": "Regaton",
+    "genreImg":"https://t.scdn.co/images/6a48e36b373a4d879a9340076db03a7b",
     "color": "rgb(215, 242, 125)"
   },
   {
     "_id": "g106",
     "genre": "Alternative",
+    "genreImg":"https://t.scdn.co/images/ee9451b3ed474c82b1da8f9b5eafc88f.jpeg",
     "color": "rgb(30, 50, 100)"
   },
   {
     "_id": "g107",
     "genre": "Jazz",
+    "genreImg":"https://t.scdn.co/images/568f37f1cab54136939d63bd1f59d40c",
     "color": "rgb(180, 155, 200)"
   },
   {
     "_id": "g108",
-    "genre": "Anime",
+    "genre": "K-Pop",
+    "genreImg":"https://i.scdn.co/image/ab67706f00000002978b9f4a4f40b430fd0d837e",
     "color": "rgb(156, 240, 225)"
   },
   {
     "_id": "g109",
     "genre": "Funny",
+    "genreImg":"https://t.scdn.co/images/8e508d7eb5b843a89c368c9507ecc429.jpeg",
     "color": "rgb(186, 93, 7)"
   },
   {
     "_id": "g110",
-    "genre": "Metal",
+    "genre": "Blues",
+    "genreImg":"https://i.scdn.co/image/ab67706f0000000285c3e89f02770deb7691451c",
     "color": "rgb(186, 93, 7)"
   },
   {
     "_id": "g111",
-    "genre": "Hard",
+    "genre": "Workout",
+    "genreImg":"https://i.scdn.co/image/ab67706f000000029249b35f23fb596b6f006a15",
     "color": "rgb(119, 119, 119)"
   },
   {
     "_id": "g112",
-    "genre": "Soft",
+    "genre": "Mood",
+    "genreImg":"https://t.scdn.co/media/original/mood-274x274_976986a31ac8c49794cbdc7246fd5ad7_274x274.jpg",
     "color": "rgb(71, 125, 149)"
   },
   {
     "_id": "g113",
     "genre": "Gaming",
+    "genreImg":"https://i.scdn.co/image/ab67706f0000000221a2087747d946f16704b8af",
     "color": "rgb(232, 17, 91)"
   },
   {
     "_id": "g114",
     "genre": "Hebrew",
+    "genreImg":"https://i.scdn.co/image/ab67616d00001e0229dbc0d1d60d25da2f955a91",
     "color": "rgb(13, 115, 236)"
   },
   {
     "_id": "g115",
-    "genre": "Light",
+    "genre": "Punk",
+    "genreImg":"https://t.scdn.co/media/derived/punk-274x274_f3f1528ea7bbb60a625da13e3315a40b_0_0_274_274.jpg",
     "color": "rgb(156, 240, 225)"
   },
   {
     "_id": "g116",
     "genre": "BestOf",
+    "genreImg":"https://t.scdn.co/media/derived/trending-274x274_7b238f7217985e79d3664f2734347b98_0_0_274_274.jpg",
     "color": "rgb(255, 70, 50)"
   },
   {
     "_id": "g117",
-    "genre": "MostLiked",
+    "genre": "Charts",
+    "genreImg":"https://charts-images.scdn.co/assets/locale_en/regional/weekly/region_global_default.jpg",
     "color": "rgb(71, 125, 149)"
   },
   {
     "_id": "g118",
-    "genre": "Loud",
+    "genre": "Relaxing Music",
+    "genreImg":"https://i.scdn.co/image/ab67656300005f1f90ec548931fb212d0dbbb52c",
     "color": "rgb(80, 55, 80)"
   },
   {
     "_id": "g119",
     "genre": "Mizrahit",
+    "genreImg":"https://mosaic.scdn.co/300/ab67616d00001e02045ad26c7f1af0e6e823409bab67616d00001e02673fb8aaafca572cf42edc62ab67616d00001e027f66027011b7f1715b7d1be9ab67616d00001e02efad3bab1bda4fe5356434eb",
     "color": "rgb(215, 242, 125)"
   },
   {
     "_id": "g120",
-    "genre": "Amami",
+    "genre": "Hip-Hop",
+    "genreImg":"https://i.scdn.co/image/ab67706f000000029bb6af539d072de34548d15c",
     "color": "rgb(119, 119, 119)"
   },
   {
     "_id": "g121",
     "genre": "OldSchool",
+    "genreImg":"https://i.scdn.co/image/ab67706c0000da843c1f3631cb893d8e2ad258e6",
     "color": "rgb(13, 115, 236)"
   },
   {
     "_id": "g122",
     "genre": "Party",
+    "genreImg":"https://t.scdn.co/media/derived/edm-274x274_0ef612604200a9c14995432994455a6d_0_0_274_274.jpg",
     "color": "rgb(20, 138, 8)"
   }
 ]

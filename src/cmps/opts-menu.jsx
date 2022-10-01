@@ -1,7 +1,8 @@
 import React from 'react'
+import { CreateStationFromOpts } from "../cmps/create-station-from-opts";
 import { useEffect } from 'react'
 
-export const OptsMenu = ({ station, currStation, onRemoveFromPlaylist, addToPlaylistModal, modalPos, addToPlaylist, ArrowInOptsMenu, myStations, onAddToMyPlaylist }) => {
+export const OptsMenu = ({ station, closeAllModals, onRemoveFromPlaylist, addToPlaylistModal, modalPos, addToPlaylist, ArrowInOptsMenu, myStations, onAddToMyPlaylist }) => {
     useEffect(() => {
         document.body.style.overflow = 'hidden'
 
@@ -15,7 +16,7 @@ export const OptsMenu = ({ station, currStation, onRemoveFromPlaylist, addToPlay
 
     return <>
         <ul style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }} className="song-list-opts-menu">
-            <li>Create Playlist</li>
+            <li onClick={(ev) => closeAllModals(ev)}><CreateStationFromOpts /></li>
             <li className="add-to-playlist-section" onMouseOver={() => addToPlaylist(true)}><ArrowInOptsMenu style={{ transform: `rotate(270deg)` }} />Add To Playlist </li>
             {isStationHardCoded ? <li>Remove From Playlist</li> : <li onClick={() => onRemoveFromPlaylist()}>Remove From Playlist</li>}
             <li>Smth Else</li>

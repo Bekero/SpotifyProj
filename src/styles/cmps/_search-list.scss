@@ -3,16 +3,20 @@
     grid-template-columns: 4fr minmax(120px, 1fr);
     padding: 0 32px;
     height: 56px;
+
     .left {
         gap: 10px;
     }
-    .play-song-title{
+
+    .play-song-title {
         font-size: 1rem;
     }
-    .play-song-author{
+
+    .play-song-author {
         color: $sec-txt-clr;
         font-family: spotify-font-small;
     }
+
     .play-song-tool-bar-search {
         button {
             border: none;
@@ -86,15 +90,18 @@
         height: 56px;
         position: relative;
     }
+
     .opts-menu-section {
         display: grid;
         align-items: center;
         grid-template-columns: 32px 1fr 32px;
         justify-self: end;
         width: 100px;
+
         .song-duration-container {
             color: $third-txt-clr;
         }
+
         button {
             background-color: rgba(245, 222, 179, 0);
             border: none;
@@ -112,14 +119,14 @@
             visibility: hidden;
             background-color: rgba(237, 232, 232, 0);
 
-            
-           
+
+
             svg {
                 width: 16px;
                 height: 16px;
             }
         }
-        
+
 
         .like-song-preview {
             visibility: hidden;
@@ -143,10 +150,12 @@
         }
 
     }
+
     &:hover {
-        .play-song-author{
+        .play-song-author {
             color: $main-txt-clr;
         }
+
         .opts-menu-section {
             .like-song-preview {
                 visibility: visible;

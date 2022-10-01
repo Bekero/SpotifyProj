@@ -17,7 +17,6 @@
 
     .create-station-btn {
         background-color: rgba(41, 206, 93, 0);
-        padding: 0;
         flex-grow: 1;
         display: flex;
         text-align: start;
@@ -27,6 +26,7 @@
         color: $sec-txt-clr;
         font-family: spotify-font;
         font-size: 1em;
+        font-weight: 700;
         gap: 16px;
 
         .create-station-icon {

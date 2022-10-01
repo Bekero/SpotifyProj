@@ -4,6 +4,7 @@ const initialState = {
     currStation: null,
     lastRemovedStation: null,
     playingStation: null,
+    isLoading: false
 }
 
 export function stationReducer(state = initialState, action) {
@@ -60,6 +61,8 @@ export function stationReducer(state = initialState, action) {
                 newState = { ...state, stations: [...state.stations, state.lastRemovedStation], lastRemovedStation: null }
             }
             break
+        case 'SET_LOADING':
+            newState = { ...state, isLoading: action.diff }
         default:
     }
     window.stationState = newState

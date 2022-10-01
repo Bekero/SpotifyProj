@@ -41,6 +41,12 @@ export const SongList = ({ station, playCurrUrl, user, removeFromPlaylist }) => 
         removeFromPlaylist(wantedSong)
     }
 
+    const closeAllModals = (ev) => {
+        console.log('Hey im here', ev)
+        setOpenModal(false)
+        setAddToPlaylistModal(false)
+    }
+
     const addToLikedPlaylist = (wantedSong) => {
         if (!user) {
             dispatch(addLikedSong(wantedSong))
@@ -70,6 +76,7 @@ export const SongList = ({ station, playCurrUrl, user, removeFromPlaylist }) => 
                 currStation={currStation}
                 addToPlaylistModal={addToPlaylistModal}
                 modalPos={modalPos}
+                closeAllModals={closeAllModals}
                 addToPlaylist={addToPlaylist}
                 ArrowInOptsMenu={ArrowInOptsMenu}
                 onRemoveFromPlaylist={onRemoveFromPlaylist}
