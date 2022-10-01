@@ -174,14 +174,22 @@
         bottom: 38px;
         z-index: 25;
 
-       
-            .media-player-video-desc {
-                width: 15%;
-                .media-player-video-desc-child{
-                    gap: 5px;
-                }
+
+        .media-player-video-desc {
+            width: 15%;
+
+            .media-player-video-desc-name {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                max-width: 100px;
             }
-        
+
+            .media-player-video-desc-child {
+                gap: 5px;
+            }
+        }
+
 
         .media-player-action {
             .media-player-btn-action {
@@ -215,9 +223,10 @@
             .media-player-video-settings {
                 width: 5%;
 
-                button{
+                button {
                     margin-bottom: 8px;
                 }
+
                 input {
                     display: none;
                 }
