@@ -197,8 +197,6 @@ export function MediaPlayer() {
                     <div></div>
                     {condition && <div className='media-fullname'>{currStation.createdBy.fullname}</div>}
                 </div>
-                <button></button>
-                <div></div>
             </div>
             {/* {videoTitle && <h3>{videoTitle}</h3>} */}
         </div>
