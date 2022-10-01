@@ -171,7 +171,7 @@
 @media (max-width: 600px) {
     .main-footer-container {
         position: fixed;
-        bottom: 38px;
+        bottom: 50px;
         z-index: 25;
 
 
@@ -218,6 +218,7 @@
         }
 
         .media-player-container {
+            height: unset;
             padding: 0;
 
             .media-player-video-settings {

@@ -139,8 +139,6 @@
             display: none;
         }
 
-        .nav-container>* {}
-
         ul {
             flex-direction: row;
             height: 100%;
@@ -148,6 +146,7 @@
 
             a {
                 align-items: center;
+                height: 100%;
             }
 
             span {

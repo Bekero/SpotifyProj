@@ -66,6 +66,10 @@
 }
 
 @media (min-width: 600px) {
+    .genre-list-main-container {
+        padding: 16px 32px;
+    }
+
     .genre-preview {
         height: 200px;
         width: 200px;

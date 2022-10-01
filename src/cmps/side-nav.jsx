@@ -7,13 +7,9 @@ import SearchIcon from '../cmps/svg/search-svg'
 import LibraryIcon from '../cmps/svg/library-svg'
 import LikeLinkSvg from '../cmps/svg/like-nav-link'
 import { useState } from "react";
-<<<<<<< HEAD
-import harmonyLogo from "../assets/img/harmony-logo3.jpg"
+import harmonyLogo from "../assets/img/new-logo-h.ico"
 import { useDispatch, useSelector } from "react-redux";
 import { loadStations } from "../store/station.actions";
-=======
-import harmonyLogo from "../assets/img/new-logo-h.ico"
->>>>>>> 40d1c98bebfdd36cfca0f5332763769bdf80cb35
 
 export function SideNav() {
     const [isHomeActive, setIsHomeActive] = useState(false)
@@ -23,7 +19,7 @@ export function SideNav() {
     const user = useSelector(state => state.userModule.user)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    
+
     useEffect(() => {
         dispatch(loadStations())
     }, [])
@@ -79,7 +75,7 @@ export function SideNav() {
                 <div className="like-nav-asset flex">
                     <NavLink onClick={() => iBtnActive('likedSongs')} className="like-nav-link" to='/collection/track'> <div className="like-nav-icon"><LikeLinkSvg /></div> Liked Songs</NavLink>
                 </div>
-                <hr/>
+                <hr />
                 <div className="side-nav-station-container">
 
                     {!stations.length ? <div> You have no playlists...</div> :
