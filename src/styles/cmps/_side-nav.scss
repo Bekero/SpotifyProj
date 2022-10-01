@@ -124,3 +124,53 @@
         flex-grow: 1;
     }
 }
+
+@media (max-width: 600px) {
+    .side-nav {
+        position: fixed;
+        bottom: 0;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        height: auto;
+        z-index: 20;
+
+        .header-logo {
+            display: none;
+        }
+
+        .nav-container>* {
+        }
+
+        ul {
+            flex-direction: row;
+            height: 100%;
+            justify-content: space-between;
+
+            a {
+                align-items: center;
+            }
+
+            span {
+                // display: none;
+            }
+
+            svg {
+                width: 38px;
+                height: 38px;
+            }
+        }
+        
+        .playlist-container {
+            display: none;
+        }
+    }
+
+    .app-header {
+        display: none;
+    }
+
+    .app-container {
+        display: unset;
+    }
+}
