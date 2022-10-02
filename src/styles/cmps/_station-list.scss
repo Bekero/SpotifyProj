@@ -80,6 +80,9 @@
             .station-preview-label {
                 color: $main-txt-clr;
                 font-size: 1rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
                 font-weight: 700;
                 padding-block-end: 4px;
             }
@@ -95,10 +98,11 @@
 }
 
 @media (max-width: 600px) {
-    .station-list-main-container{
+    .station-list-main-container {
         padding: 0px 10px;
 
     }
+
     .station-list-container {
 
         .img-details-container {
