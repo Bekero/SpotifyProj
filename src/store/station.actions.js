@@ -137,11 +137,9 @@ export function removeSongFromMyPlaylist(wantedSong, myPlaylistId) {
 
 export function addSongToMyPlaylist(wantedSong, myPlaylistId) {
     return async (dispatch, getState) => {
-        console.log('myPlaylistId', myPlaylistId);
         let stations = getState().stationModule.stations
         const myStation = stations.find(station => station._id === myPlaylistId)
 
-        console.log(myStation)
         let checkIfLikedSongExist = myStation.songs.find(song => song.id === wantedSong.id)
         if (checkIfLikedSongExist) return
         myStation.songs.push(wantedSong)
@@ -153,7 +151,6 @@ export function addSongToMyPlaylist(wantedSong, myPlaylistId) {
 
 // export function addSongToMyPlaylist(wantedSong, myPlaylistId) {
 //     return async (dispatch, getState) => {
-//         console.log('myPlaylistId', myPlaylistId);
 //         let stations = getState().stationModule.stations
 //         let myLikedStation = structuredClone(stations.find(station => station.isLikedStation === true))
 //         let checkIfLikedSongExist = myLikedStation.songs.find(song => song.id === wantedSong.id)
@@ -173,7 +170,6 @@ export function removeLikedSongFromMyPlaylist(wantedSong, myPlaylistId) {
         likedStation.songs.filter(song => song.isLiked === true)
         //*Need to update all the stations that the song is there bcs isLiked has been changed
         // let stationsWithCurrLikedSong = structuredClone(stations.filter(station => station.songs.find(song => song.id === wantedSong.id)))
-        // console.log(stationsWithCurrLikedSong)
         // stationsWithCurrLikedSong.map(station => station.songs.map(song => { if (song.id === wantedSong.id) { song.isLiked = false } }))
         const updatedStation = await stationService.save(likedStation)
         const action = { type: 'UPDATE_PLAYLIST', updatedStation }

@@ -3,9 +3,6 @@ import { CreateStationFromOpts } from "../cmps/create-station-from-opts";
 import { useEffect } from 'react'
 
 export const OptsMenu = ({ station, currStation, closeAllModals, onRemoveFromPlaylist, addToPlaylistModal, modalPos, addToPlaylist, ArrowInOptsMenu, myStations, onAddToMyPlaylist }) => {
-    // console.log('currStation :', currStation)
-
-    debugger
     useEffect(() => {
         document.body.style.overflow = 'hidden'
 
@@ -15,7 +12,7 @@ export const OptsMenu = ({ station, currStation, closeAllModals, onRemoveFromPla
     }, [])
 
 
-    let isStationHardCoded = station.tags.find(tag => tag === 'HardCoded')
+    let isStationHardCoded = station?.tags ? station.tags.find(tag => tag === 'HardCoded') : null 
 
     return <>
         <ul style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }} className="song-list-opts-menu">

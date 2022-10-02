@@ -2,11 +2,33 @@
     display: grid;
     padding: 0 32px;
     background-color: $transparent;
+    margin-top: 20px;
 
-    // grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
-    // grid-gap: 24px;
-    // gap: 24px;
-    // height: 335px;
+    .see-all-station-list {
+        display: flex;
+        margin-bottom: 10px;
+        justify-self: end;
+        width: 100%;
+        justify-content: space-between;
+
+        >* {
+            &:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+
+        div {
+            justify-self: start;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        span {
+            cursor: pointer;
+        }
+
+    }
 
     .station-preview {
         background-color: $accent-clr;

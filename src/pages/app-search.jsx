@@ -35,6 +35,7 @@ export function AppSearch({ station, addSongToPlaylist }) {
     const results = await youtubeService.getSongs(DebounceSearch)
     getSongsData(results.data.items)
   }
+
   const getSongsData = async (data) => {
     const details = await youtubeService.getSongsDetails(data)
     if (!details) return
@@ -69,7 +70,6 @@ export function AppSearch({ station, addSongToPlaylist }) {
   const loadStations = async (filterBy) => {
     try {
       setIsLoading(true)
-      console.log('isLoading!!!!!!! :', isLoading)
       await utilService.delay(600)
       let filteredStations = await stationService.query(filterBy)
       setStations(filteredStations)
@@ -101,6 +101,7 @@ export function AppSearch({ station, addSongToPlaylist }) {
       </div>
       {/* {!stations && isLoading && <div className="loading"><img src="https://media0.giphy.com/media/XD4AGF33DE3ADaucqt/giphy.gif?cid=ecf05e47hcj0piy50kbuangxxxzibzc9tkaorh1irjn4fqpu&rid=giphy.gif&ct=s"/></div>} */}
       <SearchList setIsLoading={setIsLoading} addSongToPlaylist={addSongToPlaylist} addToLikedPlaylist={addToLikedPlaylist} playCurrUrl={playCurrUrl} songDetails={songDetails} songDuration={songDuration} user={user} />
+      {/* {path === '/collection/tags' && <StationList stations={stations} />} */}
       {stations && <StationList stations={stations} />}
       {path === '/search' && <StationListContainer />}
     </div>

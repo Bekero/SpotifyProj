@@ -1,5 +1,4 @@
 import axios from "axios"
-import { utilService } from "./util.service"
 
 export const youtubeService = {
     getSongs,
@@ -8,11 +7,21 @@ export const youtubeService = {
     getSongDuration
 }
 
-const API_KEYS = []
+const API_KEYS = ['AIzaSyDgbFfLi0LGl6lOJ_0cN4A-lcrS4UtryCU', 'AIzaSyBKmZyRd0g8AEKqh9tNR3VNFn4ERzmmoIY', 'AIzaSyBL-4tgjB8MxfYouEBcUPllZk2u8noV9kM']
+var gApisCounter = 0
 
-function getSongs(term) {
-    const API_KEY = 'AIzaSyBL-4tgjB8MxfYouEBcUPllZk2u8noV9kM'
-    return axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${API_KEY}&q=${term}&maxResults=50`)
+async function getSongs(term) {
+    const API_KEY = API_KEYS[gApisCounter]
+    try {
+        return await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${API_KEY}&q=${term}&maxResults=50`)
+
+    } catch (e) {
+        if (gApisCounter === API_KEYS.length - 1) {
+            gApisCounter = 0
+        }
+        gApisCounter++
+        return await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${API_KEY}&q=${term}&maxResults=50`)
+    }
 
 }
 async function getSongsDetails(songs) {

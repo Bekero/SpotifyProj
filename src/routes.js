@@ -1,3 +1,4 @@
+import { StationList } from "./cmps/station-list";
 import { LikedSongs } from "./pages/app-liked-songs";
 import { AppSearch } from "./pages/app-search";
 import { GenreDetails } from "./pages/genre-details";
@@ -14,7 +15,7 @@ const routes = [
   },
   {
     path: "/login",
-    component:<LoginSignup/>
+    component: <LoginSignup />
   },
 
   {
@@ -37,6 +38,10 @@ const routes = [
     path: "/genre/:genre",
     component: <GenreDetails />,
   },
+  // {
+  //   path: "/collection/header/:headerName",
+  //   component: <StationList />,
+  // },
 ];
 
 export default routes;

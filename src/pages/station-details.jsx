@@ -45,7 +45,6 @@ export const StationDetails = () => {
 
     useEffect(() => {
         if (params.stationId) {
-            console.log('Hekllo');
             loadStation()
             if (!user) {
                 dispatch(loadLikedSongs())
@@ -71,7 +70,6 @@ export const StationDetails = () => {
     }
 
     const onEditStation = (stationId) => {
-        console.log('stationId :', stationId)
         setEditStation(!isEditStation)
         if (!isEditStation) return
         setStation(stationId)
@@ -82,9 +80,7 @@ export const StationDetails = () => {
         try {
             const station = await stationService.getById(stationId)
             setStation(station)
-            console.log(currStation);
             if (!currStation) {
-                console.log('inside if')
                 // dispatch(setCurrStation(stationId))
             }
         } catch (err) {
@@ -97,7 +93,6 @@ export const StationDetails = () => {
         dispatch(removeSongFromMyPlaylist(wantedSong, station._id))
         const updatedSongs = station.songs.filter(song => song.id !== wantedSong.id)
         const updatedStation = { ...station, songs: updatedSongs }
-        console.log('updatedStation :', updatedStation)
         setStation(updatedStation)
     }
 
@@ -121,6 +116,7 @@ export const StationDetails = () => {
 
     const addSongToPlaylist = async (ev, song) => {
         ev.stopPropagation()
+        console.log('song :', song)
         const res = station.songs.find(currSong => currSong.id === song.id)
         if (res) return
         const filteredSong = {

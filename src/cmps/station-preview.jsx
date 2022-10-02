@@ -9,21 +9,18 @@ import PauseSongToolBar from '../cmps/svg/pause-song-tool-bar'
 import { setCurrPlayingSongIdx, setIsPlayingSong } from "../store/song.actions";
 
 export function StationPreview({ station }) {
-    const currStation = useSelector(state => state.stationModule.currStation)
+
     const isPlayingSong = useSelector(state => state.songModule.isPlayingSong)
     const currSongIdx = useSelector(state => state.songModule.currSongIdx)
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    
+
 
     const getLabels = () => {
         return station.tags.join(', ')
     }
 
     const onSetCurrStation = async () => {
-        // if (!currStation) {
-            // await dispatch(setCurrStation(station._id))
-        // }
         navigate(`/playlist/${station._id}`)
     }
 
@@ -35,7 +32,7 @@ export function StationPreview({ station }) {
         }
         dispatch(setIsPlayingSong(!isPlayingSong))
     }
-    
+
     return (
         // <Link onClick={onSetCurrStation} className="text-decoration" to={`/playlist/${station._id}`}>
         <div onClick={onSetCurrStation}>
@@ -45,7 +42,7 @@ export function StationPreview({ station }) {
                     {!station?.createdBy?.imgUrl ? <div className="img-details-new-playlist"> <NewPlaylistPreviewSvg /> </div> :
                         <img className="img-details" src={station?.createdBy?.imgUrl} />}
                     <div className="play-btn-preview">
-                        <div  className="play-song-tool-bar-container"><button onClick={playCurrUrl} className="play-song-tool-bar">{!isPlayingSong ? <PlaySongToolBar /> : <PauseSongToolBar />}</button></div>
+                        <div className="play-song-tool-bar-container"><button onClick={playCurrUrl} className="play-song-tool-bar">{!isPlayingSong ? <PlaySongToolBar /> : <PauseSongToolBar />}</button></div>
                     </div>
                 </div>
                 <div className="station-preview-artist">
