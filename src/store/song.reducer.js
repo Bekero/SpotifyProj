@@ -15,7 +15,7 @@ export function songReducer(state = initialState, action) {
         case 'SET_IS_SONG_PLAYING':
             newState = { ...state, isPlayingSong: action.isPlayingSong }
             break
-        case 'SET_NEXT_PREV_SONG':
+        case 'SET_CHANGE_SONG':
             const { currStation } = action
             if (currSongIdx + action.diff >= currStation.songs.length) {
                 currSongIdx = -1

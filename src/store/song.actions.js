@@ -13,7 +13,7 @@ export function setPlayer(player) {
 export function changeSong(diff) {
     return (dispatch, getState) => {
         const currStation = getState().stationModule.currStation
-        const action = { type: 'SET_NEXT_PREV_SONG', diff, currStation }
+        const action = { type: 'SET_CHANGE_SONG', diff, currStation }
         dispatch(action)
     }
 }

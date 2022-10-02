@@ -11,14 +11,14 @@ const onChangeSong = async (diff) => {
 function changeSong(diff) {
     return (dispatch, getState) => {
         const currStation = getState().stationModule.currStation
-        const action = { type: 'SET_NEXT_PREV_SONG', diff, currStation }
+        const action = { type: 'SET_CHANGE_SONG', diff, currStation }
         dispatch(action)
     }
 }
 
 // Reducer
 switch (action.type) {
-    case 'SET_NEXT_PREV_SONG':
+    case 'SET_CHANGE_SONG':
         const { currStation } = action
         if (currSongIdx + action.diff >= currStation.songs.length) {
             currSongIdx = -1
