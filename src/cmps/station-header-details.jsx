@@ -67,7 +67,7 @@ export function StationHeaderDetails({ station, updateLocalStation, onRemoveStat
                 }
             </div>
             <div className="details-container">
-                <span>{station ? 'ALBUM' : 'PLAYLIST'}</span>
+                <span className='details-container-album-name'>{station ? 'ALBUM' : 'PLAYLIST'}</span>
                 <h3 className="album-name">{station ? station.name : 'Liked Songs'}</h3>
                 <div className="creator">
                     {station && <img className="artist-img-details" src={station?.createdBy?.artistImg !== '' ? station?.createdBy?.artistImg : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png"} alt="" />}
