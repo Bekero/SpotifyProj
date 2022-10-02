@@ -23,9 +23,7 @@ export function AppSearch({ station, addSongToPlaylist }) {
   const [songDuration, setSongDuration] = useState([]);
   const [term, setTerm] = useState([]);
   const DebounceSearch = useDebounce(term, 600)
-  const [loading, setLoading] = useState(false)
   const user = useSelector(state => state.userModule.user)
-
 
   useEffect(() => {
     if (DebounceSearch === '' || !DebounceSearch.length) return setSongDetails([])
@@ -44,8 +42,6 @@ export function AppSearch({ station, addSongToPlaylist }) {
     setSongDuration(durations)
     setSongDetails(details)
   }
-
-
 
   const addToLikedPlaylist = async (song) => {
     const filteredSong = {
