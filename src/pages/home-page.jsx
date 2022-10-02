@@ -65,9 +65,9 @@ export function HomePage() {
     return (
         <div className="app-home main-view">
 
-            <StationList stations={hardCodedStations} header={'Good afternoon'} />
-            <StationList stations={bestOfStations} header={'Best of'} />
-            <StationList stations={divaStations} header={'More of Divas'} />
+            <StationList stations={hardCodedStations} header={'Good Afternoon'} />
+            <StationList stations={bestOfStations} header={'Best Of...'} />
+            <StationList stations={divaStations} header={'More Of Divas'} />
             <div className="toast-container">
                 <ToastContainer
                     position="bottom-center"
