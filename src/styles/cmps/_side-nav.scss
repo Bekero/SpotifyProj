@@ -7,7 +7,7 @@
         color: $main-txt-clr;
         display: flex;
         align-items: center;
-        gap: 16px;
+        margin-left: -6px;
 
         img {
             border-radius: 50%;
@@ -63,7 +63,6 @@
         font-size: 0.875em;
         display: flex;
         gap: 16px;
-        margin-left: 6px;
 
         .like-nav-icon {
             display: grid;
@@ -190,7 +189,7 @@
             padding: 8px 0px;
             gap: 15px;
             // max-height: 730px;
-            max-height: 530px;            
+            max-height: 45vh;            
             overflow-y: auto;
 
             .side-nav-station {
