@@ -1,9 +1,7 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import { userService } from '../services/user.service'
-import { loadStations } from '../store/station.actions'
 import { loadLikedSongs } from '../store/user.actions'
 import { StationDetails } from './station-details'
 

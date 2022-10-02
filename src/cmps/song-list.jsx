@@ -71,7 +71,8 @@ export const SongList = ({ station, playCurrUrl, user, removeFromPlaylist }) => 
     if (!currStation) return <></>
     return <div>
         {
-            openModal && <OptsMenu
+            openModal &&
+            <OptsMenu
                 station={station}
                 currStation={currStation}
                 addToPlaylistModal={addToPlaylistModal}
