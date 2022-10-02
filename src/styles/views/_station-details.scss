@@ -105,6 +105,10 @@
             justify-content: flex-end;
             z-index: 0;
 
+            .details-container-album-name {
+                padding-inline: 6px;
+            }
+
             .album-name {
                 font-size: 4.5rem;
             }
@@ -493,9 +497,15 @@
             flex-direction: column;
             align-items: center;
             padding: 24px 0 0 0;
+
             .song-list-title-img-container {
                 margin-right: unset;
             }
+
+            .details-container-btn {
+                display: none;
+            }
+
             .details-container {
                 align-items: center;
 
@@ -554,6 +564,7 @@
     .song-list-title-img-container {
         margin-right: 16px;
     }
+
     .like-song-preview {
         visibility: hidden;
     }
