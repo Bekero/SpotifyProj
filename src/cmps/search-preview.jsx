@@ -28,7 +28,7 @@ export function SearchPreview({ songDuration, addSongToPlaylist, song, playCurrU
         </div>
         <div className="play-song-desc">
 
-          <div className='play-song-title'>{songTitle}</div>
+          <div className='play-song-title'>{songTitle.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>;\{\}\[\]\\\/]/gi, '')}</div>
           <div className="play-song-author">{song.contentDetails.channelTitle}</div>
         </div>
       </div>
