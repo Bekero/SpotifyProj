@@ -1,6 +1,6 @@
 import { SearchPreview } from "./search-preview";
 
-export function SearchList({ setIsLoading, addSongToPlaylist, playCurrUrl, songDuration, addToLikedPlaylist, songDetails, user, }) {
+export function SearchList({ addSongToPlaylist, playCurrUrl, songDuration, addToLikedPlaylist, songDetails, user, }) {
 
     return (
 

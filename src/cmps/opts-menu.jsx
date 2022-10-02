@@ -19,7 +19,6 @@ export const OptsMenu = ({ station, closeAllModals, onRemoveFromPlaylist, addToP
             <li onClick={(ev) => closeAllModals(ev)}><CreateStationFromOpts /></li>
             <li className="add-to-playlist-section" onMouseOver={() => addToPlaylist(true)}><ArrowInOptsMenu style={{ transform: `rotate(270deg)` }} />Add To Playlist </li>
             {isStationHardCoded ? <li>Remove From Playlist</li> : <li onClick={() => onRemoveFromPlaylist()}>Remove From Playlist</li>}
-            <li>Smth Else</li>
         </ul>
         {
             addToPlaylistModal &&
