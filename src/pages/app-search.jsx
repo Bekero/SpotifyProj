@@ -13,7 +13,7 @@ import { addSongToMyPlaylist } from "../store/station.actions";
 import { utilService } from "../services/util.service";
 import { addLikedSong, removeLikedSong } from "../store/user.actions";
 
-export function AppSearch({ addSongToPlaylist }) {
+export function AppSearch({ station, addSongToPlaylist }) {
 
   const [stations, setStations] = useState(null)
   const path = window.location.pathname
@@ -23,9 +23,7 @@ export function AppSearch({ addSongToPlaylist }) {
   const [songDuration, setSongDuration] = useState([]);
   const [term, setTerm] = useState([]);
   const DebounceSearch = useDebounce(term, 600)
-  const [loading, setLoading] = useState(false)
   const user = useSelector(state => state.userModule.user)
-
 
   useEffect(() => {
     if (DebounceSearch === '' || !DebounceSearch.length) return setSongDetails([])
@@ -44,8 +42,6 @@ export function AppSearch({ addSongToPlaylist }) {
     setSongDuration(durations)
     setSongDetails(details)
   }
-
-
 
   const addToLikedPlaylist = async (song) => {
     const filteredSong = {

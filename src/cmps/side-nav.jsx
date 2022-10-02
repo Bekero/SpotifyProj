@@ -62,7 +62,7 @@ export function SideNav() {
     return (
         <div className="side-nav">
 
-            <NavLink className="header-logo" to='/' > <img src={harmonyLogo} />Harmony  </NavLink>
+            <NavLink className="header-logo" to='/' ><img src={harmonyLogo} />Harmony  </NavLink>
             <nav className="nav-container flex column">
                 <ul className="flex">
                     <li ><NavLink onClick={() => iBtnActive('home')} to='/' className='flex'> <HomeIcon isActive={isHomeActive} /><span>Home</span></NavLink></li>

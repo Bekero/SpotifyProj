@@ -139,13 +139,8 @@ export function addSongToMyPlaylist(wantedSong, myPlaylistId) {
     return async (dispatch, getState) => {
         console.log('myPlaylistId', myPlaylistId);
         let stations = getState().stationModule.stations
-        let currStation = getState().stationModule.currStation
         const myStation = stations.find(station => station._id === myPlaylistId)
 
-        // if (!myPlaylistId) {
-            // myStation = currStation
-        // } else {
-        // }
         console.log(myStation)
         let checkIfLikedSongExist = myStation.songs.find(song => song.id === wantedSong.id)
         if (checkIfLikedSongExist) return

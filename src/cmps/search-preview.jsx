@@ -5,7 +5,7 @@ import OptsSvg from './svg/opts-song'
 import { utilService } from "../services/util.service";
 
 export function SearchPreview({ songDuration, addSongToPlaylist, song, playCurrUrl, addToLikedPlaylist, user }) {
-  const songTitle = song.contentDetails.title.replace(/(\(.*?\))/g, '')
+  const songTitle = song.contentDetails.title.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '')
   const path = window.location.pathname
 
   function isSongLiked(songId) {

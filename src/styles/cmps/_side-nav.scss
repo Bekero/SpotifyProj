@@ -188,7 +188,8 @@
             flex-direction: column;
             padding: 8px 0px;
             gap: 15px;
-            max-height: 530px;
+            // max-height: 730px;
+            max-height: 45vh;            
             overflow-y: auto;
 
             .side-nav-station {
