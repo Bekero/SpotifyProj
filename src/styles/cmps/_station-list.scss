@@ -37,6 +37,7 @@
         height: 100%;
 
         &:hover {
+            cursor: pointer;
             background-color: $third-clr;
         }
     }
