@@ -1,5 +1,5 @@
 .song-list-opts-menu {
-    z-index: 9999;
+    z-index: 100;
     padding: 4px;
     background-color: #282828;
     border-radius: 6px;
@@ -13,6 +13,9 @@
     cursor: default;
 
     .add-to-playlist-section {
+        display: flex;
+        align-items: center;
+
         svg {
             transform: rotate(270deg);
         }
@@ -21,7 +24,7 @@
     .create-in-opts-menu {
         display: block;
         margin-top: 0px;
-        
+
     }
 
     >* {

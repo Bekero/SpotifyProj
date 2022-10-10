@@ -6,13 +6,13 @@ import { addLikedSong, removeLikedSong } from '../store/user.actions'
 import ArrowInOptsMenu from './svg/arrow-in-opts-menu'
 import { OptsMenu } from './opts-menu'
 
-export const SongList = ({ station, playCurrUrl, user, removeFromPlaylist }) => {
+export const SongList = ({ station, playCurrUrl, user, removeFromPlaylist, setOpenModal, openModal }) => {
 
     const dispatch = useDispatch()
 
     const [wantedSong, setWantedSong] = useState(null)
     const [playHover, setPlayHover] = useState(false)
-    const [openModal, setOpenModal] = useState(null)
+    // const [openModal, setOpenModal] = useState(null)
     const [modalPos, setModalPos] = useState(null)
     const [addToPlaylistModal, setAddToPlaylistModal] = useState(null)
 

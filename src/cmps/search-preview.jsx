@@ -35,7 +35,7 @@ export function SearchPreview({ songDuration, addSongToPlaylist, song, playCurrU
       {path === '/search' ? <div className="opts-menu-section">
         <button onClick={() => addToLikedPlaylist(song)} className={isSongLiked(song.id) ? "is-liked-song-preview" : "like-song-preview"}>{isSongLiked(song.id) ? <FilledLikeToolBar /> : <UnfilledLikeToolBar />}</button>
         <div className="song-duration-container">{utilService.setTimestampToTime(songDuration)}</div>
-        <button onClick={(ev) => addSongToPlaylist(ev, song)} className="add1-to-playlist-btn" >Add</button>
+        {/* <button onClick={(ev) => addSongToPlaylist(ev, song)} className="add1-to-playlist-btn" >Add</button> */}
       </div> :
         <div className="flex align-center justify-center">
           <button onClick={(ev) => addSongToPlaylist(ev, song)} className="add1-to-playlist-btn" >Add</button>

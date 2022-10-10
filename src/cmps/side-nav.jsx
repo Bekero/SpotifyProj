@@ -56,7 +56,6 @@ export function SideNav() {
         }
     }
 
-
     stations = stations.filter(station => station?.createdBy?._id === user?._id)
 
     return (
@@ -81,9 +80,6 @@ export function SideNav() {
                     {!stations.length ? <div> You have no playlists...</div> :
                         stations.map(station => <div key={station._id} className="side-nav-station" onClick={() => onNavigateToStation(station._id)}> {station.name}</div>)}
                 </div>
-
-                {/* <MyStations /> */}
-
             </div>
         </div >
     )
