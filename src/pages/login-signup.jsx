@@ -16,13 +16,13 @@ export const LoginSignup = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    getUsers();
-  }, []);
+  // useEffect(() => {
+    // getUsers();
+  // }, []);
 
   const getUsers = () => {
-    const users = userService.getUsers();
-    setUsers(users);
+    // const users = userService.getUsers();
+    // setUsers(users);
   };
 
   const clearState = () => {
@@ -36,8 +36,9 @@ export const LoginSignup = () => {
     setCredentials({ ...credentials, [field]: value });
   };
 
-  const login = async (ev = null) => {
-    if (ev) ev.preventDefault();
+  const login = async (ev) => {
+    ev.preventDefault()
+    ev.stopPropagation()
     if (!credentials.username) return;
     try {
       await dispatch(onLogin(credentials));
@@ -49,8 +50,9 @@ export const LoginSignup = () => {
     clearState();
   };
 
-  const signup = async (ev = null) => {
-    if (ev) ev.preventDefault();
+  const signup = async (ev) => {
+    ev.preventDefault()
+    ev.stopPropagation()
     if (!credentials.username || !credentials.password || !credentials.fullname)
       return;
     try {
