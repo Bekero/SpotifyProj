@@ -14,7 +14,6 @@ export function CreateStation() {
     const dispatch = useDispatch()
     const onCreateStation = async () => {
         const station = stationService.getEmptyStation()
-        console.log('station', station);
         const savedStation = await dispatch(addStation(station))
         navigate(`/playlist/${savedStation._id}`)
         // dispatch(setCurrStation(savedStation._id))

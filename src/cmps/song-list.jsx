@@ -7,6 +7,7 @@ import ArrowInOptsMenu from './svg/arrow-in-opts-menu'
 import { OptsMenu } from './opts-menu'
 
 export const SongList = ({ station, playCurrUrl, user, removeFromPlaylist }) => {
+
     const dispatch = useDispatch()
 
     const [wantedSong, setWantedSong] = useState(null)
@@ -42,7 +43,6 @@ export const SongList = ({ station, playCurrUrl, user, removeFromPlaylist }) => 
     }
 
     const closeAllModals = (ev) => {
-        console.log('Hey im here', ev)
         setOpenModal(false)
         setAddToPlaylistModal(false)
     }
@@ -54,7 +54,6 @@ export const SongList = ({ station, playCurrUrl, user, removeFromPlaylist }) => 
         }
         else {
             let isSongExists = user.likedSongs?.find(song => song.id === wantedSong.id)
-            console.log('isSongExists', isSongExists);
             if (isSongExists) dispatch(removeLikedSong(wantedSong))
             else if (!isSongExists) dispatch(addLikedSong(wantedSong))
             return
@@ -71,7 +70,8 @@ export const SongList = ({ station, playCurrUrl, user, removeFromPlaylist }) => 
     if (!currStation) return <></>
     return <div>
         {
-            openModal && <OptsMenu
+            openModal &&
+            <OptsMenu
                 station={station}
                 currStation={currStation}
                 addToPlaylistModal={addToPlaylistModal}

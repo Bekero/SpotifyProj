@@ -2,7 +2,7 @@ import React from 'react'
 import { CreateStationFromOpts } from "../cmps/create-station-from-opts";
 import { useEffect } from 'react'
 
-export const OptsMenu = ({ station, closeAllModals, onRemoveFromPlaylist, addToPlaylistModal, modalPos, addToPlaylist, ArrowInOptsMenu, myStations, onAddToMyPlaylist }) => {
+export const OptsMenu = ({ station, currStation, closeAllModals, onRemoveFromPlaylist, addToPlaylistModal, modalPos, addToPlaylist, ArrowInOptsMenu, myStations, onAddToMyPlaylist }) => {
     useEffect(() => {
         document.body.style.overflow = 'hidden'
 
@@ -12,7 +12,7 @@ export const OptsMenu = ({ station, closeAllModals, onRemoveFromPlaylist, addToP
     }, [])
 
 
-    let isStationHardCoded = station.tags.find(tag => tag === 'HardCoded')
+    let isStationHardCoded = station?.tags ? station.tags.find(tag => tag === 'HardCoded') : null 
 
     return <>
         <ul style={{ transform: `translate(${modalPos.posX}px, ${modalPos.posY}px)` }} className="song-list-opts-menu">
@@ -23,9 +23,9 @@ export const OptsMenu = ({ station, closeAllModals, onRemoveFromPlaylist, addToP
         {
             addToPlaylistModal &&
             <ul className="add-to-playlist-modal" style={{ transform: `translate(${modalPos.posX - 200}px, ${modalPos.posY - 160}px)` }}>
-                {myStations.map((station, myPlaylistIdx) =>
+                {myStations.map((newStation, myPlaylistIdx) =>
                     <li key={myPlaylistIdx}>
-                        <div onClick={() => onAddToMyPlaylist(myPlaylistIdx)}>Add to {station.name}</div>
+                        <div onClick={() => onAddToMyPlaylist(myPlaylistIdx)}>Add to {newStation.name}</div>
                     </li>)}
             </ul>
         }

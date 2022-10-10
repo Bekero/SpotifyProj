@@ -64,10 +64,9 @@ export function HomePage() {
     if (!hardCodedStations || !bestOfStations || !divaStations) return
     return (
         <div className="app-home main-view">
-
-            <StationList stations={hardCodedStations} header={'Good Afternoon'} />
-            <StationList stations={bestOfStations} header={'Best Of...'} />
-            <StationList stations={divaStations} header={'More Of Divas'} />
+            <StationList stations={hardCodedStations} header={'Hardcoded'} title={'Good Afternoon'} />
+            <StationList stations={bestOfStations} header={'BestOf'} title={'Best One\'s'} />
+            <StationList stations={divaStations} header={'More of Divas'} title={'Queens 👑 '} />
             <div className="toast-container">
                 <ToastContainer
                     position="bottom-center"
