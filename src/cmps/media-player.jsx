@@ -58,7 +58,7 @@ export function MediaPlayer() {
                     if (prevTimestamp + 1 >= songDuration) {
                         setSongEnded(true)
                         clearInterval(intervalRef.current)
-                        onPauseVideo()
+                        // onPauseVideo()
                     }
                     return prevTimestamp + 1
                 })

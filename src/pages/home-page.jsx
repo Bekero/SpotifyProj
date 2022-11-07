@@ -48,6 +48,7 @@ export function HomePage() {
             console.log('Cannot get stations :', err)
         }
     }
+    
     const loadDivaStations = async () => {
         try {
             let newStations = await stationService.query()
@@ -66,17 +67,18 @@ export function HomePage() {
     const getWelcomeMsg = () => {
         let time = new Date().getHours()
 
-        if (time > 4 && time < 11) {
+        if (time >= 4 && time <= 11) {
             welcomeMsg = 'Good Morning'
         }
-        else if (time > 12 && time < 16) {
+        else if (time >= 12 && time <= 16) {
             welcomeMsg = 'Good Afternoon'
         }
-        else if (time > 16 && time < 20) {
+        else if (time >= 17 && time <= 20) {
             welcomeMsg = 'Good Evening'
-        } else {
+        } else if (time >= 21 && time <= 23 || time < 3) {
             welcomeMsg = 'Good Night'
         }
+        console.log('time :', time)
     }
 
     if (!hardCodedStations || !bestOfStations || !divaStations) return

@@ -18,12 +18,12 @@
         font-weight: 700;
     }
 
-    .loading{
-        >img{
+    .loading {
+        >img {
             height: 59px;
             width: 59px;
         }
-            
+
     }
 
 }
@@ -137,6 +137,7 @@
 .genre-list-main-container {
     display: flex;
     gap: 24px;
+    margin-left: 6px;
     flex-wrap: wrap;
 
     // 
@@ -161,6 +162,6 @@
             // position: absolute;
         }
 
-   
+
     }
 }

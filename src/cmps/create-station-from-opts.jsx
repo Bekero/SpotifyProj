@@ -9,6 +9,7 @@ export function CreateStationFromOpts() {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    
     const onCreateStation = async () => {
         const station = stationService.getEmptyStation()
         console.log('station', station);

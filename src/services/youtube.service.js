@@ -7,7 +7,11 @@ export const youtubeService = {
     getSongDuration
 }
 
-const API_KEYS = ['AIzaSyDgbFfLi0LGl6lOJ_0cN4A-lcrS4UtryCU', 'AIzaSyBKmZyRd0g8AEKqh9tNR3VNFn4ERzmmoIY', 'AIzaSyBL-4tgjB8MxfYouEBcUPllZk2u8noV9kM']
+const API_KEYS = [
+    'AIzaSyDgbFfLi0LGl6lOJ_0cN4A-lcrS4UtryCU', 
+    'AIzaSyBKmZyRd0g8AEKqh9tNR3VNFn4ERzmmoIY', 
+    'AIzaSyBL-4tgjB8MxfYouEBcUPllZk2u8noV9kM'
+]
 var gApisCounter = 0
 
 async function getSongs(term) {
@@ -24,6 +28,7 @@ async function getSongs(term) {
     }
 
 }
+
 async function getSongsDetails(songs) {
     const API_KEY = 'AIzaSyBL-4tgjB8MxfYouEBcUPllZk2u8noV9kM'
     if (!songs || !songs.length) return null
