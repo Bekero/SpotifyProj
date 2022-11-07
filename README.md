@@ -16,9 +16,19 @@ Visit end-to-end web application in the link below:
 ### Search Page Screenshot :
 ![Screenshot_2](https://user-images.githubusercontent.com/103526611/200299501-72d83fe7-973b-42fc-acc8-65c1d56fe39f.png)
 
-## Tech Stack
+### Tech Stack
 
 At the client side we used: React, Redux, SASS,
 
 At the server side we used: Node.js, Atlas/MongoDB, Cloudinary. (backend-repository)
 
+### Skills : 
+Javascript, HTML, CSS , SASS...
+
+### Features: 
+** Login/SignUp **
+#### Responsive UI
+#### Full Media Player
+#### Search Songs
+#### Liked Playlist
+#### Categories
