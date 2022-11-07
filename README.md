@@ -26,7 +26,7 @@ At the server side we used: Node.js, Atlas/MongoDB, Cloudinary. (backend-reposit
 Javascript, HTML, CSS , SASS...
 
 ### Features: 
-** Login/SignUp **
+[Login/SignUp]
 #### Responsive UI
 #### Full Media Player
 #### Search Songs
