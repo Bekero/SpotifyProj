@@ -36,6 +36,9 @@ Javascript, HTML, CSS , SASS...
 
 
 Creators: 
-- [Or Beker: (https://github.com/Bekero)]
+[- Or Beker: (https://github.com/Bekero)]
+[ - Or Beker: ( https://github.com/Bekero ]
+- 
 @Yarin: https://github.com/YarinDay
+
 @Reut: https://github.com/ReutMaharat
