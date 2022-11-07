@@ -1,10 +1,6 @@
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom"
+
 import { useNavigate } from "react-router-dom";
-import { SongList } from "./song-list";
 import { StationPreview } from "./station-preview";
-
-
 
 export function StationList({ stations, user, header, title }) {
 
@@ -13,7 +9,6 @@ export function StationList({ stations, user, header, title }) {
   const setAllStationCategory = ({ header }) => {
     navigate(`/genre/${header}`);
   }
-
 
   const path = window.location.pathname
 

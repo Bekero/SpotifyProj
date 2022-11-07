@@ -37,7 +37,11 @@ export const StationEditModal = ({ station, onEditStation, onCloseStation, updat
                 }</div>
                 <div className="edit-details-form">
                     <form onSubmit={onSaveStation}>
-                        <input value={newStation.name} onChange={handleChange} name="name" id="name" />
+                        <input 
+                        value={newStation.name} 
+                        onChange={handleChange} 
+                        name="name" 
+                        id="name" />
                         <button>Save</button>
                     </form>
                 </div>

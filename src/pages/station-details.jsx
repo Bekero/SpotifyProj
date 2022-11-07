@@ -13,7 +13,6 @@ import { StationHeaderDetails } from '../cmps/station-header-details'
 import { loadLikedSongs } from '../store/user.actions'
 import { setCurrPlayingSongIdx, setIsPlayingSong } from '../store/song.actions'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
-import { SearchList } from '../cmps/search-list'
 import { youtubeService } from '../services/youtube.service'
 import { AppSearch } from './app-search'
 import { socketService } from '../services/socket.service'
@@ -33,7 +32,9 @@ export const StationDetails = () => {
     const [imgColor, setImgColor] = useState('#121212')
     const [isEditStation, setEditStation] = useState(false)
     const [isDraggedItem, setIsDraggedItem] = useState(false)
+    const [openModal, setOpenModal] = useState(null)
 
+    console.log('openModal :', openModal)
     useEffect(() => {
         socketService.on('update-station', (updatedStation) => {
             updateLocalStation(updatedStation)
@@ -153,8 +154,10 @@ export const StationDetails = () => {
     };
 
     if (!station && !user) return <div>Loading...</div>
+
     return (
         <section className="main-details-container">
+            {openModal && <div onClick={() => { setOpenModal(false) }} className="modal-opened123"></div>}
             <div style={{ backgroundColor: imgColor, color: txtColor }} className={station ? "station-details" : "station-details liked"}>
                 <StationHeaderDetails
                     updateLocalStation={updateLocalStation}
@@ -187,6 +190,8 @@ export const StationDetails = () => {
                                     playCurrUrl={playCurrUrl}
                                     removeFromPlaylist={removeFromPlaylist}
                                     user={user}
+                                    setOpenModal={setOpenModal}
+                                    openModal={openModal}
                                 />
                                 {provided.placeholder}
                             </div>
@@ -194,14 +199,17 @@ export const StationDetails = () => {
                     </Droppable>
                 </DragDropContext >
             </div>
-            {station ? <div>
-                {station?.createdBy?._id === user?._id && <div>
-                    <AppSearch station={station} addSongToPlaylist={addSongToPlaylist} />
+            {
+                station ? <div>
+                    {station?.createdBy?._id === user?._id && <div>
+                        <AppSearch
+                            station={station} 
+                            addSongToPlaylist={addSongToPlaylist} />
+                    </div>
+                    }
                 </div>
-                }
-            </div>
-                :
-                <></>
+                    :
+                    <></>
             }
         </section >
     )

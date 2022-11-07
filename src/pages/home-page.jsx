@@ -6,11 +6,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export function HomePage() {
+
     const [hardCodedStations, setHardCodedStations] = useState(null)
     const [bestOfStations, setBestOfStations] = useState(null)
     const [divaStations, setDivaStations] = useState(null)
 
-    // const notify = () => toast("Hola Ninio");
+    let welcomeMsg
+
     useEffect(() => {
         loadHardCodedStations()
         loadBestOfStations()
@@ -46,6 +48,7 @@ export function HomePage() {
             console.log('Cannot get stations :', err)
         }
     }
+    
     const loadDivaStations = async () => {
         try {
             let newStations = await stationService.query()
@@ -61,10 +64,29 @@ export function HomePage() {
         }
     }
 
+    const getWelcomeMsg = () => {
+        let time = new Date().getHours()
+
+        if (time >= 4 && time <= 11) {
+            welcomeMsg = 'Good Morning'
+        }
+        else if (time >= 12 && time <= 16) {
+            welcomeMsg = 'Good Afternoon'
+        }
+        else if (time >= 17 && time <= 20) {
+            welcomeMsg = 'Good Evening'
+        } else if (time >= 21 && time <= 23 || time < 3) {
+            welcomeMsg = 'Good Night'
+        }
+        console.log('time :', time)
+    }
+
     if (!hardCodedStations || !bestOfStations || !divaStations) return
+    getWelcomeMsg()
     return (
         <div className="app-home main-view">
-            <StationList stations={hardCodedStations} header={'Hardcoded'} title={'Good Afternoon'} />
+            <div className="station-list-main-container">{welcomeMsg}</div>
+            <StationList stations={hardCodedStations} header={'Hardcoded'} title={'Our Top Playlists'} />
             <StationList stations={bestOfStations} header={'BestOf'} title={'Best One\'s'} />
             <StationList stations={divaStations} header={'More of Divas'} title={'Queens 👑 '} />
             <div className="toast-container">
