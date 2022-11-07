@@ -5,7 +5,7 @@ A one page application, built with React, Redux, Node.js, SASS.
 
 Visit end-to-end web application in the link below:
 
-[Harmony](https://harmony-proj.herokuapp.com)
+[=> Harmony <=](https://harmony-proj.herokuapp.com)
 
 ### Home Page Screenshot :
 ![Screenshot_1](https://user-images.githubusercontent.com/103526611/200299106-570ee33b-21fb-45a7-92c1-353c437a2752.png)
