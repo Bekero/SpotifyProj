@@ -18,17 +18,17 @@ Visit end-to-end web application in the link below:
 
 ### Tech Stack
 
-At the client side we used: React, Redux, SASS,
+- At the client side we used: React, Redux, SASS,
 
-At the server side we used: Node.js, Atlas/MongoDB, Cloudinary. (backend-repository)
+- At the server side we used: Node.js, Atlas/MongoDB, Cloudinary. (backend-repository)
 
 ### Skills : 
-Javascript, HTML, CSS , SASS...
+- Javascript, HTML, CSS , SASS...
 
 ### Features: 
-- Login/SignUp
-#### Responsive UI
-#### Full Media Player
-#### Search Songs
-#### Liked Playlist
-#### Categories
+- #### Login/SignUp
+- #### Responsive UI
+- #### Full Media Player
+- #### Search Songs
+- #### Liked Playlist
+- #### Categories
