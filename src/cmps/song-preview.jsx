@@ -6,12 +6,12 @@ import PlaySong from '../cmps/svg/play-song-svg'
 import { Draggable } from "react-beautiful-dnd"
 import { useSelector, useDispatch } from "react-redux"
 import { utilService } from "../services/util.service"
+import { useParams } from "react-router-dom"
 
-export function SongPreview({ station, currSong, songIdx, currStation, playHover, playCurrUrl, addToLikedPlaylist, openOptsModal, user }) {
-
+export function SongPreview({ station, currSong, songIdx, playHover, playCurrUrl, addToLikedPlaylist, openOptsModal, user }) {
     const isPlayingSong = useSelector(state => state.songModule.isPlayingSong)
-
-    const isSongPlaying = useSelector(state => state.songModule.isPlayingSong)
+    const currPlayingStation = useSelector(state => state.stationModule.currStation)
+    const params = useParams()
     const currSongIdx = useSelector(state => state.songModule.currSongIdx)
 
     function isSongLiked(songId) {
@@ -20,6 +20,7 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
     }
 
     if (!station && !user) return <div>Loading...</div>
+    const condition = currPlayingStation?._id === params.stationId && isPlayingSong && currSongIdx === songIdx
     return <>
         {
             <Draggable key={currSong.id} draggableId={currSong.id} index={songIdx}>
@@ -28,9 +29,9 @@ export function SongPreview({ station, currSong, songIdx, currStation, playHover
                         ref={provided.innerRef}
                         {...provided.dragHandleProps}
                         {...provided.draggableProps}
-                        className={`song-preview ${(isPlayingSong && currSongIdx === songIdx) ? 'active' : ''}`}>
+                        className={`song-preview ${condition ? 'active' : ''}`}>
                         <div className="song-number-play">
-                            {isSongPlaying && currSongIdx === songIdx ? <div className="pause-video" onClick={() => { station ? playCurrUrl(songIdx, station._id, undefined, false) : playCurrUrl(songIdx, undefined, user, false) }}><button><PauseSongSvg /></button></div>
+                            {condition ? <div className="pause-video" onClick={() => { station ? playCurrUrl(songIdx, station._id, undefined, false) : playCurrUrl(songIdx, undefined, user, false) }}><button><PauseSongSvg /></button></div>
                                 :
                                 <div>
                                     <div className="play-song-preview"><button onClick={() => { station ? playCurrUrl(songIdx, station._id, undefined, true) : playCurrUrl(songIdx, undefined, user, true) }}>{<PlaySong />}</button></div>

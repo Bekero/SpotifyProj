@@ -16,6 +16,7 @@ import Repeat from './svg/repeat-song-svg.jsx'
 import VolumeOn from './svg/volume-off-svg'
 import VolumeOff from './svg/volume-on-svg'
 import { utilService } from '../services/util.service';
+import { PhoneModal } from './phone-modal';
 
 export function MediaPlayer() {
 
@@ -31,8 +32,9 @@ export function MediaPlayer() {
     const [songEnded, setSongEnded] = useState(false)
     const [repeatSong, setRepeatSong] = useState(false)
     const [isShuffleSong, setIsShuffleSong] = useState(false)
-    const [songVolume, setSongVolume] = useState(50)
     const [isSongMuted, setSongMuted] = useState(false)
+    const [toggleModal, setToggleModal] = useState(false)
+    const [songVolume, setSongVolume] = useState(50)
     const [songDuration, setSongDuration] = useState(0)
     const [songStartFrom, setSongStartFrom] = useState(0)
     const [songTimestamp, setSongTimestamp] = useState(0)
@@ -58,7 +60,7 @@ export function MediaPlayer() {
                     if (prevTimestamp + 1 >= songDuration) {
                         setSongEnded(true)
                         clearInterval(intervalRef.current)
-                        onPauseVideo()
+                        // onPauseVideo()
                     }
                     return prevTimestamp + 1
                 })
@@ -101,7 +103,7 @@ export function MediaPlayer() {
             await dispatch(changeSong(0))
             onSetTimestamp(0)
         }
-        onPlayVideo()
+        await onPlayVideo()
     }
 
     const onReadyVideo = (event) => {
@@ -120,9 +122,11 @@ export function MediaPlayer() {
 
     const onPlayVideo = async () => {
         player.playVideo()
+        console.log(isPlayingSong);
         if (isPlayingSong) return
         await dispatch(setIsPlayingSong(true))
-        setPlay(true)
+        console.log(isPlayingSong);
+        await setPlay(true)
     }
 
     const onChangeSong = async (diff) => {
@@ -174,6 +178,9 @@ export function MediaPlayer() {
         setSongStartFrom(songStartFromValue)
     }
 
+    const onToggleModal = () => {
+        setToggleModal(!toggleModal)
+    }
 
     const opts = {
         height: '0',
@@ -185,7 +192,8 @@ export function MediaPlayer() {
         },
     };
     const condition = currStation?.createdBy?.fullname && getSong()?.title
-    return <div className='media-player-container'>
+    return <div className='media-player-container' onClick={onToggleModal}>
+        {/* <PhoneModal toggleModal={toggleModal} getSong={getSong} onChangeSong={onChangeSong} /> */}
         <div className='media-player-video-desc'>
             <div className='media-player-video-desc-child flex'>
 
