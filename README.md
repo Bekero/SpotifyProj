@@ -14,19 +14,19 @@ Visit end-to-end web application in the link below:
 ![Screenshot_3](https://user-images.githubusercontent.com/103526611/200299482-5a0227cc-f478-4f48-a2e2-e5d3405db855.png)
 
 ### Search Page Screenshot :
-![Screenshot_2](https://user-images.githubusercontent.com/103526611/200299501-72d83fe7-973b-42fc-acc8-65c1d56fe39f.png)
+### ![Screenshot_2](https://user-images.githubusercontent.com/103526611/200299501-72d83fe7-973b-42fc-acc8-65c1d56fe39f.png)
 
-### Tech Stack
+## Tech Stack
 
 Client: React, Redux, SASS,
 
 Server: Node.js, Atlas/MongoDB.
 <!-- - , Cloudinary. (backend-repository) -->
 
-### Skills : 
+## Skills : 
 Javascript, HTML, CSS , SASS...
 
-### Features: 
+## Features: 
 - #### Login/SignUp
 - #### Responsive UI
 - #### Full Media Player
@@ -35,7 +35,7 @@ Javascript, HTML, CSS , SASS...
 - #### Categories
 
 
-Creators: 
+##Authors: 
 - [@Or Beker](https://github.com/Bekero)
 
 - [@Yarin Dayan](https://github.com/YarinDay)
