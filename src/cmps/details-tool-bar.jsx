@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux'
 export function DetailsToolBar({ station, user }) {
     const isPlayingSong = useSelector(state => state.songModule.isPlayingSong)
     const currSongIdx = useSelector(state => state.songModule.currSongIdx)
-    const currStation = useSelector(state => state.stationModule.currStation)
+    // const currStation = useSelector(state => state.stationModule.currStation)
     const dispatch = useDispatch()
 
     const playCurrUrl = async () => {

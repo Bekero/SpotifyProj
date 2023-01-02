@@ -127,12 +127,12 @@
     }
 
     .station-list-container {
+        display: flex;
 
         .img-details-container {
             width: 200px;
         }
 
-        display: flex;
     }
 }
 

@@ -114,13 +114,15 @@ export function MediaPlayer() {
         setPlay(true)
     }
 
-    const onPauseVideo = async () => {
+    const onPauseVideo = async (ev) => {
+        ev?.stopPropagation()
         player.pauseVideo()
         await dispatch(setIsPlayingSong(false))
         setPlay(false)
     }
 
-    const onPlayVideo = async () => {
+    const onPlayVideo = async (ev) => {
+        ev?.stopPropagation()
         player.playVideo()
         console.log(isPlayingSong);
         if (isPlayingSong) return
@@ -129,7 +131,8 @@ export function MediaPlayer() {
         await setPlay(true)
     }
 
-    const onChangeSong = async (diff) => {
+    const onChangeSong = async (diff, ev) => {
+        ev.stopPropagation()
         await dispatch(changeSong(diff))
         setSongTimestamp(0)
     }
@@ -144,11 +147,13 @@ export function MediaPlayer() {
         player.seekTo(songTimestamp)
     }
 
-    const onShuffle = async () => {
+    const onShuffle = async (ev) => {
+        ev.stopPropagation()
         setIsShuffleSong(!isShuffleSong)
     }
 
-    const onRepeat = () => {
+    const onRepeat = (ev) => {
+        ev.stopPropagation()
         setRepeatSong(!repeatSong)
     }
 
@@ -158,19 +163,22 @@ export function MediaPlayer() {
         player.setVolume(0)
     }
 
-    const onSetVolumeVideo = () => {
+    const onSetVolumeVideo = (ev) => {
+        ev?.stopPropagation()
         player.setVolume(songVolume)
         setSongMuted(false)
         // player.seekTo(50)
     }
 
     const handleSongVolume = (ev) => {
+        ev?.stopPropagation()
         const songVol = +ev.target.value
         player.setVolume(songVol)
         setSongMuted(songVol === 0 ? true : false)
     }
 
     const handleSongStartFrom = (ev) => {
+        ev?.stopPropagation()
         onPlayVideo()
         const songStartFromValue = +ev.target.value
         setSongTimestamp(songStartFromValue)
@@ -178,7 +186,8 @@ export function MediaPlayer() {
         setSongStartFrom(songStartFromValue)
     }
 
-    const onToggleModal = () => {
+    const onToggleModal = (ev) => {
+        ev.stopPropagation()
         setToggleModal(!toggleModal)
     }
 
@@ -193,7 +202,7 @@ export function MediaPlayer() {
     };
     const condition = currStation?.createdBy?.fullname && getSong()?.title
     return <div className='media-player-container' onClick={onToggleModal}>
-        {/* <PhoneModal toggleModal={toggleModal} getSong={getSong} onChangeSong={onChangeSong} /> */}
+        {(window.innerWidth <= 600 && getSong()) && <PhoneModal onToggleModal={onToggleModal} repeatSong={repeatSong} isShuffleSong={isShuffleSong} onRepeat={onRepeat} onShuffle={onShuffle} songTimestamp={songTimestamp} songDuration={songDuration} handleSongStartFrom={handleSongStartFrom} station={currStation} isPlayingSong={isPlayingSong} toggleModal={toggleModal} getSong={getSong} onChangeSong={onChangeSong} onPauseVideo={onPauseVideo} onPlayVideo={onPlayVideo} />}
         <div className='media-player-video-desc'>
             <div className='media-player-video-desc-child flex'>
 
@@ -213,12 +222,12 @@ export function MediaPlayer() {
                 <div className='player-control-left'>
                     <button className='shuffle-btn' disabled={getSong()?.url ? false : true} onClick={onShuffle}><Shuffle isShuffleSong={isShuffleSong} /></button>
                     {/* <button disabled={getSong()?.url ? false : true} onClick={() => onIncreaseDecreaseTenSeconds(-5)}>-5</button> */}
-                    <button className='change-song-btn' disabled={getSong()?.url ? false : true} onClick={() => onChangeSong(-1)}><Prev /></button>
+                    <button className='change-song-btn' disabled={getSong()?.url ? false : true} onClick={(ev) => onChangeSong(-1, ev)}><Prev /></button>
                 </div>
                 {(isPlayingSong) ? <button className='media-player-play-stop-btn' disabled={getSong()?.url ? false : true} onClick={onPauseVideo}><Stop /></button> :
                     <button className='media-player-play-stop-btn' disabled={getSong()?.url ? false : true} onClick={onPlayVideo}><Play /></button>}
                 <div className='player-control-right'>
-                    <button className='change-song-btn' disabled={getSong()?.url ? false : true} onClick={() => onChangeSong(1)}><Next /></button>
+                    <button className='change-song-btn' disabled={getSong()?.url ? false : true} onClick={(ev) => onChangeSong(1, ev)}><Next /></button>
                     {/* <button disabled={getSong()?.url ? false : true} onClick={() => onIncreaseDecreaseTenSeconds(5)}>+5</button> */}
                     <button className='repeat-btn' disabled={getSong()?.url ? false : true} onClick={onRepeat}><Repeat repeatSong={repeatSong} /></button>
                 </div>
