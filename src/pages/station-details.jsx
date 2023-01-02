@@ -34,7 +34,6 @@ export const StationDetails = () => {
     const [isDraggedItem, setIsDraggedItem] = useState(false)
     const [openModal, setOpenModal] = useState(null)
 
-    console.log('openModal :', openModal)
     useEffect(() => {
         socketService.on('update-station', (updatedStation) => {
             updateLocalStation(updatedStation)

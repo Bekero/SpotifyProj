@@ -18,7 +18,6 @@ async function getSongs(term) {
     const API_KEY = API_KEYS[gApisCounter]
     try {
         return await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${API_KEY}&q=${term}&maxResults=50`)
-
     } catch (e) {
         if (gApisCounter === API_KEYS.length - 1) {
             gApisCounter = 0
@@ -26,7 +25,6 @@ async function getSongs(term) {
         gApisCounter++
         return await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${API_KEY}&q=${term}&maxResults=50`)
     }
-
 }
 
 async function getSongsDetails(songs) {

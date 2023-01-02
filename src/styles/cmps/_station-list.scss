@@ -122,17 +122,23 @@
 
 @media (max-width: 600px) {
     .station-list-main-container {
-        padding: 0px 10px;
-
+        padding: 0 10px;
     }
 
     .station-list-container {
+        display: flex;
+
 
         .img-details-container {
             width: 200px;
         }
 
-        display: flex;
+    }
+
+    .station-list-container.fdc-aic-pd {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 100px;
     }
 }
 

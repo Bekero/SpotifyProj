@@ -4,28 +4,30 @@
 
     background-color: $sec-clr;
 
+
     .app-home {
-        padding-bottom: 20px;
+        // padding-bottom: 100px;
     }
 }
 
-.Toastify__close-button{
- display:none
+.Toastify__close-button {
+    display: none
 }
 
 .Toastify__progress-bar--info {
     display: none;
 }
 
-.Toastify__progress-bar{
+.Toastify__progress-bar {
     display: none;
 }
-.Toastify__toast{
+
+.Toastify__toast {
     background-color: #0d72ea;
     color: #fff;
     margin-bottom: 6rem;
 }
 
-.Tostift_Toastify__toast-body{
+.Tostift_Toastify__toast-body {
     // font-family: 1rem;
 }

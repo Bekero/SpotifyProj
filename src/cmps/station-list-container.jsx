@@ -5,8 +5,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export function StationListContainer() {
-  useEffect(() => {
-  }, []);
+
 
   return (
     <section className='genre-list-main-container'>
