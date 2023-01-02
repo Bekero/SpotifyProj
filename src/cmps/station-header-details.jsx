@@ -19,9 +19,6 @@ export function StationHeaderDetails({ station, updateLocalStation, onRemoveStat
         return utilService.setTimestampToTime(sum)
     }
 
-    useEffect(() => {
-
-    }, [])
     const fac = new FastAverageColor();
     const container = document.querySelector('.img-container');
 
@@ -52,7 +49,9 @@ export function StationHeaderDetails({ station, updateLocalStation, onRemoveStat
                     <input type="file" onInput={onUploadImg} />
                 </label>
                 {station ? <div>
-                    {station?.createdBy?.imgUrl ? <img className="img-details" src={station?.createdBy?.imgUrl} /> :
+                    {station?.createdBy?.imgUrl ?
+                     <img className="img-details" src={station?.createdBy?.imgUrl} /> 
+                     :
                         <div className="no-photo-img-details">
                             <div className="un-hover-new-playlist-bg"><NewPlaylistDetailsSvg /></div>
                             <div className="hover-new-playlist-bg">
@@ -62,8 +61,7 @@ export function StationHeaderDetails({ station, updateLocalStation, onRemoveStat
                         </div>
                     } </div>
                     :
-                    <div><img src={likedStationImg} />
-                    </div>
+                    <div><img src={likedStationImg} /></div>
                 }
             </div>
             <div className="details-container">

@@ -5,7 +5,6 @@
     display: grid;
     grid-template-columns: repeat(minmax(0, 1fr));
 
-
     .add1-to-playlist-btn {
         padding-block: 3px;
         padding-inline: 15px;
@@ -23,17 +22,13 @@
             height: 59px;
             width: 59px;
         }
-
     }
-
 }
 
 .search-field {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    // align-items: center;
-    // padding-bottom: 16px;
     padding: 16px 32px;
 }
 
@@ -96,51 +91,13 @@
     }
 }
 
-// .genre-list-main-container {
-//     display: flex;
-//     margin-bottom: 16px;
-//     min-height: 300px;
-//     min-width: 100%;
-//     position: relative;
-//     column-width: 193px;
-//     column-count: 3;
-//     grid-gap: 18px;
-//     flex-direction: row;
-//     flex-wrap: wrap;
-
-//     .genre-container {
-
-//         .text-decoration {
-//             border: none;
-//             border-radius: 8px;
-//             overflow: hidden;
-//             position: relative;
-//             width: 100%;
-
-//             .genre-preview {
-//                 height: 200px;
-//                 width: 200px;
-//                 background-color: green;
-//                 border-radius: 8px;
-
-//                 span {
-//                     font-size: 1.5rem;
-//                     padding: 16px;
-//                     color: #fff;
-//                     // position: absolute;
-//                 }
-//             }
-//         }
-//     }
-// }
-
 .genre-list-main-container {
     display: flex;
     gap: 24px;
     margin-left: 6px;
     flex-wrap: wrap;
+    padding-bottom: 112px;
 
-    // 
     .genre-preview {
         background-color: green;
         border-radius: 8px;
@@ -159,9 +116,6 @@
             color: #fff;
             justify-items: center;
             display: flex;
-            // position: absolute;
         }
-
-
     }
 }

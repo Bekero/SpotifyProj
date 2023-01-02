@@ -1,12 +1,13 @@
 
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { setCurrStation } from "../store/station.actions";
 import NewPlaylistPreviewSvg from "./svg/new-playlist-preview-svg";
 import PlaySongToolBar from '../cmps/svg/play-song-tool-bar'
 import PauseSongToolBar from '../cmps/svg/pause-song-tool-bar'
 import { setCurrPlayingSongIdx, setIsPlayingSong } from "../store/song.actions";
+import { useEffect, useState } from "react";
 
 export function StationPreview({ station }) {
 
@@ -14,7 +15,6 @@ export function StationPreview({ station }) {
     const currSongIdx = useSelector(state => state.songModule.currSongIdx)
     const navigate = useNavigate()
     const dispatch = useDispatch()
-
 
     const getLabels = () => {
         return station.tags.join(', ')
@@ -37,7 +37,7 @@ export function StationPreview({ station }) {
         // <Link onClick={onSetCurrStation} className="text-decoration" to={`/playlist/${station._id}`}>
         <div onClick={onSetCurrStation}>
 
-            <div className="station-preview">
+            <div className='station-preview'>
                 <div className="img-details-container">
                     {!station?.createdBy?.imgUrl ? <div className="img-details-new-playlist"> <NewPlaylistPreviewSvg /> </div> :
                         <img className="img-details" src={station?.createdBy?.imgUrl} />}

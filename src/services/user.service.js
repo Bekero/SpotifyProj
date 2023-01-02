@@ -58,9 +58,6 @@ async function update(user) {
 
 async function login(userCred) {
   console.log('userCred', userCred)
-  // const users = await httpService.get("user")
-  // let user = users.find((user) => user.username === userCred.username)
-  // console.log('usersusersusersusersusers', user)
   const user = await httpService.post('auth/login', userCred)
   console.log('user', user);
   if (user) {
