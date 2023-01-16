@@ -2,12 +2,10 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { setCurrStation } from "../store/station.actions";
 import NewPlaylistPreviewSvg from "./svg/new-playlist-preview-svg";
 import PlaySongToolBar from '../cmps/svg/play-song-tool-bar'
 import PauseSongToolBar from '../cmps/svg/pause-song-tool-bar'
 import { setCurrPlayingSongIdx, setIsPlayingSong } from "../store/song.actions";
-import { useEffect, useState } from "react";
 
 export function StationPreview({ station }) {
 
@@ -23,9 +21,12 @@ export function StationPreview({ station }) {
     const onSetCurrStation = async () => {
         navigate(`/playlist/${station._id}`)
     }
+    const playCurrStation = async () => {
+        dispatch({ type: 'SET_CURR_STATION', station })
+        dispatch(setCurrPlayingSongIdx(0))
+    }
 
     const playCurrUrl = async (ev) => {
-        debugger
         ev.stopPropagation()
         if (!currSongIdx) {
             await dispatch(setCurrPlayingSongIdx(0))
@@ -35,21 +36,19 @@ export function StationPreview({ station }) {
 
     return (
         // <Link onClick={onSetCurrStation} className="text-decoration" to={`/playlist/${station._id}`}>
-        <div onClick={onSetCurrStation}>
-
-            <div className='station-preview'>
-                <div className="img-details-container">
-                    {!station?.createdBy?.imgUrl ? <div className="img-details-new-playlist"> <NewPlaylistPreviewSvg /> </div> :
-                        <img className="img-details" src={station?.createdBy?.imgUrl} />}
-                    <div className="play-btn-preview">
-                        <div className="play-song-tool-bar-container"><button onClick={playCurrUrl} className="play-song-tool-bar">{!isPlayingSong ? <PlaySongToolBar /> : <PauseSongToolBar />}</button></div>
-                    </div>
-                </div>
-                <div className="station-preview-artist">
-                    <div className="station-preview-label">{station.name}</div>
-                    <div className="station-preview-artist-name">{station?.createdBy?.fullname}</div>
-                </div>
+        <div className='station-preview' onClick={onSetCurrStation}>
+            <div className="img-details-container">
+                {!station?.createdBy?.imgUrl ? <div className="img-details-new-playlist"> <NewPlaylistPreviewSvg /> </div> :
+                    <img className="img-details" src={station?.createdBy?.imgUrl} />}
             </div>
+            <div className="station-preview-artist">
+                <div className="station-preview-label">{station.name}</div>
+                <div className="station-preview-artist-name">{station?.createdBy?.fullname}</div>
+            </div>
+            <button onClick={(ev) => {
+                if (!isPlayingSong) playCurrStation()
+                playCurrUrl(ev)
+            }} className="play-song-tool-bar">{!isPlayingSong ? <PlaySongToolBar /> : <PauseSongToolBar />}</button>
         </div>
         // </Link>
     )

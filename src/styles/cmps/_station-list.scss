@@ -36,9 +36,25 @@
         border-radius: 5px;
         height: 100%;
 
+        .play-song-tool-bar {
+            bottom: 157px;
+            opacity: 0;
+            cursor: default;
+            box-shadow: 0 8px 8pxrgba(0, 0, 0, .3);
+            left: 69%;
+            position: relative;
+            transform: translateY(8px);
+            transition: all .3s ease;
+
+        }
+
         &:hover {
             cursor: pointer;
             background-color: $third-clr;
+
+            .play-song-tool-bar {
+                opacity: 1;
+            }
         }
     }
 
