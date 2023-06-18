@@ -8,7 +8,6 @@ export function SearchPreview({ songDuration, addSongToPlaylist, song, playCurrU
 
   const songTitle = song.contentDetails.title.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '')
   const path = window.location.pathname
-
   function isSongLiked(songId) {
     if (!user) return false
     return user.likedSongs?.some(song => song.id === songId)
@@ -18,7 +17,7 @@ export function SearchPreview({ songDuration, addSongToPlaylist, song, playCurrU
     <div key={song.id} className='search-list-preview'>
       <div className="left flex align-center">
         <div className='play-song-btn-container'>
-          <img src={song?.contentDetails?.imgUrl} />
+          <img src={song?.contentDetails?.imgUrl} alt="" />
           <button
             className='play-song-btn'
             onClick={() => playCurrUrl(song)}
@@ -27,7 +26,6 @@ export function SearchPreview({ songDuration, addSongToPlaylist, song, playCurrU
           </button>
         </div>
         <div className="play-song-desc">
-
           <div className='play-song-title'>{songTitle.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>;\{\}\[\]\\\/]/gi, '')}</div>
           <div className="play-song-author">{song.contentDetails.channelTitle}</div>
         </div>

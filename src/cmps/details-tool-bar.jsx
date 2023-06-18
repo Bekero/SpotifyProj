@@ -12,7 +12,9 @@ export function DetailsToolBar({ station, user }) {
     const currSongIdx = useSelector(state => state.songModule.currSongIdx)
     // const currStation = useSelector(state => state.stationModule.currStation)
     const dispatch = useDispatch()
-
+    const playCurrStation = async () => {
+        dispatch({ type: 'SET_CURR_STATION', station })
+    }
     const playCurrUrl = async () => {
         if (!currSongIdx) {
             await dispatch(setCurrPlayingSongIdx(0))
@@ -21,9 +23,13 @@ export function DetailsToolBar({ station, user }) {
     }
     return (
         <>
-            <div className="play-song-tool-bar-container"><button onClick={() => playCurrUrl()} className="play-song-tool-bar">{!isPlayingSong ? <PlaySongToolBar /> : <PauseSongToolBar />}</button></div>
-            {station && <div className="like-tool-bar-container"><button className="like-tool-bar" ><span><LikeToolBar /></span></button></div>}
-            {station && <div className="opts-tool-bar-container"><button className="opts-tool-bar" ><span><OptsToolBar /></span></button></div>}
+            <button onClick={(ev) => {
+                if (!isPlayingSong) playCurrStation()
+                playCurrUrl(ev)
+            }} className="play-song-tool-bar">{!isPlayingSong ? <PlaySongToolBar /> : <PauseSongToolBar />}</button>
+            {/* <div className="play-song-tool-bar-container"><button onClick={() => playCurrUrl()} className="play-song-tool-bar">{!isPlayingSong ? <PlaySongToolBar /> : <PauseSongToolBar />}</button></div> */}
+            {/* {station && <div className="like-tool-bar-container"><button className="like-tool-bar" ><span><LikeToolBar /></span></button></div>}
+            {station && <div className="opts-tool-bar-container"><button className="opts-tool-bar" ><span><OptsToolBar /></span></button></div>} */}
         </>
     )
 }

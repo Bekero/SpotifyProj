@@ -33,11 +33,11 @@ export function StationList({ stations, user, header, title }) {
 
       </div>}
       {/* path === '/' &&  */}
-      <div className={`station-list-container ${homePath ? 'height overflowY' : 'fdc-aic-pd'}`}>
+      <div className={`station-list-container ${path === '/collection/playlist' && 'flex column align-center'} ${homePath ? 'height overflowY' : 'fdc-aic-pd'}`}>
         {stations?.map(station => {
           if (path === '/collection/playlist') {
             if (station?.createdBy?._id === user?._id) {
-              return <StationPreview key={station._id} station={station} />
+              return <StationPreview path={path} key={station._id} station={station} />
             }
           } else {
             return <StationPreview key={station._id} station={station} />

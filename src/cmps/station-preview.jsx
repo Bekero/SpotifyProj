@@ -7,7 +7,7 @@ import PlaySongToolBar from '../cmps/svg/play-song-tool-bar'
 import PauseSongToolBar from '../cmps/svg/pause-song-tool-bar'
 import { setCurrPlayingSongIdx, setIsPlayingSong } from "../store/song.actions";
 
-export function StationPreview({ station }) {
+export function StationPreview({ path, station }) {
 
     const isPlayingSong = useSelector(state => state.songModule.isPlayingSong)
     const currSongIdx = useSelector(state => state.songModule.currSongIdx)
@@ -36,7 +36,7 @@ export function StationPreview({ station }) {
 
     return (
         // <Link onClick={onSetCurrStation} className="text-decoration" to={`/playlist/${station._id}`}>
-        <div className='station-preview' onClick={onSetCurrStation}>
+        <div className='station-preview' style={{height: `${path === '/collection/playlist' && '300px'} `}} onClick={onSetCurrStation}>
             <div className="img-details-container">
                 {!station?.createdBy?.imgUrl ? <div className="img-details-new-playlist"> <NewPlaylistPreviewSvg /> </div> :
                     <img className="img-details" src={station?.createdBy?.imgUrl} />}
