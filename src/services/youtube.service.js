@@ -8,9 +8,7 @@ export const youtubeService = {
 }
 
 const API_KEYS = [
-    'AIzaSyDgbFfLi0LGl6lOJ_0cN4A-lcrS4UtryCU', 
-    'AIzaSyBKmZyRd0g8AEKqh9tNR3VNFn4ERzmmoIY', 
-    'AIzaSyBL-4tgjB8MxfYouEBcUPllZk2u8noV9kM'
+
 ]
 var gApisCounter = 0
 
@@ -28,7 +26,7 @@ async function getSongs(term) {
 }
 
 async function getSongsDetails(songs) {
-    const API_KEY = 'AIzaSyBL-4tgjB8MxfYouEBcUPllZk2u8noV9kM'
+    const API_KEY = ''
     if (!songs || !songs.length) return null
     const songId = songs.map(song => song.id.videoId)
     const songsDetails = axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${songId.join(',')}&part=contentDetails&key=${API_KEY}`)
