@@ -2,8 +2,7 @@ import Axios from 'axios'
 
 const BASE_URL = process.env.NODE_ENV === 'production'
     ? 'https://harmony-32ow.onrender.com/api/'
-    : 'https://harmony-32ow.onrender.com/api/'
-    // : '//localhost:3030/api/'
+    : '//localhost:3030/api/'
 
 
 var axios = Axios.create({
